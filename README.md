@@ -29,3 +29,7 @@ Buka `index.html` di browser, atau jalankan `python3 -m http.server`. Untuk GitH
 
 ## Catatan konten
 Harga, nama jalur, dan teks legal masih placeholder dan perlu ditinjau sebelum rilis publik.
+
+## Brand
+- `assets/brand/` — logo NV dan wordmark NERUVIA (SVG dan PNG) berwarna cyan `#38E1FF` dan hitam `#080808`
+- `assets/brand/maskot/` — tiga gambar maskot Neru terbaru (18 Nov 2026): miring kanan, depan, miring kiri
