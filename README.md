@@ -1,25 +1,31 @@
-# NERUVIA — Landing Page (v0.1)
+# NERUVIA — Landing page v0.2
 
-Landing page statis (satu file `index.html`) untuk NERUVIA, platform belajar AI & cybersecurity berbahasa Indonesia. Mengikuti Arah Visual v0.2: hitam-putih modern, satu aksen cyan `#38E1FF`, Neru sebagai satu-satunya maskot.
+Halaman tunggal statis (HTML + CSS + JS tanpa build), berbasis desain **Variasi 1a** dari Claude Design, dengan tipografi raksasa yang bergerak mengikuti scroll.
+
+## Struktur
+- `index.html` — seluruh halaman (CSS dan JS di dalam file)
+- `assets/neru.webp`, `assets/neru-wave.webp` — Neru (hero dan bagian gelap)
+- `assets/fonts/` — Space Grotesk, Space Mono, Silkscreen (lisensi OFL, disajikan lokal)
 
 ## Efek scroll
-- Progres scroll cyan di atas halaman; navigasi berganti warna di zona terang/gelap
-- Hero: Neru naik dan sedikit membesar, headline turun pelan (paralaks)
-- Section bertumpuk berujung membulat (terang ↔ gelap)
-- `/JALUR` raksasa bergeser horizontal mengikuti scroll
-- LEARN → PRACTICE → CERTIFY menyala berurutan (sticky) dengan meter progres
-- Carousel jalur (scroll-snap) dengan bilah progres dan kartu tengah membesar
-- `prefers-reduced-motion` menonaktifkan seluruh gerak
-
-## Jalankan
-Buka `index.html` di browser, atau aktifkan GitHub Pages (Settings → Pages → branch `main`, folder `/root`).
+- Judul NERUVIA naik per huruf, lalu parallax dengan Neru saat hero digulir
+- Marquee raksasa dua baris (putih/cyan dan outline) bergerak berlawanan arah mengikuti scroll. Ganti kata di `index.html`, blok `.marquee` (kelas `r1` dan `r2`)
+- Lembaran section bertumpuk dengan sudut membulat, bar progres scroll, navigasi berganti warna di atas section gelap/terang
+- Kartu tahap Learn / Practice / Certify bergilir otomatis dan bisa diklik
+- Carousel jalur belajar dengan scroll-snap, tombol, dan bar progres
+- Reveal saat masuk layar. `prefers-reduced-motion` mematikan semua gerak
 
 ## Waitlist
-Form belum terhubung backend (mode pratinjau, data tidak dikirim). Untuk menghubungkan, set sebelum `</body>`:
+Form berjalan dalam **mode pratinjau** (data tidak dikirim). Untuk menghubungkan ke backend, tambahkan sebelum `</body>`:
+
 ```html
-<script>window.NERUVIA_WAITLIST_ENDPOINT = 'https://.../waitlist'</script>
+<script>window.NERUVIA_WAITLIST_ENDPOINT = 'https://alamat-endpoint-anda';</script>
 ```
-Menerima POST JSON `{email, topic, consent, consent_text, ts}`.
+
+Payload POST JSON: `name`, `email`, `jalur`, `consent`, `consent_text`, `ts`. Persetujuan UU PDP No. 27/2022 terpisah dan tidak dicentang otomatis.
+
+## Menjalankan
+Buka `index.html` di browser, atau jalankan `python3 -m http.server`. Untuk GitHub Pages: Settings → Pages → branch `main`, folder `/ (root)`.
 
 ## Catatan konten
-Semua teks jalur dan harga adalah placeholder. Tidak ada statistik, testimoni, atau logo pihak lain. Aset Neru (`assets/`) dipotong dari model sheet resolusi rendah; ganti dengan PNG/WebP transparan beresolusi tinggi bila tersedia.
+Harga, nama jalur, dan teks legal masih placeholder dan perlu ditinjau sebelum rilis publik.
