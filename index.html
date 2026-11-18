@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NERUVIA — Belajar AI &amp; Cybersecurity dari nol</title>
+<meta name="description" content="NERUVIA: platform belajar AI dan cybersecurity dari nol, dalam bahasa Indonesia, bersama Neru si robot kucing. Gabung waitlist, modul pertama gratis.">
+<meta name="theme-color" content="#ffffff">
+<meta property="og:type" content="website">
+<meta property="og:title" content="NERUVIA — Belajar AI &amp; Cybersecurity dari nol">
+<meta property="og:description" content="Belajar AI dan cybersecurity dari nol, dalam bahasa Indonesia. Modul pertama gratis.">
+<meta property="og:locale" content="id_ID">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23080808'/%3E%3Cpath d='M14 48V16h6l16 20V16h6v32h-6L20 28v20z' fill='%2338E1FF'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=Space+Mono:wght@400;700&family=Silkscreen:wght@400;700&display=swap">
+<link rel="preload" as="image" href="assets/neru.webp" type="image/webp">
+
+<style>
+/* ============ TOKENS (Arah Visual v0.2) ============ */
+:root{
+  --bg:#FFFFFF; --surface:#F2F2F0; --ink:#080808; --muted:#666666; --line:#BDBDBD;
+  --d-bg:#080808; --d-surface:#121212; --d-muted:#9A9A9A; --d-line:#2A2A2A;
+  --cyan:#38E1FF;
+  --sky:#DDF6FD; --violet:#E9E3FF; --mint:#DDF5E6; --amber:#FFEFC9; --coral:#FFE1DD;
+  --ok:#1F9D55; --bad:#D64545;
+  --f-main:'Space Grotesk',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  --f-mono:'Space Mono',ui-monospace,Menlo,Consolas,monospace;
+  --f-pixel:'Silkscreen','Courier New',monospace;
+  --pad:clamp(20px,5vw,72px);
+  --radius:32px;
+  --h:clamp(56px,18vw,270px);          /* ukuran headline raksasa */
+  --scroll:0;                              /* 0..1 progres scroll halaman */
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:var(--f-main);background:var(--bg);color:var(--ink);line-height:1.55;font-size:clamp(16px,1.1vw + 12px,19px);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--cyan);outline-offset:3px;border-radius:6px}
+.dark :focus-visible,.on-dark :focus-visible{outline-color:var(--cyan)}
+.light :focus-visible{outline-color:var(--ink)}
+.skip{position:absolute;left:-999px;top:8px;background:var(--ink);color:#fff;padding:10px 16px;border-radius:10px;z-index:100}
+.skip:focus{left:8px}
+.wrap{max-width:1360px;margin-inline:auto;padding-inline:var(--pad)}
+
+/* label bergaya piksel (hanya badge/progres) */
+.pix{font-family:var(--f-pixel);font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+.mono{font-family:var(--f-mono)}
+
+/* ============ PROGRES SCROLL + NAV ============ */
+.progress{position:fixed;inset:0 0 auto 0;height:3px;z-index:60;background:transparent;pointer-events:none}
+.progress i{display:block;height:100%;width:100%;background:var(--cyan);transform-origin:0 50%;transform:scaleX(var(--scroll));box-shadow:0 0 12px var(--cyan)}
+.nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:16px var(--pad);transition:color .35s,background-color .35s,backdrop-filter .35s;color:var(--ink)}
+.nav.on-dark{color:#fff}
+.nav.stuck{background:color-mix(in srgb,var(--nav-bg,#fff) 78%,transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.nav{--nav-bg:#fff}.nav.on-dark{--nav-bg:#080808}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:700;letter-spacing:.14em;font-size:15px}
+.brand .nv{width:34px;height:34px;border-radius:10px;background:var(--ink);color:var(--cyan);display:grid;place-items:center;font-size:13px;letter-spacing:0;transition:background .35s,color .35s}
+.nav.on-dark .brand .nv{background:var(--cyan);color:var(--ink)}
+.btn{display:inline-flex;align-items:center;gap:10px;font:600 16px/1 var(--f-main);padding:15px 26px;border-radius:999px;border:2px solid var(--ink);background:var(--cyan);color:var(--ink);text-decoration:none;cursor:pointer;transition:transform .2s,box-shadow .2s,background .2s;min-height:48px}
+.btn:hover{transform:translateY(-2px);box-shadow:0 8px 28px -6px rgba(56,225,255,.9)}
+.btn:active{transform:translateY(0)}
+.btn.ghost{background:transparent;border-color:currentColor;color:inherit}
+.btn.ghost:hover{box-shadow:none;background:color-mix(in srgb,currentColor 8%,transparent)}
+.nav .btn{padding:11px 20px;font-size:14px;min-height:44px}
+.dark .btn,.nav.on-dark .btn{border-color:var(--cyan)}
+
+/* ============ SECTION "LEMBARAN" (efek tumpuk saat scroll) ============ */
+.sheet{position:relative;border-radius:var(--radius) var(--radius) 0 0;margin-top:calc(var(--radius) * -1)}
+.light{background:var(--bg);color:var(--ink)}
+.light.alt{background:var(--surface)}
+.dark{background:var(--d-bg);color:#fff}
+.dark .muted{color:var(--d-muted)}
+.muted{color:var(--muted)}
+section{position:relative}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;margin-bottom:18px}
+.eyebrow::before{content:"";width:10px;height:10px;background:var(--cyan);box-shadow:0 0 10px var(--cyan)}
+.light .eyebrow::before{box-shadow:0 0 0 2px var(--ink)}   /* cyan di zona terang = hanya isian + garis, bukan teks */
+h2{font-size:clamp(34px,6.2vw,88px);line-height:.98;letter-spacing:-.035em;font-weight:700}
+h3{font-size:clamp(22px,2.2vw,30px);line-height:1.15;letter-spacing:-.02em;font-weight:700}
+.lead{font-size:clamp(18px,1.6vw,24px);max-width:36ch;line-height:1.4}
+
+/* ============ HERO (terang) ============ */
+.hero{min-height:100svh;padding:clamp(96px,12vh,140px) 0 calc(var(--radius) + 56px);overflow:clip;isolation:isolate}
+.hero .stage{position:relative;text-align:center}
+.hero h1{font-size:var(--h);line-height:.84;letter-spacing:-.055em;font-weight:700;text-transform:uppercase;white-space:nowrap;position:relative;z-index:1;
+  transform:translate3d(0,calc(var(--hp,0) * 48px),0);will-change:transform}
+.hero h1 span{display:inline-block;opacity:0;transform:translateY(.4em);animation:rise .9s cubic-bezier(.2,.8,.2,1) forwards;animation-delay:calc(var(--i) * 60ms + 120ms)}
+@keyframes rise{to{opacity:1;transform:none}}
+.neru-wrap{position:relative;z-index:2;width:clamp(200px,min(40vw,42svh),520px);margin:calc(var(--h) * -.3) auto 0;
+  transform:translate3d(0,calc(var(--hp,0) * -90px),0) scale(calc(1 + var(--hp,0) * .08)) rotate(calc(var(--hp,0) * -3deg));will-change:transform}
+.neru-wrap::before{content:"";position:absolute;inset:6% -22% -4%;z-index:-1;background:radial-gradient(closest-side,rgba(56,225,255,.62),rgba(56,225,255,0) 70%);filter:blur(6px);animation:pulse 3.6s ease-in-out infinite}
+.neru-wrap img{width:100%;height:auto;filter:drop-shadow(0 30px 30px rgba(8,8,8,.18))}
+@keyframes pulse{0%,100%{opacity:.75;transform:scale(1)}50%{opacity:1;transform:scale(1.06)}}
+.hero .row{display:grid;grid-template-columns:1fr;gap:28px;margin-top:clamp(20px,3vw,44px);justify-items:center;text-align:center}
+.hero .lead{max-width:30ch}
+.hero .r{display:grid;gap:22px;justify-items:center}
+.hero .cta{display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
+.facts{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;list-style:none;padding:0}
+.facts li{display:flex;align-items:center;gap:8px;padding:9px 16px;border:2px solid var(--ink);border-radius:999px;font-weight:500;font-size:15px;background:#fff}
+.facts li::before{content:"";width:9px;height:9px;background:var(--cyan);border:1.5px solid var(--ink)}
+.scroll-hint{display:none;position:absolute;left:50%;bottom:calc(var(--radius) + 14px);translate:-50% 0;flex-direction:column;align-items:center;gap:8px;color:var(--muted);opacity:calc(1 - var(--hp,0) * 3)}
+.scroll-hint i{width:2px;height:34px;background:linear-gradient(var(--ink),transparent);animation:drip 1.8s ease-in-out infinite;transform-origin:top}
+@keyframes drip{0%{transform:scaleY(0)}50%{transform:scaleY(1)}100%{transform:scaleY(1);opacity:0}}
+@media(min-width:960px){
+  .scroll-hint{display:flex}
+  .hero .row{grid-template-columns:1fr 1fr;justify-items:stretch;text-align:left;align-items:end;gap:48px}
+  .hero .row .l{justify-self:start}
+  .hero .row .r{justify-self:end;display:grid;gap:22px;justify-items:end}
+  .hero .cta,.facts{justify-content:flex-end}
+  .neru-wrap{margin-top:calc(var(--h) * -.34)}
+}
+
+/* ============ GELAP #1: pembuka /JALUR (teks raksasa digeser oleh scroll) ============ */
+.opener{padding:calc(var(--radius) + clamp(64px,10vw,140px)) 0 clamp(56px,8vw,110px);overflow:clip}
+.marquee{display:grid;gap:clamp(4px,1vw,14px);margin-bottom:clamp(36px,6vw,80px);user-select:none}
+.marquee div{white-space:nowrap;font-size:clamp(72px,19vw,320px);font-weight:700;letter-spacing:-.05em;line-height:.9;will-change:transform}
+.marquee .a{transform:translate3d(calc(var(--mp,0) * -28vw),0,0)}
+.marquee .b{transform:translate3d(calc(-24vw + var(--mp,0) * 26vw),0,0);color:transparent;-webkit-text-stroke:2px #fff}
+.marquee .a b{color:var(--cyan);font-weight:700}
+.opener .cols{display:grid;gap:24px;grid-template-columns:1fr}
+@media(min-width:900px){.opener .cols{grid-template-columns:1.1fr 1fr;align-items:end}}
+
+/* ============ GELAP #2: LEARN / PRACTICE / CERTIFY (sticky, menyala saat scroll) ============ */
+.flow{height:340vh;background:var(--d-bg);color:#fff}
+.flow .pin{position:sticky;top:0;height:100svh;display:grid;align-content:center;overflow:hidden}
+.flow .grid{display:grid;grid-template-columns:1fr;gap:28px;align-items:center}
+.steps{list-style:none;padding:0;display:grid;gap:clamp(2px,1vh,10px)}
+.step{display:grid;gap:6px;opacity:.22;transition:opacity .45s,transform .45s;transform:translateX(0)}
+.step .w{font-size:clamp(46px,11vw,168px);line-height:.92;font-weight:700;letter-spacing:-.05em;transition:color .45s,text-shadow .45s}
+.step .n{color:var(--d-muted);display:flex;gap:12px;align-items:center}
+.step .d{max-width:44ch;color:var(--d-muted);max-height:0;overflow:hidden;opacity:0;transition:max-height .5s,opacity .45s}
+.step.on{opacity:1;transform:translateX(clamp(6px,2vw,28px))}
+.step.on .w{color:var(--cyan);text-shadow:0 0 38px rgba(56,225,255,.55)}
+.step.on .d{max-height:8em;opacity:1;color:#fff}
+.flow .side{display:none;position:relative;justify-self:center;width:clamp(220px,28vw,380px)}
+.flow .side img{width:100%;height:auto;transition:transform .7s cubic-bezier(.2,.8,.2,1);transform:translateY(calc(var(--fp,0) * -40px)) rotate(calc((var(--fp,0) - .5) * 8deg))}
+.flow .side::before{content:"";position:absolute;inset:0;background:radial-gradient(closest-side,rgba(56,225,255,.5),transparent 70%);animation:pulse 3.6s ease-in-out infinite;z-index:-1}
+.meter{display:flex;gap:6px;margin-top:clamp(20px,4vh,40px)}
+.meter i{height:8px;flex:1;max-width:96px;background:var(--d-line);position:relative;overflow:hidden}
+.meter i::after{content:"";position:absolute;inset:0;background:var(--cyan);transform:scaleX(var(--seg,0));transform-origin:0 50%}
+@media(min-width:900px){.flow .grid{grid-template-columns:1.5fr 1fr}.flow .side{display:block}}
+
+/* ============ GELAP #3: carousel jalur (scroll-snap horizontal) ============ */
+.paths{padding:clamp(56px,8vw,112px) 0 clamp(64px,9vw,128px)}
+.paths .head{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;margin-bottom:clamp(28px,4vw,56px)}
+.nav-btns{display:flex;gap:10px}
+.nav-btns button{width:52px;height:52px;border-radius:50%;border:2px solid var(--cyan);background:transparent;color:var(--cyan);font-size:22px;cursor:pointer;transition:background .2s,color .2s}
+.nav-btns button:hover{background:var(--cyan);color:var(--ink)}
+.track{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;padding:6px var(--pad) 22px;scroll-padding-inline:var(--pad);scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.track::-webkit-scrollbar{display:none}
+.card{flex:0 0 min(84vw,420px);scroll-snap-align:start;border-radius:28px;padding:26px;min-height:420px;display:flex;flex-direction:column;justify-content:space-between;color:var(--ink);position:relative;overflow:hidden;
+  transform:scale(var(--cs,1));transition:transform .25s;border:2px solid var(--ink)}
+.card:nth-child(1){background:var(--sky)}.card:nth-child(2){background:var(--violet)}.card:nth-child(3){background:var(--mint)}.card:nth-child(4){background:var(--amber)}
+.card .num{font-size:clamp(84px,12vw,140px);font-weight:700;line-height:.8;letter-spacing:-.06em}
+.card .badge{align-self:flex-start;padding:7px 12px;background:var(--ink);color:#fff;border-radius:8px}
+.card p{margin-top:10px;max-width:30ch}
+.card .tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}
+.card .tags span{font-size:13px;padding:5px 11px;border:1.5px solid var(--ink);border-radius:999px;background:rgba(255,255,255,.55)}
+.hint-ph{margin-top:8px;font-size:14px;color:var(--d-muted)}
+.scrollbar{margin:6px var(--pad) 0;height:6px;background:var(--d-line);position:relative}
+.scrollbar i{position:absolute;inset:0;background:var(--cyan);transform:scaleX(var(--tp,.2));transform-origin:0 50%}
+
+/* ============ TERANG #1: aman & legal + rujukan ============ */
+.trust{padding:calc(var(--radius) + clamp(64px,9vw,128px)) 0 clamp(64px,9vw,128px)}
+.trust .grid{display:grid;gap:clamp(28px,5vw,72px);grid-template-columns:1fr}
+.trust ul.rules{list-style:none;padding:0;display:grid;gap:14px}
+.trust .rules li{padding:20px 22px;border-radius:22px;border:2px solid var(--ink);display:grid;gap:4px}
+.trust .rules li:nth-child(1){background:var(--mint)}.trust .rules li:nth-child(2){background:var(--sky)}.trust .rules li:nth-child(3){background:var(--violet)}.trust .rules li:nth-child(4){background:var(--coral)}
+.trust .rules b{font-size:1.08em}
+.refs{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+.refs span{padding:8px 14px;border-radius:999px;background:var(--surface);border:2px solid var(--ink);font-family:var(--f-mono);font-size:14px}
+.small{font-size:14px;color:var(--muted)}
+@media(min-width:900px){.trust .grid{grid-template-columns:1fr 1fr}}
+
+/* ============ TERANG #2: harga (placeholder) + waitlist ============ */
+.join{padding:calc(var(--radius) + clamp(56px,8vw,112px)) 0 calc(var(--radius) + clamp(56px,8vw,112px));background:var(--surface)}
+.join .grid{display:grid;gap:clamp(28px,5vw,64px);grid-template-columns:1fr}
+.price{border:2px dashed var(--ink);border-radius:28px;padding:28px;background:var(--amber);display:grid;gap:12px;align-content:start}
+.price .big{font-size:clamp(40px,6vw,76px);font-weight:700;letter-spacing:-.04em;line-height:1}
+form.wl{background:#fff;border:2px solid var(--ink);border-radius:28px;padding:clamp(22px,3vw,36px);display:grid;gap:18px;box-shadow:10px 10px 0 var(--cyan)}
+.field{display:grid;gap:8px}
+label,.lbl{font-weight:600;font-size:15px}
+input[type=email],select{font:500 17px var(--f-main);padding:15px 16px;border:2px solid var(--ink);border-radius:14px;background:#fff;color:var(--ink);width:100%;min-height:52px}
+input::placeholder{color:#767676}
+.consent{display:grid;grid-template-columns:24px 1fr;gap:12px;align-items:start;font-size:14.5px;line-height:1.45;color:#333}
+.consent input{width:22px;height:22px;accent-color:var(--ink);margin-top:2px}
+.hp{position:absolute;left:-9999px;opacity:0}
+.status{min-height:1.5em;font-weight:600;font-size:15px}
+.status.ok{color:var(--ok)}.status.err{color:var(--bad)}.status.info{color:#333}
+@media(min-width:900px){.join .grid{grid-template-columns:.9fr 1.1fr;align-items:start}}
+
+/* ============ GELAP: footer ============ */
+footer{padding:calc(var(--radius) + 48px) 0 36px}
+footer .top{display:grid;gap:32px;grid-template-columns:1fr;align-items:end;margin-bottom:48px}
+footer .word{font-size:clamp(56px,17vw,300px);line-height:.8;font-weight:700;letter-spacing:-.06em;color:#fff}
+footer .word b{color:var(--cyan)}
+footer nav ul{list-style:none;padding:0;display:flex;gap:10px 24px;flex-wrap:wrap}
+footer nav a{color:var(--d-muted);text-decoration:none;border-bottom:1px solid var(--d-line)}
+footer nav a:hover{color:#fff;border-color:var(--cyan)}
+footer .legal{border-top:1px solid var(--d-line);padding-top:22px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;color:var(--d-muted);font-size:14px}
+
+/* ============ REVEAL ============ */
+.rv{opacity:0;transform:translateY(34px);transition:opacity .8s cubic-bezier(.2,.8,.2,1),transform .8s cubic-bezier(.2,.8,.2,1);transition-delay:var(--d,0ms)}
+.rv.in{opacity:1;transform:none}
+
+/* ============ GERAK DIKURANGI ============ */
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .hero h1 span,.rv{opacity:1;transform:none}
+  .hero h1,.neru-wrap,.marquee .a,.marquee .b,.flow .side img{transform:none!important}
+  .marquee .b{transform:translate3d(-12vw,0,0)!important}
+  .flow{height:auto}.flow .pin{position:static;height:auto;padding:clamp(56px,8vw,112px) 0}
+  .step{opacity:1;transform:none}.step .d{max-height:none;opacity:1;color:#fff}.step .w{color:var(--cyan)}
+  .meter{display:none}
+}
+.no-js .rv,.no-js .hero h1 span{opacity:1;transform:none}
+.no-js .flow{height:auto}.no-js .flow .pin{position:static;height:auto;padding:80px 0}.no-js .step{opacity:1}.no-js .step .d{max-height:none;opacity:1}
+</style>
+</head>
+
+<body class="no-js">
+<script>document.body.classList.remove('no-js')</script>
+<a class="skip" href="#waitlist">Lompat ke pendaftaran waitlist</a>
+<div class="progress" aria-hidden="true"><i></i></div>
+
+<header class="nav" id="nav">
+  <a class="brand" href="#top" aria-label="NERUVIA, ke atas halaman"><span class="nv" aria-hidden="true">NV</span>NERUVIA</a>
+  <a class="btn" href="#waitlist">Gabung waitlist</a>
+</header>
+
+<main id="top">
+
+<!-- ===== 1. HERO (terang) ===== -->
+<section class="hero light" id="hero" aria-labelledby="h1">
+  <div class="wrap">
+    <div class="stage">
+      <h1 id="h1" aria-label="NERUVIA">
+        <span style="--i:0" aria-hidden="true">N</span><span style="--i:1" aria-hidden="true">E</span><span style="--i:2" aria-hidden="true">R</span><span style="--i:3" aria-hidden="true">U</span><span style="--i:4" aria-hidden="true">V</span><span style="--i:5" aria-hidden="true">I</span><span style="--i:6" aria-hidden="true">A</span>
+      </h1>
+      <div class="neru-wrap">
+        <img src="assets/neru.webp" width="807" height="1033" alt="Neru, maskot robot kucing NERUVIA dengan mata cyan menyala" fetchpriority="high">
+      </div>
+    </div>
+    <div class="row">
+      <div class="l">
+        <p class="lead">Belajar AI &amp; Cybersecurity, dari nol, dalam bahasa Indonesia.</p>
+      </div>
+      <div class="r">
+        <div class="cta">
+          <a class="btn" href="#waitlist">Gabung waitlist →</a>
+          <a class="btn ghost" href="#jalur">Lihat jalur belajar</a>
+        </div>
+        <ul class="facts" aria-label="Fakta singkat">
+          <li>Modul pertama gratis</li><li>Bahasa Indonesia</li><li>Dari nol</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-hint pix" aria-hidden="true">scroll<i></i></div>
+</section>
+
+<!-- ===== 2. GELAP: pembuka /JALUR ===== -->
+<section class="opener dark sheet" id="jalur" aria-labelledby="h-jalur">
+  <div class="marquee" aria-hidden="true">
+    <div class="a">/JALUR <b>/JALUR</b> /JALUR /JALUR</div>
+    <div class="b">/JALUR /JALUR /JALUR /JALUR</div>
+  </div>
+  <div class="wrap cols">
+    <h2 id="h-jalur" class="rv">Tiga langkah. <span style="color:var(--cyan)">Satu arah.</span></h2>
+    <p class="lead muted rv" style="--d:120ms">Tidak ada lompatan istilah. Kamu mulai dari dasar, mencoba langsung di lingkungan aman, lalu menguji pemahamanmu sendiri.</p>
+  </div>
+</section>
+
+<!-- ===== 3. GELAP: LEARN / PRACTICE / CERTIFY (sticky) ===== -->
+<section class="flow dark" id="flow" aria-label="Alur belajar: Learn, Practice, Certify">
+  <div class="pin">
+    <div class="wrap">
+      <div class="grid">
+        <div>
+          <ol class="steps" id="steps">
+            <li class="step on"><span class="n pix">01 / learn</span><span class="w">LEARN</span><p class="d">Pahami konsep lewat penjelasan ringkas berbahasa Indonesia, mulai dari dasar tanpa asumsi latar belakang.</p></li>
+            <li class="step"><span class="n pix">02 / practice</span><span class="w">PRACTICE</span><p class="d">Latihan hands-on di lab dan lingkungan milikmu sendiri, bukan di sistem orang lain.</p></li>
+            <li class="step"><span class="n pix">03 / certify</span><span class="w">CERTIFY</span><p class="d">Uji pemahamanmu di akhir jalur dan simpan buktinya. Bentuk sertifikat masih dirancang.</p></li>
+          </ol>
+          <div class="meter" aria-hidden="true"><i></i><i></i><i></i></div>
+        </div>
+        <div class="side" aria-hidden="true">
+          <img src="assets/neru-sm.webp" width="404" height="516" alt="" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 4. GELAP: carousel jalur ===== -->
+<section class="paths dark" aria-labelledby="h-paths">
+  <div class="wrap head">
+    <div>
+      <p class="eyebrow pix">Jalur belajar</p>
+      <h2 id="h-paths" class="rv">Pilih jalurmu.</h2>
+      <p class="hint-ph">Isi jalur masih dalam penyusunan. Kartu di bawah adalah rancangan arah.</p>
+    </div>
+    <div class="nav-btns">
+      <button type="button" id="prev" aria-label="Jalur sebelumnya">←</button>
+      <button type="button" id="next" aria-label="Jalur berikutnya">→</button>
+    </div>
+  </div>
+  <div class="track" id="track" tabindex="0" role="region" aria-label="Daftar jalur belajar, geser ke samping">
+    <article class="card"><div><span class="badge pix">Segera</span></div>
+      <div><div class="num" aria-hidden="true">01</div><h3>AI dari Nol</h3><p>Memahami apa itu AI, cara kerjanya secara garis besar, dan cara memakainya dengan bijak.</p><div class="tags"><span>Pemula</span><span>AI</span></div></div></article>
+    <article class="card"><div><span class="badge pix">Segera</span></div>
+      <div><div class="num" aria-hidden="true">02</div><h3>Cybersecurity Dasar</h3><p>Fondasi keamanan siber: ancaman umum, pertahanan dasar, dan kebiasaan aman.</p><div class="tags"><span>Pemula</span><span>Cybersecurity</span></div></div></article>
+    <article class="card"><div><span class="badge pix">Segera</span></div>
+      <div><div class="num" aria-hidden="true">03</div><h3>AI Security</h3><p>Risiko khusus pada sistem AI dan cara mengamankannya, untuk yang sudah menguasai dasar.</p><div class="tags"><span>Lanjutan</span><span>AI Security</span></div></div></article>
+    <article class="card"><div><span class="badge pix">Rencana</span></div>
+      <div><div class="num" aria-hidden="true">04</div><h3>Jalur berikutnya</h3><p>Usulkan topik yang kamu tunggu lewat formulir waitlist di bawah.</p><div class="tags"><span>Usulanmu</span></div></div></article>
+  </div>
+  <div class="scrollbar" aria-hidden="true"><i id="tbar"></i></div>
+</section>
+
+<!-- ===== 5. TERANG: aman, legal, rujukan ===== -->
+<section class="trust light sheet" id="aman" aria-labelledby="h-trust">
+  <div class="wrap grid">
+    <div>
+      <p class="eyebrow pix">Belajar aman dan legal</p>
+      <h2 id="h-trust" class="rv">Skill menyerang, dipakai untuk bertahan.</h2>
+      <p class="lead rv" style="--d:100ms;margin-top:22px">Cybersecurity mengajarkan cara berpikir penyerang supaya kamu bisa bertahan. Karena itu aturan mainnya jelas sejak awal.</p>
+      <div class="refs rv" style="--d:180ms" aria-label="Kerangka rujukan yang direncanakan">
+        <span>OWASP</span><span>NIST</span><span>ISO/IEC 27001</span>
+      </div>
+      <p class="small rv" style="margin-top:12px;--d:220ms">Kerangka terbuka ini rencana rujukan materi. Penyebutan bukan berarti afiliasi atau endorsement. Setiap modul akan mencantumkan tanggal pembaruan.</p>
+    </div>
+    <ul class="rules">
+      <li class="rv"><b>Praktik hanya di lingkungan aman</b><span>Lab dan sistem milikmu sendiri, tidak pernah target nyata.</span></li>
+      <li class="rv" style="--d:80ms"><b>Tidak ada ajakan menyerang pihak lain</b><span>Akses tanpa izin melanggar hukum, dan itu di luar yang kami ajarkan.</span></li>
+      <li class="rv" style="--d:160ms"><b>Peserta 13–17 tahun</b><span>Memerlukan persetujuan orang tua yang diverifikasi.</span></li>
+      <li class="rv" style="--d:240ms"><b>Data kamu dilindungi</b><span>Diproses mengikuti UU PDP No. 27/2022, dengan persetujuan terpisah.</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===== 6. TERANG: harga (placeholder) + waitlist ===== -->
+<section class="join light alt" id="waitlist" aria-labelledby="h-join">
+  <div class="wrap grid">
+    <div>
+      <p class="eyebrow pix">Waitlist</p>
+      <h2 id="h-join" class="rv">Jadi yang pertama masuk.</h2>
+      <p class="lead rv" style="--d:100ms;margin:22px 0 28px">Daftar, dan dapatkan kabar saat NERUVIA dibuka. Modul pertama gratis.</p>
+      <div class="price rv" style="--d:160ms">
+        <span class="badge pix" style="background:var(--ink);color:#fff;padding:7px 12px;border-radius:8px;justify-self:start">Placeholder</span>
+        <div class="big">Segera diumumkan</div>
+        <p>Skema harga masih dirancang. Tidak ada angka di sini sampai sudah diputuskan.</p>
+      </div>
+    </div>
+
+    <form class="wl rv" id="wl" novalidate aria-describedby="wl-status" style="--d:120ms">
+      <div class="field">
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" inputmode="email" autocomplete="email" placeholder="nama@email.com" required>
+      </div>
+      <div class="field">
+        <label for="topic">Paling ingin belajar</label>
+        <select id="topic" name="topic">
+          <option value="ai">AI</option><option value="cyber">Cybersecurity</option><option value="aisec">AI Security</option><option value="all">Semuanya</option>
+        </select>
+      </div>
+      <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <label class="consent">
+        <input type="checkbox" id="consent" name="consent" required>
+        <span>Saya setuju emailku diproses untuk kabar peluncuran NERUVIA sesuai UU PDP No. 27/2022. Persetujuan bisa saya cabut kapan saja.</span>
+      </label>
+      <button class="btn" type="submit">Daftar waitlist →</button>
+      <p class="status" id="wl-status" role="status" aria-live="polite"></p>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<!-- ===== 7. GELAP: footer ===== -->
+<footer class="dark sheet" aria-label="Footer">
+  <div class="wrap">
+    <div class="top">
+      <div class="word" aria-hidden="true">NERU<b>VIA</b></div>
+      <nav aria-label="Tautan legal">
+        <ul>
+          <li><a href="#">Kebijakan Privasi</a></li>
+          <li><a href="#">Syarat &amp; Ketentuan</a></li>
+          <li><a href="#">Belajar Aman &amp; Legal</a></li>
+          <li><a href="#">Kontak</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="legal"><span>© 2026 NERUVIA. Semua hak dilindungi.</span><span class="pix">Neru menjaga kamu tetap aman</span></div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  'use strict';
+  var d=document, root=d.documentElement;
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var clamp=function(v,a,b){return Math.max(a,Math.min(b,v))};
+  var $=function(s,r){return (r||d).querySelector(s)};
+  var nav=$('#nav'), hero=$('#hero'), opener=$('.opener'), flow=$('#flow');
+  var steps=[].slice.call(d.querySelectorAll('.step'));
+  var segs=[].slice.call(d.querySelectorAll('.meter i'));
+  var track=$('#track'), tbar=$('#tbar');
+  var zones=[].slice.call(d.querySelectorAll('section.light,section.dark,footer.dark'));
+
+  /* ----- reveal saat masuk viewport ----- */
+  var rv=[].slice.call(d.querySelectorAll('.rv'));
+  if('IntersectionObserver' in window && !reduce){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.15,rootMargin:'0px 0px -6% 0px'});
+    rv.forEach(function(el){io.observe(el)});
+  } else rv.forEach(function(el){el.classList.add('in')});
+
+  /* ----- loop scroll (rAF) ----- */
+  var ticking=false, lastStep=-1;
+  function onScroll(){ if(!ticking){ticking=true;requestAnimationFrame(update)} }
+  function update(){
+    ticking=false;
+    var vh=innerHeight, y=scrollY, max=Math.max(1,root.scrollHeight-vh);
+    root.style.setProperty('--scroll',clamp(y/max,0,1).toFixed(4));
+
+    /* nav: kaca + warna mengikuti zona terang/gelap di bawahnya */
+    nav.classList.toggle('stuck',y>24);
+    var onDark=false;
+    for(var k=0;k<zones.length;k++){var zr=zones[k].getBoundingClientRect();if(zr.top<=36&&zr.bottom>36){onDark=zones[k].classList.contains('dark');}}
+    nav.classList.toggle('on-dark',onDark);
+
+    if(reduce) return;
+
+    /* hero: Neru naik, headline turun pelan (paralaks) */
+    var hr=hero.getBoundingClientRect();
+    hero.style.setProperty('--hp',clamp(-hr.top/hr.height,0,1).toFixed(4));
+
+    /* pembuka: teks raksasa bergeser horizontal sesuai posisi */
+    var or=opener.getBoundingClientRect();
+    opener.style.setProperty('--mp',clamp((vh-or.top)/(vh+or.height),0,1).toFixed(4));
+
+    /* flow sticky: LEARN → PRACTICE → CERTIFY menyala berurutan */
+    var fr=flow.getBoundingClientRect(), span=fr.height-vh;
+    var p=clamp(-fr.top/Math.max(1,span),0,1);
+    flow.style.setProperty('--fp',p.toFixed(4));
+    var idx=Math.min(2,Math.floor(p*3));
+    if(idx!==lastStep){lastStep=idx;steps.forEach(function(s,i){s.classList.toggle('on',i===idx)})}
+    segs.forEach(function(s,i){s.style.setProperty('--seg',clamp(p*3-i,0,1).toFixed(3))});
+
+    /* carousel: kartu di tengah sedikit membesar */
+    if(track){
+      var cr=track.getBoundingClientRect(), mid=cr.left+cr.width/2;
+      [].forEach.call(track.children,function(c){
+        var r=c.getBoundingClientRect(), dist=Math.abs(r.left+r.width/2-mid)/cr.width;
+        c.style.setProperty('--cs',(1-clamp(dist,0,.6)*.07).toFixed(3));
+      });
+    }
+  }
+  addEventListener('scroll',onScroll,{passive:true});
+  addEventListener('resize',onScroll);
+  update();
+
+  /* ----- carousel: tombol + bilah progres ----- */
+  function step(dir){var c=track.querySelector('.card');var w=c?c.getBoundingClientRect().width+18:320;track.scrollBy({left:dir*w,behavior:reduce?'auto':'smooth'})}
+  $('#prev').addEventListener('click',function(){step(-1)});
+  $('#next').addEventListener('click',function(){step(1)});
+  track.addEventListener('keydown',function(e){if(e.key==='ArrowRight'){step(1);e.preventDefault()}if(e.key==='ArrowLeft'){step(-1);e.preventDefault()}});
+  function tprog(){var m=track.scrollWidth-track.clientWidth;tbar.style.setProperty('--tp',(m>0?clamp(.18+.82*track.scrollLeft/m,0,1):1).toFixed(3));onScroll()}
+  track.addEventListener('scroll',tprog,{passive:true});tprog();
+
+  /* ----- waitlist ----- */
+  /* Hubungkan ke backend: set window.NERUVIA_WAITLIST_ENDPOINT = 'https://...' (POST JSON).
+     Selama kosong, form berjalan dalam mode pratinjau dan TIDAK mengirim data apa pun. */
+  var form=$('#wl'), status=$('#wl-status');
+  function say(msg,cls){status.className='status '+cls;status.textContent=msg}
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var email=form.email.value.trim();
+    if(form.website.value){return}                                   /* honeypot */
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)){say('Masukkan alamat email yang valid.','err');form.email.focus();return}
+    if(!form.consent.checked){say('Centang persetujuan pemrosesan data dulu ya.','err');form.consent.focus();return}
+    var ep=window.NERUVIA_WAITLIST_ENDPOINT;
+    if(!ep){say('Mode pratinjau: form belum terhubung ke backend, jadi data tidak dikirim.','info');return}
+    say('Mengirim…','info');
+    fetch(ep,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:email,topic:form.topic.value,consent:true,consent_text:'UU PDP 27/2022 v1',ts:new Date().toISOString()})})
+      .then(function(r){if(!r.ok)throw 0;form.reset();say('Terdaftar. Terima kasih, kami kabari lewat email.','ok')})
+      .catch(function(){say('Gagal mengirim. Coba lagi sebentar lagi.','err')});
+  });
+})();
+</script>
+</body>
+</html>
