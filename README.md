@@ -4,7 +4,7 @@ Halaman tunggal statis (HTML + CSS + JS tanpa build), berbasis desain **Variasi 
 
 ## Struktur
 - `index.html` — seluruh halaman (CSS dan JS di dalam file)
-- `assets/neru.webp`, `assets/neru-wave.webp` — Neru (hero dan bagian gelap)
+- `assets/neru.webp`, `assets/neru-wave.webp` — Neru versi terbaru, latar dihapus (hero pakai pose depan, bagian gelap pakai pose miring kanan)
 - `assets/fonts/` — Space Grotesk, Space Mono, Silkscreen (lisensi OFL, disajikan lokal)
 
 ## Efek scroll
@@ -31,5 +31,6 @@ Buka `index.html` di browser, atau jalankan `python3 -m http.server`. Untuk GitH
 Harga, nama jalur, dan teks legal masih placeholder dan perlu ditinjau sebelum rilis publik.
 
 ## Brand
+- Logo NV dipakai inline (SVG `currentColor`) di navbar dan footer, ikon tab dari `assets/brand/`
 - `assets/brand/` — logo NV dan wordmark NERUVIA (SVG dan PNG) berwarna cyan `#38E1FF` dan hitam `#080808`
 - `assets/brand/maskot/` — tiga gambar maskot Neru terbaru (18 Nov 2026): miring kanan, depan, miring kiri
