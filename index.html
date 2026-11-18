@@ -73,20 +73,19 @@ button{font:inherit}
 
 /* ---------- 1. HERO (terang) ---------- */
 .hero{position:relative;background:var(--paper);height:max(calc(var(--u) * 62.5),min(100svh,760px));min-height:640px;overflow:clip;isolation:isolate;padding-bottom:var(--sheet)}
-.hero .title{position:absolute;left:0;right:0;top:calc(var(--u) * 6.7);text-align:center;font-size:calc(var(--u) * 21.9);line-height:1;font-weight:700;letter-spacing:-.045em;white-space:nowrap;z-index:1;
+.hero .title{position:absolute;left:calc(var(--u) * 3.6);right:0;top:calc(var(--u) * 9.6);text-align:left;font-size:calc(var(--u) * 14.8);line-height:1;font-weight:700;letter-spacing:-.045em;white-space:nowrap;z-index:1;
   transform:translate3d(0,calc(var(--hp,0) * 70px),0);will-change:transform}
 .hero .title span{display:inline-block;opacity:0;transform:translateY(.35em);animation:rise .9s cubic-bezier(.2,.8,.2,1) forwards;animation-delay:calc(var(--i) * 60ms + 100ms)}
 @keyframes rise{to{opacity:1;transform:none}}
-.hero .glow{position:absolute;left:calc(var(--u) * 29.9);top:calc(var(--u) * 16);width:calc(var(--u) * 40.3);height:calc(var(--u) * 43);background:radial-gradient(closest-side,rgba(56,225,255,.55),rgba(56,225,255,0));z-index:2;animation:pulse 3.6s ease-in-out infinite;pointer-events:none}
-@keyframes pulse{0%,100%{opacity:.75;transform:scale(1)}50%{opacity:1;transform:scale(1.07)}}
-.hero .neru{position:absolute;left:calc(var(--u) * 32.6);top:calc(var(--u) * 18.75);width:calc(var(--u) * 34.7);z-index:3;
+.hero .neru{position:absolute;left:calc(var(--u) * 58);top:calc(var(--u) * 12.5);width:calc(var(--u) * 40);z-index:3;
   transform:translate3d(0,calc(var(--hp,0) * -110px),0) scale(calc(1 + var(--hp,0) * .08)) rotate(calc(var(--hp,0) * -3deg));will-change:transform}
 .hero .neru img{width:100%;height:auto;filter:drop-shadow(0 24px 30px rgba(8,8,8,.18))}
-.hero .copy{position:absolute;left:calc(var(--u) * 4.45);top:calc(var(--u) * 36.1);width:calc(var(--u) * 26.4);z-index:4;display:flex;flex-direction:column;gap:calc(var(--u) * 2.2)}
+.hero .copy{position:absolute;left:calc(var(--u) * 4.45);top:calc(var(--u) * 29);width:calc(var(--u) * 40);z-index:4;display:flex;flex-direction:column;gap:calc(var(--u) * 2.2)}
 .hero .lead{font-size:calc(var(--u) * 2.08);line-height:1.25;font-weight:500;text-wrap:pretty}
 .hero .btns{display:flex;gap:12px;flex-wrap:wrap}
-.hero .facts{position:absolute;right:calc(var(--u) * 4.45);bottom:calc(var(--u) * 7.6 + var(--sheet) * .3);width:calc(var(--u) * 23.6);z-index:4;list-style:none}
+.hero .facts{position:absolute;left:calc(var(--u) * 4.45);bottom:calc(var(--u) * 7.6 + var(--sheet) * .3);width:calc(var(--u) * 42);z-index:4;list-style:none;display:flex;flex-wrap:wrap;gap:12px calc(var(--u) * 2.4);border-top:1px solid var(--rule);padding-top:16px}
 .facts li{display:flex;gap:14px;align-items:center;font-size:clamp(16px,1.4vw,20px);font-weight:500;padding:16px 0;border-top:1px solid var(--rule)}
+.hero .facts li{padding:0;border-top:0;gap:10px;font-size:clamp(15px,1.2vw,18px)}
 .facts li::before{content:"";width:10px;height:10px;background:var(--cyan);flex:none}
 
 /* ---------- 2. GELAP: marquee + tahap ---------- */
@@ -194,13 +193,13 @@ footer{z-index:6;padding:clamp(80px,8vw,110px) var(--pad) 48px;box-shadow:0 -12p
 @media(max-width:900px){
   .nav{height:68px}.nav .links a:not(.cta){display:none}.nav .brand{font-size:16px}
   .hero{height:auto;min-height:0;padding:96px var(--pad) calc(var(--sheet) + 40px);display:flex;flex-direction:column;align-items:center;text-align:center}
-  .hero .title{position:relative;inset:auto;font-size:19.5vw;top:auto;width:100%}
-  .hero .glow{left:50%;translate:-50% 0;width:90vw;height:90vw;position:absolute;top:calc(19.5vw + 96px)}
+  .hero .title{position:relative;inset:auto;font-size:19.5vw;top:auto;width:100%;text-align:center}
   .hero .neru{position:relative;left:auto;top:auto;width:min(64vw,360px);margin-top:-5vw}
   .hero .copy{position:relative;left:auto;top:auto;width:100%;align-items:center;margin-top:12px;gap:20px}
   .hero .lead{font-size:clamp(20px,5.4vw,28px);max-width:22em}
   .hero .btns{justify-content:center}
-  .hero .facts{position:relative;right:auto;bottom:auto;width:100%;margin-top:24px;text-align:left}
+  .hero .facts{position:relative;right:auto;bottom:auto;width:100%;margin-top:24px;text-align:left;left:auto;display:block;border-top:0;padding-top:0}
+  .hero .facts li{padding:16px 0;border-top:1px solid var(--rule);gap:14px;font-size:clamp(16px,4.4vw,20px)}
   .stages .wave{width:clamp(130px,34vw,220px);top:clamp(70px,22vw,130px)}
   .steps{grid-template-columns:1fr}
   .step{min-height:0}
@@ -242,7 +241,6 @@ footer{z-index:6;padding:clamp(80px,8vw,110px) var(--pad) 48px;box-shadow:0 -12p
   <h1 class="title" id="h1" aria-label="NERUVIA">
     <span style="--i:0" aria-hidden="true">N</span><span style="--i:1" aria-hidden="true">E</span><span style="--i:2" aria-hidden="true">R</span><span style="--i:3" aria-hidden="true">U</span><span style="--i:4" aria-hidden="true">V</span><span style="--i:5" aria-hidden="true">I</span><span style="--i:6" aria-hidden="true">A</span>
   </h1>
-  <div class="glow" aria-hidden="true"></div>
   <div class="neru"><img src="assets/neru.webp" width="1024" height="1272" alt="Neru, maskot NERUVIA, robot kucing berheadphone dengan mata cyan menyala" fetchpriority="high"></div>
   <div class="copy">
     <p class="lead">Belajar AI &amp; Cybersecurity, dari nol, dalam bahasa Indonesia.</p>
