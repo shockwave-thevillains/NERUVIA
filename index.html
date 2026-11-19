@@ -450,6 +450,11 @@ html.lenis,html.lenis body{height:auto}
     var box=$('#neru'); if(!box||reduce) return;
     var cv=$('canvas',box), N=21, NEUTRAL=13.5, frames=[], ok=0;
     if(!cv||!cv.getContext) return;
+    /* Frame 2x (Real-ESRGAN) dipakai bila kotak Neru butuh > 700 px fisik (layar retina, HP);
+       selain itu frame asli 547 px sudah cukup dan lebih ringan. */
+    var need=box.getBoundingClientRect().width*(window.devicePixelRatio||1);
+    var dir=need>700 ? 'frames-2x' : 'frames';
+    if(dir==='frames-2x'){ cv.width=1094; cv.height=1296 }
     var ctx=cv.getContext('2d'), cur=NEUTRAL, tgt=NEUTRAL, shown=-1;
     var hasPtr=false, px=0, py=0, vis=true, raf=0, t0=performance.now();
     function draw(i){ if(i===shown) return; shown=i; ctx.clearRect(0,0,cv.width,cv.height); ctx.drawImage(frames[i],0,0,cv.width,cv.height) }
@@ -480,7 +485,7 @@ html.lenis,html.lenis body{height:auto}
       (function(i){
         var im=new Image(); im.decoding='async';
         im.onload=function(){ if(++ok===N){ draw(Math.round(NEUTRAL)); box.classList.add('live'); kick() } };
-        im.src='assets/maskot-animasi/frames/f'+(i<10?'0':'')+i+'.webp';
+        im.src='assets/maskot-animasi/'+dir+'/f'+(i<10?'0':'')+i+'.webp';
         frames[i]=im;
       })(i);
     }
