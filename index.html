@@ -28,6 +28,7 @@
   --ink:#080808; --muted:#666; --paper:#fff; --surface:#F2F2F0; --rule:#D9D9D6;
   --d-surface:#0E0E0E; --d-card:#141414; --d-line:#2E2E2E; --d-muted:#B5B5B5;
   --cyan:#38E1FF;
+  --ease-lux:cubic-bezier(.16,1,.3,1);
   --sky:#DDF6FD; --violet:#E9E3FF; --mint:#DDF5E6; --amber:#FFEFC9; --coral:#FFE1DD;
   --f-main:'Space Grotesk',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
   --f-mono:'Space Mono',ui-monospace,Menlo,Consolas,monospace;
@@ -87,6 +88,8 @@ button{font:inherit}
 .hero .copy{position:absolute;left:calc(var(--u) * 4.45);top:calc(var(--u) * 29);width:calc(var(--u) * 40);z-index:4;display:flex;flex-direction:column;gap:calc(var(--u) * 2.2)}
 .hero .lead{font-size:calc(var(--u) * 2.08);line-height:1.25;font-weight:500;text-wrap:pretty}
 .hero .btns{display:flex;gap:12px;flex-wrap:wrap}
+.micro{font-size:14px;line-height:1.45;color:var(--muted);margin-top:-6px}
+form .micro{text-align:center;margin-top:-12px}
 .hero .facts{position:absolute;left:calc(var(--u) * 4.45);bottom:calc(var(--u) * 7.6 + var(--sheet) * .3);width:calc(var(--u) * 42);z-index:4;list-style:none;display:flex;flex-wrap:wrap;gap:12px calc(var(--u) * 2.4);border-top:1px solid var(--rule);padding-top:16px}
 .facts li{display:flex;gap:14px;align-items:center;font-size:clamp(16px,1.4vw,20px);font-weight:500;padding:16px 0;border-top:1px solid var(--rule)}
 .hero .facts li{padding:0;border-top:0;gap:10px;font-size:clamp(15px,1.2vw,18px)}
@@ -190,8 +193,30 @@ footer{z-index:6;padding:clamp(80px,8vw,110px) var(--pad) 48px;box-shadow:0 -12p
 .base{margin-top:clamp(56px,6.6vw,96px);padding-top:24px;border-top:1px solid #2E2E2E;font-family:var(--f-mono);font-size:14px;color:var(--d-muted);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 
 /* ---------- REVEAL ---------- */
-.rv{opacity:0;transform:translateY(32px);transition:opacity .8s cubic-bezier(.2,.8,.2,1),transform .8s cubic-bezier(.2,.8,.2,1),border-color .45s,background .45s,box-shadow .45s;transition-delay:var(--d,0ms)}
-.rv.in{opacity:1;transform:none}
+/* Kartu & blok: masuk dari blur ke tajam. Memakai translate/scale/filter terpisah
+   supaya tidak bentrok dengan transform milik elemen (mis. skala kartu carousel). */
+.rv{opacity:0;translate:0 48px;scale:.97;filter:blur(10px);
+  transition:opacity 1.1s var(--ease-lux),translate 1.3s var(--ease-lux),scale 1.3s var(--ease-lux),filter 1.1s var(--ease-lux),border-color .45s,background .45s,box-shadow .45s;
+  transition-delay:var(--d,0ms),var(--d,0ms),var(--d,0ms),var(--d,0ms),0s,0s,0s}
+.rv.in{opacity:1;translate:none;scale:none;filter:none}
+/* Judul: tiap kata naik dari balik masker */
+.rv.split{opacity:1;translate:none;scale:none;filter:none}
+.card.rv{transition:opacity 1.1s var(--ease-lux),translate 1.3s var(--ease-lux),scale 1.3s var(--ease-lux),filter 1.1s var(--ease-lux),transform .25s,border-color .25s;
+  transition-delay:var(--d,0ms),var(--d,0ms),var(--d,0ms),var(--d,0ms),0s,0s}
+.split .w{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.1em;margin-bottom:-.1em}
+.split .w>span{display:inline-block;translate:0 108%;rotate:4deg;transform-origin:0 100%;
+  transition:translate 1.2s var(--ease-lux),rotate 1.2s var(--ease-lux);transition-delay:calc(var(--d,0ms) + var(--wi,0) * 60ms)}
+.split.in .w>span{translate:none;rotate:none}
+
+/* ---------- PERGANTIAN SECTION ----------
+   Section sebelumnya mundur (mengecil, turun pelan, meredup) saat lembar berikutnya naik.
+   --cv (0..1) dan --ty (px) diisi oleh JS di loop scroll. */
+.recede{transform:translate3d(0,var(--ty,0px),0) scale(calc(1 - var(--cv,0) * .06));transform-origin:50% 0}
+.recede::after{content:"";position:absolute;inset:0;background:#000;opacity:calc(var(--cv,0) * .55);pointer-events:none;z-index:40;border-radius:inherit}
+.hero.recede{border-radius:calc(var(--cv,0) * var(--sheet)) calc(var(--cv,0) * var(--sheet)) 0 0}
+html.lenis{scroll-behavior:auto}
+html.lenis,html.lenis body{height:auto}
+.lenis.lenis-stopped{overflow:clip}
 
 /* ---------- MOBILE ---------- */
 @media(max-width:900px){
@@ -217,11 +242,13 @@ footer{z-index:6;padding:clamp(80px,8vw,110px) var(--pad) 48px;box-shadow:0 -12p
 @media(prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   *,*::before,*::after{animation:none!important;transition:none!important}
-  .hero .title span,.rv{opacity:1;transform:none}
+  .hero .title span,.rv{opacity:1;transform:none;translate:none;scale:none;filter:none}
+  .split .w>span{translate:none;rotate:none}
+  .recede{transform:none!important}.recede::after{display:none}
   .hero .title,.hero .neru,.stages .wave{transform:none!important}
   .marquee .r1{transform:translate3d(0,0,0)!important}.marquee .r2{transform:translate3d(-12vw,0,0)!important}
 }
-.no-js .rv,.no-js .hero .title span{opacity:1;transform:none}
+.no-js .rv,.no-js .hero .title span{opacity:1;transform:none;translate:none;scale:none;filter:none}
 </style>
 </head>
 
@@ -247,14 +274,15 @@ footer{z-index:6;padding:clamp(80px,8vw,110px) var(--pad) 48px;box-shadow:0 -12p
   </h1>
   <div class="neru" id="neru"><img src="assets/neru.webp" width="1024" height="1272" alt="Neru, maskot NERUVIA, robot kucing berheadphone dengan mata cyan menyala" fetchpriority="high"><canvas width="547" height="648" aria-hidden="true"></canvas></div>
   <div class="copy">
-    <p class="lead">Belajar AI &amp; Cybersecurity, dari nol, dalam bahasa Indonesia.</p>
+    <p class="lead">Paham AI dan keamanan siber dari nol, tanpa latar belakang IT.</p>
     <div class="btns">
-      <a class="cta lg" href="#waitlist-d">Gabung waitlist</a>
+      <a class="cta lg" href="#waitlist-d">Gabung waitlist gratis</a>
       <a class="ghost" href="#jalur-d">Lihat jalur belajar</a>
     </div>
+    <p class="micro">Gratis. Cukup nama dan email.</p>
   </div>
   <ul class="facts" aria-label="Fakta singkat">
-    <li>Modul pertama gratis</li><li>Bahasa Indonesia</li><li>Dari nol</li>
+    <li>Modul pertama gratis</li><li>Tanpa latar belakang IT</li><li>Dijelaskan dalam bahasa Indonesia</li>
   </ul>
 </section>
 
@@ -271,9 +299,9 @@ footer{z-index:6;padding:clamp(80px,8vw,110px) var(--pad) 48px;box-shadow:0 -12p
 
   <div class="wrap">
     <div class="steps" id="steps" role="tablist" aria-label="Tahap belajar">
-      <button class="step on rv" role="tab" aria-selected="true" data-i="0"><span class="n">TAHAP 01</span><span class="k">LEARN</span><span class="t">Konsep dijelaskan runtut dengan bahasa sehari-hari, mulai dari nol.</span></button>
-      <button class="step rv" style="--d:100ms" role="tab" aria-selected="false" data-i="1"><span class="n">TAHAP 02</span><span class="k">PRACTICE</span><span class="t">Latihan langsung di lab yang aman, dengan umpan balik di setiap langkah.</span></button>
-      <button class="step rv" style="--d:200ms" role="tab" aria-selected="false" data-i="2"><span class="n">TAHAP 03</span><span class="k">CERTIFY</span><span class="t">Tunjukkan hasil belajarmu lewat penilaian akhir dan sertifikat.</span></button>
+      <button class="step on rv" role="tab" aria-selected="true" data-i="0"><span class="n">TAHAP 01</span><span class="k">LEARN</span><span class="t">Setiap topik dijelaskan runtut dengan bahasa sehari-hari. Istilah teknis selalu dijelaskan saat pertama muncul.</span></button>
+      <button class="step rv" style="--d:100ms" role="tab" aria-selected="false" data-i="1"><span class="n">TAHAP 02</span><span class="k">PRACTICE</span><span class="t">Kamu latihan langsung di lab yang aman. Setiap langkah memberi umpan balik.</span></button>
+      <button class="step rv" style="--d:200ms" role="tab" aria-selected="false" data-i="2"><span class="n">TAHAP 03</span><span class="k">CERTIFY</span><span class="t">Penilaian akhir menguji hasil belajarmu. Jika lulus, kamu mendapat sertifikat penyelesaian dari NERUVIA.</span></button>
     </div>
     <div class="meter" aria-hidden="true">
       <div class="lab" id="stage-name">AKTIF: LEARN</div>
@@ -287,7 +315,7 @@ footer{z-index:6;padding:clamp(80px,8vw,110px) var(--pad) 48px;box-shadow:0 -12p
   <div class="head">
     <div>
       <p class="eyebrow mono">// Jalur belajar</p>
-      <h2 class="h2 rv" id="h-paths">Tiga jalur, satu arah: dari nol.</h2>
+      <h2 class="h2 rv split" id="h-paths">Tiga jalur, satu titik awal: nol.</h2>
     </div>
     <div class="arrows">
       <button type="button" id="prev" aria-label="Geser ke kiri">←</button>
@@ -295,9 +323,9 @@ footer{z-index:6;padding:clamp(80px,8vw,110px) var(--pad) 48px;box-shadow:0 -12p
     </div>
   </div>
   <div class="rail" id="rail" tabindex="0" role="region" aria-label="Daftar jalur belajar, geser ke samping">
-    <article class="card"><div class="top"><span class="mono">Jalur 01</span><span class="badge">SEGERA</span></div><div class="bar"></div><h3>AI dari Nol</h3><p>Memahami cara kerja AI dan model bahasa, lalu memakainya dengan aman dan efektif.</p><div class="tags"><span>Dasar AI</span><span>Prompting</span><span>Etika AI</span></div><div class="px" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></article>
-    <article class="card"><div class="top"><span class="mono">Jalur 02</span><span class="badge">SEGERA</span></div><div class="bar"></div><h3>Cybersecurity Dasar</h3><p>Jaringan, sistem, dan cara berpikir seorang pembela. Tanpa syarat latar belakang teknis.</p><div class="tags"><span>Jaringan</span><span>Linux</span><span>Kerentanan umum</span></div><div class="px" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></article>
-    <article class="card"><div class="top"><span class="mono">Jalur 03</span><span class="badge">SEGERA</span></div><div class="bar"></div><h3>AI Security</h3><p>Risiko pada sistem AI, dari prompt injection sampai kebocoran data, dan cara mengujinya.</p><div class="tags"><span>Prompt injection</span><span>Data</span><span>Pengujian</span></div><div class="px" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></article>
+    <article class="card rv" style="--d:0ms"><div class="top"><span class="mono">Jalur 01</span><span class="badge">SEGERA</span></div><div class="bar"></div><h3>AI dari Nol</h3><p>Pahami cara kerja AI dan chatbot, apa yang bisa dan tidak bisa dilakukannya, lalu pakai dengan cermat.</p><div class="tags"><span>Dasar AI</span><span>Prompting</span><span>Etika AI</span></div><div class="px" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></article>
+    <article class="card rv" style="--d:120ms"><div class="top"><span class="mono">Jalur 02</span><span class="badge">SEGERA</span></div><div class="bar"></div><h3>Cybersecurity Dasar</h3><p>Kenali ancaman umum, cara kerja jaringan dan web, serta cara berpikir seorang pembela. Tanpa latar belakang IT.</p><div class="tags"><span>Jaringan</span><span>Linux</span><span>Kerentanan umum</span></div><div class="px" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></article>
+    <article class="card rv" style="--d:240ms"><div class="top"><span class="mono">Jalur 03</span><span class="badge">SEGERA</span></div><div class="bar"></div><h3>AI Security</h3><p>Pelajari risiko khas aplikasi AI, seperti prompt injection dan kebocoran data, lalu cara mengujinya di lab.</p><div class="tags"><span>Prompt injection</span><span>Data</span><span>Pengujian</span></div><div class="px" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></article>
   </div>
   <div class="rail-bar" aria-hidden="true"><i id="rbar"></i></div>
 </section>
@@ -306,14 +334,14 @@ footer{z-index:6;padding:clamp(80px,8vw,110px) var(--pad) 48px;box-shadow:0 -12p
 <section class="legal light sheet" id="legal-d" aria-labelledby="h-legal">
   <div>
     <p class="eyebrow mono">// Aman dan legal</p>
-    <h2 class="h2 rv" id="h-legal">Aman dan legal sejak modul pertama.</h2>
-    <p class="sub rv" style="--d:100ms">Materi merujuk pada standar terbuka. Latihan berjalan di lingkungan yang aman dan diizinkan.</p>
+    <h2 class="h2 rv split" id="h-legal">Aman dan legal sejak modul pertama.</h2>
+    <p class="sub rv" style="--d:100ms">Keterampilan keamanan siber bisa melindungi, tetapi juga bisa disalahgunakan. Karena itu, kami menulis batasnya sejak awal.</p>
   </div>
   <div class="std">
-    <article class="rv"><span class="mono">OWASP</span><h3>Top 10 dan Top 10 untuk LLM</h3><p>Kerentanan aplikasi web dan risiko aplikasi berbasis model bahasa.</p></article>
-    <article class="rv" style="--d:80ms"><span class="mono">NIST</span><h3>CSF dan AI RMF</h3><p>Kerangka kerja untuk mengelola risiko keamanan siber dan risiko AI.</p></article>
-    <article class="rv" style="--d:160ms"><span class="mono">ISO/IEC</span><h3>27001 dan 42001</h3><p>Standar sistem manajemen keamanan informasi dan sistem manajemen AI.</p></article>
-    <article class="rv" style="--d:240ms"><span class="mono">Batas praktik</span><h3>Hanya di lab dan sistem milikmu</h3><p>Semua latihan berjalan di lingkungan lab yang disediakan atau di sistem yang kamu miliki sendiri.</p></article>
+    <article class="rv"><span class="mono">OWASP</span><h3>Top 10 dan Top 10 untuk LLM</h3><p>Daftar risiko aplikasi web dan aplikasi AI dari komunitas keamanan terbuka.</p></article>
+    <article class="rv" style="--d:80ms"><span class="mono">NIST</span><h3>CSF dan AI RMF</h3><p>Kerangka publik untuk mengelola risiko keamanan siber dan risiko AI.</p></article>
+    <article class="rv" style="--d:160ms"><span class="mono">ISO/IEC</span><h3>27001 dan 42001</h3><p>Standar sistem manajemen keamanan informasi dan AI. Materi kami merujuknya, tetapi kursus NERUVIA bukan sertifikasi ISO.</p></article>
+    <article class="rv" style="--d:240ms"><span class="mono">Batas praktik</span><h3>Hanya di lab dan sistem milikmu</h3><p>Semua latihan berjalan di lab yang kami sediakan atau di perangkatmu sendiri. Kami tidak pernah memintamu mencoba apa pun pada sistem orang lain.</p></article>
   </div>
 </section>
 
@@ -322,29 +350,31 @@ footer{z-index:6;padding:clamp(80px,8vw,110px) var(--pad) 48px;box-shadow:0 -12p
   <div class="price rv">
     <span class="mono">Harga</span>
     <div class="big">Segera diumumkan</div>
-    <p>Modul pertama gratis. Daftar waitlist untuk mendapat kabar paling awal.</p>
+    <p>Modul pertama tetap gratis. Pendaftar waitlist mendapat kabar harga lebih dulu.</p>
   </div>
   <form class="rv" id="wl" novalidate style="--d:120ms" aria-describedby="wl-msg">
-    <h2 id="h-join">Gabung waitlist</h2>
+    <h2 id="h-join">Gabung waitlist, gratis.</h2>
     <div class="two">
-      <input type="text" name="name" placeholder="Nama" aria-label="Nama" autocomplete="name">
+      <input type="text" name="name" placeholder="Nama panggilan" aria-label="Nama panggilan" autocomplete="name">
       <input type="email" name="email" placeholder="Email" aria-label="Email" autocomplete="email" inputmode="email" required>
     </div>
     <div>
-      <p class="chips-l">Jalur yang menarik</p>
+      <p class="chips-l">Jalur yang paling menarik buatmu</p>
       <div class="chips" id="chips">
         <button type="button" class="chip" aria-pressed="true">AI dari Nol</button>
         <button type="button" class="chip" aria-pressed="false">Cybersecurity Dasar</button>
         <button type="button" class="chip" aria-pressed="false">AI Security</button>
+        <button type="button" class="chip" aria-pressed="false">Masih bingung</button>
       </div>
     </div>
     <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
     <label class="consent">
       <input type="checkbox" name="consent" required>
-      <span>Saya menyetujui NERUVIA memproses nama dan email saya untuk keperluan waitlist, sesuai Undang-Undang Pelindungan Data Pribadi No. 27 Tahun 2022. Persetujuan ini dapat saya tarik kapan saja.</span>
+      <span>Saya setuju NERUVIA menyimpan nama, email, dan pilihan jalur saya untuk mengirim kabar peluncuran, harga, dan akses modul pertama. Data disimpan sampai peluncuran atau sampai saya meminta penghapusan. Saya bisa menarik persetujuan kapan saja (UU No. 27 Tahun 2022 tentang Pelindungan Data Pribadi).</span>
     </label>
     <p class="msg" id="wl-msg" role="status" aria-live="polite"></p>
     <button class="cta submit" type="submit">Gabung waitlist</button>
+    <p class="micro">Email hanya untuk kabar NERUVIA. Kamu bisa berhenti kapan saja.</p>
   </form>
 </section>
 
@@ -362,6 +392,7 @@ footer{z-index:6;padding:clamp(80px,8vw,110px) var(--pad) 48px;box-shadow:0 -12p
   <div class="base"><span>© 2026 NERUVIA</span><span>Dibuat di Indonesia</span></div>
 </footer>
 
+<script src="assets/vendor/lenis-1.3.27.min.js"></script>
 <script>
 (function(){
   'use strict';
@@ -372,6 +403,18 @@ footer{z-index:6;padding:clamp(80px,8vw,110px) var(--pad) 48px;box-shadow:0 -12p
   var $$=function(s,r){return [].slice.call((r||d).querySelectorAll(s))};
   var nav=$('#nav'), hero=$('#hero'), stages=$('#jalur-d'), rail=$('#rail'), rbar=$('#rbar');
   var zones=$$('section.light,section.dark,footer.dark');
+
+  /* ----- judul: pecah per kata untuk reveal bermasker ----- */
+  $$('.split').forEach(function(h){
+    var words=h.textContent.trim().split(/\s+/);
+    h.setAttribute('aria-label',h.textContent.trim());
+    h.textContent='';
+    words.forEach(function(w,i){
+      var o=d.createElement('span'); o.className='w'; o.setAttribute('aria-hidden','true');
+      var n=d.createElement('span'); n.textContent=w; n.style.setProperty('--wi',i);
+      o.appendChild(n); h.appendChild(o); if(i<words.length-1) h.appendChild(d.createTextNode(' '));
+    });
+  });
 
   /* ----- reveal ----- */
   var rv=$$('.rv');
@@ -422,6 +465,14 @@ footer{z-index:6;padding:clamp(80px,8vw,110px) var(--pad) 48px;box-shadow:0 -12p
     }
   })();
 
+  /* ----- pergantian section: lembar lama mundur saat lembar baru naik ----- */
+  var flow=$$('main > section, body > footer'), tops=[];
+  function measure(){
+    tops=flow.map(function(el){var t=0,n=el;while(n){t+=n.offsetTop;n=n.offsetParent}return t});
+  }
+  if(!reduce) flow.slice(0,-1).forEach(function(el){el.classList.add('recede')});
+  measure(); addEventListener('load',measure);
+
   /* ----- loop scroll ----- */
   var ticking=false;
   function onScroll(){ if(!ticking){ticking=true;requestAnimationFrame(update)} }
@@ -436,6 +487,14 @@ footer{z-index:6;padding:clamp(80px,8vw,110px) var(--pad) 48px;box-shadow:0 -12p
     nav.classList.toggle('on-dark',onDark);
 
     if(!reduce){
+      for(var f=0;f<flow.length-1;f++){
+        var nextTop=tops[f+1]-y, p=clamp((vh-nextTop)/vh,0,1);
+        p=p*p*(3-2*p);                                  /* smoothstep */
+        var above=Math.max(0,y-tops[f]);                /* berapa px puncak section sudah lewat atas layar */
+        var el=flow[f];
+        el.style.setProperty('--cv',p.toFixed(4));
+        el.style.setProperty('--ty',Math.min(p*vh*.18,above).toFixed(1)+'px');
+      }
       var hr=hero.getBoundingClientRect();
       hero.style.setProperty('--hp',clamp(-hr.top/hr.height,0,1).toFixed(4));
       var sr=stages.getBoundingClientRect();
@@ -448,8 +507,15 @@ footer{z-index:6;padding:clamp(80px,8vw,110px) var(--pad) 48px;box-shadow:0 -12p
     }
   }
   addEventListener('scroll',onScroll,{passive:true});
-  addEventListener('resize',onScroll);
+  addEventListener('resize',function(){measure();onScroll()});
   update();
+
+  /* ----- scroll halus (Lenis): hanya mouse/trackpad di desktop; layar sentuh tetap native ----- */
+  if(!reduce && window.Lenis && matchMedia('(pointer: fine)').matches){
+    var lenis=new Lenis({lerp:.085,wheelMultiplier:.9,anchors:true,stopInertiaOnNavigate:true});
+    lenis.on('scroll',onScroll);
+    (function raf(t){lenis.raf(t);requestAnimationFrame(raf)})(performance.now());
+  }
 
   /* ----- tahap belajar: otomatis bergilir, bisa diklik ----- */
   var steps=$$('.step'), bars=$$('.meter .bars i'), label=$('#stage-name');
@@ -487,8 +553,8 @@ footer{z-index:6;padding:clamp(80px,8vw,110px) var(--pad) 48px;box-shadow:0 -12p
     var ep=window.NERUVIA_WAITLIST_ENDPOINT;
     if(!ep){say('Mode pratinjau: form belum terhubung ke backend, jadi data tidak dikirim.','info');return}
     say('Mengirim…','info');
-    fetch(ep,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name:form.name.value.trim(),email:email,jalur:jalur,consent:true,consent_text:'UU PDP 27/2022 v1',ts:new Date().toISOString()})})
-      .then(function(r){if(!r.ok)throw 0;form.reset();say('Terima kasih. Kamu sudah masuk daftar waitlist NERUVIA.','ok')})
+    fetch(ep,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name:form.name.value.trim(),email:email,jalur:jalur,consent:true,consent_text:'UU PDP 27/2022 v2 (nama, email, jalur; sampai peluncuran)',ts:new Date().toISOString()})})
+      .then(function(r){if(!r.ok)throw 0;form.reset();say('Berhasil. Kamu sudah masuk waitlist NERUVIA. Kami akan mengabarimu saat modul pertama dibuka.','ok')})
       .catch(function(){say('Gagal mengirim. Coba lagi sebentar lagi.','err')});
   });
 })();

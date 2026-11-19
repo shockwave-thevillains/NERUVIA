@@ -13,7 +13,7 @@ Halaman tunggal statis (HTML + CSS + JS tanpa build), berbasis desain **Variasi 
 - Lembaran section bertumpuk dengan sudut membulat, bar progres scroll, navigasi berganti warna di atas section gelap/terang
 - Kartu tahap Learn / Practice / Certify bergilir otomatis dan bisa diklik
 - Carousel jalur belajar dengan scroll-snap, tombol, dan bar progres
-- Reveal saat masuk layar. `prefers-reduced-motion` mematikan semua gerak
+- Transisi: judul terbuka per kata dari balik masker, kartu masuk dari blur ke tajam, dan section lama mundur (mengecil, turun pelan, meredup) saat lembar berikutnya naik. Scroll halus memakai Lenis 1.3.27 (`assets/vendor/`, lisensi MIT) hanya untuk mouse/trackpad; layar sentuh tetap native. `prefers-reduced-motion` mematikan semua gerak
 
 ## Waitlist
 Form berjalan dalam **mode pratinjau** (data tidak dikirim). Untuk menghubungkan ke backend, tambahkan sebelum `</body>`:
