@@ -3,12 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>NERUVIA — Belajar AI &amp; Cybersecurity dari nol</title>
-<meta name="description" content="NERUVIA: belajar AI dan cybersecurity dari nol, dalam bahasa Indonesia, bersama Neru si robot kucing. Gabung waitlist, modul pertama gratis.">
+<title>NERUVIA — Belajar AI dari nol, tanpa harus jago teknologi</title>
+<meta name="description" content="Belajar AI dari nol, tanpa harus jago teknologi. Langsung praktik di tugas nyata, pakai bahasa sehari-hari, bareng Neru si robot kucing. Modul pertama gratis.">
 <meta name="theme-color" content="#ffffff">
 <meta property="og:type" content="website">
-<meta property="og:title" content="NERUVIA — Belajar AI &amp; Cybersecurity dari nol">
-<meta property="og:description" content="Belajar AI dan cybersecurity dari nol, dalam bahasa Indonesia. Modul pertama gratis.">
+<meta property="og:title" content="NERUVIA — Belajar AI dari nol, tanpa harus jago teknologi">
+<meta property="og:description" content="Langsung praktik di tugas nyata, pakai bahasa sehari-hari. Modul pertama gratis.">
 <meta property="og:locale" content="id_ID">
 <link rel="icon" type="image/svg+xml" href="assets/brand/neruvia-icon-cyan.svg">
 <link rel="apple-touch-icon" href="assets/brand/neruvia-icon-cyan-180.png">
@@ -221,11 +221,6 @@ footer{z-index:8;padding:clamp(80px,8vw,110px) var(--pad) 48px;box-shadow:0 -12p
 .faq-sec .eyebrow{color:var(--cyan)}
 .mod .note{display:inline-flex;align-items:center;gap:10px;margin-top:22px;font-size:14px;color:#555;border:1px solid #E7E7E4;border-radius:999px;padding:8px 14px;background:var(--surface)}
 .mod .note::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--cyan);flex:none}
-.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-top:32px}
-.tab{cursor:pointer;font:500 15px var(--f-main);height:42px;padding:0 18px;border-radius:999px;border:1px solid #D9D9D6;background:#fff;color:#333;transition:background .25s,border-color .25s,color .25s}
-.tab:hover{border-color:var(--ink);color:var(--ink)}
-.tab[aria-selected=true]{background:var(--ink);border-color:var(--ink);color:#fff}
-.tab:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
 .lessons{margin-top:24px;border-top:1px solid #E7E7E4}
 .lessons h3{font-size:clamp(22px,2.1vw,30px);line-height:1.15;font-weight:700;letter-spacing:-.02em;margin:24px 0 8px}
 .lessons ol{list-style:none;counter-reset:l}
@@ -238,6 +233,9 @@ footer{z-index:8;padding:clamp(80px,8vw,110px) var(--pad) 48px;box-shadow:0 -12p
 .term .bar i{width:10px;height:10px;border-radius:50%;background:#2A2A2A}
 .term .bar b{margin-left:auto;font:400 12px var(--f-mono);letter-spacing:.12em;text-transform:uppercase;color:#8A8A8A}
 .term pre{margin:0;padding:22px 20px 26px;font:400 clamp(12.5px,1.05vw,14.5px)/1.75 var(--f-mono);white-space:pre-wrap;word-break:break-word}
+.term .chat{padding:20px 20px 24px;display:grid;gap:16px;font:400 clamp(12.5px,1.05vw,14.5px)/1.7 var(--f-mono)}
+.term .chat .r{display:grid;grid-template-columns:5.5em 1fr;gap:4px}
+.term .chat p{margin:0}
 .term .p{color:var(--cyan)}.term .w{color:#FFC857}.term .ok{color:#5BE49B}.term .m{color:#8A8A8A}
 .term .cur{display:inline-block;width:.6em;height:1.1em;background:var(--cyan);vertical-align:-2px;animation:blink 1.1s steps(1) infinite}
 @keyframes blink{50%{opacity:0}}
@@ -327,8 +325,8 @@ html.lenis,html.lenis body{height:auto}
 <header class="nav" id="nav">
   <a class="brand" href="#top" aria-label="NERUVIA, ke atas halaman"><svg class="mk" viewBox="7 8 133 70" aria-hidden="true" focusable="false"><path d="M9,11 L31,11 L72.2,54.9 L85.4,75.2 L63.8,75.2 L26.5,42 L26.5,75.2 L9,75.2Z M58.3,13 L72.3,13 L94.5,41.5 L117,10.5 L136.7,10.5 L99.5,68.5Z" fill="currentColor" stroke="currentColor" stroke-width="6" stroke-linejoin="round" fill-rule="evenodd"/></svg><span>NERUVIA</span></a>
   <nav class="links" aria-label="Utama">
-    <a href="#jalur-d">Jalur</a><a href="#modul-d">Modul 1</a><a href="#legal-d">Aman &amp; legal</a><a href="#faq-d">FAQ</a>
-    <a class="cta" href="#waitlist-d">Gabung waitlist</a>
+    <a href="#jalur-d">Cara belajar</a><a href="#level-d">Level</a><a href="#modul-d">Modul 1</a><a href="#faq-d">FAQ</a>
+    <a class="cta" href="#waitlist-d">Daftar gratis</a>
   </nav>
 </header>
 
@@ -341,15 +339,15 @@ html.lenis,html.lenis body{height:auto}
   </h1>
   <div class="neru" id="neru"><img src="assets/neru.webp" width="1024" height="1272" alt="Neru, maskot NERUVIA, robot kucing berheadphone dengan mata cyan menyala" fetchpriority="high"><canvas width="547" height="648" aria-hidden="true"></canvas></div>
   <div class="copy">
-    <p class="lead">Paham AI dan keamanan siber dari nol, tanpa latar belakang IT.</p>
+    <p class="lead">Belajar AI dari nol, tanpa harus jago teknologi.</p>
     <div class="btns">
-      <a class="cta lg" href="#waitlist-d">Gabung waitlist gratis</a>
-      <a class="ghost" href="#jalur-d">Lihat jalur belajar</a>
+      <a class="cta lg" href="#waitlist-d">Daftar gratis</a>
+      <a class="ghost" href="#modul-d">Lihat isi modul 1</a>
     </div>
-    <p class="micro">Gratis. Cukup nama dan email.</p>
+    <p class="micro">Langsung praktik di tugas nyata. Cukup nama dan email.</p>
   </div>
   <ul class="facts" aria-label="Fakta singkat">
-    <li>Modul pertama gratis</li><li>Tanpa latar belakang IT</li><li>Dijelaskan dalam bahasa Indonesia</li>
+    <li>Modul pertama gratis</li><li>Bahasa sehari-hari</li><li>Untuk ChatGPT, Gemini, dan Claude</li>
   </ul>
 </section>
 
@@ -366,9 +364,9 @@ html.lenis,html.lenis body{height:auto}
 
   <div class="wrap">
     <div class="steps" id="steps" role="tablist" aria-label="Tahap belajar">
-      <button class="step on rv" role="tab" aria-selected="true" data-i="0"><span class="n">TAHAP 01</span><span class="k">LEARN</span><span class="t">Setiap topik dijelaskan runtut dengan bahasa sehari-hari. Istilah teknis selalu dijelaskan saat pertama muncul.</span></button>
-      <button class="step rv" style="--d:100ms" role="tab" aria-selected="false" data-i="1"><span class="n">TAHAP 02</span><span class="k">PRACTICE</span><span class="t">Kamu latihan langsung di lab yang aman. Setiap langkah memberi umpan balik.</span></button>
-      <button class="step rv" style="--d:200ms" role="tab" aria-selected="false" data-i="2"><span class="n">TAHAP 03</span><span class="k">CERTIFY</span><span class="t">Penilaian akhir menguji hasil belajarmu. Jika lulus, kamu mendapat sertifikat penyelesaian dari NERUVIA.</span></button>
+      <button class="step on rv" role="tab" aria-selected="true" data-i="0"><span class="n">TAHAP 01</span><span class="k">LEARN</span><span class="t">Pahami cara kerja AI lewat contoh sehari-hari, tanpa istilah yang bikin pusing.</span></button>
+      <button class="step rv" style="--d:100ms" role="tab" aria-selected="false" data-i="1"><span class="n">TAHAP 02</span><span class="k">PRACTICE</span><span class="t">Coba langsung di tugas nyata: merangkum, menulis, dan menghitung.</span></button>
+      <button class="step rv" style="--d:200ms" role="tab" aria-selected="false" data-i="2"><span class="n">TAHAP 03</span><span class="k">CERTIFY</span><span class="t">Lulus penilaian akhir, lalu dapatkan sertifikat penyelesaian dari NERUVIA.</span></button>
     </div>
     <div class="meter" aria-hidden="true">
       <div class="lab" id="stage-name">AKTIF: LEARN</div>
@@ -378,21 +376,21 @@ html.lenis,html.lenis body{height:auto}
 </section>
 
 <!-- ===== 3. GELAP: carousel jalur ===== -->
-<section class="paths dark sheet" aria-labelledby="h-paths">
+<section class="paths dark sheet" id="level-d" aria-labelledby="h-paths">
   <div class="head">
     <div>
-      <p class="eyebrow mono">// Jalur belajar</p>
-      <h2 class="h2 rv split" id="h-paths">Tiga jalur, satu titik awal: nol.</h2>
+      <p class="eyebrow mono">// Level belajar</p>
+      <h2 class="h2 rv split" id="h-paths">Tiga level, satu titik awal: nol.</h2>
     </div>
     <div class="arrows">
       <button type="button" id="prev" aria-label="Geser ke kiri">←</button>
       <button type="button" id="next" aria-label="Geser ke kanan">→</button>
     </div>
   </div>
-  <div class="rail" id="rail" tabindex="0" role="region" aria-label="Daftar jalur belajar, geser ke samping">
-    <article class="card rv" style="--d:0ms"><div class="top"><span class="mono">Jalur 01</span><span class="badge">SEGERA</span></div><div class="bar"></div><h3>AI dari Nol</h3><p>Pahami cara kerja AI dan chatbot, apa yang bisa dan tidak bisa dilakukannya, lalu pakai dengan cermat.</p><div class="tags"><span>Dasar AI</span><span>Prompting</span><span>Etika AI</span></div><div class="px" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></article>
-    <article class="card rv" style="--d:120ms"><div class="top"><span class="mono">Jalur 02</span><span class="badge">SEGERA</span></div><div class="bar"></div><h3>Cybersecurity Dasar</h3><p>Kenali ancaman umum, cara kerja jaringan dan web, serta cara berpikir seorang pembela. Tanpa latar belakang IT.</p><div class="tags"><span>Jaringan</span><span>Linux</span><span>Kerentanan umum</span></div><div class="px" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></article>
-    <article class="card rv" style="--d:240ms"><div class="top"><span class="mono">Jalur 03</span><span class="badge">SEGERA</span></div><div class="bar"></div><h3>AI Security</h3><p>Pelajari risiko khas aplikasi AI, seperti prompt injection dan kebocoran data, lalu cara mengujinya di lab.</p><div class="tags"><span>Prompt injection</span><span>Data</span><span>Pengujian</span></div><div class="px" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></article>
+  <div class="rail" id="rail" tabindex="0" role="region" aria-label="Daftar level belajar, geser ke samping">
+    <article class="card rv" style="--d:0ms"><div class="top"><span class="mono">Level 01</span><span class="badge">GRATIS</span></div><div class="bar"></div><h3>AI dari Nol</h3><p>Kenalan dengan AI, menulis prompt pertama, dan mengecek jawabannya.</p><div class="tags"><span>Dasar AI</span><span>Prompt</span><span>Cek jawaban</span></div><div class="px" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></article>
+    <article class="card rv" style="--d:120ms"><div class="top"><span class="mono">Level 02</span><span class="badge">SEGERA</span></div><div class="bar"></div><h3>AI untuk Kerja</h3><p>Merangkum dokumen, menulis email dan laporan, serta mengolah data sederhana.</p><div class="tags"><span>Merangkum</span><span>Menulis</span><span>Data</span></div><div class="px" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></article>
+    <article class="card rv" style="--d:240ms"><div class="top"><span class="mono">Level 03</span><span class="badge">SEGERA</span></div><div class="bar"></div><h3>AI Lanjutan</h3><p>Mengotomasi tugas berulang dan membuat asisten AI sendiri.</p><div class="tags"><span>Otomasi</span><span>Asisten AI</span><span>Workflow</span></div><div class="px" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></article>
   </div>
   <div class="rail-bar" aria-hidden="true"><i id="rbar"></i></div>
 </section>
@@ -400,74 +398,30 @@ html.lenis,html.lenis body{height:auto}
 <!-- ===== 3b. TERANG: intip modul 1 ===== -->
 <section class="mod light sheet" id="modul-d" aria-labelledby="h-mod">
   <div>
-    <p class="eyebrow mono">// Intip modul 1</p>
+    <p class="eyebrow mono">// Intip modul 1 · gratis</p>
     <h2 class="h2 rv split" id="h-mod">Begini rasanya belajar di NERUVIA.</h2>
     <p class="note rv" style="--d:80ms">Rancangan materi. Isi dan urutan bisa berubah sebelum peluncuran.</p>
-    <div class="tabs rv" style="--d:120ms" role="tablist" aria-label="Pilih jalur">
-      <button class="tab" role="tab" id="t-ai" aria-selected="true" aria-controls="p-ai">AI dari Nol</button>
-      <button class="tab" role="tab" id="t-cs" aria-selected="false" aria-controls="p-cs" tabindex="-1">Cybersecurity Dasar</button>
-      <button class="tab" role="tab" id="t-as" aria-selected="false" aria-controls="p-as" tabindex="-1">AI Security</button>
-    </div>
-    <div class="lessons rv" style="--d:160ms">
-      <div role="tabpanel" id="p-ai" aria-labelledby="t-ai">
-        <h3>Modul 1 · Kenalan dengan AI</h3>
-        <ol>
-          <li>Apa itu AI, machine learning, dan AI generatif<span>Konsep</span></li>
-          <li>Cara chatbot menyusun jawaban<span>Konsep</span></li>
-          <li>Hal yang bisa dan tidak bisa dilakukan AI<span>Konsep</span></li>
-          <li>Halusinasi: kapan jawaban AI perlu dicek ulang<span>Konsep</span></li>
-          <li>Menulis prompt pertama, lalu memeriksa hasilnya<span class="lab">Lab</span></li>
-        </ol>
-      </div>
-      <div role="tabpanel" id="p-cs" aria-labelledby="t-cs" hidden>
-        <h3>Modul 1 · Pola pikir keamanan</h3>
-        <ol>
-          <li>Yang dilindungi: kerahasiaan, integritas, ketersediaan<span>Konsep</span></li>
-          <li>Ancaman paling umum: phishing dan kata sandi lemah<span>Konsep</span></li>
-          <li>Cara mengenali tautan dan email mencurigakan<span>Konsep</span></li>
-          <li>Mengamankan akun dengan pengelola kata sandi dan MFA<span>Konsep</span></li>
-          <li>Membedah contoh email phishing di lab<span class="lab">Lab</span></li>
-        </ol>
-      </div>
-      <div role="tabpanel" id="p-as" aria-labelledby="t-as" hidden>
-        <h3>Modul 1 · Risiko khas aplikasi AI</h3>
-        <ol>
-          <li>Cara aplikasi AI dibangun di atas model bahasa<span>Konsep</span></li>
-          <li>Prompt injection: instruksi tersembunyi di dalam data<span>Konsep</span></li>
-          <li>Kebocoran data lewat jawaban AI<span>Konsep</span></li>
-          <li>Peta risiko dari OWASP Top 10 untuk LLM<span>Konsep</span></li>
-          <li>Menguji chatbot demo milik NERUVIA di lab<span class="lab">Lab</span></li>
-        </ol>
-      </div>
+    <div class="lessons rv" style="--d:140ms">
+      <h3>Level 1 · Modul 1 · Kenalan dengan AI</h3>
+      <ol>
+        <li>Apa itu AI, dan kenapa sekarang ramai dipakai<span>Konsep</span></li>
+        <li>Cara chatbot menyusun jawaban<span>Konsep</span></li>
+        <li>Menulis prompt pertama yang jelas<span>Praktik</span></li>
+        <li>Memperbaiki hasil yang belum sesuai<span>Praktik</span></li>
+        <li>Mengecek jawaban AI sebelum dipakai<span class="lab">Latihan</span></li>
+      </ol>
     </div>
   </div>
-  <figure class="term rv" style="--d:200ms" aria-label="Ilustrasi tampilan lab NERUVIA">
-    <div class="bar" aria-hidden="true"><i></i><i></i><i></i><b>Lab · ilustrasi</b></div>
-<pre><span class="p">neru@lab:~$</span> cek-tautan "https://bank-contoh.co.id.verifikasi-akun.xyz/login"
-<span class="m">Memeriksa tautan...</span>
-<span class="w">[!]</span> Domain asli  : verifikasi-akun.xyz
-<span class="w">[!]</span> Pola         : nama bank dipasang sebagai subdomain
-<span class="w">[!]</span> Halaman      : meminta kata sandi dan kode OTP
-<span class="ok">[✓]</span> Kesimpulan   : kemungkinan besar phishing. Jangan diklik.
-
-<span class="p">neru@lab:~$</span> <span class="cur"></span></pre>
-    <figcaption>Ilustrasi rancangan lab Cybersecurity Dasar. Lab berjalan terisolasi, dan domain di atas fiktif.</figcaption>
+  <figure class="term rv" style="--d:200ms" aria-label="Ilustrasi latihan modul 1 NERUVIA">
+    <div class="bar" aria-hidden="true"><i></i><i></i><i></i><b>Latihan · ilustrasi</b></div>
+<div class="chat">
+      <div class="r"><span class="m">kamu ›</span><p>Rangkum email ini jadi 3 poin, lalu sebutkan tenggatnya.</p></div>
+      <div class="r"><span class="p">AI ›</span><p>1. Rapat evaluasi dipindah ke Kamis.<br>2. Laporan bulanan perlu revisi angka penjualan.<br>3. Tenggat revisi: Jumat pukul 15.00.</p></div>
+      <div class="r"><span class="ok">neru ›</span><p>Mantap. Sekarang cek tenggatnya di email asli. Jangan langsung percaya.</p></div>
+      <div class="r"><span class="m">kamu ›</span><p><span class="cur"></span></p></div>
+    </div>
+    <figcaption>Ilustrasi latihan modul 1. Kamu belajar memberi perintah ke AI, lalu memeriksa hasilnya. Isi email di atas fiktif.</figcaption>
   </figure>
-</section>
-
-<!-- ===== 4. TERANG: aman dan legal ===== -->
-<section class="legal light sheet" id="legal-d" aria-labelledby="h-legal">
-  <div>
-    <p class="eyebrow mono">// Aman dan legal</p>
-    <h2 class="h2 rv split" id="h-legal">Aman dan legal sejak modul pertama.</h2>
-    <p class="sub rv" style="--d:100ms">Keterampilan keamanan siber bisa melindungi, tetapi juga bisa disalahgunakan. Karena itu, kami menulis batasnya sejak awal.</p>
-  </div>
-  <div class="std">
-    <article class="rv"><span class="mono">OWASP</span><h3>Top 10 dan Top 10 untuk LLM</h3><p>Daftar risiko aplikasi web dan aplikasi AI dari komunitas keamanan terbuka.</p></article>
-    <article class="rv" style="--d:80ms"><span class="mono">NIST</span><h3>CSF dan AI RMF</h3><p>Kerangka publik untuk mengelola risiko keamanan siber dan risiko AI.</p></article>
-    <article class="rv" style="--d:160ms"><span class="mono">ISO/IEC</span><h3>27001 dan 42001</h3><p>Standar sistem manajemen keamanan informasi dan AI. Materi kami merujuknya, tetapi kursus NERUVIA bukan sertifikasi ISO.</p></article>
-    <article class="rv" style="--d:240ms"><span class="mono">Batas praktik</span><h3>Hanya di lab dan sistem milikmu</h3><p>Semua latihan berjalan di lab yang kami sediakan atau di perangkatmu sendiri. Kami tidak pernah memintamu mencoba apa pun pada sistem orang lain.</p></article>
-  </div>
 </section>
 
 <!-- ===== 4b. GELAP: FAQ ===== -->
@@ -477,13 +431,10 @@ html.lenis,html.lenis body{height:auto}
     <h2 class="h2 rv split" id="h-faq">Yang sering ditanyakan.</h2>
   </div>
   <div class="qa rv" style="--d:120ms">
-    <details><summary>Saya bukan orang IT. Apa bisa ikut?</summary><p>Bisa. Semua jalur dimulai dari nol, dan istilah teknis dijelaskan saat pertama muncul. Modul pertama gratis, jadi kamu bisa mencoba dulu sebelum memutuskan.</p></details>
-    <details><summary>Apakah harus bisa coding?</summary><p>Tidak untuk memulai. Bila sebuah latihan memakai perintah atau kode, lab memandumu langkah demi langkah.</p></details>
-    <details><summary>Apakah belajar cybersecurity itu legal?</summary><p>Legal, selama latihannya dilakukan dengan benar. Semua latihan NERUVIA berjalan di lab yang kami sediakan atau di perangkatmu sendiri. Mencoba teknik serangan pada sistem orang lain tanpa izin bisa melanggar hukum, dan kami tidak mengajarkan hal itu.</p></details>
-    <details><summary>Apakah sertifikatnya diakui?</summary><p>Sertifikat NERUVIA adalah sertifikat penyelesaian pelatihan. Sertifikat ini menunjukkan bahwa kamu menyelesaikan jalur dan lulus penilaian kami. Sertifikat ini bukan sertifikat kompetensi BNSP, dan juga bukan sertifikasi ISO atau vendor.</p></details>
-    <details><summary>Materinya dibuat oleh AI?</summary><p>AI membantu menyusun draf dan variasi soal. Manusia memeriksa dan menyunting setiap materi sebelum terbit. Rujukan teknisnya standar terbuka, seperti OWASP, NIST, dan ISO/IEC, yang bisa kamu cek sendiri.</p></details>
-    <details><summary>Apa bedanya dengan video gratis di YouTube?</summary><p>Materi NERUVIA sudah diurutkan dari nol, jadi kamu tidak perlu menyusun potongan materi sendiri. Setiap modul juga punya lab dengan umpan balik dan penilaian di akhir jalur.</p></details>
-    <details><summary>Berapa harganya, dan bayarnya pakai apa?</summary><p>Harga belum final, dan pendaftar waitlist mendapat kabarnya lebih dulu. Modul pertama tetap gratis. Rencana metode pembayarannya QRIS, e-wallet, transfer bank, dan kartu.</p></details>
+    <details><summary>Saya bukan orang IT. Apa bisa ikut?</summary><p>Bisa. Materi dimulai dari nol dan memakai bahasa sehari-hari. Modul pertama gratis, jadi kamu bisa mencoba dulu sebelum memutuskan.</p></details>
+    <details><summary>Harus langganan AI berbayar?</summary><p>Tidak. Latihan modul pertama dirancang bisa dikerjakan dengan versi gratis ChatGPT, Gemini, atau Claude.</p></details>
+    <details><summary>Berapa harganya?</summary><p>Harga belum final, dan pendaftar waitlist mendapat kabarnya lebih dulu. Modul pertama tetap gratis. Rencana metode pembayarannya QRIS, e-wallet, transfer bank, dan kartu.</p></details>
+    <details><summary>Dapat sertifikat?</summary><p>Dapat, setelah kamu lulus penilaian akhir. Sertifikat NERUVIA adalah sertifikat penyelesaian pelatihan, bukan sertifikat kompetensi BNSP.</p></details>
     <details><summary>Untuk usia berapa?</summary><p>Waitlist saat ini khusus untuk usia 18 tahun ke atas.</p></details>
     <details><summary>Data saya di waitlist dipakai untuk apa?</summary><p>Data waitlist hanya dipakai untuk kabar NERUVIA sesuai persetujuanmu. Kamu bisa meminta penghapusan data kapan saja. Rinciannya ada di <a href="kebijakan-privasi.html">Kebijakan Privasi</a>.</p></details>
   </div>
@@ -503,21 +454,21 @@ html.lenis,html.lenis body{height:auto}
       <input type="email" name="email" placeholder="Email" aria-label="Email" autocomplete="email" inputmode="email" required>
     </div>
     <div>
-      <p class="chips-l">Jalur yang paling menarik buatmu</p>
+      <p class="chips-l">Level yang paling menarik buatmu</p>
       <div class="chips" id="chips">
         <button type="button" class="chip" aria-pressed="true">AI dari Nol</button>
-        <button type="button" class="chip" aria-pressed="false">Cybersecurity Dasar</button>
-        <button type="button" class="chip" aria-pressed="false">AI Security</button>
+        <button type="button" class="chip" aria-pressed="false">AI untuk Kerja</button>
+        <button type="button" class="chip" aria-pressed="false">AI Lanjutan</button>
         <button type="button" class="chip" aria-pressed="false">Masih bingung</button>
       </div>
     </div>
     <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
     <label class="consent">
       <input type="checkbox" name="consent" required>
-      <span>Saya berusia 18 tahun atau lebih. Saya setuju NERUVIA menyimpan nama, email, dan pilihan jalur saya untuk mengirim kabar peluncuran, harga, dan akses modul pertama. Data disimpan sampai peluncuran atau sampai saya meminta penghapusan. Saya bisa menarik persetujuan kapan saja. Rinciannya ada di <a href="kebijakan-privasi.html">Kebijakan Privasi</a> (UU No. 27 Tahun 2022 tentang Pelindungan Data Pribadi).</span>
+      <span>Saya berusia 18 tahun atau lebih. Saya setuju NERUVIA menyimpan nama, email, dan pilihan level saya untuk mengirim kabar peluncuran, harga, dan akses modul pertama. Data disimpan sampai peluncuran atau sampai saya meminta penghapusan. Saya bisa menarik persetujuan kapan saja. Rinciannya ada di <a href="kebijakan-privasi.html">Kebijakan Privasi</a> (UU No. 27 Tahun 2022 tentang Pelindungan Data Pribadi).</span>
     </label>
     <p class="msg" id="wl-msg" role="status" aria-live="polite"></p>
-    <button class="cta submit" type="submit">Gabung waitlist</button>
+    <button class="cta submit" type="submit">Daftar gratis</button>
     <p class="micro">Email hanya untuk kabar NERUVIA. Kamu bisa berhenti kapan saja.</p>
   </form>
 </section>
@@ -527,9 +478,9 @@ html.lenis,html.lenis body{height:auto}
 <!-- ===== 6. GELAP: footer ===== -->
 <footer class="dark sheet" aria-label="Footer">
   <div class="foot">
-    <div><svg class="mk foot-mk" viewBox="7 8 133 70" role="img" aria-label="Logo NERUVIA"><path d="M9,11 L31,11 L72.2,54.9 L85.4,75.2 L63.8,75.2 L26.5,42 L26.5,75.2 L9,75.2Z M58.3,13 L72.3,13 L94.5,41.5 L117,10.5 L136.7,10.5 L99.5,68.5Z" fill="currentColor" stroke="currentColor" stroke-width="6" stroke-linejoin="round" fill-rule="evenodd"/></svg><div class="word">NERUVIA</div><p>Belajar AI &amp; Cybersecurity, dari nol, dalam bahasa Indonesia.</p></div>
+    <div><svg class="mk foot-mk" viewBox="7 8 133 70" role="img" aria-label="Logo NERUVIA"><path d="M9,11 L31,11 L72.2,54.9 L85.4,75.2 L63.8,75.2 L26.5,42 L26.5,75.2 L9,75.2Z M58.3,13 L72.3,13 L94.5,41.5 L117,10.5 L136.7,10.5 L99.5,68.5Z" fill="currentColor" stroke="currentColor" stroke-width="6" stroke-linejoin="round" fill-rule="evenodd"/></svg><div class="word">NERUVIA</div><p>Belajar AI dari nol, tanpa harus jago teknologi.</p></div>
     <div class="cols">
-      <div><span class="mono">Jalur</span><a href="#jalur-d">AI dari Nol</a><a href="#jalur-d">Cybersecurity Dasar</a><a href="#jalur-d">AI Security</a></div>
+      <div><span class="mono">Level</span><a href="#level-d">AI dari Nol</a><a href="#level-d">AI untuk Kerja</a><a href="#level-d">AI Lanjutan</a></div>
       <div><span class="mono">Legal</span><a href="kebijakan-privasi.html">Kebijakan Privasi</a><a href="kebijakan-privasi.html#hak">Hak atas Data Pribadi (UU PDP)</a><span class="soon">Syarat dan Ketentuan terbit sebelum pembayaran dibuka</span></div>
     </div>
   </div>
@@ -679,19 +630,6 @@ html.lenis,html.lenis body{height:auto}
   if('IntersectionObserver' in window){new IntersectionObserver(function(es){visible=es[0].isIntersecting},{threshold:.2}).observe($('#steps'))}
   if(!reduce) setInterval(function(){if(visible&&Date.now()>hold)setStep((cur+1)%3)},2600);
 
-  /* ----- intip modul 1: tab jalur ----- */
-  var tabs=$$('.tab');
-  function pickTab(t){
-    tabs.forEach(function(x){var on=x===t;x.setAttribute('aria-selected',on);x.tabIndex=on?0:-1;$('#'+x.getAttribute('aria-controls')).hidden=!on});
-  }
-  tabs.forEach(function(t,i){
-    t.addEventListener('click',function(){pickTab(t)});
-    t.addEventListener('keydown',function(e){
-      var k=e.key==='ArrowRight'?1:e.key==='ArrowLeft'?-1:0; if(!k) return;
-      var n=tabs[(i+k+tabs.length)%tabs.length]; pickTab(n); n.focus(); e.preventDefault();
-    });
-  });
-
   /* ----- carousel ----- */
   function slide(dir){var c=$('.card',rail);var w=c?c.getBoundingClientRect().width+24:320;rail.scrollBy({left:dir*w,behavior:reduce?'auto':'smooth'})}
   $('#prev').addEventListener('click',function(){slide(-1)});
@@ -715,7 +653,7 @@ html.lenis,html.lenis body{height:auto}
     var ep=window.NERUVIA_WAITLIST_ENDPOINT;
     if(!ep){say('Mode pratinjau: form belum terhubung ke backend, jadi data tidak dikirim.','info');return}
     say('Mengirim…','info');
-    fetch(ep,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name:form.name.value.trim(),email:email,jalur:jalur,consent:true,consent_text:'v3 2026-11-19 (18+, nama, email, jalur; sampai peluncuran; kebijakan-privasi.html v1)',ts:new Date().toISOString()})})
+    fetch(ep,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name:form.name.value.trim(),email:email,jalur:jalur,consent:true,consent_text:'v4 2026-11-19 (18+, nama, email, level; sampai peluncuran; kebijakan-privasi.html v2)',ts:new Date().toISOString()})})
       .then(function(r){if(!r.ok)throw 0;form.reset();say('Berhasil. Kamu sudah masuk waitlist NERUVIA. Kami akan mengabarimu saat modul pertama dibuka.','ok')})
       .catch(function(){say('Gagal mengirim. Coba lagi sebentar lagi.','err')});
   });
