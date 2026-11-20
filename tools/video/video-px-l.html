@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="id"><head><meta charset="utf-8">
+<style>
+@font-face{font-family:'SG';font-weight:300 700;src:url(../../assets/fonts/SpaceGrotesk-latin.woff2) format('woff2')}
+@font-face{font-family:'SM';font-weight:400;src:url(../../assets/fonts/SpaceMono-400-latin.woff2) format('woff2')}
+@font-face{font-family:'SM';font-weight:700;src:url(../../assets/fonts/SpaceMono-700-latin.woff2) format('woff2')}
+:root{--ink:#080808;--paper:#F2F2F0;--cyan:#38E1FF;--card:#141414;--coral:#FF8A80;--mint:#5BE49B}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1920px;height:1080px;overflow:hidden;background:#000;font-family:'SG',sans-serif;-webkit-font-smoothing:antialiased}
+.scene{position:absolute;inset:0;display:none;overflow:hidden}
+.dark{background:var(--ink);color:#fff}
+.light{background:var(--paper);color:var(--ink)}
+.brand{position:absolute;top:96px;left:80px;display:flex;align-items:center;gap:16px;font:700 26px 'SM';letter-spacing:.22em;z-index:5}
+.brand svg{height:30px;width:52px}
+.dark .brand{color:#fff}.dark .brand svg{color:var(--cyan)}
+.light .brand{color:var(--ink)}
+.tagline{position:absolute;top:100px;right:80px;font:400 22px 'SM';letter-spacing:.16em;text-transform:uppercase;opacity:.6;z-index:5}
+.prog{position:absolute;top:0;left:0;height:10px;background:var(--cyan);z-index:20;box-shadow:0 0 18px var(--cyan)}
+.cap{position:absolute;left:90px;right:90px;bottom:430px;text-align:center;z-index:10}
+.cap span{display:inline;font:600 44px/1.45 'SG';padding:6px 14px;-webkit-box-decoration-break:clone;box-decoration-break:clone;border-radius:10px}
+.dark .cap span{background:rgba(255,255,255,.08);color:#fff}
+.light .cap span{background:rgba(8,8,8,.86);color:#fff}
+.big{font-weight:700;letter-spacing:-.045em;line-height:.95}
+.hl{display:inline-block;background:var(--cyan);color:var(--ink);padding:0 22px 6px;border-radius:12px}
+.mono{font-family:'SM';letter-spacing:.18em;text-transform:uppercase}
+.lbl{display:inline-flex;align-items:center;gap:14px;font:700 28px 'SM';letter-spacing:.2em;text-transform:uppercase}
+.lbl::before{content:"";width:16px;height:16px;background:currentColor}
+.card{background:var(--card);border:1px solid #262626;border-radius:36px;padding:44px 48px;box-shadow:0 40px 90px -40px rgba(0,0,0,.8)}
+.card .who{font:700 24px 'SM';letter-spacing:.18em;text-transform:uppercase;color:#8A8A8A;margin-bottom:22px}
+.card .txt{font:500 46px/1.4 'SG';color:#fff}
+.chip{display:inline-block;font:700 36px 'SG';border:3px solid var(--coral);color:var(--coral);border-radius:999px;padding:14px 30px;margin:0 14px 18px 0}
+.neru{position:absolute}
+.neru img{width:100%;display:block;filter:drop-shadow(0 30px 40px rgba(0,0,0,.35))}
+.cur{display:inline-block;width:.5em;height:1em;background:var(--cyan);vertical-align:-4px;margin-left:4px}
+.pl{font:700 30px 'SM';letter-spacing:.14em;color:#6A6A6A;margin-bottom:10px;text-transform:uppercase}
+.pline{font:500 40px/1.38 'SG';color:#6A6A6A;padding:18px 0;border-top:1px solid #262626}
+.pline.on{color:#fff}.pline.on .pl{color:var(--cyan)}
+.sq{width:150px;height:150px;border-radius:28px;border:3px solid var(--ink);display:flex;align-items:center;justify-content:center;font:700 64px 'SG'}
+.sq.f{background:var(--ink);color:var(--cyan)}
+.mail{background:#fff;border-radius:36px;padding:52px 56px;box-shadow:0 50px 100px -40px rgba(8,8,8,.45);border:1px solid #E2E2DE}
+.mail .sub{font:700 34px 'SG';padding-bottom:22px;border-bottom:1px solid #E7E7E4;margin-bottom:26px}
+.mail p{font:400 36px/1.5 'SG';color:#222;margin-bottom:16px}
+.ok{display:inline-flex;align-items:center;gap:14px;background:var(--ink);color:var(--mint);font:700 28px 'SM';letter-spacing:.18em;padding:16px 26px;border-radius:999px}
+.f-row{display:flex;align-items:center;gap:24px;margin:16px 0}
+.f-box{font:700 92px 'SG';letter-spacing:-.04em;border:3px solid #fff;border-radius:24px;padding:4px 30px 14px}
+.f-plus{font:700 80px 'SG';color:var(--cyan)}
+.btn{display:inline-flex;align-items:center;gap:18px;background:var(--cyan);color:var(--ink);font:700 48px 'SG';padding:30px 56px;border-radius:999px;box-shadow:0 0 50px rgba(56,225,255,.55)}
+.cap{display:none!important}
+.mail{padding:40px 48px!important}.mail .sub{font-size:30px!important;padding-bottom:16px!important;margin-bottom:18px!important}.mail p{font-size:31px!important;margin-bottom:10px!important}
+.f-box{font-size:80px!important}.f-row{margin:10px 0!important}
+.pline:not(.on){padding:10px 0}.pline:not(.on) .pl{font-size:22px;margin-bottom:2px}
+.pline:not(.on)>div:last-child{font-size:28px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pline.on>div:last-child{font-size:38px}
+#px{position:absolute;inset:0;z-index:30;pointer-events:none}
+#spr,#desk{position:absolute;top:1196px;height:300px;image-rendering:pixelated}
+#spr{left:230px;width:280px}#desk{left:500px;width:360px}
+.floor{position:absolute;left:0;right:0;top:1492px;height:6px;background:repeating-linear-gradient(90deg,var(--fl,#1c2733) 0 20px,transparent 20px 30px)}
+.pglow{position:absolute;left:150px;top:1120px;width:780px;height:440px;border-radius:50%;background:radial-gradient(closest-side,rgba(56,225,255,.12),rgba(56,225,255,0))}
+.dlg{position:absolute;left:80px;right:80px;top:990px;height:176px;background:#0c1117;border:6px solid var(--cyan);
+ box-shadow:0 0 0 6px #0c1117,0 0 0 12px #1c2733,0 0 40px rgba(56,225,255,.22)}
+.dlg .tag{position:absolute;left:28px;top:-34px;background:var(--cyan);color:#06090c;font:700 30px 'PX';letter-spacing:.06em;padding:6px 16px 8px}
+.dlg .dt{position:absolute;left:36px;right:36px;top:28px;font:600 40px/1.4 'SG';color:#fff}
+.dlg .nx{position:absolute;right:24px;bottom:14px;border-left:13px solid transparent;border-right:13px solid transparent;border-top:15px solid var(--cyan)}
+.dlg .ptr{position:absolute;left:268px;bottom:-30px;width:30px;height:24px;background:var(--cyan);clip-path:polygon(0 0,100% 0,50% 100%)}
+@font-face{font-family:'PX';font-weight:700;src:url(../../assets/fonts/Silkscreen-700-latin.woff2) format('woff2')}
+#col{position:absolute;left:40px;top:-112px;width:1080px;height:1920px}
+#col .brand,#col .tagline{display:none}
+#col .scene{background:transparent!important}
+body{transition:none}
+.brand.L{top:38px;left:80px;color:var(--fg,#fff)}.brand.L svg{color:var(--cyan)}
+.tagline.L{top:42px;right:80px;color:var(--fg,#fff)}
+#spr,#desk{top:804px;height:240px}#spr{left:1264px;width:224px}#desk{left:1488px;width:288px}
+.floor{top:1040px;left:1130px;right:40px}
+.pglow{left:1220px;top:740px;width:620px;height:380px}
+.dlg{left:1150px;right:70px;top:520px;height:236px}
+.dlg .dt{font-size:38px;line-height:1.38}
+.dlg .ptr{left:211px}
+</style></head><body>
+<div class="prog" id="prog"></div>
+<svg width="0" height="0" style="position:absolute"><symbol id="nv" viewBox="7 8 133 70"><path d="M9,11 L31,11 L72.2,54.9 L85.4,75.2 L63.8,75.2 L26.5,42 L26.5,75.2 L9,75.2Z M58.3,13 L72.3,13 L94.5,41.5 L117,10.5 L136.7,10.5 L99.5,68.5Z" fill="currentColor" stroke="currentColor" stroke-width="6" stroke-linejoin="round" fill-rule="evenodd"/></symbol></svg>
+
+<div id="col">
+<!-- 1 -->
+<section class="scene dark" data-d="4.61">
+  <div style="position:absolute;left:80px;right:80px;top:360px">
+    <div class="big" style="font-size:118px" data-in=".35" data-a="up">Jawaban AI-mu</div>
+    <div class="big" style="font-size:118px;margin-top:24px" data-in=".75" data-a="up"><span class="hl">sering meleset?</span></div>
+  </div>
+  <div class="cap"><span>Pernah nyuruh AI, tapi jawabannya nggak sesuai harapan?</span></div>
+</section>
+
+<!-- 2 -->
+<section class="scene light" data-d="4.53">
+  <div style="position:absolute;left:80px;right:80px;top:230px">
+    <div class="mono" style="font-size:30px;color:#666" data-in=".1" data-a="fade">// biasanya</div>
+    <div class="big" style="font-size:132px;margin-top:40px" data-in=".25" data-a="up">Yang salah</div>
+    <div class="big" style="font-size:132px" data-in=".55" data-a="up">bukan AI-nya.</div>
+    <div class="big" style="font-size:132px;margin-top:70px" data-in="1.9" data-a="up">Tapi</div>
+    <div class="big" style="font-size:150px;margin-top:16px" data-in="2.2" data-a="pop"><span class="hl">prompt-nya.</span></div>
+  </div>
+  <div class="cap"><span>Biasanya yang salah bukan AI-nya. Tapi prompt-nya.</span></div>
+</section>
+
+<!-- 3 -->
+<section class="scene dark" data-d="3.25">
+  <div style="position:absolute;left:80px;right:80px;top:400px">
+    <div class="lbl" style="color:var(--coral)" data-in=".05" data-a="fade">Prompt jelek</div>
+    <div class="card" style="margin-top:40px" data-in=".2" data-a="up">
+      <div class="who">kamu ›</div>
+      <div class="txt" style="font-size:76px;font-weight:700" data-type="Buatkan email izin." data-in=".9" data-cps="20"></div>
+    </div>
+  </div>
+  <div class="cap"><span>Coba lihat prompt ini. Buatkan email izin.</span></div>
+</section>
+
+<!-- 4 -->
+<section class="scene dark" data-d="7.0">
+  <div style="position:absolute;left:80px;right:80px;top:240px">
+    <div class="lbl" style="color:#8A8A8A" data-in=".05" data-a="fade">Hasil AI</div>
+    <div class="card" style="margin-top:36px" data-in=".15" data-a="up">
+      <div class="who">AI ›</div>
+      <div class="txt" style="color:#BDBDBD">Kepada Yth. Bapak/Ibu,<br>Saya mohon izin tidak masuk.<br>Terima kasih.</div>
+    </div>
+    <div class="big" style="font-size:96px;margin-top:70px" data-in=".9" data-a="up">Terlalu umum.</div>
+    <div style="margin-top:44px">
+      <span class="chip" data-in="2.6" data-a="pop">Ke siapa?</span>
+      <span class="chip" data-in="3.3" data-a="pop">Kenapa?</span>
+      <span class="chip" data-in="4.0" data-a="pop">Berapa lama?</span>
+    </div>
+  </div>
+  <div class="cap"><span>Hasilnya terlalu umum. AI nggak tahu izin ke siapa, kenapa, dan untuk berapa lama.</span></div>
+</section>
+
+<!-- 5 -->
+<section class="scene light" data-d="3.07">
+  <div style="position:absolute;left:80px;right:80px;top:320px">
+    <div class="big" style="font-size:120px" data-in=".1" data-a="up">Perbaiki pakai</div>
+    <div class="big" style="font-size:190px;margin-top:20px" data-in=".4" data-a="pop"><span class="hl">4 bagian</span></div>
+    <div style="display:flex;gap:28px;margin-top:90px">
+      <div class="sq" data-in=".9" data-a="pop">1</div><div class="sq" data-in="1.1" data-a="pop">2</div><div class="sq" data-in="1.3" data-a="pop">3</div><div class="sq" data-in="1.5" data-a="pop">4</div>
+    </div>
+  </div>
+  <div class="cap"><span>Sekarang kita perbaiki pakai empat bagian.</span></div>
+</section>
+
+<!-- 6-9: prompt bertumbuh -->
+<section class="scene dark" data-d="5.04" data-step="1"></section>
+<section class="scene dark" data-d="4.61" data-step="2"></section>
+<section class="scene dark" data-d="4.70" data-step="3"></section>
+<section class="scene dark" data-d="4.35" data-step="4"></section>
+
+<!-- 10 -->
+<section class="scene light" data-d="5.29">
+  <div style="position:absolute;left:70px;right:70px;top:220px">
+    <div style="display:flex;justify-content:space-between;align-items:center">
+      <div class="lbl" style="color:#555" data-in=".05" data-a="fade">Hasil AI</div>
+      <div class="ok" data-in="2.4" data-a="pop">✓ SIAP KIRIM</div>
+    </div>
+    <div class="mail" style="margin-top:36px" data-in=".15" data-a="up">
+      <div class="sub">Subjek: Izin tidak masuk kerja, Jumat</div>
+      <p>Selamat sore, Bu Rina.</p>
+      <p>Saya izin tidak masuk kerja besok, Jumat, karena ada urusan keluarga.</p>
+      <p>Pekerjaan hari itu sudah saya titipkan ke Dimas.</p>
+      <p>Terima kasih atas pengertiannya.</p>
+      <p style="margin:0">Salam,<br>Andi</p>
+    </div>
+  </div>
+  <div class="cap"><span>Hasilnya? Email yang jelas, sopan, dan siap kirim.</span></div>
+</section>
+
+<!-- 11 -->
+<section class="scene dark" data-d="5.72">
+  <div style="position:absolute;left:80px;right:80px;top:250px">
+    <div class="mono" style="font-size:30px;color:var(--cyan)" data-in=".05" data-a="fade">// ingat rumusnya</div>
+    <div style="margin-top:50px">
+      <div class="f-row" data-in=".9" data-a="up"><div class="f-box">PERAN</div></div>
+      <div class="f-row" data-in="1.5" data-a="up"><div class="f-plus">+</div><div class="f-box">TUGAS</div></div>
+      <div class="f-row" data-in="2.1" data-a="up"><div class="f-plus">+</div><div class="f-box">KONTEKS</div></div>
+      <div class="f-row" data-in="2.7" data-a="up"><div class="f-plus">+</div><div class="f-box" style="background:var(--cyan);color:var(--ink);border-color:var(--cyan)">FORMAT</div></div>
+    </div>
+  </div>
+  <div class="cap"><span>Ingat rumusnya. Peran, tugas, konteks, format.</span></div>
+</section>
+
+<!-- 12 -->
+<section class="scene light" data-d="6.83">
+  <div style="position:absolute;left:80px;right:80px;top:300px;text-align:center">
+    <div class="big" style="font-size:96px" data-in=".4" data-a="up">Belajar AI dari nol,</div>
+    <div class="big" style="font-size:96px;margin-top:10px" data-in=".8" data-a="up">tanpa harus jago</div>
+    <div class="big" style="font-size:96px;margin-top:10px" data-in="1.1" data-a="up">teknologi.</div>
+    <div style="margin-top:56px;display:flex;justify-content:center;align-items:center;gap:22px" data-in="2.6" data-a="pop">
+      <svg style="height:64px;width:112px;color:var(--ink)"><use href="#nv"/></svg>
+      <span style="font:700 76px 'SG';letter-spacing:-.04em">NERUVIA</span>
+    </div>
+    <div style="margin-top:46px" data-in="3.4" data-a="pop"><span class="btn">Daftar gratis · link di bio</span></div>
+  </div>
+  <div class="cap"><span>Belajar AI dari nol, tanpa harus jago teknologi. Bareng Neru, di NERUVIA.</span></div>
+</section>
+
+</div>
+<div id="px"><div class="pglow" id="pglow"></div><div class="floor" id="floor"></div>
+<canvas id="desk" width="72" height="60"></canvas><canvas id="spr" width="56" height="60"></canvas>
+<div class="brand L"><svg><use href="#nv"/></svg>NERUVIA</div><div class="tagline L">Prompt 101</div>
+<div class="dlg" id="dlg"><div class="tag">NERU</div><div class="dt" id="dt"></div><div class="nx" id="nx"></div><div class="ptr"></div></div></div>
+<script>
+const LINES=[
+ ['01','Peran','Kamu asisten penulis email kantor.'],
+ ['02','Tugas','Tulis email izin tidak masuk kerja.'],
+ ['03','Konteks','Untuk atasanku, Bu Rina. Besok, Jumat, aku ada urusan keluarga. Pekerjaanku sudah kutitipkan ke Dimas.'],
+ ['04','Format','Bahasa sopan, maksimal 5 kalimat.']];
+const CAPS=['Satu, peran. Kasih tahu AI harus jadi siapa.','Dua, tugas. Jelaskan apa yang harus dikerjakan.','Tiga, konteks. Ceritakan detail yang cuma kamu tahu.','Empat, format. Tentukan bentuk hasilnya.'];
+const HINT=['Kasih tahu AI harus jadi siapa.','Jelaskan apa yang harus dikerjakan.','Ceritakan detail yang cuma kamu tahu.','Tentukan bentuk hasilnya.'];
+document.querySelectorAll('[data-step]').forEach(sc=>{
+  const n=+sc.dataset.step, L=LINES[n-1];
+  let h=`<div style="position:absolute;left:80px;right:80px;top:210px">
+   <div style="display:flex;align-items:baseline;gap:30px" data-in=".0" data-a="up">
+     <div class="big" style="font-size:132px;color:transparent;-webkit-text-stroke:3px var(--cyan)">${L[0]}</div>
+     <div class="big" style="font-size:104px">${L[1]}</div></div>
+   <div class="mono" style="font-size:28px;color:#9A9A9A;margin-top:20px" data-in=".35" data-a="fade">${HINT[n-1]}</div>
+   <div class="card" style="margin-top:36px;padding-top:26px;padding-bottom:26px" data-in=".1" data-a="fade">
+     <div class="who" style="margin-bottom:6px">prompt kamu</div>`;
+  for(let i=0;i<n;i++){
+    const on=i===n-1;
+    h+=`<div class="pline ${on?'on':''}"><div class="pl">${LINES[i][1]}</div><div ${on?`data-type="${LINES[i][2]}" data-in=".7" data-cps="30"`:''}>${on?'':LINES[i][2]}</div></div>`;
+  }
+  h+=`</div></div><div class="cap"><span>${CAPS[n-1]}</span></div>`;
+  sc.innerHTML=h;
+  sc.insertAdjacentHTML('afterbegin','');
+});
+// brand + tagline on every scene
+document.querySelectorAll('.scene').forEach(sc=>{
+  sc.insertAdjacentHTML('afterbegin',`<div class="brand"><svg><use href="#nv"/></svg>NERUVIA</div><div class="tagline">Prompt 101</div>`);
+});
+const scenes=[...document.querySelectorAll('.scene')];
+const durs=scenes.map(s=>+s.dataset.d);
+const total=durs.reduce((a,b)=>a+b,0);
+const ease=p=>1-Math.pow(1-p,3);
+const back=p=>{const c=1.70158,c3=c+1;return 1+c3*Math.pow(p-1,3)+c*Math.pow(p-1,2)};
+const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
+window.TOTAL=total; window.DURS=durs;
+window.render=function(t){
+  let acc=0,idx=0;
+  for(;idx<scenes.length-1;idx++){ if(t<acc+durs[idx]) break; acc+=durs[idx]; }
+  const lt=t-acc;
+  scenes.forEach((s,i)=>s.style.display=i===idx?'block':'none');
+  const sc=scenes[idx];
+  document.getElementById('prog').style.width=(clamp(t/total,0,1)*1080)+'px';
+  sc.querySelectorAll('[data-in]').forEach(el=>{
+    const a=el.dataset.a, st=+el.dataset.in;
+    if(el.dataset.type!==undefined){
+      const cps=+(el.dataset.cps||25), full=el.dataset.type;
+      const n=clamp(Math.floor((lt-st)*cps),0,full.length);
+      el.innerHTML=full.slice(0,n)+(n<full.length||Math.floor(lt*2)%2===0?'<span class="cur"></span>':'');
+      return;
+    }
+    const p=clamp((lt-st)/0.45,0,1);
+    if(a==='up'){el.style.opacity=ease(p);el.style.transform=`translateY(${(1-ease(p))*70}px)`}
+    else if(a==='pop'){el.style.opacity=clamp(p*2,0,1);el.style.transform=`scale(${0.7+0.3*back(p)})`;el.style.transformOrigin=el.style.transformOrigin||'50% 50%'}
+    else {el.style.opacity=ease(p)}
+  });
+  // halus: sedikit zoom pada tiap adegan
+  sc.style.transform=`scale(${1.035-0.035*ease(clamp(lt/0.5,0,1))})`;
+};
+render(0);
+</script>
+<script src="env.js"></script>
+<script>window.LAND=1</script>
+<script src="px.js"></script>
+</body></html>

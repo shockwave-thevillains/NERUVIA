@@ -6,6 +6,8 @@ Halaman tunggal statis (HTML + CSS + JS tanpa build), berbasis desain **Variasi 
 - `index.html` — seluruh halaman (CSS dan JS di dalam file)
 - `assets/neru.webp`, `assets/neru-wave.webp` — Neru versi terbaru, latar dihapus (hero pakai pose depan, bagian gelap pakai pose miring kanan)
 - `assets/fonts/` — Space Grotesk, Space Mono, Silkscreen (lisensi OFL, disajikan lokal)
+- `tools/video/` — sumber video Prompt 101 dengan Neru pixel art + meja belajar (portrait dan landscape), lihat `tools/video/README.md`
+- `docs/video/` — video jadi untuk arsip (Prompt 101 versi maskot, versi pixel portrait 1080x1920, versi pixel landscape 1920x1080)
 
 ## Efek scroll
 - Judul NERUVIA naik per huruf, lalu parallax dengan Neru saat hero digulir
