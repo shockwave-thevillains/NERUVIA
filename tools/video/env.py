@@ -12,7 +12,7 @@ import numpy as np
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 FPS = 30
-LEAD, TAIL = 0.25, 0.60
+LEAD, TAIL = 0.25, 0.35
 
 
 def load(path):

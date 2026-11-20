@@ -179,15 +179,18 @@ function grid(act,times){return '<div class="gridw">'+GI.map((g,i)=>{
 const cl=(v,a,b)=>Math.max(a,Math.min(b,v));
 const secs=[...document.querySelectorAll('.scene')];
 window.DURS=window.DURS||secs.map(()=>5);
+// Waktu data-t/ACT ditulis untuk durasi nominal tiap adegan; dipetakan ke durasi nyata (hasil env.py)
+window.NOM=[5,5,5,5,5,5,4,4,4,4,5,6];
+window.FS=DURS.map((d,i)=>d/NOM[i]);
 window.render=function(t){
   let acc=0,idx=0;for(;idx<DURS.length-1;idx++){if(t<acc+DURS[idx])break;acc+=DURS[idx]}
-  const lt=t-acc;
+  const lt=t-acc, f=FS[idx];
   secs.forEach((s,i)=>s.classList.toggle('on',i===idx));
-  secs[idx].querySelectorAll('.rv').forEach(e=>{const p=cl((lt-(+e.dataset.t))/.28,0,1);e.style.opacity=p;e.style.transform=`translateY(${(1-p)*28}px)`});
+  secs[idx].querySelectorAll('.rv').forEach(e=>{const p=cl((lt-(+e.dataset.t)*f)/.28,0,1);e.style.opacity=p;e.style.transform=`translateY(${(1-p)*28}px)`});
 };
 })();
 // ---- koreografi Neru untuk episode ini (waktu adegan, detik) ----
-window.ACT={
+const ACT0={
  1:[[0,.5,'hop'],[.15,1.2,'wave'],[2.8,4.4,'ask']],
  2:[[.3,4.8,'point']],
  3:[[.3,1.6,'point'],[1.8,4.4,'shake']],
@@ -201,8 +204,9 @@ window.ACT={
  11:[[.3,3.0,'shake'],[3.2,5.4,'point']],
  12:[[.1,2.0,'wave'],[3.3,5.0,'point'],[5.2,5.8,'hop'],[5.2,6.8,'happy']],
 };
+window.ACT={};for(const k in ACT0)window.ACT[k]=ACT0[k].map(([a,b,n])=>[a*FS[k-1],b*FS[k-1],n]);
 window.SCREEN=function(si,lt){
-  const typ=(st,d)=>Math.max(0,Math.min(1,(lt-st)/d));
+  const typ=(st,d)=>Math.max(0,Math.min(1,(lt-st*FS[si-1])/(d*FS[si-1])));
   if(si===1) return {lines:0,partial:1,cursor:true};
   if(si===2||si===4) return {lines:1,partial:1,dim:true,cursor:false};
   if(si===3) return {lines:2,partial:1,dim:true,cursor:false};
