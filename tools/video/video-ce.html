@@ -158,15 +158,13 @@ function grid(act,times){return '<div class="gridw">'+GI.map((g,i)=>{
   </script></div></div>
  <div class="cap"><span>Tapi jangan tempel semuanya. Konteks yang terlalu panjang membuat AI kehilangan fokus. Pilih yang relevan saja.</span></div></section>
 
-<!-- 12 · penutup -->
+<!-- 12 · penutup (tanpa ajakan daftar, web belum siap) -->
 <section class="scene light"><div class="hd"><span>NERUVIA</span><span>CONTEXT 101</span></div>
  <div class="abs" style="top:220px">
   <div class="rv" data-t=".2"><div class="big" style="font-size:108px">Konteks tepat</div></div>
-  <div class="rv" data-t="1.0"><div class="big" style="font-size:108px;margin-top:10px"><span class="hl">= jawaban tepat</span></div></div>
+  <div class="rv" data-t="1.5"><div class="big" style="font-size:108px;margin-top:10px"><span class="hl">= jawaban tepat</span></div></div>
  </div>
- <div class="abs rv" data-t="2.6" style="top:520px"><div class="mono" style="font-size:34px;line-height:1.4">Belajar AI dari nol,<br>tanpa harus jago teknologi.</div></div>
- <div class="abs rv" data-t="4.2" style="top:690px"><span class="tag" style="font-size:44px;padding:20px 40px">DAFTAR DI NERUVIA</span></div>
- <div class="cap"><span>Konteks yang tepat menghasilkan jawaban yang tepat. Belajar AI dari nol, tanpa harus jago teknologi. Daftar di NERUVIA.</span></div></section>
+ <div class="cap"><span>Konteks yang tepat menghasilkan jawaban yang tepat.</span></div></section>
 
 <div id="px"><div class="pglow" id="pglow"></div><div class="floor" id="floor"></div>
 <canvas id="desk" width="72" height="60"></canvas><canvas id="spr" width="56" height="60"></canvas>
@@ -202,7 +200,7 @@ const ACT0={
  9:[[.15,.9,'point'],[.9,3.8,'desk']],
  10:[[.15,.9,'point'],[.9,4.2,'desk']],
  11:[[.3,3.0,'shake'],[3.2,5.4,'point']],
- 12:[[.1,2.0,'wave'],[3.3,5.0,'point'],[5.2,5.8,'hop'],[5.2,6.8,'happy']],
+ 12:[[.1,1.8,'wave'],[3.6,4.2,'hop'],[3.6,7,'happy']],
 };
 window.ACT={};for(const k in ACT0)window.ACT[k]=ACT0[k].map(([a,b,n])=>[a*FS[k-1],b*FS[k-1],n]);
 window.SCREEN=function(si,lt){
