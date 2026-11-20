@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="id"><head><meta charset="utf-8">
+<title>NERUVIA — Context Engineering 101 (portrait 1080x1920)</title>
+<style>
+@font-face{font-family:'SG';font-weight:300 700;src:url(/assets/fonts/SpaceGrotesk-latin.woff2) format('woff2')}
+@font-face{font-family:'SM';font-weight:400;src:url(/assets/fonts/SpaceMono-400-latin.woff2) format('woff2')}
+@font-face{font-family:'SM';font-weight:700;src:url(/assets/fonts/SpaceMono-700-latin.woff2) format('woff2')}
+@font-face{font-family:'PX';font-weight:700;src:url(/assets/fonts/Silkscreen-700-latin.woff2) format('woff2')}
+:root{--ink:#080808;--paper:#F2F2F0;--cyan:#38E1FF;--g1:#666;--g2:#8A8A8A}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1080px;height:1920px;overflow:hidden;background:var(--ink);font-family:'SG',sans-serif;-webkit-font-smoothing:antialiased}
+.scene{position:absolute;inset:0;display:none;overflow:hidden}
+.scene.on{display:block}
+.dark{background:var(--ink);color:#fff}
+.light{background:var(--paper);color:var(--ink)}
+.cap{display:none!important}
+.abs{position:absolute;left:80px;right:80px}
+.hd{position:absolute;top:96px;left:80px;right:80px;display:flex;justify-content:space-between;font:700 26px 'SM';letter-spacing:.22em}
+.hd span:first-child::before{content:'';display:inline-block;width:18px;height:18px;background:var(--cyan);margin-right:16px}
+.dark .hd{color:#fff}.light .hd{color:var(--ink)}
+.lbl{font:700 30px 'SM';letter-spacing:.18em;color:var(--cyan)}
+.light .lbl{color:var(--ink)}
+.big{font-weight:700;line-height:.92;letter-spacing:-.03em;text-transform:uppercase}
+.hl{background:var(--cyan);color:var(--ink);padding:0 14px;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.mono{font-family:'SM',monospace}
+.sub{font-weight:500;font-size:46px;line-height:1.25}
+.row{display:flex;align-items:center;gap:28px;border:4px solid #3a3a3a;background:#0c1117;padding:0 32px;height:110px;margin-bottom:14px}
+.row b{font:700 34px 'PX';color:var(--cyan)}
+.row span{font-weight:700;font-size:48px;letter-spacing:-.01em;text-transform:uppercase}
+.gridw{display:grid;grid-template-columns:448px 448px;gap:24px}
+.gi{height:230px;border:4px solid #3a3a3a;padding:26px 30px;color:#666;background:#0c1117}
+.gi b{display:block;font:700 34px 'PX'}
+.gi i{display:block;font-style:normal;font-weight:700;font-size:64px;letter-spacing:-.02em;margin-top:14px;text-transform:uppercase}
+.gi u{display:block;text-decoration:none;font:400 26px 'SM';margin-top:10px}
+.gi.all{color:#fff;border-color:var(--g2)}.gi.all b{color:var(--cyan)}
+.gi.act{color:#fff;border-color:var(--cyan)}.gi.act b{color:var(--cyan)}
+.det{border-left:10px solid var(--cyan);padding:8px 0 8px 30px;font-weight:500;font-size:40px;line-height:1.25}
+.bar{height:14px;margin-bottom:18px;background:#4a4a4a}
+.bar.k{background:var(--cyan)}
+.tag{display:inline-block;background:var(--cyan);color:var(--ink);font:700 34px 'SM';letter-spacing:.1em;padding:12px 26px}
+/* ---- lapisan pixel (Neru + meja + dialog) ---- */
+#px{position:absolute;inset:0;z-index:30;pointer-events:none}
+#spr,#desk{position:absolute;top:1196px;height:300px;image-rendering:pixelated}
+#spr{left:230px;width:280px}#desk{left:500px;width:360px}
+.floor{position:absolute;left:0;right:0;top:1492px;height:6px;background:repeating-linear-gradient(90deg,var(--fl,#1c2733) 0 20px,transparent 20px 30px)}
+.pglow{position:absolute;left:150px;top:1120px;width:780px;height:440px;border-radius:50%;background:radial-gradient(closest-side,rgba(56,225,255,.12),rgba(56,225,255,0))}
+.dlg{position:absolute;left:80px;right:80px;top:940px;height:226px;background:#0c1117;border:6px solid var(--cyan);
+ box-shadow:0 0 0 6px #0c1117,0 0 0 12px #1c2733,0 0 40px rgba(56,225,255,.22)}
+.dlg .tag2{position:absolute;left:28px;top:-34px;background:var(--cyan);color:#06090c;font:700 30px 'PX';letter-spacing:.06em;padding:6px 16px 8px}
+.dlg .dt{position:absolute;left:36px;right:36px;top:26px;font:600 36px/1.38 'SG';color:#fff}
+.dlg .nx{position:absolute;right:24px;bottom:14px;border-left:13px solid transparent;border-right:13px solid transparent;border-top:15px solid var(--cyan)}
+.dlg .ptr{position:absolute;left:268px;bottom:-30px;width:30px;height:24px;background:var(--cyan);clip-path:polygon(0 0,100% 0,50% 100%)}
+</style></head><body>
+<script>
+// kartu 2x2 untuk adegan 6-10. aktif: nomor kartu yang menyala (0 = semua tampil bertahap)
+const GI=[['01','Latar','siapa & untuk apa'],['02','Data','angka & catatanmu'],['03','Contoh','satu hasil favorit'],['04','Batasan','panjang, gaya, larangan']];
+function grid(act,times){return '<div class="gridw">'+GI.map((g,i)=>{
+  const c=act?(i+1===act?'act':''):'all';
+  const rv=times?` rv" data-t="${times[i]}`:'';
+  return `<div class="gi ${c}${rv}"><b>${g[0]}</b><i>${g[1]}</i><u>${g[2]}</u></div>`}).join('')+'</div>'}
+</script>
+
+<!-- 1 · pembuka -->
+<section class="scene light"><div class="hd"><span>NERUVIA</span><span>CONTEXT 101</span></div>
+ <div class="abs" style="top:230px">
+  <div class="rv" data-t=".2"><div class="big" style="font-size:120px">Prompt<br>bagus,</div></div>
+  <div class="rv" data-t="1.3"><div class="big" style="font-size:120px;margin-top:22px">jawaban<br><span class="hl">tetap<br>meleset?</span></div></div>
+ </div>
+ <div class="cap"><span>Promptmu sudah bagus, tapi jawaban AI masih meleset? Mungkin masalahnya ada di konteks.</span></div></section>
+
+<!-- 2 · definisi konteks -->
+<section class="scene dark"><div class="hd"><span>NERUVIA</span><span>CONTEXT 101</span></div>
+ <div class="abs" style="top:200px"><div class="lbl">/KONTEKS</div></div>
+ <div class="abs" style="top:262px"><div class="rv" data-t=".1"><div class="big" style="font-size:110px">Semua yang<br><span style="color:var(--cyan)">AI lihat</span></div></div></div>
+ <div class="abs" style="top:520px">
+  <div class="rv row" data-t="1.9"><b>01</b><span>Perintahmu</span></div>
+  <div class="rv row" data-t="2.9"><b>02</b><span>Riwayat chat</span></div>
+  <div class="rv row" data-t="3.9"><b>03</b><span>Dokumen tempelan</span></div>
+ </div>
+ <div class="cap"><span>Konteks adalah semua yang AI lihat sebelum menjawab: perintahmu, riwayat chat, dan dokumen yang kamu tempel.</span></div></section>
+
+<!-- 3 · jendela konteks -->
+<section class="scene dark"><div class="hd"><span>NERUVIA</span><span>CONTEXT 101</span></div>
+ <div class="abs" style="top:200px"><div class="lbl">/JENDELA KONTEKS</div></div>
+ <div class="abs rv" data-t=".3" style="top:262px"><div style="border:4px dashed #555;color:#777;padding:22px 30px;font:400 30px 'SM'">chat kemarin → tidak terlihat</div></div>
+ <div class="abs rv" data-t="1.2" style="top:390px"><div style="border:6px solid var(--cyan);height:400px;padding:34px 40px;background:#0c1117">
+   <div class="bar" style="width:86%;background:#fff"></div><div class="bar" style="width:62%;background:#fff"></div>
+   <div class="bar k" style="width:78%"></div><div class="bar" style="width:92%;background:#fff"></div>
+   <div class="bar" style="width:48%;background:#fff"></div><div class="bar k" style="width:70%"></div>
+   <div class="bar" style="width:84%;background:#fff"></div><div class="bar" style="width:40%;background:#fff"></div></div></div>
+ <div class="abs rv" data-t="2.4" style="top:820px"><span class="tag">AI HANYA MELIHAT KOTAK INI</span></div>
+ <div class="cap"><span>AI tidak punya ingatan seperti manusia. Ia hanya melihat isi jendela konteks saat itu.</span></div></section>
+
+<!-- 4 · analogi karyawan baru -->
+<section class="scene light"><div class="hd"><span>NERUVIA</span><span>CONTEXT 101</span></div>
+ <div class="abs" style="top:200px"><div class="lbl">/ANALOGI</div></div>
+ <div class="abs" style="top:262px">
+  <div class="rv" data-t=".2"><div class="big" style="font-size:150px">AI =</div></div>
+  <div class="rv" data-t=".9"><div class="big" style="font-size:134px;margin-top:6px"><span class="hl">karyawan<br>baru</span></div></div>
+  <div class="rv sub" data-t="2.4" style="margin-top:40px">Pintar, tapi belum tahu apa pun soal kantormu.</div>
+ </div>
+ <div class="cap"><span>Anggap AI karyawan baru yang pintar, tapi belum tahu apa pun soal kantormu.</span></div></section>
+
+<!-- 5 · tanpa konteks -->
+<section class="scene dark"><div class="hd"><span>NERUVIA</span><span>CONTEXT 101</span></div>
+ <div class="abs" style="top:200px"><div class="lbl">/TANPA KONTEKS</div></div>
+ <div class="abs rv" data-t=".2" style="top:262px"><div style="border:4px solid var(--g2);background:#0c1117;padding:30px 36px;font:700 54px 'SM'"><span style="color:var(--cyan)">&gt;</span> Buatkan laporan.</div></div>
+ <div class="abs" style="top:440px;display:flex;gap:70px;padding-left:40px">
+  <div class="rv big" data-t="1.5" style="font-size:170px;color:var(--cyan)">?</div>
+  <div class="rv big" data-t="2.0" style="font-size:170px;color:var(--cyan)">?</div>
+  <div class="rv big" data-t="2.5" style="font-size:170px;color:var(--cyan)">?</div></div>
+ <div class="abs rv" data-t="3.1" style="top:680px"><div class="big" style="font-size:96px">AI terpaksa<br><span style="color:var(--cyan)">menebak</span></div></div>
+ <div class="cap"><span>Kalau kamu hanya bilang "buatkan laporan", AI terpaksa menebak.</span></div></section>
+
+<!-- 6 · empat bahan -->
+<section class="scene dark"><div class="hd"><span>NERUVIA</span><span>CONTEXT 101</span></div>
+ <div class="abs" style="top:200px"><div class="lbl">/4 BAHAN KONTEKS</div></div>
+ <div class="abs" style="top:262px"><script>document.write(grid(0,[1.4,2.1,2.8,3.5]))</script></div>
+ <div class="cap"><span>Beri empat bahan: latar, data, contoh, dan batasan.</span></div></section>
+
+<!-- 7 · latar -->
+<section class="scene dark"><div class="hd"><span>NERUVIA</span><span>CONTEXT 101</span></div>
+ <div class="abs" style="top:200px"><div class="lbl">/4 BAHAN KONTEKS</div></div>
+ <div class="abs" style="top:262px"><script>document.write(grid(1))</script></div>
+ <div class="abs rv" data-t=".5" style="top:770px"><div class="det">Untuk siapa laporan ini, dan untuk apa.</div></div>
+ <div class="cap"><span>Latar: untuk siapa laporan ini, dan untuk apa.</span></div></section>
+
+<!-- 8 · data -->
+<section class="scene dark"><div class="hd"><span>NERUVIA</span><span>CONTEXT 101</span></div>
+ <div class="abs" style="top:200px"><div class="lbl">/4 BAHAN KONTEKS</div></div>
+ <div class="abs" style="top:262px"><script>document.write(grid(2))</script></div>
+ <div class="abs rv" data-t=".5" style="top:770px"><div class="det">Angka atau catatan yang kamu punya.</div></div>
+ <div class="cap"><span>Data: tempel angka atau catatan yang benar-benar kamu punya.</span></div></section>
+
+<!-- 9 · contoh -->
+<section class="scene dark"><div class="hd"><span>NERUVIA</span><span>CONTEXT 101</span></div>
+ <div class="abs" style="top:200px"><div class="lbl">/4 BAHAN KONTEKS</div></div>
+ <div class="abs" style="top:262px"><script>document.write(grid(3))</script></div>
+ <div class="abs rv" data-t=".5" style="top:770px"><div class="det">Satu laporan lama yang kamu suka.</div></div>
+ <div class="cap"><span>Contoh: tunjukkan satu laporan lama yang kamu suka.</span></div></section>
+
+<!-- 10 · batasan -->
+<section class="scene dark"><div class="hd"><span>NERUVIA</span><span>CONTEXT 101</span></div>
+ <div class="abs" style="top:200px"><div class="lbl">/4 BAHAN KONTEKS</div></div>
+ <div class="abs" style="top:262px"><script>document.write(grid(4))</script></div>
+ <div class="abs rv" data-t=".5" style="top:770px"><div class="det">Satu halaman, bahasa santai.</div></div>
+ <div class="cap"><span>Batasan: satu halaman, bahasa santai, tanpa istilah teknis.</span></div></section>
+
+<!-- 11 · jangan berlebihan -->
+<section class="scene dark"><div class="hd"><span>NERUVIA</span><span>CONTEXT 101</span></div>
+ <div class="abs" style="top:200px"><div class="lbl">/JANGAN BERLEBIHAN</div></div>
+ <div class="abs" style="top:258px"><div class="rv" data-t=".1"><div class="big" style="font-size:84px">Terlalu panjang<br>= fokus <span style="color:var(--cyan)">hilang</span></div></div></div>
+ <div class="abs rv" data-t="3.2" style="top:470px"><span class="tag">PILIH YANG RELEVAN SAJA</span></div>
+ <div class="abs" style="top:560px"><div style="border:4px solid var(--g2);padding:26px 34px 8px;background:#0c1117">
+  <script>
+  const W=[88,64,92,74,56,96,70,84];
+  document.write(W.map((w,i)=>`<div class="rv bar${i===3||i===4?' k':''}" data-t="${(.5+i*.3).toFixed(2)}" style="width:${w}%;background:${i===3||i===4?'':'#8A8A8A'}"></div>`).join(''))
+  </script></div></div>
+ <div class="cap"><span>Tapi jangan tempel semuanya. Konteks yang terlalu panjang membuat AI kehilangan fokus. Pilih yang relevan saja.</span></div></section>
+
+<!-- 12 · penutup -->
+<section class="scene light"><div class="hd"><span>NERUVIA</span><span>CONTEXT 101</span></div>
+ <div class="abs" style="top:220px">
+  <div class="rv" data-t=".2"><div class="big" style="font-size:108px">Konteks tepat</div></div>
+  <div class="rv" data-t="1.0"><div class="big" style="font-size:108px;margin-top:10px"><span class="hl">= jawaban tepat</span></div></div>
+ </div>
+ <div class="abs rv" data-t="2.6" style="top:520px"><div class="mono" style="font-size:34px;line-height:1.4">Belajar AI dari nol,<br>tanpa harus jago teknologi.</div></div>
+ <div class="abs rv" data-t="4.2" style="top:690px"><span class="tag" style="font-size:44px;padding:20px 40px">DAFTAR DI NERUVIA</span></div>
+ <div class="cap"><span>Konteks yang tepat menghasilkan jawaban yang tepat. Belajar AI dari nol, tanpa harus jago teknologi. Daftar di NERUVIA.</span></div></section>
+
+<div id="px"><div class="pglow" id="pglow"></div><div class="floor" id="floor"></div>
+<canvas id="desk" width="72" height="60"></canvas><canvas id="spr" width="56" height="60"></canvas>
+<div class="dlg" id="dlg"><div class="tag2">NERU</div><div class="dt" id="dt"></div><div class="nx" id="nx"></div><div class="ptr"></div></div></div>
+
+<script src="env.js"></script>
+<script>
+// ---- dasar: tampilkan adegan aktif + munculkan elemen .rv sesuai data-t (detik, waktu adegan) ----
+(function(){
+const cl=(v,a,b)=>Math.max(a,Math.min(b,v));
+const secs=[...document.querySelectorAll('.scene')];
+window.DURS=window.DURS||secs.map(()=>5);
+window.render=function(t){
+  let acc=0,idx=0;for(;idx<DURS.length-1;idx++){if(t<acc+DURS[idx])break;acc+=DURS[idx]}
+  const lt=t-acc;
+  secs.forEach((s,i)=>s.classList.toggle('on',i===idx));
+  secs[idx].querySelectorAll('.rv').forEach(e=>{const p=cl((lt-(+e.dataset.t))/.28,0,1);e.style.opacity=p;e.style.transform=`translateY(${(1-p)*28}px)`});
+};
+})();
+// ---- koreografi Neru untuk episode ini (waktu adegan, detik) ----
+window.ACT={
+ 1:[[0,.5,'hop'],[.15,1.2,'wave'],[2.8,4.4,'ask']],
+ 2:[[.3,4.8,'point']],
+ 3:[[.3,1.6,'point'],[1.8,4.4,'shake']],
+ 4:[[.3,2.2,'ask'],[2.4,4.6,'point']],
+ 5:[[.3,2.6,'shake'],[2.8,4.6,'ask']],
+ 6:[[.3,4.8,'point']],
+ 7:[[.15,.9,'point'],[.9,3.8,'desk']],
+ 8:[[.15,.9,'point'],[.9,4.2,'desk']],
+ 9:[[.15,.9,'point'],[.9,3.8,'desk']],
+ 10:[[.15,.9,'point'],[.9,4.2,'desk']],
+ 11:[[.3,3.0,'shake'],[3.2,5.4,'point']],
+ 12:[[.1,2.0,'wave'],[3.3,5.0,'point'],[5.2,5.8,'hop'],[5.2,6.8,'happy']],
+};
+window.SCREEN=function(si,lt){
+  const typ=(st,d)=>Math.max(0,Math.min(1,(lt-st)/d));
+  if(si===1) return {lines:0,partial:1,cursor:true};
+  if(si===2||si===4) return {lines:1,partial:1,dim:true,cursor:false};
+  if(si===3) return {lines:2,partial:1,dim:true,cursor:false};
+  if(si===5) return {lines:1,partial:typ(.3,1.2),cursor:true};
+  if(si===6) return {lines:1,partial:1,dim:true,cursor:true};
+  if(si>=7&&si<=10) return {lines:si-6,partial:typ(.7,1.6),cursor:true};
+  if(si===11) return {lines:6,partial:1,dim:true,cursor:false};
+  return {lines:5,partial:1,ok:lt>2.4};
+};
+window.BLINKS=[1.9,4.3];
+</script>
+<script src="px.js"></script>
+</body></html>
