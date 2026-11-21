@@ -2,6 +2,9 @@
 
 Tujuan: menyelesaikan web NERUVIA (fitur daftar dan galeri belajar) lewat run terjadwal. Satu run mengerjakan satu paket berisi TEPAT 5 kegiatan, sesuai satu jendela batas 5 jam. Kegiatan yang ringan (teks, CSS, dokumen) tidak boleh dipakai untuk mengurangi jumlahnya.
 
+## Jadwal
+Selama 21–28 Nov 2026 loop berjalan 4 kali sehari (00:45, 06:45, 12:45, 18:45 WIB) karena Master melimpahkan pekerjaan, termasuk di jam sibuknya. Mulai 28 Nov hanya jam sepi Master (00:45 dan 06:45 WIB). Bila sebuah run mulai di luar dua jam itu setelah 28 Nov 2026, berhenti tanpa mengerjakan apa pun.
+
 ## Mulai run
 1. Buka repo `shockwave-thevillains/NERUVIA`, branch `dev`. Clone bila folder kerja belum ada, lalu `git pull origin dev`.
 2. Baca `docs/loop/PROGRESS.md`, `docs/loop/BACKLOG.md`, dan `docs/loop/PERLU-KEPUTUSAN.md`.
