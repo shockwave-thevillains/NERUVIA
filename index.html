@@ -191,6 +191,15 @@ input::placeholder{color:#6B6B6B}
 .consent input:checked{background:var(--ink);border-color:var(--ink)}
 .consent input:checked::after{opacity:1}
 .consent span{font-size:14px;line-height:1.6;color:#555;text-wrap:pretty}
+.field{display:flex;flex-direction:column;gap:8px;min-width:0}
+.fe{display:none;font-size:14px;font-weight:500;line-height:1.4;color:#A01B12}
+.fe.on{display:block}
+input[aria-invalid=true]{border-color:#A01B12;background:#FFF5F4}
+input[aria-invalid=true]:focus{box-shadow:0 0 0 4px rgba(160,27,18,.18)}
+.consent.bad>input{border-color:#A01B12}
+.consent.bad>span{color:#A01B12}
+.consent .fe{margin-top:6px}
+.cwrap{display:flex;flex-direction:column;gap:8px}
 .msg{font-size:15px;font-weight:500}
 .msg:empty{display:none}
 .msg.err{color:#A01B12}.msg.ok,.msg.info{background:#F4F4F2;border-left:3px solid var(--cyan);border-radius:0 12px 12px 0;padding:14px 18px;color:var(--ink)}
@@ -199,6 +208,16 @@ input::placeholder{color:#6B6B6B}
 .submit::after{content:"\2192";transition:translate .3s var(--ease-lux)}
 .submit:hover{background:var(--cyan);color:var(--ink)}
 .submit:hover::after{translate:4px 0}
+.submit[aria-busy=true]{pointer-events:none;background:#2a2a2a;color:#fff}
+.submit[aria-busy=true]::after{content:"";width:18px;height:18px;border:2px solid rgba(255,255,255,.35);border-top-color:var(--cyan);border-radius:50%;animation:wlspin .8s linear infinite}
+@keyframes wlspin{to{rotate:360deg}}
+.done{display:none;flex-direction:column;gap:14px}
+.done:focus{outline:none}
+.done h3{font-size:clamp(26px,2.4vw,34px);line-height:1.1;font-weight:700;letter-spacing:-.02em}
+.done p{font-size:16px;line-height:1.6;color:#444}
+.done .again{align-self:flex-start;background:none;border:0;padding:0;font:600 15px var(--f-main);color:var(--ink);text-decoration:underline;text-underline-offset:4px;cursor:pointer}
+form.sent>*:not(.done){display:none}
+form.sent>.done{display:flex}
 
 /* ---------- 6. GELAP: footer ---------- */
 footer{z-index:8;padding:clamp(80px,8vw,110px) var(--pad) 48px;box-shadow:0 -12px 40px rgba(0,0,0,.2)}
@@ -450,8 +469,14 @@ html.lenis,html.lenis body{height:auto}
   <form class="rv" id="wl" novalidate style="--d:120ms" aria-describedby="wl-msg">
     <h2 id="h-join">Gabung waitlist, gratis.</h2>
     <div class="two">
-      <input type="text" name="name" placeholder="Nama panggilan" aria-label="Nama panggilan" autocomplete="name">
-      <input type="email" name="email" placeholder="Email" aria-label="Email" autocomplete="email" inputmode="email" required>
+      <div class="field">
+        <input type="text" name="name" id="f-name" placeholder="Nama panggilan" aria-label="Nama panggilan" autocomplete="name" maxlength="60" aria-describedby="fe-name">
+        <p class="fe" id="fe-name"></p>
+      </div>
+      <div class="field">
+        <input type="email" name="email" id="f-email" placeholder="Email" aria-label="Email" autocomplete="email" inputmode="email" maxlength="254" required aria-describedby="fe-email">
+        <p class="fe" id="fe-email"></p>
+      </div>
     </div>
     <div>
       <p class="chips-l">Level yang paling menarik buatmu</p>
@@ -463,13 +488,21 @@ html.lenis,html.lenis body{height:auto}
       </div>
     </div>
     <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
-    <label class="consent">
-      <input type="checkbox" name="consent" required>
+    <div class="cwrap">
+    <label class="consent" id="consent-l">
+      <input type="checkbox" name="consent" id="f-consent" required aria-describedby="fe-consent">
       <span>Saya berusia 18 tahun atau lebih. Saya setuju NERUVIA menyimpan nama, email, dan pilihan level saya untuk mengirim kabar peluncuran, harga, dan akses modul pertama. Data disimpan sampai peluncuran atau sampai saya meminta penghapusan. Saya bisa menarik persetujuan kapan saja. Rinciannya ada di <a href="kebijakan-privasi.html">Kebijakan Privasi</a> (UU No. 27 Tahun 2022 tentang Pelindungan Data Pribadi).</span>
     </label>
+    <p class="fe" id="fe-consent"></p>
+    </div>
     <p class="msg" id="wl-msg" role="status" aria-live="polite"></p>
-    <button class="cta submit" type="submit">Daftar gratis</button>
+    <button class="cta submit" type="submit" id="wl-btn"><span id="wl-btn-t">Daftar gratis</span></button>
     <p class="micro">Email hanya untuk kabar NERUVIA. Kamu bisa berhenti kapan saja.</p>
+    <div class="done" id="wl-done" tabindex="-1" role="status">
+      <h3>Kamu sudah masuk waitlist.</h3>
+      <p>Terima kasih. Kami akan mengabarimu lewat email saat modul pertama dibuka.</p>
+      <button type="button" class="again" id="wl-again">Daftarkan email lain</button>
+    </div>
   </form>
 </section>
 
@@ -641,21 +674,62 @@ html.lenis,html.lenis body{height:auto}
   /* ----- waitlist ----- */
   /* Hubungkan ke backend: window.NERUVIA_WAITLIST_ENDPOINT = 'https://...' (POST JSON).
      Selama kosong, form berjalan dalam mode pratinjau dan TIDAK mengirim data apa pun. */
-  var form=$('#wl'), msg=$('#wl-msg'), jalur='AI dari Nol';
-  function say(t,c){msg.className='msg '+c;msg.textContent=t}
+  var form=$('#wl'), msg=$('#wl-msg'), btn=$('#wl-btn'), btnT=$('#wl-btn-t'), done=$('#wl-done'),
+      jalur='AI dari Nol', busy=false, started=0, EMAIL=/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+  function say(t,c){msg.className='msg '+(c||'');msg.textContent=t||''}
+  function fe(id,t){var el=$('#fe-'+id); el.textContent=t||''; el.classList.toggle('on',!!t)}
+  function mark(inp,t,id){
+    if(inp.type==='checkbox'){$('#consent-l').classList.toggle('bad',!!t)}
+    else{if(t)inp.setAttribute('aria-invalid','true');else inp.removeAttribute('aria-invalid')}
+    fe(id,t);
+  }
+  var rules={
+    name:function(){var v=form.name.value.trim();return v.length>60?'Nama panggilan maksimal 60 karakter.':''},
+    email:function(){var v=form.email.value.trim();
+      if(!v)return 'Isi alamat email kamu.';
+      if(v.length>254||!EMAIL.test(v))return 'Alamat email belum valid. Contoh: nama@email.com';
+      return ''},
+    consent:function(){return form.consent.checked?'':'Centang pernyataan usia dan persetujuan untuk melanjutkan.'}
+  };
+  var field={name:form.name,email:form.email,consent:form.consent};
+  function check(k){var t=rules[k]();mark(field[k],t,k);return t}
+  ['name','email'].forEach(function(k){
+    field[k].addEventListener('blur',function(){if(field[k].value||field[k].hasAttribute('aria-invalid'))check(k)});
+    field[k].addEventListener('input',function(){if(field[k].hasAttribute('aria-invalid'))check(k)});
+  });
+  form.consent.addEventListener('change',function(){if($('#consent-l').classList.contains('bad'))check('consent')});
+  ['focusin','input','click'].forEach(function(ev){form.addEventListener(ev,function(){if(!started)started=Date.now()},{passive:true})});
   $$('.chip').forEach(function(c){c.addEventListener('click',function(){jalur=c.textContent;$$('.chip').forEach(function(x){x.setAttribute('aria-pressed',x===c)})})});
+  function setBusy(on){
+    busy=on;btn.setAttribute('aria-busy',on?'true':'false');btn.disabled=on;
+    btnT.textContent=on?'Mengirim…':'Daftar gratis';
+  }
+  function sent(){
+    form.reset();started=0;jalur='AI dari Nol';
+    $$('.chip').forEach(function(x,i){x.setAttribute('aria-pressed',i===0)});
+    say('');form.classList.add('sent');done.focus();
+  }
+  $('#wl-again').addEventListener('click',function(){form.classList.remove('sent');form.email.focus()});
   form.addEventListener('submit',function(e){
     e.preventDefault();
-    if(form.website.value) return;
-    var email=form.email.value.trim();
-    if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)){say('Masukkan alamat email yang valid.','err');form.email.focus();return}
-    if(!form.consent.checked){say('Centang pernyataan usia dan persetujuan di atas untuk melanjutkan.','err');form.consent.focus();return}
+    if(busy)return;                         /* cegah kirim ganda */
+    if(form.website.value)return;           /* honeypot terisi: abaikan diam-diam */
+    say('');
+    var bad=['name','email','consent'].filter(function(k){return check(k)});
+    if(bad.length){field[bad[0]].focus();say('Periksa '+bad.length+' isian yang ditandai merah.','err');return}
+    if(started&&Date.now()-started<1200){say('Terlalu cepat. Coba kirim sekali lagi.','err');started=0;return}   /* penjaga waktu */
     var ep=window.NERUVIA_WAITLIST_ENDPOINT;
     if(!ep){say('Mode pratinjau: form belum terhubung ke backend, jadi data tidak dikirim.','info');return}
-    say('Mengirim…','info');
-    fetch(ep,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name:form.name.value.trim(),email:email,jalur:jalur,consent:true,consent_text:'v4 2026-11-19 (18+, nama, email, level; sampai peluncuran; kebijakan-privasi.html v2)',ts:new Date().toISOString()})})
-      .then(function(r){if(!r.ok)throw 0;form.reset();say('Berhasil. Kamu sudah masuk waitlist NERUVIA. Kami akan mengabarimu saat modul pertama dibuka.','ok')})
-      .catch(function(){say('Gagal mengirim. Coba lagi sebentar lagi.','err')});
+    setBusy(true);say('');
+    var ctl=window.AbortController?new AbortController():null, to=setTimeout(function(){ctl&&ctl.abort()},12000);
+    fetch(ep,{method:'POST',headers:{'Content-Type':'application/json'},signal:ctl?ctl.signal:undefined,
+      body:JSON.stringify({name:form.name.value.trim(),email:form.email.value.trim(),jalur:jalur,consent:true,
+        consent_text:'v4 2026-11-19 (18+, nama, email, level; sampai peluncuran; kebijakan-privasi.html v2)',ts:new Date().toISOString()})})
+      .then(function(r){
+        if(r.status===409||r.status===422){sent();return}   /* email sudah terdaftar: tampilkan hasil yang sama */
+        if(!r.ok)throw 0;sent()})
+      .catch(function(){say('Gagal mengirim. Periksa koneksi, lalu coba lagi. Isianmu tidak hilang.','err')})
+      .then(function(){clearTimeout(to);setBusy(false)});
   });
 })();
 </script>
