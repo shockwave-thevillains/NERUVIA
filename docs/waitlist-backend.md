@@ -34,3 +34,9 @@ Status: draf. Proyek Supabase belum dibuat dan SQL belum diterapkan.
 Penghapusan dan penarikan persetujuan diproses manual lewat dashboard (service role):
 `delete from public.waitlist where email_key = lower(btrim('alamat@email.com'));`
 Catat permintaan dan waktunya sebelum menghapus.
+
+## Status sambungan (21 Nov 2026)
+- Proyek Supabase `neruvia-dev` (ap-southeast-1, gratis) sudah memuat tabel `waitlist` dengan RLS insert-only. Diuji lewat SQL dengan peran anon: insert valid berhasil; email ganda ditolak (23505); select, update, dan delete ditolak; email buruk dan jalur di luar 4 pilihan ditolak.
+- Form di branch `dev` terhubung lewat `config.js` (kunci publishable saja).
+- Proyek Vercel `neruvia` terhubung ke repo. Deployment dilindungi login Vercel dan bertanda noindex.
+- Belum teruji: kirim form dari browser sampai baris masuk ke tabel. Sandbox Claude tidak boleh mengakses host Supabase, jadi uji ini harus dari browser Master pada URL preview.
