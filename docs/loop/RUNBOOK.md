@@ -40,3 +40,9 @@ Selama 21–28 Nov 2026 loop berjalan 4 kali sehari (00:45, 06:45, 12:45, 18:45 
 - Sebelum setiap commit yang menyentuh kode atau konten, jalankan `node tools/uji-keamanan.mjs` (setelah dibuat di Paket S) dan `node tools/validasi-kursus.mjs`. Bila ada yang gagal, perbaiki dulu.
 - Data dari pengguna, berkas impor, atau JSON isi pelajaran tidak boleh masuk ke `innerHTML`, `eval`, atau atribut `on*`. Pakai `textContent`.
 - Jangan menaruh kunci rahasia di repo. Kunci publik (anon/publishable) hanya boleh ada di konfigurasi build dev.
+
+## Riset rujukan
+- Sebelum menulis draf pelajaran mana pun, cari materi setara di platform lain (Claude Academy dulu, lalu Google, Microsoft Learn, dan sumber gratis lain). Bandingkan cakupan dan urutan, cari celah topik.
+- Tulis ulang dengan kata sendiri dalam Bahasa Indonesia. Dilarang menyalin kalimat, contoh, atau struktur persis. Kutipan maksimal satu frasa pendek.
+- Catat tiap rujukan di `docs/loop/RUJUKAN.md` (URL lengkap, tanggal, pelajaran terkait, celah yang ditemukan).
+- Klaim tentang produk atau fitur harus dicek ke sumber resmi sebelum masuk ke pelajaran.

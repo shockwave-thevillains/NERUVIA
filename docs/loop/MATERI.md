@@ -45,3 +45,6 @@ Level 2 (AI untuk Kerja) dan Level 3 (AI Lanjutan) baru dirancang setelah Level 
 3. Menyusun laporan singkat dari catatan
 4. Mengolah data sederhana (tabel kecil)
 5. Mengecek hasil sebelum dikirim ke orang lain
+
+
+Sebelum menulis, ikuti bagian "Riset rujukan" di RUNBOOK.md dan catat hasilnya di RUJUKAN.md.
