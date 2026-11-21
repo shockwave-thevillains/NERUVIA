@@ -10,7 +10,7 @@ Keputusan yang berlaku: fase 1 tetap statis (HTML + Supabase JS), fitur daftar b
 - **Run 6 (SELESAI, lewati):** `content/kursus.json` (level, modul, pelajaran) dan skrip validasinya; outline Level 1 untuk Master tinjau.
 - **Run 7 (SELESAI, lewati):** halaman `belajar/` berisi galeri kartu kursus (Level 1 aktif, Level 2–3 "segera"), filter, progres dari localStorage.
 - **Run 8 (SELESAI, lewati):** halaman pelajaran dengan navigasi sebelumnya/berikutnya, tombol tandai selesai, bar progres.
-- **Run 9 (Rab 25):** XP, streak, badge piksel (Silkscreen); ekspor dan impor progres.
+- **Run 9 (SELESAI, lewati):** XP, streak, badge piksel (Silkscreen); ekspor dan impor progres.
 - **Run 10 (Kam 26):** draf isi Modul 1 pelajaran 1–2 (ditandai DRAF); latihan interaktif "prompt jelek vs bagus".
 - **Run 11 (Kam 26):** alur akun (Supabase Auth magic link, gerbang 18+, tabel progres dengan RLS) di balik flag. Bila Master belum memutuskan akun, ganti dengan draf pelajaran 3–5.
 - **Run 12 (Jum 27):** CSP lewat meta, SRI, cek tautan, audit aksesibilitas ulang, uji keyboard dan mobile.

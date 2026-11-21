@@ -8,4 +8,5 @@
 | 6 | selesai (interaktif, 21 Nov) | `content/kursus.json` (3 level, Level 1 Modul 1 dengan 5 pelajaran) dan `tools/validasi-kursus.mjs` | Validator diuji lulus dan gagal (xp salah, id ganda). Outline Level 1 hanya Modul 1; modul lain belum dirancang. |
 | 7 | selesai (interaktif, 21 Nov) | `belajar/index.html` + `belajar/progress.js`: galeri level, filter Semua/Gratis/Segera, progres dari localStorage | Diuji desktop 1440 dan mobile 390; progres dan XP dihitung benar. Halaman noindex dan belum ditautkan dari landing. |
 | 8 | selesai (interaktif, 21 Nov) | `belajar/pelajaran.html?id=...`: breadcrumb, sebelumnya/berikutnya, tandai selesai, progres modul; CSS dasar dipindah ke `belajar/ruang.css` | Diuji desktop dan mobile: id kosong/salah/berisi HTML ditangani tanpa eksekusi skrip. Isi pelajaran masih placeholder "Materi sedang disusun". |
-| 1–3, 9–13 | belum | lihat BACKLOG.md | Run 4–8 dilewati loop. |
+| 9 | selesai (interaktif, 21 Nov) | XP, streak (hari lokal beruntun), 5 badge piksel SVG 8x8, ekspor/impor progres JSON di `belajar/` | Impor divalidasi: format, batas 100 KB dan 500 id, hanya id dikenal, gabung tanpa menimpa. Diuji desktop dan mobile. |
+| 1–3, 10–13 | belum | lihat BACKLOG.md | Run 4–9 dilewati loop. |
