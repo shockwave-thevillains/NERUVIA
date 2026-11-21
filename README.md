@@ -13,7 +13,7 @@ Halaman tunggal statis (HTML + CSS + JS tanpa build), berbasis desain **Variasi 
 - Judul NERUVIA naik per huruf, lalu parallax dengan Neru saat hero digulir
 - Marquee raksasa dua baris (putih/cyan dan outline) bergerak berlawanan arah mengikuti scroll. Ganti kata di `index.html`, blok `.marquee` (kelas `r1` dan `r2`)
 - Lembaran section bertumpuk dengan sudut membulat, bar progres scroll, navigasi berganti warna di atas section gelap/terang
-- Kartu tahap Learn / Practice / Certify bergilir otomatis dan bisa diklik
+- Kartu tahap Learn / Practice / Certify bergilir otomatis, bisa dijeda dengan tombol Jeda, berhenti saat kursor atau fokus di area itu dan setelah dipilih
 - Carousel jalur belajar dengan scroll-snap, tombol, dan bar progres
 - Transisi: judul terbuka per kata dari balik masker, kartu masuk dari blur ke tajam, dan section lama mundur (mengecil, turun pelan, meredup) saat lembar berikutnya naik. Scroll halus memakai Lenis 1.3.27 (`assets/vendor/`, lisensi MIT) hanya untuk mouse/trackpad; layar sentuh tetap native. `prefers-reduced-motion` mematikan semua gerak
 

@@ -121,6 +121,9 @@ form .micro{text-align:center;margin-top:-12px}
 .meter .bars{display:flex;gap:8px;flex:1}
 .meter .bars i{flex:1;height:12px;background:var(--d-line);transition:background .35s}
 .meter .bars i.on{background:var(--cyan)}
+.meter .bars{min-width:120px}
+.meter .rot{flex:none;min-height:44px;padding:0 20px;border:1.5px solid #fff;border-radius:999px;background:transparent;color:#fff;font-family:var(--f-mono);font-size:13px;font-weight:500;letter-spacing:.12em;cursor:pointer;transition:background .2s,color .2s,border-color .2s}
+.meter .rot:hover{background:var(--cyan);border-color:var(--cyan);color:var(--ink)}
 
 /* ---------- 3. GELAP: carousel jalur ---------- */
 .paths{z-index:3;border-top:1px solid var(--d-line);padding:clamp(72px,8vw,112px) 0 clamp(80px,10vw,140px);box-shadow:0 -12px 40px rgba(0,0,0,.4)}
@@ -130,6 +133,8 @@ form .micro{text-align:center;margin-top:-12px}
 .arrows{display:flex;gap:12px}
 .arrows button{width:clamp(48px,4.2vw,60px);aspect-ratio:1;border-radius:50%;border:1.5px solid #fff;background:transparent;color:#fff;font-size:24px;cursor:pointer;transition:background .2s,color .2s}
 .arrows button:hover{background:var(--cyan);border-color:var(--cyan);color:var(--ink)}
+.arrows button[aria-disabled=true],.arrows button[aria-disabled=true]:hover{opacity:.4;cursor:default;background:transparent;border-color:#fff;color:#fff}
+.rail:focus-visible{outline-offset:-4px;border-radius:0}
 .rail{display:flex;gap:24px;overflow-x:auto;scroll-snap-type:x mandatory;padding:clamp(32px,4vw,56px) var(--pad) 10px;scroll-padding-inline:var(--pad);scrollbar-width:none;-webkit-overflow-scrolling:touch}
 .rail::-webkit-scrollbar{display:none}
 .card{flex:none;width:min(84vw,460px);scroll-snap-align:start;background:var(--d-card);border:1px solid #2E2E2E;border-radius:32px;padding:clamp(24px,2.5vw,36px);display:flex;flex-direction:column;gap:24px;min-height:clamp(420px,36vw,520px);transform:scale(var(--cs,1));transition:transform .25s,border-color .25s}
@@ -177,7 +182,7 @@ form h2{font-size:clamp(32px,3.05vw,44px);line-height:1.05;font-weight:700;lette
 .two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 input[type=text],input[type=email]{height:58px;border:1px solid transparent;border-radius:14px;padding:0 20px;font:500 17px var(--f-main);color:var(--ink);background:#F4F4F2;width:100%;transition:background .25s,border-color .25s,box-shadow .25s}
 input[type=text]:hover,input[type=email]:hover{background:#EFEFEC}
-input[type=text]:focus,input[type=email]:focus{background:#fff;border-color:var(--ink);outline:none;box-shadow:0 0 0 4px rgba(56,225,255,.35)}
+input[type=text]:focus,input[type=email]:focus{background:#fff;border-color:var(--ink);outline:2px solid var(--ink);outline-offset:2px;box-shadow:0 0 0 4px rgba(56,225,255,.35)}
 input::placeholder{color:#6B6B6B}
 .chips-l{font-family:var(--f-mono);font-size:13px;letter-spacing:.12em;color:#666;margin-bottom:12px;text-transform:uppercase}
 .chips{display:flex;gap:8px;flex-wrap:wrap}
@@ -359,6 +364,7 @@ html.lenis,html.lenis body{height:auto}
   .recede{transform:none!important}.recede::after{display:none}
   .hero .title,.hero .neru,.stages .wave{transform:none!important}
   .marquee .r1{transform:translate3d(0,0,0)!important}.marquee .r2{transform:translate3d(-12vw,0,0)!important}
+  .meter .rot{display:none}
 }
 .no-js .rv,.no-js .hero .title span{opacity:1;transform:none;translate:none;scale:none;filter:none}
 </style>
@@ -422,14 +428,15 @@ html.lenis,html.lenis body{height:auto}
   <div class="wave" aria-hidden="true"><img src="assets/neru-wave.webp" width="1041" height="1273" alt="" loading="lazy"></div>
 
   <div class="wrap">
-    <div class="steps" id="steps" role="tablist" aria-label="Tahap belajar">
-      <button class="step on rv" role="tab" aria-selected="true" data-i="0"><span class="n">TAHAP 01</span><span class="k">LEARN</span><span class="t">Pahami cara kerja AI lewat contoh sehari-hari, tanpa istilah yang bikin pusing.</span></button>
-      <button class="step rv" style="--d:100ms" role="tab" aria-selected="false" data-i="1"><span class="n">TAHAP 02</span><span class="k">PRACTICE</span><span class="t">Coba langsung di tugas nyata: merangkum, menulis, dan menghitung.</span></button>
-      <button class="step rv" style="--d:200ms" role="tab" aria-selected="false" data-i="2"><span class="n">TAHAP 03</span><span class="k">CERTIFY</span><span class="t">Lulus penilaian akhir, lalu dapatkan sertifikat penyelesaian dari NERUVIA.</span></button>
+    <div class="steps" id="steps" role="group" aria-label="Tahap belajar, pilih salah satu untuk menyorotnya">
+      <button type="button" class="step on rv" aria-current="step" data-i="0"><span class="n">TAHAP 01</span><span class="k">LEARN</span><span class="t">Pahami cara kerja AI lewat contoh sehari-hari, tanpa istilah yang bikin pusing.</span></button>
+      <button type="button" class="step rv" style="--d:100ms" data-i="1"><span class="n">TAHAP 02</span><span class="k">PRACTICE</span><span class="t">Coba langsung di tugas nyata: merangkum, menulis, dan menghitung.</span></button>
+      <button type="button" class="step rv" style="--d:200ms" data-i="2"><span class="n">TAHAP 03</span><span class="k">CERTIFY</span><span class="t">Lulus penilaian akhir, lalu dapatkan sertifikat penyelesaian dari NERUVIA.</span></button>
     </div>
-    <div class="meter" aria-hidden="true">
-      <div class="lab" id="stage-name">AKTIF: LEARN</div>
-      <div class="bars"><i class="on"></i><i></i><i></i></div>
+    <div class="meter">
+      <div class="lab" id="stage-name" aria-hidden="true">AKTIF: LEARN</div>
+      <div class="bars" aria-hidden="true"><i class="on"></i><i></i><i></i></div>
+      <button type="button" class="rot" id="rot" aria-label="Jeda pergantian tahap otomatis">JEDA</button>
     </div>
   </div>
 </section>
@@ -442,11 +449,11 @@ html.lenis,html.lenis body{height:auto}
       <h2 class="h2 rv split" id="h-paths">Tiga level, satu titik awal: nol.</h2>
     </div>
     <div class="arrows">
-      <button type="button" id="prev" aria-label="Geser ke kiri">←</button>
-      <button type="button" id="next" aria-label="Geser ke kanan">→</button>
+      <button type="button" id="prev" aria-label="Geser ke kiri" aria-controls="rail" aria-disabled="true">←</button>
+      <button type="button" id="next" aria-label="Geser ke kanan" aria-controls="rail" aria-disabled="false">→</button>
     </div>
   </div>
-  <div class="rail" id="rail" tabindex="0" role="region" aria-label="Daftar level belajar, geser ke samping">
+  <div class="rail" id="rail" tabindex="0" role="region" aria-label="Daftar level belajar, tiga kartu. Gunakan tombol panah kiri dan kanan untuk menggeser">
     <article class="card rv" style="--d:0ms"><div class="top"><span class="mono">Level 01</span><span class="badge">GRATIS</span></div><div class="bar"></div><h3>AI dari Nol</h3><p>Kenalan dengan AI, menulis prompt pertama, dan mengecek jawabannya.</p><div class="tags"><span>Dasar AI</span><span>Prompt</span><span>Cek jawaban</span></div><div class="px" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></article>
     <article class="card rv" style="--d:120ms"><div class="top"><span class="mono">Level 02</span><span class="badge">SEGERA</span></div><div class="bar"></div><h3>AI untuk Kerja</h3><p>Merangkum dokumen, menulis email dan laporan, serta mengolah data sederhana.</p><div class="tags"><span>Merangkum</span><span>Menulis</span><span>Data</span></div><div class="px" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></article>
     <article class="card rv" style="--d:240ms"><div class="top"><span class="mono">Level 03</span><span class="badge">SEGERA</span></div><div class="bar"></div><h3>AI Lanjutan</h3><p>Mengotomasi tugas berulang dan membuat asisten AI sendiri.</p><div class="tags"><span>Otomasi</span><span>Asisten AI</span><span>Workflow</span></div><div class="px" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></article>
@@ -717,26 +724,45 @@ html.lenis,html.lenis body{height:auto}
     (function raf(t){lenis.raf(t);requestAnimationFrame(raf)})(performance.now());
   }
 
-  /* ----- tahap belajar: otomatis bergilir, bisa diklik ----- */
-  var steps=$$('.step'), bars=$$('.meter .bars i'), label=$('#stage-name');
-  var names=['LEARN','PRACTICE','CERTIFY'], cur=0, hold=0, visible=false;
+  /* ----- tahap belajar: bergilir otomatis, bisa dijeda dan diklik ----- */
+  var steps=$$('.step'), bars=$$('.meter .bars i'), label=$('#stage-name'), rot=$('#rot'), stepBox=$('#steps');
+  var names=['LEARN','PRACTICE','CERTIFY'], cur=0, visible=false, paused=false, inside=false;
   function setStep(i){
     cur=i;
-    steps.forEach(function(s,n){s.classList.toggle('on',n===i);s.setAttribute('aria-selected',n===i)});
+    steps.forEach(function(s,n){s.classList.toggle('on',n===i);if(n===i)s.setAttribute('aria-current','step');else s.removeAttribute('aria-current')});
     bars.forEach(function(b,n){b.classList.toggle('on',n<=i)});
     label.textContent='AKTIF: '+names[i];
   }
-  steps.forEach(function(s){s.addEventListener('click',function(){setStep(+s.dataset.i);hold=Date.now()+8000})});
-  if('IntersectionObserver' in window){new IntersectionObserver(function(es){visible=es[0].isIntersecting},{threshold:.2}).observe($('#steps'))}
-  if(!reduce) setInterval(function(){if(visible&&Date.now()>hold)setStep((cur+1)%3)},2600);
+  /* WCAG 2.2.2: gerak otomatis bisa dijeda; berhenti saat kursor atau fokus di area tahap dan setelah pengguna memilih tahap */
+  function setPaused(p){
+    paused=p;
+    rot.textContent=p?'PUTAR':'JEDA';
+    rot.setAttribute('aria-label',p?'Putar pergantian tahap otomatis':'Jeda pergantian tahap otomatis');
+  }
+  steps.forEach(function(s){s.addEventListener('click',function(){setStep(+s.dataset.i);setPaused(true)})});
+  rot.addEventListener('click',function(){setPaused(!paused)});
+  var area=stepBox.parentNode;
+  area.addEventListener('mouseenter',function(){inside=true});
+  area.addEventListener('mouseleave',function(){inside=false});
+  area.addEventListener('focusin',function(){inside=true});
+  area.addEventListener('focusout',function(e){if(!area.contains(e.relatedTarget))inside=false});
+  if('IntersectionObserver' in window){new IntersectionObserver(function(es){visible=es[0].isIntersecting},{threshold:.2}).observe(stepBox)}
+  if(!reduce) setInterval(function(){if(visible&&!paused&&!inside)setStep((cur+1)%3)},2600);
 
   /* ----- carousel ----- */
+  var prevB=$('#prev'), nextB=$('#next');
   function slide(dir){var c=$('.card',rail);var w=c?c.getBoundingClientRect().width+24:320;rail.scrollBy({left:dir*w,behavior:reduce?'auto':'smooth'})}
-  $('#prev').addEventListener('click',function(){slide(-1)});
-  $('#next').addEventListener('click',function(){slide(1)});
-  rail.addEventListener('keydown',function(e){if(e.key==='ArrowRight'){slide(1);e.preventDefault()}if(e.key==='ArrowLeft'){slide(-1);e.preventDefault()}});
-  function rprog(){var m=rail.scrollWidth-rail.clientWidth;rbar.style.setProperty('--tp',(m>0?clamp(.2+.8*rail.scrollLeft/m,0,1):1).toFixed(3));onScroll()}
-  rail.addEventListener('scroll',rprog,{passive:true});rprog();
+  prevB.addEventListener('click',function(){if(prevB.getAttribute('aria-disabled')!=='true')slide(-1)});
+  nextB.addEventListener('click',function(){if(nextB.getAttribute('aria-disabled')!=='true')slide(1)});
+  rail.addEventListener('keydown',function(e){
+    if(e.key==='ArrowRight'){slide(1);e.preventDefault()}
+    else if(e.key==='ArrowLeft'){slide(-1);e.preventDefault()}
+    else if(e.key==='Home'){rail.scrollTo({left:0,behavior:reduce?'auto':'smooth'});e.preventDefault()}
+    else if(e.key==='End'){rail.scrollTo({left:rail.scrollWidth,behavior:reduce?'auto':'smooth'});e.preventDefault()}
+  });
+  function arrows(){var m=rail.scrollWidth-rail.clientWidth;prevB.setAttribute('aria-disabled',rail.scrollLeft<=16?'true':'false');nextB.setAttribute('aria-disabled',rail.scrollLeft>=m-16?'true':'false')}
+  function rprog(){var m=rail.scrollWidth-rail.clientWidth;rbar.style.setProperty('--tp',(m>0?clamp(.2+.8*rail.scrollLeft/m,0,1):1).toFixed(3));arrows();onScroll()}
+  rail.addEventListener('scroll',rprog,{passive:true});window.addEventListener('resize',arrows);rprog();
 
   /* ----- waitlist ----- */
   /* Hubungkan ke backend: window.NERUVIA_WAITLIST_ENDPOINT = 'https://...' (POST JSON).

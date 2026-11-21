@@ -96,9 +96,13 @@ Ukuran huruf: lencana dan pil Silkscreen di Ruang Belajar 11 px (GRATIS, SEGERA,
 
 Status (A4, 22 Nov): selesai. Nomor bagian kebijakan privasi #888 diganti #666 (5,74:1). Lencana dan pil naik ke 12 px. Teks navigasi landing diukur ulang dengan sampel piksel di setiap posisi gulir (1440 dan 390 px, tiap 100 px): rasio terendah 11,55:1, jadi temuan awal adalah positif palsu dan tidak ada perubahan header. Pemindai kontras terhitung pada lima halaman, juga pada keadaan jawaban benar/salah dan pelajaran tuntas: tidak ada kegagalan AA tersisa.
 
+Status (A5, 22 Nov): selesai. F4: rotasi tahap berhenti saat kursor atau fokus ada di area tahap dan setelah pengguna memilih tahap; tombol JEDA/PUTAR (44 px, label berubah) ditambahkan dan disembunyikan pada `prefers-reduced-motion`. F6: dipilih opsi 2, peran tab dibuang; tiga tombol dalam `role="group"` dengan `aria-current="step"` pada tahap aktif, Tab melewati ketiganya dan Enter/Spasi memilih. Carousel level: tombol ← → memakai `aria-controls` dan `aria-disabled` di ujung (tampak redup), wilayah geser mendukung ← → Home End, label menyebut cara pakai, cincin fokus di dalam tepi wilayah.
+
 ### F8 · Fokus kolom isian (R)
 
 Bukti: `index.html` baris 179, `input:focus{outline:none;box-shadow:0 0 0 4px rgba(56,225,255,.35)}` ditambah `border-color` hitam. Batas hitam 1 px di atas putih sudah memberi kontras, tetapi cincin cyan 35% tidak memenuhi 3:1 pada putih. Perbaikan: tebalkan border fokus menjadi 2 px #080808 atau pakai `outline:2px solid #080808`.
+
+Status (A5, 22 Nov): selesai. Kolom isian fokus memakai `outline:2px solid #080808` dengan offset 2 px, glow cyan dipertahankan sebagai hiasan.
 
 ### F9 · Halaman pendukung (R)
 
