@@ -15,7 +15,7 @@
 .stat span{font-size:14px;color:var(--muted)}
 .tools{margin:44px 0 20px;display:flex;gap:8px;flex-wrap:wrap;align-items:center}
 .tools p{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-right:8px}
-.f{cursor:pointer;font:500 15px var(--f-main);height:42px;padding:0 18px;border-radius:999px;border:1px solid var(--line);background:transparent;color:#fff;transition:background .25s,color .25s,border-color .25s}
+.f{cursor:pointer;font:500 15px var(--f-main);height:44px;padding:0 18px;border-radius:999px;border:1px solid var(--line);background:transparent;color:#fff;transition:background .25s,color .25s,border-color .25s}
 .f:hover{border-color:#fff}
 .f[aria-pressed=true]{background:#fff;color:var(--ink);border-color:#fff}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:16px;align-items:start}
@@ -34,7 +34,7 @@
 .track{height:10px;background:#1f1f1f;border-radius:999px;overflow:hidden}
 .track i{display:block;height:100%;width:0;background:var(--cyan);border-radius:999px;transition:width .6s var(--ease)}
 details{border-top:1px solid var(--line);padding-top:14px}
-summary{cursor:pointer;font-weight:600;font-size:16px;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px}
+summary{cursor:pointer;min-height:44px;font-weight:600;font-size:16px;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px}
 summary::-webkit-details-marker{display:none}
 summary::after{content:"+";font-family:var(--f-mono);color:var(--cyan);font-size:20px}
 details[open] summary::after{content:"\2212"}
@@ -46,6 +46,10 @@ ol.ls li::before{content:counter(l,decimal-leading-zero);font-family:var(--f-mon
 ol.ls li.done{border-color:var(--mint)}
 ol.ls li.done::after{content:"SELESAI";margin-left:auto;font-family:var(--f-pixel);font-size:10px;color:var(--ink);background:var(--mint);border-radius:5px;padding:3px 6px;align-self:center}
 .ls .tx{flex:1;min-width:0}
+ol.ls li{position:relative}
+.ls .tx a::after{content:"";position:absolute;inset:0;border-radius:14px}
+ol.ls li:has(a:focus-visible){outline:3px solid var(--cyan);outline-offset:2px}
+.ls .tx a:focus-visible{outline:none}
 .ls small{display:block;margin-top:3px;font-size:12px;color:#8f8f8f}
 .empty{padding:28px;border:1px dashed var(--line);border-radius:20px;color:var(--muted)}
 .badges{margin-top:28px}

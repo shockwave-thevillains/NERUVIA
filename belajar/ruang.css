@@ -11,10 +11,10 @@ a{color:inherit}
 :focus-visible{outline:3px solid var(--cyan);outline-offset:3px;border-radius:8px}
 .skip{position:absolute;left:-999px;top:8px;background:#fff;color:var(--ink);padding:10px 16px;border-radius:10px;z-index:20}.skip:focus{left:8px}
 header{position:sticky;top:0;z-index:10;background:rgba(8,8,8,.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-.bar{max-width:1120px;margin:0 auto;padding:16px clamp(20px,5vw,40px);display:flex;justify-content:space-between;align-items:center;gap:16px}
-.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--f-mono);letter-spacing:.2em;font-size:14px}
+.bar{max-width:1120px;margin:0 auto;padding:14px clamp(20px,5vw,40px);display:flex;justify-content:space-between;align-items:center;gap:16px}
+.brand{display:flex;align-items:center;gap:10px;min-height:44px;text-decoration:none;font-family:var(--f-mono);letter-spacing:.2em;font-size:14px}
 .brand svg{height:18px;width:auto}
-.back{font-size:15px;text-decoration:none;border:1px solid var(--line);border-radius:999px;padding:8px 16px;color:var(--muted)}
+.back{display:inline-flex;align-items:center;min-height:44px;font-size:15px;text-decoration:none;border:1px solid var(--line);border-radius:999px;padding:8px 16px;color:var(--muted)}
 .back:hover{border-color:#fff;color:#fff}
 main{max-width:1120px;margin:0 auto;padding:clamp(40px,6vw,72px) clamp(20px,5vw,40px) 96px}
 .eyebrow{font-family:var(--f-mono);font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--cyan)}
