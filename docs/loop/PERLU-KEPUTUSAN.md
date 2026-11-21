@@ -7,3 +7,5 @@ Run otomatis menambahkan butir baru di bagian bawah. Master menghapus butir yang
 3. **Project Supabase:** `neruvia-dev` sudah dibuat (ap-southeast-1, gratis). Proyek gratis dijeda bila lama tidak aktif. Master memutuskan kapan pindah ke proyek produksi.
 4. **Akun login dan komentar:** dirancang aman dulu sebagai draf di Paket S (kegiatan 4), tanpa Supabase Auth nyata. Master memutuskan kapan diaktifkan.
 5. **Modul 2 dan 3 Level 1, serta Level 2 Modul 1:** Claude mengerjakannya sebagai DRAF karena Master melimpahkan pekerjaan (21 Nov). Judulnya ada di `docs/loop/MATERI.md`. Master boleh mengubah atau menolaknya kapan saja.
+6. **`config.js` di branch dev:** berisi endpoint dan kunci publishable proyek `neruvia-dev`, supaya form dev terhubung. Sebelum merge ke `main`, Master memutuskan apakah berkas ini dipakai apa adanya, diganti kunci produksi, atau dikosongkan. Jangan merge sebelum placeholder kebijakan privasi terisi.
+
