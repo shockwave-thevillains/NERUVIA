@@ -1,11 +1,11 @@
 # Runbook loop NERUVIA
 
-Tujuan: menyelesaikan web NERUVIA (fitur daftar dan galeri belajar) lewat run terjadwal. Satu run berisi 3 kegiatan, maksimal 5 bila ringan (teks, CSS, dokumen).
+Tujuan: menyelesaikan web NERUVIA (fitur daftar dan galeri belajar) lewat run terjadwal. Satu run mengerjakan satu paket berisi TEPAT 5 kegiatan, sesuai satu jendela batas 5 jam. Kegiatan yang ringan (teks, CSS, dokumen) tidak boleh dipakai untuk mengurangi jumlahnya.
 
 ## Mulai run
 1. Buka repo `shockwave-thevillains/NERUVIA`, branch `dev`. Clone bila folder kerja belum ada, lalu `git pull origin dev`.
 2. Baca `docs/loop/PROGRESS.md`, `docs/loop/BACKLOG.md`, dan `docs/loop/PERLU-KEPUTUSAN.md`.
-3. Ambil run pertama di BACKLOG yang belum selesai, lalu kerjakan kegiatannya berurutan.
+3. Ambil paket pertama di BACKLOG (A, B, C, D) yang belum selesai menurut PROGRESS, lalu kerjakan kelima kegiatannya berurutan.
 
 ## Aturan tiap kegiatan
 - Satu kegiatan menghasilkan satu perubahan dan satu commit. Pesan commit berbahasa Indonesia.
@@ -25,8 +25,8 @@ Tujuan: menyelesaikan web NERUVIA (fitur daftar dan galeri belajar) lewat run te
 - Pertahankan gaya: monokrom #080808 / #F2F2F0 dengan aksen cyan #38E1FF, tanpa warna pastel di landing; Space Grotesk, Space Mono, Silkscreen; Neru satu-satunya maskot; `prefers-reduced-motion` mematikan gerak.
 
 ## Akhir run
-1. Perbarui `PROGRESS.md`: nomor run, kegiatan selesai beserta hash commit, kegiatan yang belum, dan catatan.
+1. Perbarui `PROGRESS.md`: nama paket, kegiatan selesai beserta hash commit, kegiatan yang belum, dan catatan.
 2. Push ke `origin dev`. Bila push ditolak, catat pesan persisnya di PROGRESS.md lalu berhenti.
 3. Tulis ringkasan 3–6 kalimat sebagai hasil run.
 4. Bila kuota atau batas laju tercapai di tengah run, commit pekerjaan yang sudah utuh, catat progres, lalu berhenti.
-5. Setelah run 13 selesai, nonaktifkan tugas terjadwal ini (list_triggers lalu delete_trigger) dan tulis ringkasan akhir.
+5. Setelah Paket D selesai, nonaktifkan tugas terjadwal ini (list_triggers lalu delete_trigger) dan tulis ringkasan akhir.

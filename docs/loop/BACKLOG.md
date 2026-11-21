@@ -1,17 +1,35 @@
-# Backlog loop NERUVIA (21–27 Nov 2026)
+# Backlog loop NERUVIA
 
-Keputusan yang berlaku: fase 1 tetap statis (HTML + Supabase JS), fitur daftar berupa waitlist dulu, akun login di run 11, pilot dilakukan sebelum run 1.
+Keputusan yang berlaku: fase 1 tetap statis (HTML + Supabase JS), fitur daftar berupa waitlist dulu, pilot sudah lolos.
 
-- **Run 1 (Sab 21):** audit desktop dan mobile terhadap PRD (`docs/loop/AUDIT.md`); perbaiki celah teratas; rapikan berkas loop bila perlu.
-- **Run 2 (Min 22):** perbaiki celah #2–#3 (navigasi mobile, tap target, kontras); aksesibilitas carousel dan tab (aria, keyboard); fokus yang terlihat.
-- **Run 3 (Min 22):** performa (lazy-load frame Neru, preload font, ukuran gambar, ukur dengan Playwright); verifikasi `prefers-reduced-motion`; screenshot desktop dan mobile.
-- **Run 4 (SELESAI, lewati):** validasi form inline, status loading/sukses/gagal, anti-bot honeypot, cegah kirim ganda. Tetap mode pratinjau.
-- **Run 5 (SELESAI, lewati):** halaman terima kasih; berkas SQL Supabase (tabel `waitlist`, RLS insert-only, email unik, kolom persetujuan); `docs/waitlist-backend.md`. SQL tidak diterapkan.
-- **Run 6 (SELESAI, lewati):** `content/kursus.json` (level, modul, pelajaran) dan skrip validasinya; outline Level 1 untuk Master tinjau.
-- **Run 7 (SELESAI, lewati):** halaman `belajar/` berisi galeri kartu kursus (Level 1 aktif, Level 2–3 "segera"), filter, progres dari localStorage.
-- **Run 8 (SELESAI, lewati):** halaman pelajaran dengan navigasi sebelumnya/berikutnya, tombol tandai selesai, bar progres.
-- **Run 9 (SELESAI, lewati):** XP, streak, badge piksel (Silkscreen); ekspor dan impor progres.
-- **Run 10 (Kam 26):** draf isi Modul 1 pelajaran 1–2 (ditandai DRAF); latihan interaktif "prompt jelek vs bagus".
-- **Run 11 (Kam 26):** alur akun (Supabase Auth magic link, gerbang 18+, tabel progres dengan RLS) di balik flag. Bila Master belum memutuskan akun, ganti dengan draf pelajaran 3–5.
-- **Run 12 (Jum 27):** CSP lewat meta, SRI, cek tautan, audit aksesibilitas ulang, uji keyboard dan mobile.
-- **Run 13 (Jum 27):** snapshot ke Notion bila konektornya tersedia, pembaruan README dan docs, ringkasan akhir di PROGRESS.md, dan branch `dev` siap Master tinjau.
+Satu run mengerjakan satu paket yang berisi TEPAT 5 kegiatan, sesuai satu jendela batas 5 jam. Satu kegiatan menghasilkan satu commit. Paket dikerjakan berurutan A, B, C, D.
+
+Sudah selesai secara interaktif (21 Nov), tidak perlu dikerjakan ulang: form waitlist (validasi, state, anti-bot), halaman terima kasih, SQL dan dokumen backend, `content/kursus.json` dan validator, galeri `belajar/`, halaman pelajaran, XP, streak, badge, ekspor/impor progres.
+
+## Paket A (run 1)
+1. Audit desktop dan mobile terhadap PRD dan arah visual. Tulis `docs/loop/AUDIT.md` berisi temuan berperingkat.
+2. Perbaiki celah teratas dari audit.
+3. Perbaiki navigasi mobile dan ukuran area ketuk (minimal 44 px).
+4. Perbaiki kontras warna yang gagal (target WCAG AA).
+5. Aksesibilitas carousel level dan tab: aria, keyboard, fokus terlihat.
+
+## Paket B (run 2)
+1. Performa: lazy-load frame Neru dan atur prioritas muat.
+2. Performa: preload font, ukuran dan format gambar.
+3. Ukur dengan Playwright sebelum dan sesudah (LCP, CLS, bobot transfer) dan verifikasi `prefers-reduced-motion`. Catat angka di PROGRESS.
+4. Draf isi pelajaran 1 (`l1-m1-p1`), ditandai DRAF, tanpa klaim yang belum dikonfirmasi.
+5. Draf isi pelajaran 2 (`l1-m1-p2`), ditandai DRAF.
+
+## Paket C (run 3)
+1. Latihan interaktif "prompt jelek vs prompt bagus" untuk pelajaran 3, ditandai DRAF.
+2. Draf isi pelajaran 3.
+3. Draf isi pelajaran 4.
+4. Draf isi pelajaran 5 (latihan mengecek jawaban AI).
+5. Perbarui `kursus.json` (status isi) dan jalankan validator. Bila butir 4 di PERLU-KEPUTUSAN dijawab "lanjut", kerjakan kerangka akun di balik flag (hanya kode dan SQL draf, tanpa project Supabase).
+
+## Paket D (run 4, terakhir)
+1. CSP lewat meta dan pengecekan SRI untuk aset vendor.
+2. Cek semua tautan internal dan eksternal.
+3. Audit aksesibilitas ulang, termasuk uji keyboard dan mobile.
+4. Perbarui README dan docs. Snapshot ke Notion bila konektornya tersedia.
+5. Ringkasan akhir di PROGRESS.md, pastikan `dev` siap Master tinjau, lalu nonaktifkan tugas terjadwal ini.
