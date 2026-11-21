@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pelajaran (pratinjau) — NERUVIA</title>
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/svg+xml" href="../assets/brand/neruvia-icon-cyan.svg">
+<link rel="stylesheet" href="ruang.css">
+<style>
+main{max-width:820px}
+.crumb{font-size:14px;color:var(--muted);display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.crumb a{color:var(--muted)}.crumb a:hover{color:#fff}
+h1{max-width:none;font-size:clamp(32px,4.8vw,52px);margin:16px 0 14px}
+.meta{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:28px}
+.pill{font-family:var(--f-pixel);font-size:11px;letter-spacing:.06em;padding:5px 9px;border-radius:6px;background:var(--violet);color:var(--ink)}
+.pill.xp{background:var(--amber)}
+.pill.ok{background:var(--mint)}
+.mprog{display:grid;gap:8px;margin-bottom:32px}
+.mprog .t{display:flex;justify-content:space-between;font-size:14px;color:var(--muted)}
+.track{height:10px;background:#1f1f1f;border-radius:999px;overflow:hidden}
+.track i{display:block;height:100%;width:0;background:var(--cyan);border-radius:999px;transition:width .6s var(--ease)}
+.body{background:var(--card);border:1px solid var(--line);border-radius:28px;padding:clamp(22px,3vw,36px);min-height:220px}
+.body p{font-size:18px;color:var(--muted);max-width:60ch}
+.body .draft{display:inline-block;margin-bottom:14px;font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--amber)}
+.acts{margin-top:24px;display:flex;gap:12px;flex-wrap:wrap}
+.btn{font:600 16px var(--f-main);height:54px;padding:0 24px;border-radius:999px;border:1px solid var(--line);background:transparent;color:#fff;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:10px;transition:background .25s,color .25s,border-color .25s}
+.btn:hover{border-color:#fff}
+.btn.main{background:var(--cyan);border-color:var(--cyan);color:var(--ink)}
+.btn.main[aria-pressed=true]{background:var(--mint);border-color:var(--mint)}
+.btn.main:hover{filter:brightness(1.08)}
+.btn[aria-disabled=true]{opacity:.4;pointer-events:none}
+.nav2{margin-top:36px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.live{min-height:24px;margin-top:14px;font-size:15px;color:var(--mint)}
+.empty{padding:28px;border:1px dashed var(--line);border-radius:20px;color:var(--muted)}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<a class="skip" href="#isi">Lewati ke isi</a>
+<header>
+  <div class="bar">
+    <a class="brand" href="../index.html" aria-label="NERUVIA, kembali ke beranda"><svg viewBox="7 8 133 70" aria-hidden="true"><path d="M9,11 L31,11 L72.2,54.9 L85.4,75.2 L63.8,75.2 L26.5,42 L26.5,75.2 L9,75.2Z M58.3,13 L72.3,13 L94.5,41.5 L117,10.5 L136.7,10.5 L99.5,68.5Z" fill="currentColor" stroke="currentColor" stroke-width="6" stroke-linejoin="round" fill-rule="evenodd"/></svg>NERUVIA</a>
+    <a class="back" href="index.html">← Ruang belajar</a>
+  </div>
+</header>
+<main id="isi"><div class="empty" id="state">Memuat pelajaran…</div></main>
+<script src="progress.js"></script>
+<script>
+(function(){
+  var main=document.getElementById('isi');
+  function el(t,c,x){var e=document.createElement(t);if(c)e.className=c;if(x!=null)e.textContent=x;return e}
+  function fail(msg){main.textContent='';var d=el('div','empty',msg);d.appendChild(document.createElement('br'));var a=el('a','','Kembali ke daftar level');a.href='index.html';a.style.color='var(--cyan)';d.appendChild(a);main.appendChild(d)}
+  var id=new URLSearchParams(location.search).get('id')||'';
+  fetch('../content/kursus.json').then(function(r){if(!r.ok)throw 0;return r.json()}).then(function(d){
+    var flat=[];d.level.forEach(function(l){l.modul.forEach(function(m){m.pelajaran.forEach(function(p){flat.push({l:l,m:m,p:p})})})});
+    var i=-1;flat.forEach(function(x,k){if(x.p.id===id)i=k});
+    if(i<0)return fail('Pelajaran tidak ditemukan.');
+    show(flat,i);
+  }).catch(function(){fail('Pelajaran gagal dimuat. Buka halaman ini lewat server (bukan file lokal) dan coba lagi.')});
+
+  function show(flat,i){
+    var cur=flat[i],p=cur.p,prev=flat[i-1],next=flat[i+1],mod=cur.m.pelajaran;
+    document.title=p.judul+' — NERUVIA';
+    main.textContent='';
+    var cr=el('nav','crumb');cr.setAttribute('aria-label','Lokasi');
+    var a1=el('a','','Level '+cur.l.nomor+' · '+cur.l.judul);a1.href='index.html';cr.appendChild(a1);cr.appendChild(el('span','','/'));cr.appendChild(el('span','',cur.m.judul));
+    main.appendChild(cr);
+    main.appendChild(el('h1','',p.judul));
+    var meta=el('div','meta');meta.appendChild(el('span','pill',p.jenis.toUpperCase()));meta.appendChild(el('span','pill xp',p.xp+' XP'));
+    var st=el('span','pill ok','SELESAI');meta.appendChild(st);main.appendChild(meta);
+
+    var mp=el('div','mprog'),tt=el('div','t'),t1=el('span'),t2=el('span'),tr=el('div','track'),bar=el('i');
+    tt.appendChild(t1);tt.appendChild(t2);tr.setAttribute('role','progressbar');tr.setAttribute('aria-label','Progres modul');tr.setAttribute('aria-valuemin','0');tr.setAttribute('aria-valuemax',String(mod.length));
+    tr.appendChild(bar);mp.appendChild(tt);mp.appendChild(tr);main.appendChild(mp);
+
+    var body=el('section','body');body.setAttribute('aria-label','Isi pelajaran');
+    if(p.isi==='belum'){body.appendChild(el('span','draft','// Materi sedang disusun'));body.appendChild(el('p','','Isi pelajaran ini belum tersedia. Tombol di bawah hanya untuk mencoba alur belajar: tandai selesai, lihat progres, lanjut ke pelajaran berikutnya.'))}
+    else{body.appendChild(el('p','',p.ringkas||''))}
+    main.appendChild(body);
+
+    var acts=el('div','acts'),done=el('button','btn main');done.type='button';
+    acts.appendChild(done);main.appendChild(acts);
+    var live=el('p','live');live.setAttribute('role','status');live.setAttribute('aria-live','polite');main.appendChild(live);
+
+    var nav=el('div','nav2');
+    function link(x,label,dir){var a=el('a','btn');a.textContent=label;if(x){a.href='pelajaran.html?id='+encodeURIComponent(x.p.id);a.title=x.p.judul}else{a.setAttribute('aria-disabled','true');a.removeAttribute('href')}return a}
+    nav.appendChild(link(prev,'← Sebelumnya'));nav.appendChild(link(next,'Berikutnya →'));main.appendChild(nav);
+
+    function paint(announce){
+      var on=window.NVProgress.isDone(p.id);
+      done.setAttribute('aria-pressed',on);done.textContent=on?'Selesai · batalkan':'Tandai selesai (+'+p.xp+' XP)';
+      st.style.display=on?'':'none';
+      var s=window.NVProgress.summary(mod);
+      t1.textContent=s.done+' dari '+s.count+' pelajaran di modul ini';t2.textContent=s.xp+' / '+s.xpTotal+' XP';
+      bar.style.width=Math.round(100*s.done/s.count)+'%';tr.setAttribute('aria-valuenow',String(s.done));
+      if(announce)live.textContent=on?('Tersimpan. +'+p.xp+' XP.'+(next?' Lanjut ke pelajaran berikutnya.':'')):'Penanda selesai dibatalkan.';
+    }
+    done.addEventListener('click',function(){
+      var ok=window.NVProgress.mark(p.id,!window.NVProgress.isDone(p.id));
+      if(!ok){live.style.color='#FF8A80';live.textContent='Progres tidak bisa disimpan di browser ini.';return}
+      live.style.color='';paint(true)});
+    paint(false);
+  }
+})();
+</script>
+</body>
+</html>
