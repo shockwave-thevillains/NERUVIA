@@ -22,7 +22,7 @@ Kurikulum: pakai AI dulu, baru pakai AI dengan aman. Level 1 Modul 1 "Kenalan de
 
 ## 4. Desain
 - Gaya: modern minimalis hitam putih, tampilan editorial, headline raksasa, Neru menimpa headline hero. Scroll terang, gelap, terang, gelap.
-- Token: bg #FFFFFF / #080808, surface #F2F2F0 / #121212, teks sekunder #666666 (terang) dan #9A9A9A (gelap), garis #BDBDBD / #2A2A2A, aksen #38E1FF.
+- Token (sama dengan kode landing): bg #FFFFFF / #080808, surface #F2F2F0 / #0E0E0E (kartu gelap #141414), teks sekunder #666666 (terang) dan #B5B5B5 (gelap), garis #D9D9D6 / #2E2E2E, aksen #38E1FF.
 - Aturan cyan: di atas #080808 boleh jadi teks, garis, glow (12,76:1). Di atas putih hanya sebagai isian dengan teks hitam, glow, atau garis bawah (1,57:1, gagal sebagai teks). Satu aksen saja.
 - Hijau dan merah hanya untuk benar/salah dan status.
 - Tanpa pastel. Badge, level, dan progres di Ruang Belajar memakai hitam, putih, abu, dan cyan (kontras sesuai aturan cyan di atas). Hijau dan merah tetap hanya untuk benar/salah dan status.
