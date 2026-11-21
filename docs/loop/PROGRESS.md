@@ -19,7 +19,7 @@ Status: belum, sedang (diklaim run), selesai, gagal. Kolom commit berisi hash. R
 
 | ID | Jam rencana (WIB) | Kegiatan | Status | Commit |
 |---|---|---|---|---|
-| A1 | Min 22 Nov 00:45 | Audit desktop dan mobile terhadap PRD dan arah visual, hasil ke AUDIT.md | sedang | |
+| A1 | Min 22 Nov 00:45 | Audit desktop dan mobile terhadap PRD dan arah visual, hasil ke AUDIT.md | selesai | b84cf1e |
 | A2 | Min 22 Nov 01:35 | Perbaiki celah teratas dari audit | belum | |
 | A3 | Min 22 Nov 02:25 | Navigasi mobile dan area ketuk minimal 44 px | belum | |
 | A4 | Min 22 Nov 03:15 | Perbaiki kontras warna yang gagal (WCAG AA) | belum | |
