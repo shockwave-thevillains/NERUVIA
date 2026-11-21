@@ -8,7 +8,7 @@ Selama 21–28 Nov 2026 loop berjalan 4 kali sehari (00:45, 06:45, 12:45, 18:45 
 ## Mulai run
 1. Buka repo `shockwave-thevillains/NERUVIA`, branch `dev`. Clone bila folder kerja belum ada, lalu `git pull origin dev`.
 2. Baca `docs/loop/PROGRESS.md`, `docs/loop/BACKLOG.md`, dan `docs/loop/PERLU-KEPUTUSAN.md`.
-3. Ambil paket pertama di BACKLOG (A, B, C, D) yang belum selesai menurut PROGRESS, lalu kerjakan kelima kegiatannya berurutan.
+3. Ambil paket pertama di BACKLOG (urutan: A, S, B, C, E, F, G, H, D) yang belum selesai menurut PROGRESS, lalu kerjakan kelima kegiatannya berurutan.
 
 ## Aturan tiap kegiatan
 - Satu kegiatan menghasilkan satu perubahan dan satu commit. Pesan commit berbahasa Indonesia.
@@ -22,8 +22,8 @@ Selama 21–28 Nov 2026 loop berjalan 4 kali sehari (00:45, 06:45, 12:45, 18:45 
 - Jangan push atau merge ke `main`. `main` tayang langsung di GitHub Pages.
 - Jangan menampilkan identitas pembuat (nama, bio, kontak pribadi) di halaman, commit, atau dokumen. Penulis commit tetap "Claude".
 - Jangan menulis, mengubah, atau menghapus memori.
-- Jangan menyambungkan form ke endpoint nyata. `NERUVIA_WAITLIST_ENDPOINT` tetap kosong sampai Master mengisi placeholder di `kebijakan-privasi.html` dan mengizinkan.
-- Jangan membuat project Supabase atau layanan berbayar. Jangan menaruh kunci atau rahasia di repo.
+- Jangan mengubah pengaturan endpoint waitlist atau menyambungkan halaman login/komentar ke layanan nyata. Penyambungan form ke project `neruvia-dev` hanya dikerjakan Claude interaktif dan hanya di build dev.
+- Project Supabase `neruvia-dev` sudah ada. Jangan membuat project baru, mengubah skema, atau memakai layanan berbayar. Jangan menaruh kunci atau rahasia di repo.
 - Jangan menyatakan hal yang belum dikonfirmasi Master: Level 1 gratis, dukungan ChatGPT/Gemini/Claude, praktik dengan versi gratis, harga, sertifikat.
 - Jangan menyalin teks dari ailene.id.
 - Pertahankan gaya: monokrom #080808 / #F2F2F0 dengan aksen cyan #38E1FF, tanpa warna pastel di landing; Space Grotesk, Space Mono, Silkscreen; Neru satu-satunya maskot; `prefers-reduced-motion` mematikan gerak.
@@ -34,3 +34,9 @@ Selama 21–28 Nov 2026 loop berjalan 4 kali sehari (00:45, 06:45, 12:45, 18:45 
 3. Tulis ringkasan 3–6 kalimat sebagai hasil run.
 4. Bila kuota atau batas laju tercapai di tengah run, commit pekerjaan yang sudah utuh, catat progres, lalu berhenti.
 5. Setelah Paket D (paket terakhir) selesai, nonaktifkan tugas terjadwal ini (list_triggers lalu delete_trigger) dan tulis ringkasan akhir.
+
+## Gerbang keamanan
+- Pelajaran baru tidak boleh dikerjakan sebelum Paket S selesai menurut PROGRESS.
+- Sebelum setiap commit yang menyentuh kode atau konten, jalankan `node tools/uji-keamanan.mjs` (setelah dibuat di Paket S) dan `node tools/validasi-kursus.mjs`. Bila ada yang gagal, perbaiki dulu.
+- Data dari pengguna, berkas impor, atau JSON isi pelajaran tidak boleh masuk ke `innerHTML`, `eval`, atau atribut `on*`. Pakai `textContent`.
+- Jangan menaruh kunci rahasia di repo. Kunci publik (anon/publishable) hanya boleh ada di konfigurasi build dev.

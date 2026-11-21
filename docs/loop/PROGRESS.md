@@ -10,6 +10,7 @@
 | 8 | selesai (interaktif, 21 Nov) | `belajar/pelajaran.html?id=...`: breadcrumb, sebelumnya/berikutnya, tandai selesai, progres modul; CSS dasar dipindah ke `belajar/ruang.css` | Diuji desktop dan mobile: id kosong/salah/berisi HTML ditangani tanpa eksekusi skrip. Isi pelajaran masih placeholder "Materi sedang disusun". |
 | 9 | selesai (interaktif, 21 Nov) | XP, streak (hari lokal beruntun), 5 badge piksel SVG 8x8, ekspor/impor progres JSON di `belajar/` | Impor divalidasi: format, batas 100 KB dan 500 id, hanya id dikenal, gabung tanpa menimpa. Diuji desktop dan mobile. |
 | Paket A | belum | lihat BACKLOG.md | 5 kegiatan |
+| Paket S | belum | lihat BACKLOG.md | Keamanan, wajib sebelum pelajaran baru |
 | Paket B | belum | lihat BACKLOG.md | 5 kegiatan |
 | Paket C | belum | lihat BACKLOG.md | 5 kegiatan |
 | Paket E | belum | lihat BACKLOG.md | Level 1 Modul 2 |

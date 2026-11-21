@@ -4,6 +4,6 @@ Run otomatis menambahkan butir baru di bagian bawah. Master menghapus butir yang
 
 1. **Tiga klaim landing belum dikonfirmasi:** Level 1 gratis, dukungan ChatGPT/Gemini/Claude, praktik Modul 1 dengan versi gratis. Perubahan `dev` tidak boleh di-merge ke `main` sebelum ketiganya jelas.
 2. **Placeholder `kebijakan-privasi.html`:** identitas pengendali, alamat, email kontak, prosesor, tanggal berlaku. Form tidak boleh tersambung ke database sebelum terisi. Pilihan identitas: badan usaha (mis. Perseroan Perorangan) atau nama usaha dengan email resmi; konfirmasi ke advokat.
-3. **Project Supabase:** belum ada. Master membuat atau mengizinkan pembuatannya (rekomendasi region ap-southeast-1).
-4. **Akun login (Paket C, kegiatan 5):** lanjut dengan kerangka akun atau cukup konten pelajaran?
+3. **Project Supabase:** `neruvia-dev` sudah dibuat (ap-southeast-1, gratis). Proyek gratis dijeda bila lama tidak aktif. Master memutuskan kapan pindah ke proyek produksi.
+4. **Akun login dan komentar:** dirancang aman dulu sebagai draf di Paket S (kegiatan 4), tanpa Supabase Auth nyata. Master memutuskan kapan diaktifkan.
 5. **Modul 2 dan 3 Level 1, serta Level 2 Modul 1:** Claude mengerjakannya sebagai DRAF karena Master melimpahkan pekerjaan (21 Nov). Judulnya ada di `docs/loop/MATERI.md`. Master boleh mengubah atau menolaknya kapan saja.
