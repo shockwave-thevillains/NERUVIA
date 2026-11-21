@@ -7,7 +7,7 @@ Lima tugas terjadwal ("NERUVIA loop web 1" sampai "5") berjalan tiap hari di emp
 
 ## Mulai run
 1. Buka repo `shockwave-thevillains/NERUVIA`, branch `dev`. Clone bila folder kerja belum ada, lalu `git pull origin dev`.
-2. Baca `docs/loop/PROGRESS.md`, `docs/loop/BACKLOG.md`, dan `docs/loop/PERLU-KEPUTUSAN.md`.
+2. Baca `docs/konteks/PRD.md` (konteks produk dan desain), `docs/loop/PROGRESS.md`, `docs/loop/BACKLOG.md`, dan `docs/loop/PERLU-KEPUTUSAN.md`.
 3. Di tabel "Antrean kegiatan" PROGRESS.md, ambil baris pertama berstatus "belum" dari atas. Rincian kegiatannya ada di BACKLOG.md. Bila ada baris berstatus "sedang" yang diklaim kurang dari 40 menit lalu, jangan ambil kegiatan yang sama. Bila klaim lebih dari 40 menit tanpa commit, anggap gagal dan ambil baris itu.
 4. Klaim kegiatan: ubah statusnya menjadi "sedang", commit pesan "Klaim <ID>", lalu `git pull --rebase origin dev` dan push. Bila push bentrok karena run lain mengklaim baris yang sama, pilih baris "belum" berikutnya.
 5. Kerjakan hanya kegiatan itu. Setelah selesai, ubah status menjadi "selesai" beserta hash commit, lalu push dan berhenti.

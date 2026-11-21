@@ -7,7 +7,7 @@ Satu run mengerjakan SATU kegiatan, dan lima run berselang 50 menit mengisi satu
 Sudah selesai (jangan dikerjakan ulang): form waitlist, halaman terima kasih, SQL dan dokumen backend, `kursus.json` dan validator, galeri `belajar/`, halaman pelajaran dengan penampil isi dan soal cek pemahaman, XP/streak/badge, ekspor/impor progres, draf pelajaran 1.
 
 ## Paket A
-1. Audit desktop dan mobile terhadap PRD dan arah visual. Tulis `docs/loop/AUDIT.md` berisi temuan berperingkat.
+1. Audit desktop dan mobile terhadap `docs/konteks/PRD.md` (bagian Desain). Tulis `docs/loop/AUDIT.md` berisi temuan berperingkat.
 2. Perbaiki celah teratas dari audit.
 3. Perbaiki navigasi mobile dan ukuran area ketuk (minimal 44 px).
 4. Perbaiki kontras warna yang gagal (target WCAG AA).
