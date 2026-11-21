@@ -1,14 +1,16 @@
 # Runbook loop NERUVIA
 
-Tujuan: menyelesaikan web NERUVIA (fitur daftar dan galeri belajar) lewat run terjadwal. Satu run mengerjakan satu paket berisi TEPAT 5 kegiatan, sesuai satu jendela batas 5 jam. Kegiatan yang ringan (teks, CSS, dokumen) tidak boleh dipakai untuk mengurangi jumlahnya.
+Tujuan: menyelesaikan web NERUVIA (fitur daftar dan galeri belajar) lewat run terjadwal. Satu run mengerjakan TEPAT SATU kegiatan. Lima tugas terjadwal berjalan berselang 50 menit sehingga satu jendela batas 5 jam berisi 5 kegiatan, masing-masing di sesi sendiri.
 
 ## Jadwal
-Selama 21–28 Nov 2026 loop berjalan 4 kali sehari (00:45, 06:45, 12:45, 18:45 WIB) karena Master melimpahkan pekerjaan, termasuk di jam sibuknya. Mulai 28 Nov hanya jam sepi Master (00:45 dan 06:45 WIB). Bila sebuah run mulai di luar dua jam itu setelah 28 Nov 2026, berhenti tanpa mengerjakan apa pun.
+Lima tugas terjadwal ("NERUVIA loop web 1" sampai "5") berjalan tiap hari di empat jendela: awal 00:45, 06:45, 12:45, 18:45 WIB. Slot 1 mulai di menit 0 jendela, slot 2 di +50, slot 3 di +100, slot 4 di +150, slot 5 di +200 menit. Mulai 28 Nov hanya dua jendela (00:45 dan 06:45). Run yang mulai sebelum Min 22 Nov 2026 00:30 WIB atau di luar jendela yang berlaku harus berhenti dengan satu kalimat tanpa mengerjakan apa pun.
 
 ## Mulai run
 1. Buka repo `shockwave-thevillains/NERUVIA`, branch `dev`. Clone bila folder kerja belum ada, lalu `git pull origin dev`.
 2. Baca `docs/loop/PROGRESS.md`, `docs/loop/BACKLOG.md`, dan `docs/loop/PERLU-KEPUTUSAN.md`.
-3. Ambil paket pertama di BACKLOG (urutan: A, S, B, C, E, F, G, H, D) yang belum selesai menurut PROGRESS, lalu kerjakan kelima kegiatannya berurutan.
+3. Di tabel "Antrean kegiatan" PROGRESS.md, ambil baris pertama berstatus "belum" dari atas. Rincian kegiatannya ada di BACKLOG.md. Bila ada baris berstatus "sedang" yang diklaim kurang dari 40 menit lalu, jangan ambil kegiatan yang sama. Bila klaim lebih dari 40 menit tanpa commit, anggap gagal dan ambil baris itu.
+4. Klaim kegiatan: ubah statusnya menjadi "sedang", commit pesan "Klaim <ID>", lalu `git pull --rebase origin dev` dan push. Bila push bentrok karena run lain mengklaim baris yang sama, pilih baris "belum" berikutnya.
+5. Kerjakan hanya kegiatan itu. Setelah selesai, ubah status menjadi "selesai" beserta hash commit, lalu push dan berhenti.
 
 ## Aturan tiap kegiatan
 - Satu kegiatan menghasilkan satu perubahan dan satu commit. Pesan commit berbahasa Indonesia.
@@ -29,11 +31,11 @@ Selama 21–28 Nov 2026 loop berjalan 4 kali sehari (00:45, 06:45, 12:45, 18:45 
 - Pertahankan gaya: monokrom #080808 / #F2F2F0 dengan aksen cyan #38E1FF, tanpa warna pastel di landing; Space Grotesk, Space Mono, Silkscreen; Neru satu-satunya maskot; `prefers-reduced-motion` mematikan gerak.
 
 ## Akhir run
-1. Perbarui `PROGRESS.md`: nama paket, kegiatan selesai beserta hash commit, kegiatan yang belum, dan catatan.
+1. Perbarui baris kegiatan di `PROGRESS.md`: status, hash commit, dan catatan bila perlu.
 2. Jalankan `git pull --rebase origin dev` lalu push ke `origin dev`. Sesi interaktif Master atau Claude lain bisa mendorong ke `dev` bersamaan, jadi selesaikan bentrok tanpa menimpa pekerjaan orang lain. Bila push ditolak, catat pesan persisnya di PROGRESS.md lalu berhenti.
 3. Tulis ringkasan 3–6 kalimat sebagai hasil run.
 4. Bila kuota atau batas laju tercapai di tengah run, commit pekerjaan yang sudah utuh, catat progres, lalu berhenti.
-5. Setelah Paket D (paket terakhir) selesai, nonaktifkan tugas terjadwal ini (list_triggers lalu delete_trigger) dan tulis ringkasan akhir.
+5. Setelah kegiatan D5 selesai, hapus kelima tugas terjadwal bernama "NERUVIA loop web 1" sampai "NERUVIA loop web 5" (list_triggers lalu delete_trigger; sebuah sesi tidak bisa menghapus tugas yang memulainya, jadi gunakan update_trigger enabled=false untuk tugas sendiri) dan tulis ringkasan akhir. Run dengan antrean kosong berhenti dengan satu kalimat.
 
 ## Gerbang keamanan
 - Pelajaran baru tidak boleh dikerjakan sebelum Paket S selesai menurut PROGRESS.
