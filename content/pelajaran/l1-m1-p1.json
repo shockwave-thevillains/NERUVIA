@@ -1,0 +1,61 @@
+{
+  "id": "l1-m1-p1",
+  "status": "draf",
+  "tujuan": "Setelah pelajaran ini, kamu bisa menjelaskan apa itu AI dengan kata-katamu sendiri dan menyebut dua alasan AI sekarang banyak dipakai.",
+  "bagian": [
+    {
+      "judul": "AI itu apa?",
+      "paragraf": [
+        "AI (kecerdasan buatan) adalah program komputer yang mengerjakan tugas yang biasanya membutuhkan kecerdasan manusia. Contohnya mengenali pola, memahami bahasa, atau menyusun kalimat.",
+        "AI tidak berpikir seperti manusia. AI belajar dari banyak contoh, lalu memakai pola yang ia temukan untuk menjawab hal baru."
+      ]
+    },
+    {
+      "judul": "Chatbot AI yang kamu lihat sekarang",
+      "paragraf": [
+        "Chatbot AI modern bekerja dengan model bahasa. Model ini dilatih pada teks dalam jumlah sangat besar, sehingga ia pandai menebak kata berikutnya yang paling masuk akal dalam sebuah kalimat.",
+        "Karena itu kamu bisa bertanya dengan bahasa sehari-hari, dan chatbot membalas dengan bahasa yang terasa wajar. Kamu tidak perlu menulis kode."
+      ]
+    },
+    {
+      "judul": "Kenapa sekarang ramai dipakai?",
+      "paragraf": [
+        "Pertama, kemampuan modelnya naik sehingga hasilnya cukup berguna untuk pekerjaan sehari-hari, seperti merangkum dan menulis draf.",
+        "Kedua, cara memakainya mudah. Kamu cukup mengetik di kolom chat lewat browser atau HP, tanpa pemasangan yang rumit.",
+        "Ketiga, banyak orang sudah mencobanya, sehingga sekarang ada contoh pemakaian yang bisa ditiru."
+      ]
+    }
+  ],
+  "contoh": {
+    "judul": "Contoh (data fiktif)",
+    "teks": "Dina menempelkan catatan rapat tim yang berantakan ke chatbot dan menulis: \"Rangkum jadi 3 poin utama.\" Chatbot membalas tiga poin singkat. Dina lalu membaca catatan aslinya untuk memastikan ketiga poin itu benar sebelum membagikannya ke tim."
+  },
+  "latihan": {
+    "petunjuk": "Buka chatbot AI mana pun yang kamu punya. Ketik: \"Jelaskan apa itu AI dalam tiga kalimat untuk anak SMP.\" Lalu bandingkan jawabannya dengan penjelasan di atas. Apa yang sama, dan apa yang berbeda?"
+  },
+  "cek": [
+    {
+      "tanya": "Manakah gambaran AI yang paling tepat?",
+      "opsi": ["Otak manusia di dalam komputer", "Program yang menemukan pola dari banyak contoh untuk mengerjakan tugas tertentu", "Mesin pencari yang selalu benar", "Robot yang punya perasaan"],
+      "benar": 1,
+      "jelas": "AI belajar pola dari banyak contoh. Ia tidak berpikir seperti manusia dan tidak selalu benar."
+    },
+    {
+      "tanya": "Chatbot modern pandai menyusun kalimat terutama karena ...",
+      "opsi": ["ia dilatih pada teks dalam jumlah sangat besar", "ia membaca pikiran penggunanya", "ia menyalin satu halaman web yang sama setiap kali", "ia diprogram dengan jawaban untuk setiap pertanyaan"],
+      "benar": 0,
+      "jelas": "Model bahasa dilatih pada banyak teks sehingga ia bisa menebak kata berikutnya yang masuk akal."
+    },
+    {
+      "tanya": "Mana yang BUKAN alasan AI sekarang ramai dipakai?",
+      "opsi": ["Cara memakainya mudah lewat kolom chat", "Hasilnya cukup berguna untuk tugas sehari-hari", "Jawabannya pasti benar sehingga tidak perlu dicek", "Banyak orang sudah mencoba dan berbagi contoh"],
+      "benar": 2,
+      "jelas": "AI bisa keliru. Karena itu pelajaran 5 mengajarkan cara mengecek jawaban AI."
+    }
+  ],
+  "ringkasan": [
+    "AI mengerjakan tugas dengan memakai pola yang ia pelajari dari banyak contoh.",
+    "Chatbot memakai model bahasa, jadi kamu bisa bertanya dengan bahasa sehari-hari.",
+    "AI berguna tetapi bisa keliru, jadi jawabannya perlu dicek."
+  ]
+}

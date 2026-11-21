@@ -1,5 +1,5 @@
 // Validasi content/kursus.json. Pakai: node tools/validasi-kursus.mjs
-import { readFileSync } from 'node:fs';
+import { readFileSync, existsSync } from 'node:fs';
 const file = new URL('../content/kursus.json', import.meta.url);
 const errs = [];
 const err = (m) => errs.push(m);
@@ -38,10 +38,32 @@ if (!Array.isArray(d.level) || !d.level.length) err('level kosong');
       if (!JENIS.includes(p.jenis)) err(`${wp}: jenis harus salah satu dari ${JENIS}`);
       else if (p.xp !== d.xp_per_jenis[p.jenis]) err(`${wp}: xp ${p.xp} tidak sama dengan aturan ${d.xp_per_jenis[p.jenis]} untuk ${p.jenis}`);
       if (!ISI.includes(p.isi)) err(`${wp}: isi harus salah satu dari ${ISI}`);
+      const fp = new URL(`../content/pelajaran/${p.id}.json`, import.meta.url);
+      if (p.isi === 'belum') { if (existsSync(fp)) err(`${wp}: ada berkas isi tetapi isi masih "belum"`); }
+      else if (!existsSync(fp)) err(`${wp}: isi "${p.isi}" tetapi content/pelajaran/${p.id}.json tidak ada`);
+      else cekIsi(p, fp, wp);
     });
   });
 });
 
+function cekIsi(p, fp, wp) {
+  let c; try { c = JSON.parse(readFileSync(fp, 'utf8')); } catch (e) { return err(`${wp}: JSON isi tidak valid (${e.message})`); }
+  if (c.id !== p.id) err(`${wp}: id di berkas isi (${c.id}) berbeda`);
+  if (c.status !== p.isi) err(`${wp}: status isi "${c.status}" berbeda dengan kursus.json "${p.isi}"`);
+  if (!c.tujuan) err(`${wp}: tujuan kosong`);
+  if (!Array.isArray(c.bagian) || !c.bagian.length) err(`${wp}: bagian kosong`);
+  else c.bagian.forEach((b, i) => { if (!b.judul || !Array.isArray(b.paragraf) || !b.paragraf.length || b.paragraf.some((x) => typeof x !== 'string' || !x.trim())) err(`${wp}: bagian[${i}] tidak lengkap`); });
+  if (!c.contoh || !c.contoh.teks) err(`${wp}: contoh kosong`);
+  if (!c.latihan || !c.latihan.petunjuk) err(`${wp}: latihan kosong`);
+  if (!Array.isArray(c.cek) || c.cek.length !== 3) err(`${wp}: cek harus 3 soal`);
+  else c.cek.forEach((q, i) => {
+    if (!q.tanya || !Array.isArray(q.opsi) || q.opsi.length < 3 || q.opsi.length > 5) err(`${wp}: cek[${i}] butuh 3–5 opsi`);
+    else if (!Number.isInteger(q.benar) || q.benar < 0 || q.benar >= q.opsi.length) err(`${wp}: cek[${i}].benar di luar opsi`);
+    if (!q.jelas) err(`${wp}: cek[${i}] tanpa penjelasan`);
+  });
+  if (!Array.isArray(c.ringkasan) || c.ringkasan.length !== 3) err(`${wp}: ringkasan harus 3 butir`);
+  if (/\b(video|tonton)\b/i.test(JSON.stringify(c))) err(`${wp}: materi tulisan tidak boleh merujuk video`);
+}
 if (errs.length) { console.error(`GAGAL, ${errs.length} masalah:\n- ` + errs.join('\n- ')); process.exit(1); }
 const n = d.level.reduce((a, l) => a + l.modul.reduce((b, m) => b + m.pelajaran.length, 0), 0);
 console.log(`OK: ${d.level.length} level, ${n} pelajaran, ${ids.size} id unik.`);
