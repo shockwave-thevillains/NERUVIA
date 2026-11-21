@@ -20,7 +20,7 @@ Status: belum, sedang (diklaim run), selesai, gagal. Kolom commit berisi hash. R
 | ID | Jam rencana (WIB) | Kegiatan | Status | Commit |
 |---|---|---|---|---|
 | A1 | Min 22 Nov 00:45 | Audit desktop dan mobile terhadap PRD dan arah visual, hasil ke AUDIT.md | selesai | b84cf1e |
-| A2 | Min 22 Nov 01:35 | Perbaiki celah teratas dari audit | sedang (klaim 01:40 WIB) | |
+| A2 | Min 22 Nov 01:35 | Perbaiki celah teratas dari audit: F2 menu mobile (tombol 48 px, panel layar penuh, Escape, fokus kembali, konten di-inert, tutup saat melebar). Diuji Playwright 390 dan 360 px; desktop 1440 identik piksel. F4 tidak dikerjakan (kegiatan A5). Validator lulus; uji-keamanan.mjs belum ada (Paket S). | selesai | 8a073c2 |
 | A3 | Min 22 Nov 02:25 | Navigasi mobile dan area ketuk minimal 44 px | belum | |
 | A4 | Min 22 Nov 03:15 | Perbaiki kontras warna yang gagal (WCAG AA) | belum | |
 | A5 | Min 22 Nov 04:05 | Aksesibilitas carousel level dan tab (aria, keyboard, fokus) | belum | |
