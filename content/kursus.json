@@ -1,0 +1,47 @@
+{
+  "versi": 1,
+  "diperbarui": "2026-11-21",
+  "catatan": "Rancangan materi. Judul dan urutan bisa berubah sebelum peluncuran. Isi pelajaran belum ditulis kecuali yang berstatus draf.",
+  "xp_per_jenis": { "Konsep": 10, "Praktik": 20, "Latihan": 30 },
+  "level": [
+    {
+      "id": "l1",
+      "nomor": 1,
+      "judul": "AI dari Nol",
+      "ringkasan": "Kenalan dengan AI, menulis prompt pertama, dan mengecek jawabannya.",
+      "status": "gratis",
+      "tag": ["Dasar AI", "Prompt", "Cek jawaban"],
+      "modul": [
+        {
+          "id": "l1-m1",
+          "judul": "Kenalan dengan AI",
+          "pelajaran": [
+            { "id": "l1-m1-p1", "judul": "Apa itu AI, dan kenapa sekarang ramai dipakai", "jenis": "Konsep", "xp": 10, "isi": "belum" },
+            { "id": "l1-m1-p2", "judul": "Cara chatbot menyusun jawaban", "jenis": "Konsep", "xp": 10, "isi": "belum" },
+            { "id": "l1-m1-p3", "judul": "Menulis prompt pertama yang jelas", "jenis": "Praktik", "xp": 20, "isi": "belum" },
+            { "id": "l1-m1-p4", "judul": "Memperbaiki hasil yang belum sesuai", "jenis": "Praktik", "xp": 20, "isi": "belum" },
+            { "id": "l1-m1-p5", "judul": "Mengecek jawaban AI sebelum dipakai", "jenis": "Latihan", "xp": 30, "isi": "belum" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "l2",
+      "nomor": 2,
+      "judul": "AI untuk Kerja",
+      "ringkasan": "Merangkum dokumen, menulis email dan laporan, serta mengolah data sederhana.",
+      "status": "segera",
+      "tag": ["Merangkum", "Menulis", "Data"],
+      "modul": []
+    },
+    {
+      "id": "l3",
+      "nomor": 3,
+      "judul": "AI Lanjutan",
+      "ringkasan": "Mengotomasi tugas berulang dan membuat asisten AI sendiri.",
+      "status": "segera",
+      "tag": ["Otomasi", "Asisten AI", "Workflow"],
+      "modul": []
+    }
+  ]
+}
