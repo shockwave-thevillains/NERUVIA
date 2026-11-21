@@ -12,6 +12,11 @@
 | Paket A | belum | lihat BACKLOG.md | 5 kegiatan |
 | Paket B | belum | lihat BACKLOG.md | 5 kegiatan |
 | Paket C | belum | lihat BACKLOG.md | 5 kegiatan |
-| Paket D | belum | lihat BACKLOG.md | 5 kegiatan, lalu nonaktifkan tugas terjadwal |
+| Paket E | belum | lihat BACKLOG.md | Level 1 Modul 2 |
+| Paket F | belum | lihat BACKLOG.md | Level 1 Modul 3 |
+| Paket G | belum | lihat BACKLOG.md | Level 2 Modul 1 |
+| Paket H | belum | lihat BACKLOG.md | Polesan situs |
+| Paket D | belum | lihat BACKLOG.md | Terakhir, lalu nonaktifkan tugas terjadwal |
+| Interaktif | selesai (21 Nov) | Penampil isi pelajaran + soal cek pemahaman, draf pelajaran 1, validator isi | Uji desktop dan mobile |
 
 Catatan: baris bernomor 4–9 di atas adalah penomoran lama, sudah selesai secara interaktif dan sudah dicakup ulang oleh paket di BACKLOG.

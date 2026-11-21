@@ -15,13 +15,14 @@ Setiap draf ditandai `DRAF` sampai Master menyetujui. Tidak boleh memuat klaim y
 ## Level 1 · Modul 1 · Kenalan dengan AI (sudah ada di `kursus.json`, sedang dirancang)
 | No | Pelajaran | Jenis | Dikerjakan di |
 |---|---|---|---|
-| 1 | Apa itu AI, dan kenapa sekarang ramai dipakai | Konsep | Paket B |
+| 1 | Apa itu AI, dan kenapa sekarang ramai dipakai | Konsep | Draf selesai (interaktif) |
 | 2 | Cara chatbot menyusun jawaban | Konsep | Paket B |
-| 3 | Menulis prompt pertama yang jelas | Praktik | Paket C |
+| 3 | Menulis prompt pertama yang jelas | Praktik | Paket B |
 | 4 | Memperbaiki hasil yang belum sesuai | Praktik | Paket C |
 | 5 | Mengecek jawaban AI sebelum dipakai | Latihan | Paket C |
 
-## Usulan tambahan (menunggu persetujuan Master, belum masuk `kursus.json`)
+## Modul tambahan (disetujui sementara lewat pelimpahan Master 21 Nov, boleh diubah)
+Dikerjakan di Paket E (Modul 2) dan Paket F (Modul 3).
 **Modul 2 · Prompt yang efektif**
 1. Memberi peran dan konteks
 2. Menentukan format hasil
@@ -37,3 +38,10 @@ Setiap draf ditandai `DRAF` sampai Master menyetujui. Tidak boleh memuat klaim y
 5. Kebiasaan kerja: tinjau, simpan versi, tanggung jawab tetap pada kamu
 
 Level 2 (AI untuk Kerja) dan Level 3 (AI Lanjutan) baru dirancang setelah Level 1 disetujui.
+
+## Level 2 · Modul 1 · AI untuk Kerja (Paket G, usulan Claude)
+1. Merangkum dokumen panjang
+2. Menulis email yang jelas dan sopan
+3. Menyusun laporan singkat dari catatan
+4. Mengolah data sederhana (tabel kecil)
+5. Mengecek hasil sebelum dikirim ke orang lain

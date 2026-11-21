@@ -27,7 +27,7 @@ Tujuan: menyelesaikan web NERUVIA (fitur daftar dan galeri belajar) lewat run te
 
 ## Akhir run
 1. Perbarui `PROGRESS.md`: nama paket, kegiatan selesai beserta hash commit, kegiatan yang belum, dan catatan.
-2. Push ke `origin dev`. Bila push ditolak, catat pesan persisnya di PROGRESS.md lalu berhenti.
+2. Jalankan `git pull --rebase origin dev` lalu push ke `origin dev`. Sesi interaktif Master atau Claude lain bisa mendorong ke `dev` bersamaan, jadi selesaikan bentrok tanpa menimpa pekerjaan orang lain. Bila push ditolak, catat pesan persisnya di PROGRESS.md lalu berhenti.
 3. Tulis ringkasan 3–6 kalimat sebagai hasil run.
 4. Bila kuota atau batas laju tercapai di tengah run, commit pekerjaan yang sudah utuh, catat progres, lalu berhenti.
-5. Setelah Paket D selesai, nonaktifkan tugas terjadwal ini (list_triggers lalu delete_trigger) dan tulis ringkasan akhir.
+5. Setelah Paket D (paket terakhir) selesai, nonaktifkan tugas terjadwal ini (list_triggers lalu delete_trigger) dan tulis ringkasan akhir.
