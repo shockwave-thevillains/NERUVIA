@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Terima kasih — NERUVIA</title>
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/svg+xml" href="assets/brand/neruvia-icon-cyan.svg">
+<style>
+@font-face{font-family:'Space Grotesk';font-weight:300 700;font-style:normal;font-display:swap;src:url(assets/fonts/SpaceGrotesk-latin.woff2) format('woff2')}
+@font-face{font-family:'Space Mono';font-weight:400;font-style:normal;font-display:swap;src:url(assets/fonts/SpaceMono-400-latin.woff2) format('woff2')}
+:root{--ink:#080808;--paper:#fff;--surface:#F2F2F0;--rule:#E7E7E4;--muted:#555;--cyan:#38E1FF;
+  --f-main:'Space Grotesk',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;--f-mono:'Space Mono',ui-monospace,Menlo,Consolas,monospace}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{font-family:var(--f-main);background:var(--paper);color:var(--ink);line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:var(--ink);text-underline-offset:3px}
+a:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+header{position:sticky;top:0;z-index:5;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--rule)}
+.bar{max-width:1080px;margin:0 auto;padding:18px clamp(20px,5vw,40px);display:flex;justify-content:space-between;align-items:center;gap:16px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--f-mono);letter-spacing:.2em;font-size:14px}
+.brand svg{height:18px;width:auto}
+.back{font-size:15px;text-decoration:none;border:1px solid var(--rule);border-radius:999px;padding:8px 16px}
+.back:hover{border-color:var(--ink)}
+main{max-width:760px;margin:0 auto;padding:clamp(48px,7vw,88px) clamp(20px,5vw,40px) 96px}
+.mono{font-family:var(--f-mono);font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#666}
+h1{font-size:clamp(40px,6vw,64px);line-height:1.02;letter-spacing:-.035em;margin:14px 0 18px}
+h1:focus{outline:none}
+.lead{font-size:19px;line-height:1.6;color:var(--muted);max-width:56ch}
+.steps{margin:40px 0 0;display:grid;gap:12px;list-style:none;counter-reset:s}
+.steps li{counter-increment:s;display:flex;gap:16px;align-items:flex-start;background:var(--surface);border:1px solid var(--rule);border-radius:20px;padding:20px 22px;font-size:17px}
+.steps li::before{content:counter(s,decimal-leading-zero);font-family:var(--f-mono);font-size:13px;letter-spacing:.1em;color:#666;padding-top:4px}
+.cta{display:inline-flex;align-items:center;height:56px;padding:0 28px;margin-top:40px;border-radius:999px;background:var(--ink);color:#fff;text-decoration:none;font-weight:600;transition:background .3s,color .3s}
+.cta:hover{background:var(--cyan);color:var(--ink)}
+.cta:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+.small{margin-top:28px;font-size:15px;color:var(--muted)}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<header>
+  <div class="bar">
+    <a class="brand" href="index.html" aria-label="NERUVIA, kembali ke beranda"><svg viewBox="7 8 133 70" aria-hidden="true"><path d="M9,11 L31,11 L72.2,54.9 L85.4,75.2 L63.8,75.2 L26.5,42 L26.5,75.2 L9,75.2Z M58.3,13 L72.3,13 L94.5,41.5 L117,10.5 L136.7,10.5 L99.5,68.5Z" fill="currentColor" stroke="currentColor" stroke-width="6" stroke-linejoin="round" fill-rule="evenodd"/></svg>NERUVIA</a>
+    <a class="back" href="index.html">← Beranda</a>
+  </div>
+</header>
+<main>
+  <p class="mono">Waitlist · berhasil</p>
+  <h1 id="top" tabindex="-1">Kamu sudah masuk waitlist.</h1>
+  <p class="lead">Terima kasih sudah mau belajar AI dari nol bersama NERUVIA. Pendaftaranmu sudah kami terima.</p>
+  <ol class="steps" aria-label="Yang terjadi selanjutnya">
+    <li>Kami mengirim kabar lewat email saat modul pertama dibuka. Modul pertama gratis.</li>
+    <li>Pendaftar waitlist mendapat kabar harga lebih dulu daripada umum.</li>
+    <li>Kamu bisa berhenti menerima kabar atau meminta penghapusan data kapan saja. Caranya ada di Kebijakan Privasi.</li>
+  </ol>
+  <a class="cta" href="index.html">Kembali ke beranda</a>
+  <p class="small"><a href="kebijakan-privasi.html">Kebijakan Privasi</a></p>
+</main>
+<script>document.getElementById('top').focus({preventScroll:true})</script>
+</body>
+</html>

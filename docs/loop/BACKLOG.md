@@ -5,8 +5,8 @@ Keputusan yang berlaku: fase 1 tetap statis (HTML + Supabase JS), fitur daftar b
 - **Run 1 (Sab 21):** audit desktop dan mobile terhadap PRD (`docs/loop/AUDIT.md`); perbaiki celah teratas; rapikan berkas loop bila perlu.
 - **Run 2 (Min 22):** perbaiki celah #2–#3 (navigasi mobile, tap target, kontras); aksesibilitas carousel dan tab (aria, keyboard); fokus yang terlihat.
 - **Run 3 (Min 22):** performa (lazy-load frame Neru, preload font, ukuran gambar, ukur dengan Playwright); verifikasi `prefers-reduced-motion`; screenshot desktop dan mobile.
-- **Run 4 (Sen 23):** validasi form inline, status loading/sukses/gagal, anti-bot honeypot, cegah kirim ganda. Tetap mode pratinjau.
-- **Run 5 (Sen 23):** halaman terima kasih; berkas SQL Supabase (tabel `waitlist`, RLS insert-only, email unik, kolom persetujuan); `docs/waitlist-backend.md`. SQL tidak diterapkan.
+- **Run 4 (SELESAI, lewati):** validasi form inline, status loading/sukses/gagal, anti-bot honeypot, cegah kirim ganda. Tetap mode pratinjau.
+- **Run 5 (SELESAI, lewati):** halaman terima kasih; berkas SQL Supabase (tabel `waitlist`, RLS insert-only, email unik, kolom persetujuan); `docs/waitlist-backend.md`. SQL tidak diterapkan.
 - **Run 6 (Sel 24):** `content/kursus.json` (level, modul, pelajaran) dan skrip validasinya; outline Level 1 untuk Master tinjau.
 - **Run 7 (Sel 24):** halaman `belajar/` berisi galeri kartu kursus (Level 1 aktif, Level 2–3 "segera"), filter, progres dari localStorage.
 - **Run 8 (Rab 25):** halaman pelajaran dengan navigasi sebelumnya/berikutnya, tombol tandai selesai, bar progres.

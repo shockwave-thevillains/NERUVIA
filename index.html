@@ -673,7 +673,8 @@ html.lenis,html.lenis body{height:auto}
 
   /* ----- waitlist ----- */
   /* Hubungkan ke backend: window.NERUVIA_WAITLIST_ENDPOINT = 'https://...' (POST JSON).
-     Selama kosong, form berjalan dalam mode pratinjau dan TIDAK mengirim data apa pun. */
+     Untuk Supabase juga isi window.NERUVIA_WAITLIST_HEADERS = {apikey:'<anon key>', Authorization:'Bearer <anon key>', Prefer:'return=minimal'}.
+     Selama endpoint kosong, form berjalan dalam mode pratinjau dan TIDAK mengirim data apa pun. */
   var form=$('#wl'), msg=$('#wl-msg'), btn=$('#wl-btn'), btnT=$('#wl-btn-t'), done=$('#wl-done'),
       jalur='AI dari Nol', busy=false, started=0, EMAIL=/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
   function say(t,c){msg.className='msg '+(c||'');msg.textContent=t||''}
@@ -707,7 +708,7 @@ html.lenis,html.lenis body{height:auto}
   function sent(){
     form.reset();started=0;jalur='AI dari Nol';
     $$('.chip').forEach(function(x,i){x.setAttribute('aria-pressed',i===0)});
-    say('');form.classList.add('sent');done.focus();
+    say('');form.classList.add('sent');done.focus();setTimeout(function(){location.assign('terima-kasih.html')},900);
   }
   $('#wl-again').addEventListener('click',function(){form.classList.remove('sent');form.email.focus()});
   form.addEventListener('submit',function(e){
@@ -722,9 +723,9 @@ html.lenis,html.lenis body{height:auto}
     if(!ep){say('Mode pratinjau: form belum terhubung ke backend, jadi data tidak dikirim.','info');return}
     setBusy(true);say('');
     var ctl=window.AbortController?new AbortController():null, to=setTimeout(function(){ctl&&ctl.abort()},12000);
-    fetch(ep,{method:'POST',headers:{'Content-Type':'application/json'},signal:ctl?ctl.signal:undefined,
+    fetch(ep,{method:'POST',headers:Object.assign({'Content-Type':'application/json'},window.NERUVIA_WAITLIST_HEADERS||{}),signal:ctl?ctl.signal:undefined,
       body:JSON.stringify({name:form.name.value.trim(),email:form.email.value.trim(),jalur:jalur,consent:true,
-        consent_text:'v4 2026-11-19 (18+, nama, email, level; sampai peluncuran; kebijakan-privasi.html v2)',ts:new Date().toISOString()})})
+        consent_text:'v4 2026-11-19 (18+, nama, email, level; sampai peluncuran; kebijakan-privasi.html v2)',client_ts:new Date().toISOString()})})
       .then(function(r){
         if(r.status===409||r.status===422){sent();return}   /* email sudah terdaftar: tampilkan hasil yang sama */
         if(!r.ok)throw 0;sent()})
