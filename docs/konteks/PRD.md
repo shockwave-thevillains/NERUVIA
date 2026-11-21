@@ -5,7 +5,7 @@ Diperbarui 21 Nov 2026. Menggantikan v0.2 (18 Nov). Ringkasan ini dipakai run ot
 ## 1. Yang berubah dari v0.2
 - Fokus: AI dulu. Cybersecurity menyusul setelah jalur AI berjalan. Tidak ada sudut keamanan AI atau niche profesi (audit, risiko, kepatuhan) di pitch awal.
 - Pesan jual: "Belajar AI dari nol, tanpa harus jago teknologi." Salinan landing singkat dan menjual.
-- Warna: landing monokrom (#080808, #F2F2F0, putih, abu) dengan satu aksen cyan #38E1FF dari atas sampai bawah. Pastel hanya di Ruang Belajar.
+- Warna: landing monokrom (#080808, #F2F2F0, putih, abu) dengan satu aksen cyan #38E1FF dari atas sampai bawah. Tidak ada warna pastel di mana pun, termasuk Ruang Belajar.
 - Maskot: Neru, robot kucing, satu-satunya maskot dan wajah brand. Tanpa tikus, tanpa wajah manusia.
 - Anonim: tidak ada nama, latar belakang, atau bagian "siapa di balik NERUVIA" di situs, commit, atau dokumen publik.
 - Logo: monogram NV. Berkas logo terbaru dari pemilik proyek menyusul; sampai itu tiba, pakai yang ada di assets/brand.
@@ -25,7 +25,7 @@ Kurikulum: pakai AI dulu, baru pakai AI dengan aman. Level 1 Modul 1 "Kenalan de
 - Token: bg #FFFFFF / #080808, surface #F2F2F0 / #121212, teks sekunder #666666 (terang) dan #9A9A9A (gelap), garis #BDBDBD / #2A2A2A, aksen #38E1FF.
 - Aturan cyan: di atas #080808 boleh jadi teks, garis, glow (12,76:1). Di atas putih hanya sebagai isian dengan teks hitam, glow, atau garis bawah (1,57:1, gagal sebagai teks). Satu aksen saja.
 - Hijau dan merah hanya untuk benar/salah dan status.
-- Pastel (sky #DDF6FD, violet #E9E3FF, mint #DDF5E6, amber #FFEFC9, koral #FFE1DD) hanya untuk badge, level, dan progres di Ruang Belajar. Landing tidak memakai kartu pastel.
+- Tanpa pastel. Badge, level, dan progres di Ruang Belajar memakai hitam, putih, abu, dan cyan (kontras sesuai aturan cyan di atas). Hijau dan merah tetap hanya untuk benar/salah dan status.
 - Form waitlist bergaya halus: garis rambut, kolom abu, tanpa border tebal.
 - Font: Space Grotesk (headline dan isi), Space Mono (label kode), Silkscreen (badge dan progres game). Tidak ada font lain.
 - Neru: tetap tampilan sekarang. Ekspresi tambahan: mata bulat besar terbuka yang menyala dengan pupil, selain mata tertutup senyum. Animasi putar kepala hero dibuat ulang dari video baru dengan badan diam. Warna biru Neru tidak mengikuti palet UI.

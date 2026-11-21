@@ -28,7 +28,7 @@ Lima tugas terjadwal ("NERUVIA loop web 1" sampai "5") berjalan tiap hari di emp
 - Project Supabase `neruvia-dev` sudah ada. Jangan membuat project baru, mengubah skema, atau memakai layanan berbayar. Jangan menaruh kunci atau rahasia di repo.
 - Jangan menyatakan hal yang belum dikonfirmasi Master: Level 1 gratis, dukungan ChatGPT/Gemini/Claude, praktik dengan versi gratis, harga, sertifikat.
 - Jangan menyalin teks dari ailene.id.
-- Pertahankan gaya: monokrom #080808 / #F2F2F0 dengan aksen cyan #38E1FF, tanpa warna pastel di landing; Space Grotesk, Space Mono, Silkscreen; Neru satu-satunya maskot; `prefers-reduced-motion` mematikan gerak.
+- Pertahankan gaya: monokrom #080808 / #F2F2F0 dengan aksen cyan #38E1FF, tanpa warna pastel di mana pun (landing dan Ruang Belajar); Space Grotesk, Space Mono, Silkscreen; Neru satu-satunya maskot; `prefers-reduced-motion` mematikan gerak.
 
 ## Akhir run
 1. Perbarui baris kegiatan di `PROGRESS.md`: status, hash commit, dan catatan bila perlu.

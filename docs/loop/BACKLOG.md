@@ -10,7 +10,7 @@ Sudah selesai (jangan dikerjakan ulang): form waitlist, halaman terima kasih, SQ
 1. Audit desktop dan mobile terhadap `docs/konteks/PRD.md` (bagian Desain). Tulis `docs/loop/AUDIT.md` berisi temuan berperingkat.
 2. Perbaiki celah teratas dari audit.
 3. Perbaiki navigasi mobile dan ukuran area ketuk (minimal 44 px).
-4. Perbaiki kontras warna yang gagal (target WCAG AA).
+4. Hapus semua warna pastel (`--sky`, `--violet`, `--mint`, `--amber`, `--coral` di `index.html`, `belajar/index.html`, `belajar/pelajaran.html`). Ganti badge, level, dan progres dengan hitam, putih, abu, dan cyan. Hijau dan merah hanya untuk benar/salah dan status. Lalu perbaiki kontras warna yang gagal (target WCAG AA).
 5. Aksesibilitas carousel level dan tab: aria, keyboard, fokus terlihat.
 
 ## Paket S (Keamanan, wajib sebelum pelajaran baru)
