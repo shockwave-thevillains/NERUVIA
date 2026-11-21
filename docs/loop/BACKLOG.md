@@ -2,7 +2,7 @@
 
 Keputusan yang berlaku: fase 1 tetap statis (HTML + Supabase JS), fitur daftar berupa waitlist dulu, pilot sudah lolos.
 
-Satu run mengerjakan satu paket yang berisi TEPAT 5 kegiatan, sesuai satu jendela batas 5 jam. Satu kegiatan menghasilkan satu commit. Paket dikerjakan berurutan A, B, C, D.
+Satu run mengerjakan satu paket yang berisi TEPAT 5 kegiatan, sesuai satu jendela batas 5 jam. Satu kegiatan menghasilkan satu commit. Paket dikerjakan berurutan A, B, C, D. Semua materi pelajaran berupa teks saja, tanpa video, mengikuti `docs/loop/MATERI.md`.
 
 Sudah selesai secara interaktif (21 Nov), tidak perlu dikerjakan ulang: form waitlist (validasi, state, anti-bot), halaman terima kasih, SQL dan dokumen backend, `content/kursus.json` dan validator, galeri `belajar/`, halaman pelajaran, XP, streak, badge, ekspor/impor progres.
 
@@ -17,8 +17,8 @@ Sudah selesai secara interaktif (21 Nov), tidak perlu dikerjakan ulang: form wai
 1. Performa: lazy-load frame Neru dan atur prioritas muat.
 2. Performa: preload font, ukuran dan format gambar.
 3. Ukur dengan Playwright sebelum dan sesudah (LCP, CLS, bobot transfer) dan verifikasi `prefers-reduced-motion`. Catat angka di PROGRESS.
-4. Draf isi pelajaran 1 (`l1-m1-p1`), ditandai DRAF, tanpa klaim yang belum dikonfirmasi.
-5. Draf isi pelajaran 2 (`l1-m1-p2`), ditandai DRAF.
+4. Draf isi pelajaran 1 (`l1-m1-p1`), teks saja sesuai standar di MATERI.md, ditandai DRAF.
+5. Draf isi pelajaran 2 (`l1-m1-p2`), teks saja, ditandai DRAF.
 
 ## Paket C (run 3)
 1. Latihan interaktif "prompt jelek vs prompt bagus" untuk pelajaran 3, ditandai DRAF.
@@ -33,3 +33,6 @@ Sudah selesai secara interaktif (21 Nov), tidak perlu dikerjakan ulang: form wai
 3. Audit aksesibilitas ulang, termasuk uji keyboard dan mobile.
 4. Perbarui README dan docs. Snapshot ke Notion bila konektornya tersedia.
 5. Ringkasan akhir di PROGRESS.md, pastikan `dev` siap Master tinjau, lalu nonaktifkan tugas terjadwal ini.
+
+## Paket E (hanya bila Master menyetujui Modul 2 di MATERI.md)
+Lima kegiatan: draf teks pelajaran Modul 2 nomor 1–5 (tanpa video), tiap pelajaran satu commit, lalu tambahkan ke `kursus.json` dan jalankan validator. Jangan dikerjakan sebelum PERLU-KEPUTUSAN mencatat persetujuan Master.

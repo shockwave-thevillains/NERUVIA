@@ -6,3 +6,4 @@ Run otomatis menambahkan butir baru di bagian bawah. Master menghapus butir yang
 2. **Placeholder `kebijakan-privasi.html`:** identitas pengendali, alamat, email kontak, prosesor, tanggal berlaku. Form tidak boleh tersambung ke database sebelum terisi. Pilihan identitas: badan usaha (mis. Perseroan Perorangan) atau nama usaha dengan email resmi; konfirmasi ke advokat.
 3. **Project Supabase:** belum ada. Master membuat atau mengizinkan pembuatannya (rekomendasi region ap-southeast-1).
 4. **Akun login (Paket C, kegiatan 5):** lanjut dengan kerangka akun atau cukup konten pelajaran?
+5. **Modul 2 dan 3 Level 1:** usulan judul ada di `docs/loop/MATERI.md`. Setujui, ubah, atau tolak. Paket E menunggu jawaban ini.

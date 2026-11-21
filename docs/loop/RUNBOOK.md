@@ -15,6 +15,7 @@ Tujuan: menyelesaikan web NERUVIA (fitur daftar dan galeri belajar) lewat run te
 - Tulis kegiatan yang tidak sempat dikerjakan sebagai "belum" di PROGRESS. Jangan melaporkan selesai tanpa bukti dari run ini.
 
 ## Larangan
+- Materi pelajaran hanya berupa teks dan latihan interaktif ringan. Jangan membuat video, audio, atau gambar buatan. Ikuti standar di `docs/loop/MATERI.md`.
 - Jangan push atau merge ke `main`. `main` tayang langsung di GitHub Pages.
 - Jangan menampilkan identitas pembuat (nama, bio, kontak pribadi) di halaman, commit, atau dokumen. Penulis commit tetap "Claude".
 - Jangan menulis, mengubah, atau menghapus memori.
