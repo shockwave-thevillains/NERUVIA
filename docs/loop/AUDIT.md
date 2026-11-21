@@ -57,6 +57,8 @@ Perbaikan (A4): hapus variabel pastel; badge, level, dan progres memakai latar #
 
 Cara uji: cari `--sky|--violet|--mint|--amber|--coral|FFC857` di berkas HTML dan CSS; hasilnya harus kosong kecuali hijau/merah status yang disengaja.
 
+Status (A4, 22 Nov): selesai. Variabel `--sky/--violet/--mint/--amber/--coral` dihapus dari landing; `ruang.css` kini hanya `--ok` (hijau, jawaban benar) dan `--bad` (merah, jawaban salah dan galat). Badge GRATIS, pil XP, SELESAI, label Draf, skor, pesan status, dan bingkai pelajaran tuntas memakai cyan, putih, atau garis abu; badge SEGERA berupa garis abu. Terminal ilustrasi memakai cyan, putih, abu. Penanda `mark` di kebijakan privasi (kuning pastel) diganti cyan.
+
 ### F4 · Rotasi otomatis tanpa jeda (T)
 
 Bukti: `index.html` baris 665, `setInterval(... setStep((cur+1)%3) ..., 2600)` berganti tahap tiap 2,6 detik selama bagian terlihat, dan hanya berhenti 8 detik setelah klik. Tidak ada tombol jeda, tidak berhenti saat kursor atau fokus keyboard ada di dalam bagian itu. Melanggar WCAG 2.2.2 (Pause, Stop, Hide) karena berjalan lebih dari 5 detik, dan pembaca layar mendapat perubahan `aria-selected` tanpa aksi pengguna.
@@ -91,6 +93,8 @@ Kontras terhitung (latar efektif diperhitungkan):
 - Aturan cyan PRD: cyan sebagai teks hanya di atas #080808. Periksa ulang tombol ghost dan tautan yang berwarna cyan di bagian terang.
 
 Ukuran huruf: lencana dan pil Silkscreen di Ruang Belajar 11 px (GRATIS, SEGERA, KONSEP, 10 XP, SELESAI). Naikkan ke minimal 12 px.
+
+Status (A4, 22 Nov): selesai. Nomor bagian kebijakan privasi #888 diganti #666 (5,74:1). Lencana dan pil naik ke 12 px. Teks navigasi landing diukur ulang dengan sampel piksel di setiap posisi gulir (1440 dan 390 px, tiap 100 px): rasio terendah 11,55:1, jadi temuan awal adalah positif palsu dan tidak ada perubahan header. Pemindai kontras terhitung pada lima halaman, juga pada keadaan jawaban benar/salah dan pelajaran tuntas: tidak ada kegagalan AA tersisa.
 
 ### F8 · Fokus kolom isian (R)
 

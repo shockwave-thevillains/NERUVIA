@@ -1,7 +1,7 @@
 @font-face{font-family:'Space Grotesk';font-weight:300 700;font-style:normal;font-display:swap;src:url(../assets/fonts/SpaceGrotesk-latin.woff2) format('woff2')}
 @font-face{font-family:'Space Mono';font-weight:400;font-style:normal;font-display:swap;src:url(../assets/fonts/SpaceMono-400-latin.woff2) format('woff2')}
 @font-face{font-family:'Silkscreen';font-weight:400;font-style:normal;font-display:swap;src:url(../assets/fonts/Silkscreen-400-latin.woff2) format('woff2')}
-:root{--ink:#080808;--card:#141414;--line:#2E2E2E;--muted:#B5B5B5;--cyan:#38E1FF;--mint:#5BE49B;--amber:#FFC857;--violet:#B9A5FF;
+:root{--ink:#080808;--card:#141414;--line:#2E2E2E;--muted:#B5B5B5;--cyan:#38E1FF;--ok:#5BE49B;--bad:#FF8A80;
   --f-main:'Space Grotesk',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;--f-mono:'Space Mono',ui-monospace,Menlo,Consolas,monospace;--f-pixel:'Silkscreen','Courier New',monospace;
   --ease:cubic-bezier(.16,1,.3,1)}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
