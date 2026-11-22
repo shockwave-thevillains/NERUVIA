@@ -1,4 +1,4 @@
-# Admin NERUVIA (tahap 2 dari 3, build dev saja)
+# Admin NERUVIA (tahap 3 dari 3, build dev saja)
 
 Tujuan: satu tempat untuk memantau pendaftar (dan kelak penjualan) serta memasukkan pelajaran dan video baru tanpa menyunting berkas di repo. Situs tetap statis; keamanan ada di Supabase (Auth + RLS), bukan di halaman.
 
@@ -7,7 +7,7 @@ Tujuan: satu tempat untuk memantau pendaftar (dan kelak penjualan) serta memasuk
 |---|---|---|
 | 1 | Skema admin, halaman `admin/` (masuk, keluar, total pendaftar), CSP | Halaman selesai. SQL diterapkan ke `neruvia-dev` 22 Nov 2026 (migrasi `admin_tahap1`); uji RLS lulus. Tinggal membuat akun admin (langkah 2-3 di bawah) dan login sungguhan |
 | 2 | Dashboard waitlist: total, hari ini, 7 hari terakhir, grafik 14 hari (WIB), pendaftar per level, 10 pendaftar terbaru dengan email disamarkan, ekspor CSV aman rumus | Selesai. View `waitlist_per_hari` dan `waitlist_per_jalur` (security invoker) diterapkan ke `neruvia-dev` 22 Nov 2026 (`supabase/admin/002-dashboard.sql`) |
-| 3 | Editor pelajaran (teks + soal, divalidasi seperti `validasi-kursus.mjs`, simpan sebagai draf) dan unggah video ke Supabase Storage | belum |
+| 3 | Editor draf pelajaran (divalidasi seperti `validasi-kursus.mjs`, disimpan sebagai draf, unduh JSON) dan unggah video ke Supabase Storage | Selesai. Tabel `pelajaran_draf` dan bucket privat `video-materi` diterapkan ke `neruvia-dev` 22 Nov 2026 (`supabase/admin/003-draf-video.sql`) |
 
 Penjualan menunggu metode pembayaran dan harga yang belum diputuskan; dashboard-nya dirancang setelah itu.
 
@@ -32,8 +32,16 @@ Penjualan menunggu metode pembayaran dan harga yang belum diputuskan; dashboard-
 - Ekspor CSV mengambil 1000 baris per permintaan (batas 20.000 baris), memakai BOM UTF-8 agar Excel membaca aksara dengan benar, dan memberi tanda petik di depan sel yang diawali `=`, `+`, `-`, atau `@` (termasuk setelah spasi atau tab) supaya tidak dibaca sebagai rumus. CSV memuat nama dan email lengkap: perlakukan sebagai data pribadi.
 - Tanggal "hari ini" dan batang grafik memakai tanggal WIB (UTC+7), sama dengan pengelompokan di view.
 
+## Draf pelajaran dan video (tahap 3)
+- **Draf bukan materi terbit.** Situs tetap membaca `content/pelajaran/*.json` dari repo. Editor menyimpan draf di tabel `public.pelajaran_draf` (kunci `id` berbentuk `l1-m1-p2`, isi `jsonb` maksimal 60 KB, `isi.id` harus sama dengan `id`). Bila semua aturan standar terpenuhi, status draf menjadi `siap` dan tombol Unduh JSON aktif. JSON itu dimasukkan ke `content/pelajaran/` lewat commit dan didaftarkan di `content/kursus.json`; setelah itu `node tools/validasi-kursus.mjs` berlaku seperti biasa.
+- **Aturan pemeriksaan di editor** sama dengan `cekIsi()` di `tools/validasi-kursus.mjs`: tujuan, bagian (judul dan paragraf), contoh, latihan, tepat 3 soal cek (3 sampai 5 pilihan, nomor jawaban benar, penjelasan), tepat 3 butir ringkasan, dan tidak ada kata "video" atau "tonton" di materi tulisan.
+- **Video:** bucket privat `video-materi`, batas 50 MB per berkas (batas paket gratis) dan hanya `video/mp4` dan `video/webm`, diterapkan di klien dan di bucket. Nama berkas dibersihkan menjadi huruf kecil, angka, dan tanda hubung dengan awalan tanggal WIB. Pemutar memakai tautan bertanda tangan yang berlaku 5 menit; bucket tidak pernah publik. Video belum tertaut ke pelajaran mana pun, dan materi tulisan memang tidak boleh merujuk video.
+- **Akses:** semua kebijakan tabel dan `storage.objects` untuk bucket ini mensyaratkan `private.is_admin()`; anon tidak punya hak apa pun.
+- **CSP:** hanya `/admin/` mendapat `media-src 'self'` ditambah host Supabase, supaya pemutar bisa memuat tautan bertanda tangan. Halaman lain tidak berubah.
+- **Batas:** video lebih dari 50 MB belum didukung. Opsinya tautan ke pemutar luar, yang menuntut CSP mengizinkan host pemutar tertentu; belum dikerjakan.
+
 ## Uji
-`node tools/uji-header-csp.mjs` mencakup `/admin/` dengan Supabase tiruan (sandi salah dan kunci, admin sah, dashboard dan CSV aman rumus, kegagalan sebagian data, pulih setelah muat ulang, keluar, akun non-admin ditolak dan token dicabut, 401 mengakhiri sesi, email berisi HTML tampil sebagai teks, tanpa pelanggaran CSP). Kebijakan RLS asli harus diuji di SQL setelah skema diterapkan (lihat bagian Uji RLS di PERLU-KEPUTUSAN butir 11).
+`node tools/uji-header-csp.mjs` mencakup `/admin/` dengan Supabase tiruan (sandi salah dan kunci, admin sah, dashboard dan CSV aman rumus, editor draf pelajaran, unggah dan putar video, kegagalan sebagian data, pulih setelah muat ulang, keluar, akun non-admin ditolak dan token dicabut, 401 mengakhiri sesi, email berisi HTML tampil sebagai teks, tanpa pelanggaran CSP). Kebijakan RLS asli harus diuji di SQL setelah skema diterapkan (lihat bagian Uji RLS di PERLU-KEPUTUSAN butir 11).
 
 ## Hasil uji RLS di Supabase asli (22 Nov 2026)
 Dijalankan sebagai transaksi yang dibatalkan dengan `set local role` dan `request.jwt.claims`; tidak ada baris tersisa. Advisor keamanan: tanpa temuan.

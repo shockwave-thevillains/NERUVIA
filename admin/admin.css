@@ -43,3 +43,27 @@ td.kosong{color:var(--muted);white-space:normal}
 .soon h2{font-size:18px;line-height:1.25;letter-spacing:-.01em;margin-bottom:6px}
 .soon p{font-size:14px;color:var(--muted)}
 @media (max-width:520px){.rows li{grid-template-columns:1fr auto}.rows svg{grid-column:1/-1;grid-row:2}}
+.editor{margin-top:18px;display:grid;gap:10px}
+.editor label,.unggah label{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.editor input,.editor textarea,.unggah input[type=file]{width:100%;border-radius:12px;border:1px solid var(--line);background:#fff;color:var(--ink);padding:10px 14px;font:400 16px var(--f-main)}
+.editor input{height:46px}
+.editor textarea{resize:vertical;line-height:1.5}
+.editor input:focus-visible,.editor textarea:focus-visible,.unggah input:focus-visible{outline:3px solid var(--ink);outline-offset:2px;border-color:var(--ink)}
+.editor input[readonly]{background:var(--card);color:var(--muted)}
+.editor fieldset{border:1px solid var(--line);border-radius:16px;padding:14px 16px;display:grid;gap:8px;margin:0;min-width:0;background:#fff}
+.editor legend{padding:0 6px;font-weight:700}
+.bagian{display:grid;gap:8px;border-top:1px dashed var(--line);padding-top:10px}
+.bagian:first-child{border-top:0;padding-top:0}
+.aksi{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
+.aksi .f.solid{margin-top:0}
+.galat{margin:0;padding-left:20px;color:var(--bad);font-size:14px;display:grid;gap:4px}
+.galat:empty{display:none}
+.daftar .item{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;padding:8px 0;border-bottom:1px solid var(--line);font-family:var(--f-mono);font-size:13px;word-break:break-all}
+.daftar .kosong{display:block;color:var(--muted);font-size:14px}
+.aksi-kecil{display:flex;gap:8px}
+.aksi-kecil .f{height:36px;font-size:14px;padding:0 14px}
+.unggah{display:grid;gap:10px;margin-top:14px;max-width:520px}
+progress{display:block;width:100%;max-width:520px;height:10px;margin-top:10px;accent-color:var(--ink)}
+#v-putar{display:block;width:100%;max-width:720px;margin-top:14px;border-radius:16px;background:#000}
+code{font-family:var(--f-mono);font-size:.9em}
+.editor .f,.unggah .f{justify-self:start}

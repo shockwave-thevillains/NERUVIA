@@ -8,7 +8,9 @@
    4. Kontrol negatif: skrip inline, koneksi ke host luar, dan bingkai harus diblokir.
    Playwright tidak dipasang di repo; bila tidak ada, uji browser dilewati dengan peringatan (kode 2). */
 import { createServer } from 'node:http';
-import { readFileSync, existsSync, statSync } from 'node:fs';
+import { readFileSync, existsSync, statSync, writeFileSync, mkdtempSync, rmSync } from 'node:fs';
+import { tmpdir } from 'node:os';
+import { join as gabung } from 'node:path';
 import { createRequire } from 'node:module';
 import { join, dirname, extname, normalize } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -131,12 +133,29 @@ if (chromium) {
     const csvHal = [];
     const skenario = async (nama, { email, sandiBenar = 'rahasia-benar', admin = true, admins401 = false, jalur500 = false }) => {
       const page = await ctx.newPage(); const log = { csp: [], err: [] }; kumpul(page, log); let logout = 0;
+      const draf = new Map(), videos = [], simpanDraf = [], kirimVideo = [];
       await page.route('https://*.supabase.co/**', (r) => {
         const u = new URL(r.request().url()), m = r.request().method();
         if (u.pathname === '/auth/v1/token') { const bd = JSON.parse(r.request().postData() || '{}'); return bd.password === sandiBenar ? r.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify({ access_token: jwt(email), expires_in: 3600, user: { email } }) }) : r.fulfill({ status: 400, contentType: 'application/json', body: '{"error":"invalid_grant"}' }); }
         if (u.pathname === '/auth/v1/logout') { logout++; return r.fulfill({ status: 204, body: '' }); }
         if (u.pathname === '/rest/v1/admins') return admins401 ? r.fulfill({ status: 401, body: '{}' }) : r.fulfill({ status: 200, contentType: 'application/json', body: admin ? '[{"user_id":"u1"}]' : '[]' });
         const jsonOk = (x, h = {}) => r.fulfill({ status: 200, contentType: 'application/json', headers: h, body: JSON.stringify(x) });
+        if (u.pathname === '/rest/v1/pelajaran_draf') {
+          const idq = (u.searchParams.get('id') || '').replace(/^eq\./, '');
+          if (m === 'GET') return idq ? jsonOk(draf.has(idq) ? [{ isi: draf.get(idq).isi }] : []) : jsonOk([...draf.values()].map((x) => ({ id: x.id, status: x.status, updated_at: '2026-11-22T01:00:00+00:00' })));
+          if (m === 'POST') { const b = JSON.parse(r.request().postData() || '{}'); simpanDraf.push(b); draf.set(b.id, b); return r.fulfill({ status: 201, body: '' }); }
+          if (m === 'DELETE') { draf.delete(idq); return r.fulfill({ status: 204, body: '' }); }
+        }
+        if (u.pathname === '/storage/v1/object/list/video-materi') return jsonOk(videos.map((v) => ({ name: v, id: 'x', created_at: '2026-11-22T01:00:00+00:00', metadata: { size: 2048, mimetype: 'video/mp4' } })));
+        if (u.pathname.startsWith('/storage/v1/object/sign/video-materi/')) {
+          if (m === 'POST') return jsonOk({ signedURL: '/object/sign/video-materi/' + u.pathname.split('/').pop() + '?token=abc' });
+          return r.fulfill({ status: 200, contentType: 'video/mp4', body: 'bukan-video-asli' });
+        }
+        if (u.pathname.startsWith('/storage/v1/object/video-materi/')) {
+          const nama = decodeURIComponent(u.pathname.split('/').pop());
+          if (m === 'POST') { if (videos.includes(nama)) return r.fulfill({ status: 409, body: '{}' }); kirimVideo.push({ nama, tipe: r.request().headers()['content-type'] }); videos.push(nama); return jsonOk({ Key: nama }); }
+          if (m === 'DELETE') { videos.splice(videos.indexOf(nama), 1); return jsonOk({}); }
+        }
         if (u.pathname === '/rest/v1/waitlist_per_hari') return jsonOk([{ hari: hariIni, jumlah: 3 }, { hari: new Date(Date.parse(hariIni) - 86400000).toISOString().slice(0, 10), jumlah: 2 }, { hari: '1999-01-01', jumlah: 7 }, { hari: 'ngawur', jumlah: 1 }]);
         if (u.pathname === '/rest/v1/waitlist_per_jalur') return jalur500 ? r.fulfill({ status: 500, body: '{}' }) : jsonOk([{ jalur: 'AI dari Nol', jumlah: 4 }, { jalur: '<img src=x onerror=window.__xss=2>', jumlah: 1 }]);
         if (u.pathname === '/rest/v1/waitlist') {
@@ -148,7 +167,7 @@ if (chromium) {
         return r.fulfill({ status: 404, body: '' });
       });
       await page.goto(a.base + '/admin/', { waitUntil: 'networkidle' });
-      return { page, log, logout: () => logout, nama };
+      return { page, log, logout: () => logout, nama, draf, videos, simpanDraf, kirimVideo };
     };
     const masuk = async (page, em, pw) => { await page.fill('#a-email', em); await page.fill('#a-sandi', pw); await page.click('#a-kirim'); await page.waitForTimeout(500); };
     /* 1 sandi salah */
@@ -196,6 +215,74 @@ if (chromium) {
     t = await skenario('dashboard-gagal', { email: 'admin@example.com', jalur500: true });
     await masuk(t.page, 'admin@example.com', 'rahasia-benar');
     cek(/Sebagian data gagal/.test(await t.page.innerText('#p-msg')) && (await t.page.locator('#l-jalur li').count()) === 0 && (await t.page.innerText('#s-total')) === '42', 'dashboard: kegagalan satu bagian harus dilaporkan tanpa merusak bagian lain'); await t.page.close();
+    /* tahap 3: editor draf pelajaran dan video materi */
+    t = await skenario('materi', { email: 'admin@example.com' });
+    await masuk(t.page, 'admin@example.com', 'rahasia-benar');
+    const P = t.page;
+    cek((await P.locator('#d-daftar li.kosong').count()) === 1 && (await P.locator('#v-daftar li.kosong').count()) === 1, 'materi: daftar draf dan video kosong harus tampil saat masuk');
+    await P.click('#d-baru');
+    cek(await P.locator('#d-form').isVisible() && (await P.locator('#d-bagian > div').count()) === 1 && (await P.locator('#d-cek fieldset').count()) === 3, 'materi: form kosong harus punya 1 bagian dan 3 soal cek');
+    await P.click('#d-periksa');
+    cek((await P.locator('#d-galat li').count()) >= 8, 'materi: form kosong harus menampilkan banyak galat ' + (await P.locator('#d-galat li').count()));
+    await P.click('#d-unduh');
+    cek(/hanya bisa diunduh bila draf lengkap/.test(await P.innerText('#d-pesan')), 'materi: unduh draf tidak lengkap harus ditolak');
+    /* simpan draf belum lengkap tetap boleh, status draf */
+    await P.fill('#d-id', 'l1-m2-p1'); await P.fill('#d-tujuan', 'Setelah ini kamu bisa memberi peran pada prompt.');
+    await P.click('#d-simpan'); await P.waitForTimeout(300);
+    cek(t.simpanDraf.length === 1 && t.simpanDraf[0].status === 'draf' && t.simpanDraf[0].isi.id === 'l1-m2-p1' && t.simpanDraf[0].isi.status === 'draf', 'materi: draf belum lengkap harus tersimpan dengan status draf');
+    cek((await P.locator('#d-daftar li.item').count()) === 1 && /belum lengkap/.test(await P.innerText('#d-daftar')), 'materi: daftar harus memuat draf belum lengkap');
+    await P.close();
+    t = await skenario('materi2', { email: 'admin@example.com' });
+    await masuk(t.page, 'admin@example.com', 'rahasia-benar');
+    const Q = t.page;
+    await Q.click('#d-baru'); await Q.fill('#d-id', 'ngawur'); await Q.click('#d-simpan'); await Q.waitForTimeout(200);
+    cek(t.simpanDraf.length === 0 && /ID harus berbentuk/.test(await Q.innerText('#d-galat')), 'materi: ID salah tidak boleh dikirim ke server');
+    /* isi lengkap */
+    await Q.fill('#d-id', 'l1-m2-p1'); await Q.fill('#d-tujuan', 'Setelah ini kamu bisa memberi peran dan konteks pada prompt.');
+    await Q.fill('#d-bj-1', 'Peran'); await Q.fill('#d-bp-1', 'Paragraf satu.\n\nParagraf dua.');
+    await Q.click('#d-tambah-bagian'); await Q.fill('#d-bj-2', 'Konteks'); await Q.fill('#d-bp-2', 'Konteks membantu hasil.');
+    await Q.fill('#d-contoh-teks', 'Rani menulis prompt dengan peran editor (data fiktif).'); await Q.fill('#d-latihan', 'Tulis prompt dengan peran, lalu bandingkan hasilnya.');
+    for (let i = 0; i < 3; i++) { await Q.fill('#d-c' + i + '-tanya', 'Soal ' + (i + 1) + '?'); await Q.fill('#d-c' + i + '-opsi', 'A\nB\nC'); await Q.fill('#d-c' + i + '-benar', '2'); await Q.fill('#d-c' + i + '-jelas', 'Karena B benar.'); await Q.fill('#d-ring-' + i, 'Ringkasan ' + (i + 1)); }
+    await Q.click('#d-periksa');
+    cek((await Q.locator('#d-galat li').count()) === 0 && /Lengkap/.test(await Q.innerText('#d-pesan')), 'materi: isian lengkap harus lolos pemeriksaan ' + await Q.innerText('#d-galat'));
+    await Q.click('#d-simpan'); await Q.waitForTimeout(300);
+    const dk = t.simpanDraf[0];
+    cek(t.simpanDraf.length === 1 && dk.status === 'siap' && dk.isi.bagian.length === 2 && dk.isi.bagian[0].paragraf.length === 2 && dk.isi.cek.length === 3 && dk.isi.cek[0].benar === 1 && dk.isi.ringkasan.length === 3, 'materi: draf lengkap harus tersimpan dengan status siap dan struktur sesuai standar ' + JSON.stringify(dk));
+    const [unduhJ] = await Promise.all([Q.waitForEvent('download'), Q.click('#d-unduh')]);
+    const js = JSON.parse(readFileSync(await unduhJ.path(), 'utf8'));
+    cek(unduhJ.suggestedFilename() === 'l1-m2-p1.json' && js.id === 'l1-m2-p1' && js.status === 'draf' && js.cek.length === 3 && js.ringkasan.length === 3, 'materi: JSON unduhan harus sesuai format content/pelajaran');
+    /* kata "video" dilarang di materi tulisan */
+    await Q.fill('#d-latihan', 'Tonton video ini dulu.'); await Q.click('#d-periksa');
+    cek(/tidak boleh merujuk video/.test(await Q.innerText('#d-galat')), 'materi: kata video/tonton harus ditolak');
+    await Q.fill('#d-latihan', 'Tulis prompt dengan peran.');
+    /* sunting dan hapus */
+    await Q.click('#d-tutup'); await Q.click('#d-daftar >> text=Sunting'); await Q.waitForTimeout(300);
+    cek((await Q.inputValue('#d-id')) === 'l1-m2-p1' && (await Q.inputValue('#d-bj-2')) === 'Konteks' && (await Q.inputValue('#d-c0-benar')) === '2' && (await Q.locator('#d-id').evaluate((e) => e.readOnly)), 'materi: sunting harus memuat ulang isi draf dan mengunci ID');
+    await Q.click('#d-tutup');
+    await Q.click('#d-daftar >> text=Hapus'); await Q.click('#d-daftar >> text=Yakin hapus?'); await Q.waitForTimeout(300);
+    cek(t.draf.size === 0 && (await Q.locator('#d-daftar li.kosong').count()) === 1, 'materi: hapus harus butuh dua klik dan mengosongkan daftar');
+    /* video: tolak tipe salah dan terlalu besar, unggah sah, putar, hapus */
+    await Q.setInputFiles('#v-berkas', { name: 'catatan.txt', mimeType: 'text/plain', buffer: Buffer.from('halo') }); await Q.click('#v-kirim');
+    cek(/mp4 atau webm/.test(await Q.innerText('#v-pesan')) && t.kirimVideo.length === 0, 'video: tipe selain mp4/webm harus ditolak di klien');
+    const dirBesar = mkdtempSync(gabung(tmpdir(), 'uji-video-')); writeFileSync(gabung(dirBesar, 'besar.mp4'), Buffer.alloc(52428801));
+    await Q.setInputFiles('#v-berkas', gabung(dirBesar, 'besar.mp4')); await Q.click('#v-kirim'); rmSync(dirBesar, { recursive: true, force: true });
+    cek(/di bawah 50 MB/.test(await Q.innerText('#v-pesan')) && t.kirimVideo.length === 0, 'video: berkas >50 MB harus ditolak di klien');
+    await Q.setInputFiles('#v-berkas', { name: 'Materi Pertama (final)!.MP4', mimeType: 'video/mp4', buffer: Buffer.from('isi-video-uji') }); await Q.click('#v-kirim'); await Q.waitForTimeout(500);
+    const tglW = new Date(Date.now() + 7 * 3600000).toISOString().slice(0, 10).replace(/-/g, '');
+    cek(t.kirimVideo.length === 1 && t.kirimVideo[0].nama === tglW + '-materi-pertama-final.mp4' && t.kirimVideo[0].tipe === 'video/mp4', 'video: nama harus dibersihkan dan tipe benar ' + JSON.stringify(t.kirimVideo));
+    cek((await Q.locator('#v-daftar li.item').count()) === 1 && /terunggah/.test(await Q.innerText('#v-pesan')), 'video: daftar harus memuat video yang baru diunggah');
+    await Q.setInputFiles('#v-berkas', { name: 'Materi Pertama (final)!.mp4', mimeType: 'video/mp4', buffer: Buffer.from('dobel') }); await Q.click('#v-kirim'); await Q.waitForTimeout(400);
+    cek(/sudah ada/.test(await Q.innerText('#v-pesan')), 'video: nama ganda (409) harus dilaporkan');
+    await Q.click('#v-daftar >> text=Putar'); await Q.waitForTimeout(500);
+    cek(await Q.locator('#v-putar').isVisible() && (await Q.locator('#v-putar').getAttribute('src')).startsWith('https://') && (await Q.locator('#v-putar').getAttribute('src')).includes('/storage/v1/object/sign/video-materi/'), 'video: pemutar harus memakai tautan bertanda tangan bucket ini');
+    cek(t.log.csp.length === 0, 'materi: pelanggaran CSP (media-src harus mengizinkan host Supabase) ' + t.log.csp.join('|'));
+    const media = await Q.evaluate(() => new Promise((ok) => { const v = document.createElement('video'); v.src = 'https://example.com/x.mp4'; v.onerror = () => ok('diblokir'); v.onloadeddata = () => ok('jalan'); document.body.appendChild(v); setTimeout(() => ok('diblokir'), 1500); }));
+    await Q.waitForTimeout(300);
+    cek(media === 'diblokir' && t.log.csp.some((x) => /media/i.test(x)), 'video: media dari host luar harus diblokir CSP ' + t.log.csp.join('|'));
+    t.log.csp.length = 0;
+    await Q.click('#v-daftar >> text=Hapus'); await Q.click('#v-daftar >> text=Yakin hapus?'); await Q.waitForTimeout(400);
+    cek(t.videos.length === 0 && (await Q.locator('#v-daftar li.kosong').count()) === 1 && (await Q.locator('#v-putar').isHidden()), 'video: hapus harus mengosongkan daftar dan menyembunyikan pemutar');
+    cek(t.log.err.length === 0, 'materi: galat skrip ' + t.log.err.join('|')); await Q.close();
     /* akun biasa (bukan admin) */
     t = await skenario('biasa', { email: 'orang@example.com', admin: false });
     await masuk(t.page, 'orang@example.com', 'rahasia-benar');

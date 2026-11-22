@@ -51,6 +51,7 @@
     secPanel.hidden = true; secMasuk.hidden = false;
     pEmail.textContent = '—'; sTotal.textContent = '—'; sHari.textContent = '—'; sPekan.textContent = '—';
     cHari.textContent = ''; lJalur.textContent = ''; tBaru.textContent = ''; say(pMsg, ''); say(eMsg, '');
+    jalankan('keluar');
     say(msg, pesan || '', kelas);
   }
   function keluarLokal(pesan, kelas) {
@@ -205,7 +206,7 @@
       return r.json().then(function (rows) {
         if (!Array.isArray(rows) || rows.length !== 1) { keluar('Akun ini tidak terdaftar sebagai admin.'); return; }
         secMasuk.hidden = true; secPanel.hidden = false; say(msg, '');
-        pEmail.textContent = email || '—'; jadwalKedaluwarsa(); muatDashboard(); $('h-panel').setAttribute('tabindex', '-1'); $('h-panel').focus();
+        pEmail.textContent = email || '—'; jadwalKedaluwarsa(); muatDashboard(); jalankan('masuk'); $('h-panel').setAttribute('tabindex', '-1'); $('h-panel').focus();
       });
     }).catch(function () { keluarLokal('Gagal memeriksa akses. Coba lagi.', 'err'); });
   }
@@ -245,6 +246,30 @@
       .then(function () { if (kunci <= 0) kirim.disabled = false; });
   });
   $('p-keluar').addEventListener('click', function () { keluar('Kamu sudah keluar.'); });
+
+  /* Antarmuka sempit untuk materi.js (editor pelajaran dan video): token tidak pernah diberikan keluar. */
+  var kait = { masuk: [], keluar: [] };
+  function jalankan(n) { kait[n].forEach(function (f) { try { f(); } catch (x) { /* satu kait gagal tidak boleh menghentikan yang lain */ } }); }
+  function xhr(path, method, headers, body, progres) {
+    return new Promise(function (ok, gagalX) {
+      var x = new XMLHttpRequest(); x.open(method, origin + path); x.timeout = 600000;
+      var h = { apikey: apikey }; if (token) h.Authorization = 'Bearer ' + token;
+      for (var k in headers) if (Object.prototype.hasOwnProperty.call(headers, k)) h[k] = headers[k];
+      for (var n in h) if (Object.prototype.hasOwnProperty.call(h, n)) x.setRequestHeader(n, h[n]);
+      if (progres && x.upload) x.upload.onprogress = function (e) { if (e.lengthComputable) progres(e.loaded / e.total); };
+      x.onload = function () { ok({ status: x.status, teks: x.responseText }); };
+      x.onerror = x.ontimeout = x.onabort = function () { gagalX(new Error('jaringan')); };
+      x.send(body);
+    });
+  }
+  window.NeruviaAdmin = Object.freeze({
+    origin: origin,
+    api: api,
+    xhr: xhr,
+    sesiHabis: function () { keluarLokal('Sesi berakhir. Masuk lagi untuk melanjutkan.', ''); },
+    pasang: function (n, f) { if (kait[n] && typeof f === 'function') kait[n].push(f); },
+    tersedia: function () { return !secPanel.hidden && !!token; }
+  });
 
   if (!origin || !apikey) {
     kirim.disabled = true; say(msg, 'Admin belum terhubung ke backend: config.js tidak ditemukan di build ini.', 'err');

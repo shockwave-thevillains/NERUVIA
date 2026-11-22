@@ -74,14 +74,72 @@
       <p class="note">CSV memuat nama dan email lengkap. Perlakukan sebagai data pribadi: simpan seperlunya, jangan dibagikan, dan hapus bila sudah tidak dipakai. Sel yang diawali = + - @ diberi tanda petik agar tidak dibaca sebagai rumus.</p>
     </section>
 
+    <section class="blok" aria-labelledby="h-draf">
+      <div class="head">
+        <div><h2 id="h-draf">Pelajaran (draf)</h2><p class="sub">Draf disimpan di server dan belum tampil di situs. Setelah lengkap, unduh JSON lalu masukkan ke <code>content/pelajaran/</code> lewat commit.</p></div>
+        <button type="button" class="f" id="d-baru">Pelajaran baru</button>
+      </div>
+      <ul id="d-daftar" class="rows daftar"></ul>
+      <p class="msg" id="d-pesan" role="status" aria-live="polite"></p>
+      <form id="d-form" class="editor" hidden novalidate>
+        <label for="d-id">ID pelajaran</label>
+        <input id="d-id" type="text" maxlength="12" autocomplete="off" spellcheck="false" placeholder="l1-m1-p2" required>
+        <p class="note">Format <code>l&lt;level&gt;-m&lt;modul&gt;-p&lt;nomor&gt;</code>, sama dengan <code>content/kursus.json</code>.</p>
+        <label for="d-tujuan">Tujuan (satu kalimat, "setelah ini kamu bisa …")</label>
+        <textarea id="d-tujuan" rows="2" maxlength="400"></textarea>
+        <fieldset><legend>Penjelasan inti</legend>
+          <div id="d-bagian"></div>
+          <button type="button" class="f" id="d-tambah-bagian">Tambah bagian</button>
+          <p class="note">Pisahkan paragraf dengan satu baris kosong. Satu gagasan per paragraf.</p>
+        </fieldset>
+        <fieldset><legend>Contoh (data fiktif berlabel)</legend>
+          <label for="d-contoh-judul">Judul contoh</label>
+          <input id="d-contoh-judul" type="text" maxlength="80" value="Contoh (data fiktif)">
+          <label for="d-contoh-teks">Isi contoh</label>
+          <textarea id="d-contoh-teks" rows="4" maxlength="1500"></textarea>
+        </fieldset>
+        <fieldset><legend>Latihan</legend>
+          <label for="d-latihan">Petunjuk (tugas kecil yang bisa dikerjakan di chatbot AI mana pun)</label>
+          <textarea id="d-latihan" rows="3" maxlength="800"></textarea>
+        </fieldset>
+        <div id="d-cek"></div>
+        <fieldset><legend>Ringkasan (3 butir)</legend>
+          <label for="d-ring-0">Butir 1</label><input id="d-ring-0" type="text" maxlength="300">
+          <label for="d-ring-1">Butir 2</label><input id="d-ring-1" type="text" maxlength="300">
+          <label for="d-ring-2">Butir 3</label><input id="d-ring-2" type="text" maxlength="300">
+        </fieldset>
+        <div class="aksi">
+          <button type="submit" class="f solid" id="d-simpan">Simpan draf</button>
+          <button type="button" class="f" id="d-periksa">Periksa</button>
+          <button type="button" class="f" id="d-unduh">Unduh JSON</button>
+          <button type="button" class="f" id="d-tutup">Tutup</button>
+        </div>
+        <ul id="d-galat" class="galat" aria-live="polite"></ul>
+      </form>
+    </section>
+
+    <section class="blok" aria-labelledby="h-video">
+      <h2 id="h-video">Video materi</h2>
+      <p class="sub">Bucket privat. Hanya mp4 atau webm, maksimal 50 MB per berkas (batas paket gratis). Video belum tertaut ke pelajaran mana pun.</p>
+      <form id="v-form" class="unggah" novalidate>
+        <label for="v-berkas">Pilih berkas video</label>
+        <input id="v-berkas" type="file" accept="video/mp4,video/webm">
+        <button type="submit" class="f solid" id="v-kirim">Unggah</button>
+      </form>
+      <progress id="v-bar" max="100" value="0" hidden></progress>
+      <p class="msg" id="v-pesan" role="status" aria-live="polite"></p>
+      <ul id="v-daftar" class="rows daftar"></ul>
+      <video id="v-putar" controls preload="metadata" hidden></video>
+    </section>
+
     <section class="next" aria-label="Tahap berikutnya">
       <div class="soon"><h2>Penjualan</h2><p>Menunggu metode pembayaran dan harga ditetapkan.</p></div>
-      <div class="soon"><h2>Pelajaran dan video</h2><p>Tahap 3. Editor pelajaran dan unggah video ke penyimpanan.</p></div>
     </section>
   </section>
   <noscript><p class="note">Halaman admin memerlukan JavaScript.</p></noscript>
 </main>
 <script src="../config.js"></script>
 <script src="admin.js"></script>
+<script src="materi.js"></script>
 </body>
 </html>

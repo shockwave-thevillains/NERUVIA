@@ -110,6 +110,7 @@ export function bangun() {
       "style-src-attr " + (a.hashAttr.length ? "'unsafe-hashes'" + a.hashAttr.map((h) => ' ' + h).join('') : "'none'"),
       "img-src 'self'",
       "font-src 'self'",
+      ...(pakaiConfig && berkas.startsWith('admin/') ? ["media-src 'self' " + supa] : []),   /* pemutar video privat (tautan bertanda tangan) hanya di halaman admin */
       "connect-src 'self'" + (pakaiConfig ? ' ' + supa : ''),
       "base-uri 'none'",
       "form-action 'self'",
