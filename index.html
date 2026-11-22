@@ -13,7 +13,7 @@
 <link rel="icon" type="image/svg+xml" href="assets/brand/neruvia-icon-cyan.svg">
 <link rel="apple-touch-icon" href="assets/brand/neruvia-icon-cyan-180.png">
 <link rel="preload" href="assets/fonts/SpaceGrotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="assets/neru.webp" as="image" type="image/webp">
+<link rel="preload" href="assets/neru.webp" as="image" type="image/webp" fetchpriority="high">
 
 <style>
 /* ---------- FONT (disajikan lokal, OFL) ---------- */
@@ -425,7 +425,7 @@ html.lenis,html.lenis body{height:auto}
     <div class="row r1">LEARN <b>/PRACTICE</b> /CERTIFY /LEARN</div>
     <div class="row r2">CERTIFY /LEARN /PRACTICE /CERTIFY</div>
   </div>
-  <div class="wave" aria-hidden="true"><img src="assets/neru-wave.webp" width="1041" height="1273" alt="" loading="lazy"></div>
+  <div class="wave" aria-hidden="true"><img src="assets/neru-wave.webp" width="1041" height="1273" alt="" loading="lazy" decoding="async"></div>
 
   <div class="wrap">
     <div class="steps" id="steps" role="group" aria-label="Tahap belajar, pilih salah satu untuk menyorotnya">
@@ -610,7 +610,7 @@ html.lenis,html.lenis body{height:auto}
     var need=box.getBoundingClientRect().width*(window.devicePixelRatio||1);
     var dir=need>700 ? 'frames-2x' : 'frames';
     if(dir==='frames-2x'){ cv.width=1094; cv.height=1296 }
-    var ctx=cv.getContext('2d'), cur=NEUTRAL, tgt=NEUTRAL, shown=-1;
+    var ctx=cv.getContext('2d'), cur=NEUTRAL, tgt=NEUTRAL, shown=-1, ready=false;
     var hasPtr=false, px=0, py=0, vis=true, raf=0, t0=performance.now();
     function draw(i){ if(i===shown) return; shown=i; ctx.clearRect(0,0,cv.width,cv.height); ctx.drawImage(frames[i],0,0,cv.width,cv.height) }
     function aim(){
@@ -626,7 +626,7 @@ html.lenis,html.lenis body{height:auto}
       draw(clamp(Math.round(cur),0,N-1));
       raf=requestAnimationFrame(tick);
     }
-    function kick(){ if(!raf&&vis) raf=requestAnimationFrame(tick) }
+    function kick(){ if(ready&&!raf&&vis) raf=requestAnimationFrame(tick) }
     addEventListener('pointermove',function(e){
       if(e.pointerType==='touch') return;
       hasPtr=true; px=e.clientX; py=e.clientY; aim(); kick();
@@ -636,14 +636,29 @@ html.lenis,html.lenis body{height:auto}
     if('IntersectionObserver' in window){
       new IntersectionObserver(function(es){ vis=es[0].isIntersecting; if(vis) kick() },{threshold:0}).observe(box);
     }
-    for(var i=0;i<N;i++){
-      (function(i){
-        var im=new Image(); im.decoding='async';
-        im.onload=function(){ if(++ok===N){ draw(Math.round(NEUTRAL)); box.classList.add('live'); kick() } };
-        im.src='assets/maskot-animasi/'+dir+'/f'+(i<10?'0':'')+i+'.webp';
-        frames[i]=im;
-      })(i);
+    /* Muat frame hanya setelah halaman selesai dimuat dan browser menganggur, dengan prioritas rendah,
+       supaya gambar hero (LCP) dan font tidak berebut bandwidth dengan 21 frame. Hemat data dan jaringan 2G:
+       tidak dimuat sama sekali, Neru tetap gambar diam. Tab tersembunyi menunggu sampai terlihat. */
+    var kon=navigator.connection;
+    if(kon&&(kon.saveData||/(^|-)2g$/.test(kon.effectiveType||''))) return;
+    function muat(){
+      for(var i=0;i<N;i++){
+        (function(i){
+          var im=new Image(); im.decoding='async'; im.fetchPriority='low';
+          im.onload=function(){ if(++ok===N){ ready=true; draw(Math.round(NEUTRAL)); box.classList.add('live'); kick() } };
+          im.src='assets/maskot-animasi/'+dir+'/f'+(i<10?'0':'')+i+'.webp';
+          frames[i]=im;
+        })(i);
+      }
     }
+    function jadwal(){
+      if(document.hidden){
+        d.addEventListener('visibilitychange',function f(){ if(!document.hidden){ d.removeEventListener('visibilitychange',f); jadwal() } });
+        return;
+      }
+      if(window.requestIdleCallback) requestIdleCallback(muat,{timeout:2500}); else setTimeout(muat,300);
+    }
+    if(d.readyState==='complete') jadwal(); else addEventListener('load',jadwal,{once:true});
   })();
 
   /* ----- pergantian section: lembar lama mundur saat lembar baru naik ----- */
