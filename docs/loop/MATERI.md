@@ -3,6 +3,7 @@
 Semua materi NERUVIA tahap ini berupa teks dan latihan interaktif ringan. Tidak ada video, audio, atau gambar buatan yang wajib. Video dibuat terpisah di sesi lain dan bukan bagian loop ini.
 
 ## Standar satu pelajaran
+Catatan 22 Nov (permintaan Master): kedalaman pelajaran mengikuti bagian "Standar kedalaman" di RUNBOOK.md (5–7 bagian, 700–1.100 kata, contoh berpasangan, latihan tiga tahap, minimal 4 rujukan). Poin 2 dan 3 di bawah adalah batas minimum lama.
 Setiap pelajaran memuat urutan berikut, ditulis dalam Bahasa Indonesia yang sederhana (SPOK, kalimat pendek):
 1. Tujuan: satu kalimat, "setelah ini kamu bisa ...".
 2. Penjelasan inti: 150–300 kata, satu gagasan per paragraf.

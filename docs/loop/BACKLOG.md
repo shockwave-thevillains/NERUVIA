@@ -8,6 +8,8 @@ Sudah selesai (jangan dikerjakan ulang): form waitlist, halaman terima kasih, SQ
 
 Catatan beta (22 Nov): pendaftaran akun Auth ditutup, jadi kegiatan login, komentar, dan akun pengguna hanya berupa rancangan atau kode di balik flag nonaktif. Pembukaan kembali menunggu keputusan Master (`docs/admin.md`).
 
+Standar kedalaman kegiatan (22 Nov, permintaan Master): setiap kegiatan wajib sedalam bagian "Standar kedalaman" di RUNBOOK.md. Uraian kegiatan di bawah adalah cakupan minimum, bukan batas atas.
+
 ## Paket A
 1. Audit desktop dan mobile terhadap `docs/konteks/PRD.md` (bagian Desain). Tulis `docs/loop/AUDIT.md` berisi temuan berperingkat.
 2. Perbaiki celah teratas dari audit.

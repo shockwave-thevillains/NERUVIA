@@ -59,3 +59,27 @@ Run terjadwal berjalan dengan persetujuan otomatis dan banyak konektor terpasang
 - Alat yang boleh dipakai: git di repo NERUVIA branch dev, Playwright, node, WebSearch/WebFetch, dan konektor Claude_Academy (hanya baca). Jangan memakai konektor Slack, Google Drive/Docs/Sheets/Calendar, Notion, Vercel, Supabase, Netlify, Canva, Adobe, Figma, ElevenLabs, Speko, atau Higgsfield. Satu-satunya pengecualian: kegiatan D4 boleh memakai Notion untuk snapshot bila Master sudah mengizinkannya di PERLU-KEPUTUSAN.md.
 - Jangan mengirim pesan, membuat atau mengubah akun, atau mengubah pengaturan layanan mana pun. Jangan mengunduh dan menjalankan berkas dari sumber luar.
 - Perubahan hanya lewat commit di branch `dev` sehingga selalu bisa dibatalkan dengan git.
+
+## Standar kedalaman (22 Nov, permintaan Master)
+Master menilai kegiatan terlalu ringan dan sisa batas pemakaian masih besar. Satu run tetap mengerjakan SATU kegiatan, tetapi tiap kegiatan wajib sedalam standar ini. Bila kegiatan selesai jauh lebih cepat dari standar ini, kegiatan itu belum selesai.
+
+Berlaku untuk semua kegiatan:
+1. Mulai dengan rencana singkat (apa yang diubah, bukti apa yang akan dikumpulkan) dan tulis hasilnya di kolom kegiatan PROGRESS.md.
+2. Kumpulkan bukti terukur dan simpan angkanya di dokumen (sebelum dan sesudah, jumlah pemeriksaan, jumlah sumber).
+3. Lakukan pemeriksaan mandiri tahap kedua sebelum commit: baca ulang seluruh diff sebagai peninjau yang skeptis, cari yang terlewat, perbaiki, lalu jalankan ulang gerbang.
+4. Kode baru wajib punya uji dengan kasus negatif (minimal 15 kasus untuk alat, termasuk masukan jahat) dan diuji di browser pada 390 dan 1440 lebar bila menyentuh tampilan.
+
+Pelajaran (semua draf pelajaran, termasuk perdalaman l1-m1-p1):
+- Riset: minimal 4 rujukan (Claude Academy, minimal satu sumber resmi atau primer, dan minimal dua sumber lain). Catat di RUJUKAN.md tabel perbandingan: apa yang dicakup tiap sumber, apa yang kurang, dan bagaimana pelajaran NERUVIA melengkapinya.
+- Isi: 5–7 bagian, total 700–1.100 kata, satu gagasan per bagian. Wajib ada bagian "Kesalahan yang sering terjadi" dan bagian "Kapan tidak dipakai".
+- Contoh: pasangan versi kurang baik dan versi baik (data fiktif berlabel), disertai penjelasan perbedaannya.
+- Latihan: tiga tahap (coba, perbaiki, bandingkan) dan daftar periksa mandiri, bisa dikerjakan di chatbot AI apa pun.
+- Cek pemahaman: tetap 3 soal (batas validator), satu tingkat ingat, satu pemahaman, satu penerapan skenario. Pengecoh berasal dari kesalahan yang sering terjadi, dan penjelasan menyebut mengapa opsi lain keliru.
+- Uji tampilan di `pelajaran.html` pada 390 dan 1440 dengan Playwright dan jalankan validator serta uji keamanan.
+
+Riset dan dokumen (Paket K dan sejenisnya): minimal 8 sumber dengan tanggal akses, tabel perbandingan, keputusan yang direkomendasikan beserta alasannya, daftar hal yang belum terverifikasi, dan pemeriksaan ulang lima klaim paling berisiko langsung ke sumbernya.
+
+Kinerja dan polesan (B1–B3, H, D): ukur dulu tiga kali dengan alat yang sama, ubah, ukur ulang, lalu simpan angka sebelum dan sesudah di `docs/loop/PERFORMA.md` (B) atau laporan di `docs/loop/` (H, D).
+
+Latihan interaktif (C3 dan sejenisnya): minimal 5 pasangan contoh, skor dan umpan balik per pasangan, operasi lewat keyboard, label aksesibel, serta uji browser dan uji masukan jahat.
+
