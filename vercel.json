@@ -1,4 +1,16 @@
 {
+  "redirects": [
+    {
+      "source": "/admin",
+      "destination": "/admin/",
+      "permanent": false
+    },
+    {
+      "source": "/belajar",
+      "destination": "/belajar/",
+      "permanent": false
+    }
+  ],
   "headers": [
     {
       "source": "/(.*)",

@@ -120,7 +120,9 @@ export function bangun() {
     for (const source of jalurHalaman(berkas)) headers.push({ source, headers: [{ key: 'Content-Security-Policy', value: csp }] });
     ringkasan.push({ berkas, skrip: a.hashSkrip.length, gaya: a.hashGaya.length, attr: a.hashAttr.length, supabase: pakaiConfig });
   }
-  return { json: JSON.stringify({ headers }, null, 2) + '\n', ringkasan };
+  /* Halaman berindeks folder (belajar/, admin/) memakai tautan relatif (ruang.css, ../content/...). Tanpa garis miring penutup, "/belajar" memuat berkas dari akar situs dan halaman tampil tanpa gaya. Karena itu "/folder" dialihkan ke "/folder/". */
+  const redirects = cariHtml().filter((b) => /^[^/]+\/index\.html$/.test(b)).map((b) => ({ source: '/' + b.split('/')[0], destination: '/' + b.split('/')[0] + '/', permanent: false }));
+  return { json: JSON.stringify({ redirects, headers }, null, 2) + '\n', ringkasan };
 }
 
 const langsung = process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href;
