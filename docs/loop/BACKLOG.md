@@ -44,7 +44,7 @@ Dasar: OWASP ASVS (input validation, output encoding, session, logging) dan OWAS
 2. Draf pelajaran 5 (`l1-m1-p5`, Mengecek jawaban AI sebelum dipakai).
 3. Latihan interaktif "prompt jelek vs prompt bagus" di halaman pelajaran 3 (tanpa memanggil AI sungguhan: pilih mana yang lebih jelas, lalu lihat alasannya). Tandai DRAF.
 4. Halaman galeri: tampilkan penanda "Draf" pada pelajaran yang isinya sudah ada, dan lanjutkan otomatis ke pelajaran belum selesai berikutnya.
-5. Jalankan validator, perbarui README dan PROGRESS. Bila butir 4 di PERLU-KEPUTUSAN dijawab "lanjut", tambahkan kerangka akun di balik flag (hanya kode dan SQL draf, tanpa project Supabase).
+5. (C5) Sebelum mulai, periksa PROGRESS: C1 sampai C4 harus berstatus "selesai". Bila ada yang masih "sedang", tunggu (sleep 5 menit, ulangi `git pull` dan periksa lagi, sampai 60 menit); bila C4 tetap belum selesai, kerjakan hanya bagian yang bisa dan catat sisanya. Lalu jalankan validator, perbarui README dan PROGRESS. Bila butir 4 di PERLU-KEPUTUSAN dijawab "lanjut", tambahkan kerangka akun di balik flag (hanya kode dan SQL draf, tanpa project Supabase).
 
 ## Paket E (Level 1 Modul 2: Prompt yang efektif)
 Draf pelajaran nomor 1–5 sesuai MATERI.md, satu pelajaran satu kegiatan. Tambahkan modul `l1-m2` ke `kursus.json` (jenis dan XP mengikuti aturan validator).
