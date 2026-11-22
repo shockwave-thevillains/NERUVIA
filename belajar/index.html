@@ -173,7 +173,7 @@ ol.ls li:has(a:focus-visible){outline:3px solid var(--cyan);outline-offset:2px}
     if(f.size>100000)return bsay('Berkas terlalu besar (maksimal 100 KB).',true);
     var r=new FileReader();r.onload=function(){var o;try{o=JSON.parse(r.result)}catch(x){return bsay('Berkas bukan JSON yang valid.',true)}
       var res=window.NVProgress.importData(o,allLessons().map(function(p){return p.id}));
-      if(!res.ok)return bsay(res.error,true);stats();render();bsay('Impor selesai: '+res.added+' pelajaran baru'+(res.skipped?', '+res.skipped+' baris dilewati karena tidak dikenal.':'.'))};
+      if(!res.ok)return bsay(res.error,true);stats();render();bsay('Impor selesai: '+res.added+' pelajaran baru'+(res.skipped?', '+res.skipped+' baris dilewati karena id atau tanggalnya tidak valid.':'.'))};
     r.onerror=function(){bsay('Berkas gagal dibaca.',true)};r.readAsText(f)});
   Array.prototype.forEach.call(document.querySelectorAll('.f'),function(b){b.addEventListener('click',function(){
     filter=b.getAttribute('data-f');Array.prototype.forEach.call(document.querySelectorAll('.f'),function(x){x.setAttribute('aria-pressed',x===b)});if(data)render()})});

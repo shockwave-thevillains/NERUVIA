@@ -152,3 +152,20 @@ Harness Node memuat `belajar/progress.js` dengan `localStorage` tiruan dan meman
 | S4 Rancangan aman login dan komentar | K2, K3, K4 (sebagai pertimbangan rancangan, bukan penerapan) |
 | S5 Skrip uji otomatis | K11 dan seluruh pemindai di atas |
 | Master | K1 (terapkan), K2 (cek), K3 dan K4 (putuskan), pilihan hosting produksi |
+
+## Tindak lanjut S2 (Min 22 Nov 2026): validasi input dan encoding output
+
+| Temuan | Status setelah S2 | Bukti |
+|---|---|---|
+| K1 Enumerasi email lewat 409 | Draf SQL ada (fungsi `join_waitlist`, bagian D di `supabase/draf/waitlist-s2-perketat.sql`), diuji di Postgres lokal: email baru dan lama sama-sama sukses tanpa galat. Belum aktif: klien masih POST langsung dan Master yang menerapkan SQL dan mengalihkan endpoint. | uji SQL lokal |
+| K6 Hak insert semua kolom | Draf SQL: `grant insert (name, email, jalur, consent, consent_text, client_ts)`. Diuji: insert dengan `id` atau `created_at` ditolak "permission denied". Belum diterapkan. | uji SQL lokal |
+| K7 Karakter nama dan email | Selesai di klien (normalisasi NFKC, buang karakter kontrol/lebar nol/bidi, daftar putih karakter, awalan rumus ditolak). Draf SQL menyamakan di server. Aturan operasional ekspor (awali sel dengan tanda petik) tetap perlu dicatat di `docs/waitlist-backend.md`. | uji Playwright 32 nama dan 27 email, uji banding dengan SQL |
+| K8 Tanggal impor progres | Selesai: hanya `YYYY-MM-DDTHH:mm:ss(.sss)Z`, tanggal harus nyata (31 Feb ditolak), tidak sebelum 1 Jan 2026, tidak lebih dari sehari ke depan; perbandingan waktu pakai angka, bukan teks. | `tools/uji-impor-progres.mjs`, 57 pemeriksaan lulus |
+| K9 Kepercayaan pada localStorage | Selesai: `read()` hanya menyalin entri dengan id sah dan tanggal sah ke objek tanpa prototipe; nilai objek dan id `constructor`/`prototype`/`__proto__` dibuang; `mark()` menolak id aneh dan jam perangkat sebelum 2026. | idem |
+
+Encoding output: pencarian ulang `innerHTML`, `outerHTML`, `insertAdjacentHTML`, `document.write`, `eval`, `new Function`, `srcdoc`, dan atribut `on*=` di seluruh `index.html`, `belajar/`, `terima-kasih.html`, `kebijakan-privasi.html`, `config.js`: tidak ada. Satu-satunya kemunculan ada di `tools/video/video-px*.html` (alat pembuat video offline, isinya teks tetap dari berkas itu sendiri, tidak memuat data pengguna dan tidak ditautkan dari situs). Pemindai di S5 perlu mengecualikan `tools/video/` atau menandainya khusus, dan folder itu sebaiknya tidak ikut diterbitkan ke produksi.
+
+Catatan ketat: pesan galat form tetap lewat `textContent`; pesan impor progres sekarang menyebut "id atau tanggalnya tidak valid". Aturan klien dan server sengaja identik; bila salah satu diubah, ubah yang lain.
+
+Sisa pekerjaan S2 yang bukan kode: Master menerapkan draf SQL (PERLU-KEPUTUSAN butir 9). Kolom `name` yang sudah berisi baris uji lama ditangani oleh `NOT VALID` pada constraint baru; setelah baris lama dirapikan, jalankan bagian E di berkas SQL.
+

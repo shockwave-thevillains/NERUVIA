@@ -2,12 +2,35 @@
 (function (g) {
   var KEY = 'neruvia.progress.v1';
   var DAY = 86400000;
+  /* Aturan data (S2): id pelajaran huruf kecil/angka/strip; tanggal hanya ISO UTC "YYYY-MM-DDTHH:mm:ss(.sss)Z". */
+  var ID_RE = /^[a-z0-9][a-z0-9-]{0,39}$/;
+  function okId(id) { return typeof id === 'string' && ID_RE.test(id) && id !== 'constructor' && id !== 'prototype'; }   /* __proto__ sudah ditolak ID_RE */
+  var ISO_RE = /^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2}):(\d{2})(?:\.\d{1,3})?Z$/;
+  var MIN_MS = Date.UTC(2026, 0, 1);          /* NERUVIA belum ada sebelum 2026 */
+  var FUTURE_SLACK = DAY;                     /* toleransi jam perangkat: 1 hari ke depan */
+  /* kembalikan ms epoch bila v tanggal ISO valid dan tidak sebelum 1 Jan 2026; selain itu NaN */
+  function isoMs(v) {
+    if (typeof v !== 'string' || v.length > 30) return NaN;
+    var m = ISO_RE.exec(v); if (!m) return NaN;
+    var t = Date.parse(v); if (isNaN(t) || t < MIN_MS) return NaN;
+    var d = new Date(t);   /* tolak 31 Feb dan sejenisnya: tanggal hasil parse harus sama dengan tulisan */
+    if (d.getUTCFullYear() !== +m[1] || d.getUTCMonth() + 1 !== +m[2] || d.getUTCDate() !== +m[3] || d.getUTCHours() !== +m[4]) return NaN;
+    return t;
+  }
+  /* salin hanya entri yang id dan tanggalnya valid, ke objek tanpa prototipe */
+  function clean(src) {
+    var out = Object.create(null);
+    if (!src || typeof src !== 'object' || Array.isArray(src)) return out;
+    Object.keys(src).forEach(function (id) {
+      if (okId(id) && !isNaN(isoMs(src[id]))) out[id] = src[id];
+    });
+    return out;
+  }
   function read() {
     try {
       var o = JSON.parse(localStorage.getItem(KEY) || '{}');
-      if (!o || typeof o !== 'object' || !o.done || typeof o.done !== 'object' || Array.isArray(o.done)) o = { done: {} };
-      return o;
-    } catch (e) { return { done: {} }; }
+      return { done: clean(o && o.done) };
+    } catch (e) { return { done: clean(null) }; }
   }
   function write(o) { try { localStorage.setItem(KEY, JSON.stringify(o)); return true; } catch (e) { return false; } }
   function dayKey(d) { /* tanggal lokal YYYY-MM-DD */
@@ -28,8 +51,10 @@
     icons: ICON,
     isDone: function (id) { return !!read().done[id]; },
     mark: function (id, on) {
-      var o = read();
-      if (on) o.done[id] = o.done[id] || new Date().toISOString(); else delete o.done[id];
+      if (!okId(id)) return false;
+      var o = read(), now = new Date().toISOString();
+      if (on && isNaN(isoMs(now))) return false;   /* jam perangkat salah (sebelum 2026): jangan simpan tanggal yang nanti dibuang */
+      if (on) o.done[id] = o.done[id] || now; else delete o.done[id];
       return write(o);
     },
     all: function () { return read().done; },
@@ -76,16 +101,18 @@
     exportData: function () { return { app: 'neruvia', versi: 1, diekspor: new Date().toISOString(), done: read().done }; },
     /* impor: validasi ketat, hanya id yang dikenal, gabung (ambil waktu paling awal). */
     importData: function (obj, validIds) {
-      if (!obj || obj.app !== 'neruvia' || obj.versi !== 1 || !obj.done || typeof obj.done !== 'object' || Array.isArray(obj.done)) return { ok: false, error: 'Format berkas tidak dikenali.' };
+      if (!obj || typeof obj !== 'object' || Array.isArray(obj) || obj.app !== 'neruvia' || obj.versi !== 1 ||
+          !obj.done || typeof obj.done !== 'object' || Array.isArray(obj.done) || !Array.isArray(validIds)) return { ok: false, error: 'Format berkas tidak dikenali.' };
       var keys = Object.keys(obj.done);
       if (keys.length > 500) return { ok: false, error: 'Berkas terlalu besar.' };
-      var o = read(), added = 0, skipped = 0;
+      var o = read(), added = 0, skipped = 0, limit = Date.now() + FUTURE_SLACK;
       keys.forEach(function (id) {
-        var v = obj.done[id];
-        if (validIds.indexOf(id) < 0 || typeof v !== 'string' || isNaN(new Date(v))) { skipped++; return; }
-        var iso = new Date(v).toISOString();
+        var v = obj.done[id], t = isoMs(v);
+        /* tolak: id di luar daftar putih atau berformat aneh, tanggal bukan ISO, sebelum 2026, atau di masa depan */
+        if (!okId(id) || validIds.indexOf(id) < 0 || isNaN(t) || t > limit) { skipped++; return; }
+        var iso = new Date(t).toISOString();
         if (!o.done[id]) { o.done[id] = iso; added++; }
-        else if (iso < o.done[id]) o.done[id] = iso;
+        else if (t < Date.parse(o.done[id])) o.done[id] = iso;
       });
       if (!write(o)) return { ok: false, error: 'Progres tidak bisa disimpan di browser ini.' };
       return { ok: true, added: added, skipped: skipped };

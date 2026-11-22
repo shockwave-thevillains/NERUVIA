@@ -769,7 +769,15 @@ html.lenis,html.lenis body{height:auto}
      Untuk Supabase juga isi window.NERUVIA_WAITLIST_HEADERS = {apikey:'<anon key>', Authorization:'Bearer <anon key>', Prefer:'return=minimal'}.
      Selama endpoint kosong, form berjalan dalam mode pratinjau dan TIDAK mengirim data apa pun. */
   var form=$('#wl'), msg=$('#wl-msg'), btn=$('#wl-btn'), btnT=$('#wl-btn-t'), done=$('#wl-done'),
-      jalur='AI dari Nol', busy=false, started=0, EMAIL=/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+      jalur='AI dari Nol', busy=false, started=0,
+      JALUR=['AI dari Nol','AI untuk Kerja','AI Lanjutan','Masih bingung'];
+  /* Aturan input (S2). Server (supabase/draf/waitlist-s2-perketat.sql) memakai aturan yang sama atau lebih ketat. */
+  /* NFKC lalu buang karakter kontrol, lebar nol, dan pengecoh arah teks (bidi); rapikan spasi */
+  var JUNK=/[\u0000-\u001F\u007F-\u009F\u00AD\u061C\u180E\u200B-\u200F\u2028-\u202E\u2060-\u206F\uFEFF\uFFF9-\uFFFC]/g;
+  function norm(v){return String(v).normalize('NFKC').replace(/[\t\n\r\v\f]/g,' ').replace(JUNK,'').replace(/\s+/g,' ').trim()}
+  function cps(v){return Array.from(v).length}
+  var NAME=/^[\p{L}\p{M}\p{N}][\p{L}\p{M}\p{N} .'\u2019-]*$/u;
+  var EMAIL=/^[A-Za-z0-9][A-Za-z0-9._%+-]{0,63}@[A-Za-z0-9](?:[A-Za-z0-9-]{0,61}[A-Za-z0-9])?(?:\.[A-Za-z0-9](?:[A-Za-z0-9-]{0,61}[A-Za-z0-9])?)*\.[A-Za-z]{2,24}$/;
   function say(t,c){msg.className='msg '+(c||'');msg.textContent=t||''}
   function fe(id,t){var el=$('#fe-'+id); el.textContent=t||''; el.classList.toggle('on',!!t)}
   function mark(inp,t,id){
@@ -778,17 +786,21 @@ html.lenis,html.lenis body{height:auto}
     fe(id,t);
   }
   var rules={
-    name:function(){var v=form.name.value.trim();return v.length>60?'Nama panggilan maksimal 60 karakter.':''},
-    email:function(){var v=form.email.value.trim();
+    name:function(){var v=norm(form.name.value);
+      if(!v)return '';                                   /* nama boleh kosong */
+      if(cps(v)>60)return 'Nama panggilan maksimal 60 karakter.';
+      if(!NAME.test(v))return 'Nama panggilan hanya boleh huruf, angka, spasi, titik, apostrof, dan tanda hubung, dan harus diawali huruf atau angka.';
+      return ''},
+    email:function(){var v=norm(form.email.value);
       if(!v)return 'Isi alamat email kamu.';
-      if(v.length>254||!EMAIL.test(v))return 'Alamat email belum valid. Contoh: nama@email.com';
+      if(v.length>254||v.indexOf('..')>=0||!EMAIL.test(v))return 'Alamat email belum valid. Contoh: nama@email.com';
       return ''},
     consent:function(){return form.consent.checked?'':'Centang pernyataan usia dan persetujuan untuk melanjutkan.'}
   };
   var field={name:form.name,email:form.email,consent:form.consent};
   function check(k){var t=rules[k]();mark(field[k],t,k);return t}
   ['name','email'].forEach(function(k){
-    field[k].addEventListener('blur',function(){if(field[k].value||field[k].hasAttribute('aria-invalid'))check(k)});
+    field[k].addEventListener('blur',function(){if(field[k].value){var n=norm(field[k].value);if(n!==field[k].value)field[k].value=n}if(field[k].value||field[k].hasAttribute('aria-invalid'))check(k)});
     field[k].addEventListener('input',function(){if(field[k].hasAttribute('aria-invalid'))check(k)});
   });
   form.consent.addEventListener('change',function(){if($('#consent-l').classList.contains('bad'))check('consent')});
@@ -812,12 +824,13 @@ html.lenis,html.lenis body{height:auto}
     var bad=['name','email','consent'].filter(function(k){return check(k)});
     if(bad.length){field[bad[0]].focus();say('Periksa '+bad.length+' isian yang ditandai merah.','err');return}
     if(started&&Date.now()-started<1200){say('Terlalu cepat. Coba kirim sekali lagi.','err');started=0;return}   /* penjaga waktu */
+    if(JALUR.indexOf(jalur)<0){say('Pilihan level tidak dikenali. Muat ulang halaman, lalu coba lagi.','err');return}   /* DOM bisa diubah dari luar */
     var ep=window.NERUVIA_WAITLIST_ENDPOINT;
     if(!ep){say('Mode pratinjau: form belum terhubung ke backend, jadi data tidak dikirim.','info');return}
     setBusy(true);say('');
     var ctl=window.AbortController?new AbortController():null, to=setTimeout(function(){ctl&&ctl.abort()},12000);
     fetch(ep,{method:'POST',headers:Object.assign({'Content-Type':'application/json'},window.NERUVIA_WAITLIST_HEADERS||{}),signal:ctl?ctl.signal:undefined,
-      body:JSON.stringify({name:form.name.value.trim(),email:form.email.value.trim(),jalur:jalur,consent:true,
+      body:JSON.stringify({name:norm(form.name.value)||null,email:norm(form.email.value),jalur:jalur,consent:true,
         consent_text:'v4 2026-11-19 (18+, nama, email, level; sampai peluncuran; kebijakan-privasi.html v2)',client_ts:new Date().toISOString()})})
       .then(function(r){
         if(r.status===409||r.status===422){sent();return}   /* email sudah terdaftar: tampilkan hasil yang sama */

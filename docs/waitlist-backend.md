@@ -40,3 +40,18 @@ Catat permintaan dan waktunya sebelum menghapus.
 - Form di branch `dev` terhubung lewat `config.js` (kunci publishable saja).
 - Proyek Vercel `neruvia` terhubung ke repo. Deployment dilindungi login Vercel dan bertanda noindex.
 - Belum teruji: kirim form dari browser sampai baris masuk ke tabel. Sandbox Claude tidak boleh mengakses host Supabase, jadi uji ini harus dari browser Master pada URL preview.
+
+## Aturan input (S2, 22 Nov 2026)
+Klien (`index.html`) dan server (draf `supabase/draf/waitlist-s2-perketat.sql`) memakai aturan yang sama. Server tidak boleh lebih longgar daripada klien, jadi tiap perubahan aturan diubah di kedua tempat.
+- Normalisasi di klien sebelum validasi dan kirim: Unicode NFKC, buang karakter kontrol, lebar nol, dan pengecoh arah teks (bidi), tab dan baris baru jadi spasi, spasi beruntun jadi satu, ujung dipangkas. Server tidak memperbaiki; nilai yang masih memuat karakter itu ditolak.
+- Nama (boleh kosong, dikirim `null` bila kosong): maksimal 60 karakter (titik kode, bukan unit UTF-16), hanya huruf, tanda diakritik, angka, spasi, titik, apostrof, dan tanda hubung, dan diawali huruf atau angka. Awalan `=`, `+`, `-`, `@` ditolak sehingga ekspor ke spreadsheet tidak menjadi rumus. Baris lama atau data dari sumber lain tetap perlu dijaga: saat mengekspor ke spreadsheet, awali sel yang berawalan `=`, `+`, `-`, atau `@` dengan tanda petik.
+- Email: ASCII saja, bagian lokal maksimal 64 karakter dan diawali huruf atau angka, tanpa titik ganda, domain berlabel huruf/angka/strip, TLD 2–24 huruf, total maksimal 254. Email internasional (IDN) belum didukung.
+- Level: hanya satu dari empat pilihan; klien memeriksanya lagi sebelum kirim karena DOM bisa diubah dari luar.
+- Teks persetujuan: server hanya menerima versi yang dikenal (saat ini `v4 2026-11-19 ...`). Bila teks di `index.html` diubah, tambahkan versi barunya di constraint `waitlist_consent_text_known` sebelum situs dirilis.
+- Hak insert anon dibatasi ke kolom `name, email, jalur, consent, consent_text, client_ts`; `id` dan `created_at` tidak bisa diisi dari luar.
+
+Uji yang dijalankan run S2 (Postgres 16 lokal, peran anon): 13 nama dan 10 email buruk ditolak dengan galat 23514, teks persetujuan asing ditolak, `id` dan `created_at` ditolak (42501), nama dan email sah diterima, termasuk "José Ñandú" dan alamat dengan tanda plus. Uji banding klien vs server atas 32 nama dan 27 email: tidak ada nilai yang ditolak klien tetapi diterima server, dan tidak ada nilai yang diterima klien tetapi ditolak server (selain email yang sudah ada di tabel uji).
+
+## Status penerapan draf S2
+`supabase/draf/waitlist-s2-perketat.sql` BELUM diterapkan ke `neruvia-dev`; Master yang menerapkannya (lihat PERLU-KEPUTUSAN butir 9). Bagian D (fungsi `join_waitlist`, perbaikan K1) hanya berguna bila klien dialihkan ke `/rest/v1/rpc/join_waitlist`; itu mengubah endpoint form dan tidak dikerjakan run otomatis.
+
