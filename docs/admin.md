@@ -24,7 +24,7 @@ Penjualan menunggu metode pembayaran dan harga yang belum diputuskan; dashboard-
 3. Jalankan di SQL Editor (ganti emailnya):
    `insert into public.admins (user_id, catatan) select id, 'pemilik' from auth.users where email = 'email-kamu@contoh.com';`
 4. Buka `/admin/` di build dev dan masuk.
-5. Disarankan: matikan pendaftaran akun baru (Authentication, sakelar signup) dan aktifkan MFA TOTP untuk akun admin; tahap berikutnya akan menuntut AAL2 bila MFA aktif.
+5. Pendaftaran akun baru sudah ditutup (22 Nov 2026) lewat trigger `tolak_pendaftaran` di `auth.users` (`supabase/admin/004-tutup-pendaftaran.sql`): setiap INSERT ke `auth.users` ditolak, termasuk pembuatan user dari dashboard. Untuk membuat akun admin baru, hapus trigger itu sebentar (perintahnya ada di berkas SQL), buat user, lalu pasang lagi. Sakelar bawaan Supabase (Authentication, Sign In / Providers, "Allow new users to sign up") setara dan sebaiknya ikut dimatikan oleh Master. Disarankan juga mengaktifkan MFA TOTP untuk akun admin; tahap berikutnya akan menuntut AAL2 bila MFA aktif.
 
 ## Dashboard (tahap 2)
 - Angka total, per hari, dan per level datang dari dua view `security_invoker` yang hanya memuat agregat. RLS tabel `waitlist` tetap berlaku: admin melihat angka sebenarnya, akun login lain melihat 0 baris, `anon` ditolak (tanpa hak select). Diuji di Supabase asli dalam transaksi yang dibatalkan.
@@ -39,6 +39,9 @@ Penjualan menunggu metode pembayaran dan harga yang belum diputuskan; dashboard-
 - **Akses:** semua kebijakan tabel dan `storage.objects` untuk bucket ini mensyaratkan `private.is_admin()`; anon tidak punya hak apa pun.
 - **CSP:** hanya `/admin/` mendapat `media-src 'self'` ditambah host Supabase, supaya pemutar bisa memuat tautan bertanda tangan. Halaman lain tidak berubah.
 - **Batas:** video lebih dari 50 MB belum didukung. Opsinya tautan ke pemutar luar, yang menuntut CSP mengizinkan host pemutar tertentu; belum dikerjakan.
+
+## Catatan uji RLS setelah pendaftaran ditutup
+Skrip uji RLS yang membuat user palsu di `auth.users` (dalam transaksi yang dibatalkan) akan ditolak trigger `tolak_pendaftaran`. Hapus trigger sementara untuk menjalankan uji seperti itu, atau uji dengan `request.jwt.claims` yang memakai `sub` akun yang sudah ada, lalu pasang trigger lagi.
 
 ## Uji
 `node tools/uji-header-csp.mjs` mencakup `/admin/` dengan Supabase tiruan (sandi salah dan kunci, admin sah, dashboard dan CSV aman rumus, editor draf pelajaran, unggah dan putar video, kegagalan sebagian data, pulih setelah muat ulang, keluar, akun non-admin ditolak dan token dicabut, 401 mengakhiri sesi, email berisi HTML tampil sebagai teks, tanpa pelanggaran CSP). Kebijakan RLS asli harus diuji di SQL setelah skema diterapkan (lihat bagian Uji RLS di PERLU-KEPUTUSAN butir 11).
