@@ -14,9 +14,7 @@
 
 Catatan: baris bernomor 4–9 di atas adalah penomoran lama, sudah selesai secara interaktif dan sudah dicakup ulang oleh paket di BACKLOG.
 
-## Antrean kegiatan (sampai dua kegiatan per run, mulai 22 Nov)
-
-Catatan: kolom "Jam rencana" memakai asumsi satu kegiatan per run, sehingga sekarang hanya perkiraan kasar; urutan baris yang berlaku.
+## Antrean kegiatan (satu kegiatan per run)
 
 Status: belum, sedang (diklaim run), selesai, gagal. Kolom commit berisi hash. Run mengambil baris pertama berstatus "belum" dari atas, bukan menurut jam.
 
