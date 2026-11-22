@@ -14,6 +14,7 @@
   --f-main:'Space Grotesk',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;--f-mono:'Space Mono',ui-monospace,Menlo,Consolas,monospace}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 body{font-family:var(--f-main);background:var(--paper);color:var(--ink);line-height:1.65;-webkit-font-smoothing:antialiased}
 a{color:var(--ink);text-underline-offset:3px}
 a:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
@@ -26,7 +27,7 @@ header{position:sticky;top:0;z-index:5;background:rgba(255,255,255,.92);backdrop
 main{max-width:760px;margin:0 auto;padding:clamp(48px,7vw,88px) clamp(20px,5vw,40px) 96px}
 .mono{font-family:var(--f-mono);font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#666}
 h1{font-size:clamp(40px,6vw,64px);line-height:1.02;letter-spacing:-.035em;margin:14px 0 18px}
-.meta{font-size:15px;color:var(--muted)}
+.meta{font-size:15px;color:var(--muted);max-width:640px}
 .draft{margin:32px 0 8px;background:var(--ink);color:#fff;border-radius:20px;padding:22px 24px}
 .draft b{color:var(--cyan);font-family:var(--f-mono);font-size:13px;letter-spacing:.14em;text-transform:uppercase;display:block;margin-bottom:8px}
 .draft p{font-size:15px;line-height:1.6;color:#D6D6D6}

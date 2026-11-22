@@ -1,6 +1,8 @@
 #!/usr/bin/env node
 /* Ukur pergeseran tata letak (CLS) akibat pertukaran font (B2). Hanya mengukur dan mencetak; tidak mengubah berkas.
    Pakai:  node tools/ukur-cls-font.mjs [--runs 3] [--tunda 1500] [--json]
+   Opsi --halaman /,/belajar/ membatasi halaman (default kelima halaman situs).
+   Opsi --lebar 360,390,768 mengganti daftar lebar (default 390,768,1440; maksimal 12 nilai).
    Server statis lokal; semua permintaan .woff2 ditahan --tunda ms supaya halaman tampil dulu dengan font cadangan
    lalu bertukar ke font web (kasus terburuk jaringan lambat). Tiap halaman diukur pada 390, 768, 1440 px;
    keluaran per sel: median CLS, dan sumber pergeseran terbesar (elemen) dari putaran pertama.
@@ -16,8 +18,11 @@ const MIME = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; cha
 const arg = (n, d) => { const i = process.argv.indexOf('--' + n); return i > 0 && process.argv[i + 1] ? process.argv[i + 1] : d; };
 const RUNS = Math.max(1, Math.min(9, parseInt(arg('runs', '3'), 10) || 3));
 const TUNDA = Math.max(0, Math.min(10000, parseInt(arg('tunda', '1500'), 10) || 0));
-const HALAMAN = ['/', '/belajar/', '/belajar/pelajaran.html?id=l1-m1-p1', '/terima-kasih.html', '/kebijakan-privasi.html'];
-const LEBAR = [390, 768, 1440];
+const SEMUA = ['/', '/belajar/', '/belajar/pelajaran.html?id=l1-m1-p1', '/terima-kasih.html', '/kebijakan-privasi.html'];
+const HALAMAN = arg('halaman', '') ? arg('halaman', '').split(',').filter((x) => x.startsWith('/') && !x.includes('..')).slice(0, 12) : SEMUA;
+if (!HALAMAN.length) { console.error('--halaman harus berisi jalan yang diawali / dan tanpa .., dipisah koma'); process.exit(1); }
+const LEBAR = (arg('lebar', '390,768,1440').split(',').map((x) => parseInt(x, 10)).filter((x) => x >= 280 && x <= 3000)).slice(0, 12);
+if (!LEBAR.length) { console.error('--lebar harus berisi angka 280 sampai 3000, dipisah koma'); process.exit(1); }
 
 let chromium;
 try { ({ chromium } = createRequire(import.meta.url)('playwright')); } catch { console.error('Playwright tidak tersedia'); process.exit(2); }

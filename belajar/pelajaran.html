@@ -79,7 +79,7 @@ h1{max-width:none;font-size:clamp(32px,4.8vw,52px);margin:16px 0 14px}
 
 
   function box(title,text){var b=el('div','box');b.appendChild(el('h3','',title));b.appendChild(el('p','',text));return b}
-  function loadContent(p,body){
+  function loadContent(p,body,ready){
     fetch('../content/pelajaran/'+encodeURIComponent(p.id)+'.json').then(function(r){if(!r.ok)throw 0;return r.json()}).then(function(c){
       body.textContent='';
       if(c.status==='draf')body.appendChild(el('span','draft','// Draf · belum disetujui'));
@@ -105,7 +105,8 @@ h1{max-width:none;font-size:clamp(32px,4.8vw,52px);margin:16px 0 14px}
           fs.appendChild(op);fs.appendChild(fb);body.appendChild(fs)});
         body.appendChild(score)}
       if(c.ringkasan){body.appendChild(el('h2','','Ringkasan'));var ul=el('ul','sum');c.ringkasan.forEach(function(t){ul.appendChild(el('li','',t))});body.appendChild(ul)}
-    }).catch(function(){body.textContent='';body.appendChild(el('p','','Isi pelajaran gagal dimuat. Muat ulang halaman ini.'))});
+      ready();
+    }).catch(function(){body.textContent='';body.appendChild(el('p','','Isi pelajaran gagal dimuat. Muat ulang halaman ini.'));ready()});
   }
   function show(flat,i){
     var cur=flat[i],p=cur.p,prev=flat[i-1],next=flat[i+1],mod=cur.m.pelajaran;
@@ -124,16 +125,20 @@ h1{max-width:none;font-size:clamp(32px,4.8vw,52px);margin:16px 0 14px}
 
     var body=el('section','body');body.setAttribute('aria-label','Isi pelajaran');
     if(p.isi==='belum'){body.appendChild(el('span','draft','// Materi sedang disusun'));body.appendChild(el('p','','Isi pelajaran ini belum tersedia. Tombol di bawah hanya untuk mencoba alur belajar: tandai selesai, lihat progres, lanjut ke pelajaran berikutnya.'))}
-    else{body.appendChild(el('p','','Memuat isi pelajaran…'));loadContent(p,body)}
+    else body.appendChild(el('p','','Memuat isi pelajaran…'));
     main.appendChild(body);
 
+    /* Tombol, status, dan navigasi ada di bawah isi. Isi tiba lewat fetch kedua dan memanjang jauh,
+       jadi bagian bawah dipasang sesudah isi siap supaya tidak melompat (CLS). Sampai saat itu ia ditampung di fragmen. */
+    var tail=document.createDocumentFragment();
+    function showTail(){main.appendChild(tail)}
     var acts=el('div','acts'),done=el('button','btn main');done.type='button';
-    acts.appendChild(done);main.appendChild(acts);
-    var live=el('p','live');live.setAttribute('role','status');live.setAttribute('aria-live','polite');main.appendChild(live);
+    acts.appendChild(done);tail.appendChild(acts);
+    var live=el('p','live');live.setAttribute('role','status');live.setAttribute('aria-live','polite');tail.appendChild(live);
 
     var nav=el('div','nav2');
     function link(x,label,dir){var a=el('a','btn');a.textContent=label;if(x){a.href='pelajaran.html?id='+encodeURIComponent(x.p.id);a.title=x.p.judul}else{a.setAttribute('aria-disabled','true');a.removeAttribute('href')}return a}
-    nav.appendChild(link(prev,'← Sebelumnya'));nav.appendChild(link(next,'Berikutnya →'));main.appendChild(nav);
+    nav.appendChild(link(prev,'← Sebelumnya'));nav.appendChild(link(next,'Berikutnya →'));tail.appendChild(nav);
 
     function paint(announce){
       var on=window.NVProgress.isDone(p.id);
@@ -149,6 +154,7 @@ h1{max-width:none;font-size:clamp(32px,4.8vw,52px);margin:16px 0 14px}
       if(!ok){live.style.color='var(--bad)';live.textContent='Progres tidak bisa disimpan di browser ini.';return}
       live.style.color='';paint(true)});
     paint(false);
+    if(p.isi==='belum')showTail();else loadContent(p,body,showTail);
   }
 })();
 </script>

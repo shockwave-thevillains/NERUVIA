@@ -162,3 +162,108 @@ Pembacaan: beranda HP LCP 2.228 menjadi 1.478 ms (-34%), bobot total 2.932 menja
 Tahap 1 (pembacaan diff sebagai peninjau skeptis): menemukan (i) tanda panah berubah bentuk akibat fallback tanpa `unicode-range` (diperbaiki, 18 tangkapan layar kembali identik); (ii) tiga halaman kecil melambat 16 sampai 32 ms akibat preload font dan fallback (keduanya dibatalkan di halaman itu, diukur ulang); (iii) judul beranda masih melompat karena fallback tebal memakai rasio rata-rata (fallback judul khusus ditambahkan, CLS 1440 px 0,0123 menjadi 0,0009); (iv) pemindai aset awal menghitung dua kali format AVIF dan WebP dalam bobot halaman (digabung per kelompok `<picture>`); (v) pemindai awal menganggap `C:\...` sebagai skema URL (diperbaiki, kasus uji ditambahkan). Tahap 2: seluruh gerbang dijalankan ulang pada kode final (aset 344/66, CSP 201, Neru 90, keamanan 664, kursus, impor), tangkapan layar dibandingkan ulang, ukur-muat dijalankan ulang untuk halaman kecil.
 
 Tidak diperiksa: (1) deploy Vercel yang sebenarnya. RUNBOOK mewajibkan verifikasi di URL deploy READY, tetapi konektor Vercel dilarang pada run otomatis dan URL pratinjau dev tidak tercatat di repo, jadi angka di atas hanya lokal; Master atau sesi interaktif perlu menjalankan `node tools/ukur-muat.mjs` terhadap URL dev (butuh penyesuaian alamat) atau memeriksa lewat dashboard apakah `.vercelignore` berlaku dan kompresi Brotli menurunkan bobot AVIF/WebP lebih jauh; (2) perangkat nyata dan Safari/Firefox (AVIF dan `<picture>` didukung di semua browser modern, tetapi hanya Chromium yang diuji; fallback WebP diuji sebagai kode, bukan di Safari lama); (3) fallback bermetrik dihitung terhadap Arial/Courier New, di Android (Roboto) metriknya tidak diukur; (4) `local()` fallback di macOS/Windows tidak diuji (sandbox Linux memakai Liberation); (5) varian `neru-1024.avif` dan `neru-wave-1041.avif` hanya terpakai pada layar retina besar dan tidak diukur terpisah; (6) JS dimatikan: halaman `/belajar/` dengan `aria-busy` tetap menyisakan ruang kosong sampai 940 px di bawah placeholder (noscript tetap tampil); (7) aset yang dikecualikan lewat `.vercelignore` belum dipastikan benar-benar hilang dari deploy.
+
+
+## B3 — Pergeseran tata letak sisa dan reduced-motion (22 Nov 2026)
+
+### Rencana dan bukti
+Rencana: (1) ukur dasar dengan alat yang sama (CLS dengan font ditunda 3 gelombang x 3 putaran, ditambah sapuan 8 lebar; muat 2 gelombang x 3 putaran untuk 5 halaman x 3 profil; gerbang penuh); (2) selidiki tiga sisa CLS yang diserahkan B2 lewat daftar elemen yang bergeser; (3) perbaiki penyebabnya, bukan gejalanya; (4) uji baru dengan kasus negatif dan uji mutasi terhadap kode lama; (5) ukur ulang dengan alat dan jumlah putaran yang sama; (6) bandingkan 36 tangkapan layar (6 halaman x 6 lebar, reduced-motion, font siap) sebelum dan sesudah; (7) periksa `prefers-reduced-motion` pada 4 halaman x 3 lebar x 2 mode; (8) gerbang penuh sesudah.
+
+### Temuan dan perbaikan
+| # | Temuan (terukur) | Penyebab | Perbaikan |
+|---|---|---|---|
+| 1 | `/belajar/pelajaran.html`: satu dari tiga putaran melompat 0,115 (390 px), 0,095 (768 px), 0,062 (1440 px). Tombol "Tandai selesai" dan navigasi bergeser dari y=627 ke luar layar. | Isi pelajaran diambil lewat fetch kedua; kotak isi bertinggi awal 220 px lalu memanjang ribuan piksel, mendorong tombol dan navigasi yang sudah dicat. Muncul bila cat pertama terjadi sebelum isi tiba (acak antarputaran). | Tombol, status, dan navigasi ditampung di `DocumentFragment` dan dipasang setelah isi tiba (atau setelah gagal). Elemen baru di bawah isi tidak menggeser apa pun. |
+| 2 | Beranda 720 sampai 820 px: CLS 0,0339 / 0,0331 / 0,0323. | Kalimat lead (28 px, `max-width:22em` = 616 px) muat satu baris dengan fallback (605 px) tetapi dua baris dengan font asli, jadi tombol dan daftar fakta turun 35 px. | `max-width:21em` (588 px): kedua font pasti dua baris. Tampilan akhir identik piksel. |
+| 3 | Beranda 1000 sampai 1200 px (hanya tampak pada layar setinggi 900 px): CLS 0,0295 sampai 0,0328, tidak terlihat di tabel B2 karena lebar itu tidak diukur. | Baris marquee huruf kapital tebal (`/LEARN /PRACTICE ...`) memakai fallback umum 100,3% padahal teksnya kapital semua; judul beranda sudah memakai fallback khusus kapital (89,9%) sejak B2. | `.marquee .row` ikut memakai `Space Grotesk Title Fallback`. 0,0295 menjadi 0,0019 (1024 px). |
+| 4 | Kebijakan privasi 768 px: 0,0162 (baris "Versi 2 · ... Berlaku sejak [tanggal]" muat satu baris dengan fallback sistem, dua baris dengan font asli, +25 px). | Lebar teks hampir sama dengan lebar kolom (683 px), jendela viewport sempit sekitar 760 sampai 775 px. | `.meta{max-width:640px}`: dua baris di kedua font. Tampilan akhir identik piksel. |
+| 5 | `prefers-reduced-motion` tidak mematikan `scroll-behavior:smooth` di `kebijakan-privasi.html` (klik daftar isi menggulir mulus ke 2.434 px) dan `terima-kasih.html`. Ditemukan saat memeriksa reduced-motion, bukan dari CLS. | Dua halaman itu menyetel `html{scroll-behavior:smooth}` tanpa aturan reduced-motion. | Aturan `@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}` ditambahkan di keduanya. Diuji: reduce gulir instan, tanpa preferensi tetap mulus. |
+
+### Angka CLS (font ditunda 1,5 dtk, reduced-motion, median 3 putaran per sel; `node tools/ukur-cls-font.mjs --lebar 360,390,600,720,768,820,1024,1440`)
+| Halaman | Lebar | CLS sebelum | CLS sesudah | Putaran terburuk sebelum | sesudah |
+| / | 360 | 0.0002 | 0.0002 | 0.0002 | 0.0002 |
+| / | 390 | 0.0003 | 0.0003 | 0.0003 | 0.0003 |
+| / | 600 | 0.0002 | 0.0002 | 0.0002 | 0.0002 |
+| / | 720 | 0.0339 | 0.0004 | 0.0339 | 0.0004 |
+| / | 768 | 0.0331 | 0.0005 | 0.0331 | 0.0005 |
+| / | 820 | 0.0323 | 0.0005 | 0.0323 | 0.0005 |
+| / | 1024 | 0.0295 | 0.0019 | 0.0295 | 0.0019 |
+| / | 1440 | 0.0009 | 0.0009 | 0.0009 | 0.0009 |
+| /belajar/ | 360 | 0.0000 | 0.0000 | 0.0000 | 0.0000 |
+| /belajar/ | 390 | 0.0000 | 0.0000 | 0.0000 | 0.0000 |
+| /belajar/ | 600 | 0.0001 | 0.0001 | 0.0001 | 0.0001 |
+| /belajar/ | 720 | 0.0120 | 0.0122 | 0.0122 | 0.0122 |
+| /belajar/ | 768 | 0.0016 | 0.0016 | 0.0022 | 0.0022 |
+| /belajar/ | 820 | 0.0013 | 0.0013 | 0.0013 | 0.0013 |
+| /belajar/ | 1024 | 0.0007 | 0.0007 | 0.0007 | 0.0007 |
+| /belajar/ | 1440 | 0.0003 | 0.0003 | 0.0003 | 0.0003 |
+| /belajar/pelajaran.html | 360 | 0.0003 | 0.0003 | 0.0003 | 0.0003 |
+| /belajar/pelajaran.html | 390 | 0.1150 | 0.0003 | 0.1152 | 0.0003 |
+| /belajar/pelajaran.html | 600 | 0.0002 | 0.0002 | 0.0951 | 0.0002 |
+| /belajar/pelajaran.html | 720 | 0.0094 | 0.0094 | 0.1043 | 0.0094 |
+| /belajar/pelajaran.html | 768 | 0.0951 | 0.0001 | 0.0951 | 0.0001 |
+| /belajar/pelajaran.html | 820 | 0.0952 | 0.0000 | 0.0953 | 0.0002 |
+| /belajar/pelajaran.html | 1024 | 0.0001 | 0.0001 | 0.0001 | 0.0001 |
+| /belajar/pelajaran.html | 1440 | 0.0001 | 0.0001 | 0.0001 | 0.0001 |
+| /terima-kasih.html | 360 | 0.0001 | 0.0001 | 0.0001 | 0.0001 |
+| /terima-kasih.html | 390 | 0.0001 | 0.0001 | 0.0001 | 0.0001 |
+| /terima-kasih.html | 600 | 0.0001 | 0.0001 | 0.0001 | 0.0001 |
+| /terima-kasih.html | 720 | 0.0001 | 0.0001 | 0.0001 | 0.0001 |
+| /terima-kasih.html | 768 | 0.0001 | 0.0001 | 0.0001 | 0.0001 |
+| /terima-kasih.html | 820 | 0.0001 | 0.0001 | 0.0001 | 0.0001 |
+| /terima-kasih.html | 1024 | 0.0001 | 0.0001 | 0.0001 | 0.0001 |
+| /terima-kasih.html | 1440 | 0.0002 | 0.0002 | 0.0002 | 0.0002 |
+| /kebijakan-privasi.html | 360 | 0.0002 | 0.0002 | 0.0002 | 0.0002 |
+| /kebijakan-privasi.html | 390 | 0.0002 | 0.0002 | 0.0002 | 0.0002 |
+| /kebijakan-privasi.html | 600 | 0.0006 | 0.0004 | 0.0006 | 0.0006 |
+| /kebijakan-privasi.html | 720 | 0.0006 | 0.0006 | 0.0006 | 0.0006 |
+| /kebijakan-privasi.html | 768 | 0.0162 | 0.0004 | 0.0166 | 0.0006 |
+| /kebijakan-privasi.html | 820 | 0.0006 | 0.0005 | 0.0006 | 0.0005 |
+| /kebijakan-privasi.html | 1024 | 0.0003 | 0.0005 | 0.0003 | 0.0005 |
+| /kebijakan-privasi.html | 1440 | 0.0007 | 0.0007 | 0.0007 | 0.0007 |
+
+Ringkasan: sel di atas 0,01 turun dari 9 menjadi 1 dari 40; putaran tunggal di atas 0,01 turun dari 26 menjadi 3 dari 120; nilai terburuk satu putaran 0,1152 menjadi 0,0122. Pada tiga lebar standar (390, 768, 1440) tiga gelombang x 3 putaran (135 putaran per sisi): terburuk satu putaran 0,1152 menjadi 0,0022, putaran di atas 0,01 turun dari 31 menjadi 0 dari 135, dan maksimum median per sel per gelombang 0,0952 / 0,0617 / 0,0951 menjadi 0,0016 / 0,0016 / 0,0016. Sisa terbesar: `/belajar/` 720 px 0,0122 (tidak diselidiki lebih jauh: di bawah ambang "baik" 0,1 dan bukan lebar standar) dan pelajaran 720 px 0,0094.
+
+### Angka muat (`tools/ukur-muat.mjs`, 1,6 Mbps, RTT 150 ms; median 2 gelombang x 3 putaran; rentang di kurung)
+| Halaman | Profil | LCP ms sebelum | LCP ms sesudah | CLS sebelum | CLS sesudah | KB | Permintaan | Event load ms sebelum/sesudah |
+|---|---|---|---|---|---|---|---|---|
+| / | desktop 1440 | 720 (712-728) | 698 (696-700) | 0 | 0 | 1017 | 30 | 1449/1449 |
+| / | tablet 768 | 510 (504-516) | 508 (508-508) | 0 | 0 | 1764 | 30 | 1451/1448 |
+| / | HP 390 | 1474 (1456-1492) | 1462 (1444-1480) | 0 | 0 | 1764 | 30 | 1457/1459 |
+| /belajar/ | desktop 1440 | 376 (372-380) | 386 (384-388) | 0 | 0 | 75 | 7 | 769/776 |
+| /belajar/ | tablet 768 | 422 (412-432) | 408 (400-416) | 0 | 0 | 75 | 7 | 826/805 |
+| /belajar/ | HP 390 | 458 (448-468) | 444 (444-444) | 0 | 0 | 75 | 7 | 866/853 |
+| pelajaran | desktop 1440 | 602 (596-608) | 588 (584-592) | **0,0620** | **0** | 75 | 8 | 795/790 |
+| pelajaran | tablet 768 | 624 (620-628) | 608 (604-612) | 0 | 0 | 75 | 8 | 819/809 |
+| pelajaran | HP 390 | 844 (836-852) | 856 (844-868) | 0 | 0 | 75 | 8 | 870/862 |
+| /terima-kasih.html | desktop 1440 | 204 (200-208) | 204 (204-204) | 0 | 0 | 43 | 3 | 542/540 |
+| /terima-kasih.html | tablet 768 | 228 (224-232) | 224 (208-240) | 0 | 0 | 43 | 3 | 566/569 |
+| /terima-kasih.html | HP 390 | 276 (264-288) | 272 (264-280) | 0 | 0 | 43 | 3 | 615/602 |
+| /kebijakan-privasi.html | desktop 1440 | 228 (228-228) | 212 (204-220) | 0,0010 | 0,0010 | 52 | 3 | 561/551 |
+| /kebijakan-privasi.html | tablet 768 | 256 (256-256) | 248 (244-252) | 0 | 0 | 52 | 3 | 568/567 |
+| /kebijakan-privasi.html | HP 390 | 286 (272-300) | 292 (268-316) | 0 | 0 | 52 | 3 | 641/639 |
+
+Pembacaan jujur: LCP, bobot, dan jumlah permintaan tidak berubah di luar sebaran (selisih terbesar +10 ms di `/belajar/` desktop, setara sebaran antar-sel; LCP beranda desktop -22 ms dalam rentang). Perubahan B3 sengaja tidak menyentuh jalur muat; hasilnya ada di CLS. Pada muat normal tanpa font ditunda, CLS pelajaran desktop tadinya 0,0620 dan kini 0. Total galat skrip di 180 putaran (dasar dan sesudah): 0.
+
+### Reduced-motion (`prefers-reduced-motion: reduce` lawan tanpa preferensi; 4 halaman x 3 lebar x 2 mode, tunggu 4,5 dtk, lalu gulir 600 px)
+- Beranda: frame Neru diminta 0 (tanpa preferensi 21), kelas `live` tidak muncul, animasi tak hingga 0 (1), elemen bertransisi 0 (59 sampai 63), animasi CSS 0 (8), marquee tidak bergerak saat gulir (bergerak tanpa preferensi).
+- `/belajar/` dan pelajaran: elemen bertransisi 0 (6 dan 16 tanpa preferensi); tidak ada animasi CSS di kedua mode.
+- `/terima-kasih.html`: transisi 0 (1 tanpa preferensi), tetapi `scroll-behavior` tetap `smooth` sebelum B3 (temuan 5, kini `auto`). Kebijakan privasi sama.
+- Tangkapan layar reduced-motion adalah dasar semua perbandingan piksel; tidak ada konten yang hanya muncul lewat gerak.
+
+### Uji dan gerbang
+- Baru: `node tools/uji-cls-pelajaran.mjs`, 71 pemeriksaan lulus: CLS <= 0,01 pada 3 lebar x 3 tundaan isi (0, 300, 1200 ms), 3 lebar untuk pelajaran tanpa isi, urutan elemen dan keadaan sebelum isi tiba, 7 bentuk isi rusak (404, 500, JSON terpotong, bukan objek, null, kosong, `bagian` bukan larik) dengan bagian bawah tetap dipasang, isi 150 bagian pada 390 dan 1440 px, payload XSS di setiap kolom JSON (tetap teks), 7 id jahat atau salah (kosong, HTML, `../`, NUL, 5.000 karakter), tombol selesai (klik, batal, Enter), navigasi pelajaran pertama dan terakhir. Uji mutasi: dijalankan terhadap `belajar/pelajaran.html` lama (`--halaman`), 10 pemeriksaan gagal (CLS 0,0617 sampai 0,1149 dan "tombol belum dipasang sebelum isi tiba" salah), 61 lulus.
+- `tools/ukur-cls-font.mjs` menerima `--lebar` dan `--halaman`; 6 masukan jahat atau salah ditolak dengan pesan (huruf, di bawah 280, di atas 3.000, `../etc`, tanpa `/`, sisipan perintah yang tersaring `parseInt`).
+- Gerbang sebelum dan sesudah (penuh): `uji-keamanan.mjs` 663 menjadi 664 lulus, 0 gagal; `uji-header-csp.mjs` 201 lulus (hash `vercel.json` diperbarui oleh `buat-vercel-json.mjs`, hanya nilai hash yang berubah, tidak ada direktif ditambah atau dilonggarkan); `uji-aset.mjs` 344 + 66 lulus; `uji-muat-neru.mjs` 90; `validasi-kursus`, `uji-impor-progres`, `uji-impor-draf` (19), `uji-komentar-draf` (28) lulus.
+- Tampilan: 36 tangkapan layar (beranda, belajar, pelajaran p1 dan p2, kebijakan privasi, terima kasih x 390/720/768/820/1024/1440 px) sebelum dan sesudah, semuanya identik piksel (beranda 768 dan 820 awalnya tampak berbeda 113.000 piksel karena gambar `loading=lazy` belum termuat di satu sisi; diulang dengan menggulir halaman dan identik).
+
+### Tinjauan mandiri dua tahap
+Tahap 1 (membaca diff sebagai peninjau skeptis): (i) pada percobaan pertama "Memuat isi pelajaran…" ikut hilang bersama blok `else` yang diubah, tertangkap sebelum uji dijalankan dan dipulihkan, diuji ("sebelum isi tiba: teks Memuat tampil"); (ii) `ready()` dipanggil di `.then` dan `.catch`, kesalahan render setelah sebagian isi dipasang tetap berakhir pada pesan galat dan bagian bawah (uji "bagian bukan larik"); (iii) jenis perbaikan "tambah tinggi minimum" dipertimbangkan dan ditolak: tinggi isi bervariasi 3.000 sampai belasan ribu piksel menurut pelajaran, jadi tinggi tetap tidak bisa tepat. Tahap 2: seluruh gerbang dan semua ukuran dijalankan ulang pada kode final, 36 tangkapan layar dan sapuan 8 lebar diulang setelah perbaikan terakhir (marquee dan reduced-motion).
+
+### Belum terverifikasi (tidak diperiksa)
+1. Deploy Vercel yang sebenarnya (konektor dilarang di run otomatis, URL dev tidak tercatat di repo): semua angka lokal; PERLU-KEPUTUSAN butir 14 tetap berlaku.
+2. Hanya Chromium. Safari dan Firefox punya mesin kerja baris dan metrik fallback sendiri; perbaikan lead dan meta bersifat struktural (dua baris di kedua font) sehingga seharusnya aman, tetapi tidak diuji.
+3. Fallback font Android (Roboto) dan macOS/Windows tidak diukur; sandbox memakai Liberation Sans/Mono sebagai pengganti Arial/Courier New. `max-width` baru bergantung pada selisih lebar sekitar 17 px antara fallback (605 px) dan font asli (di atas 616 px) lawan batas 588 px.
+4. Lebar di antara yang diukur (misalnya 540, 680) tidak disapu; `/belajar/` 720 px 0,0122 dan pelajaran 720 px 0,0094 adalah sisa yang diketahui.
+5. Placeholder `[tanggal form waitlist diaktifkan]` di kebijakan privasi akan diganti Master; teks baru bisa memindahkan batas baris lagi, tetapi `max-width:640px` membuat jumlah baris tidak bergantung pada beberapa piksel selisih.
+6. CLS saat pengguna mengubah ukuran font sistem atau zoom teks 200% tidak diukur.
+7. Jaringan nyata: pada koneksi cepat isi pelajaran tiba sebelum cat pertama sehingga masalah 1 tidak muncul; bagian bawah yang dipasang belakangan berarti pada jaringan lambat tombol "Tandai selesai" baru muncul bersama isi (tidak ada tombol aktif tanpa isi yang bisa dibaca).
