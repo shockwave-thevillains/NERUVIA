@@ -1,61 +1,107 @@
 {
   "id": "l1-m1-p1",
   "status": "draf",
-  "tujuan": "Setelah pelajaran ini, kamu bisa menjelaskan apa itu AI dengan kata-katamu sendiri dan menyebut dua alasan AI sekarang banyak dipakai.",
+  "tujuan": "Setelah pelajaran ini, kamu bisa menjelaskan apa itu AI dengan kata-katamu sendiri, membedakan AI yang memilah dari AI yang membuat teks baru, dan menyebut alasan AI sekarang ramai dipakai.",
   "bagian": [
     {
-      "judul": "AI itu apa?",
+      "judul": "AI itu payung besar, bukan satu benda",
       "paragraf": [
-        "AI (kecerdasan buatan) adalah program komputer yang mengerjakan tugas yang biasanya membutuhkan kecerdasan manusia. Contohnya mengenali pola, memahami bahasa, atau menyusun kalimat.",
-        "AI tidak berpikir seperti manusia. AI belajar dari banyak contoh, lalu memakai pola yang ia temukan untuk menjawab hal baru."
+        "AI (kecerdasan buatan) adalah istilah luas untuk program komputer yang mengerjakan tugas yang biasanya butuh kecerdasan manusia, seperti mengenali pola, memahami bahasa, atau mengambil keputusan dari data.",
+        "Kamu sudah memakainya tanpa sadar. Filter spam di email, rekomendasi tayangan berikutnya, dan sistem yang menandai transaksi kartu janggal semuanya AI. Karena istilahnya luas, “AI itu pintar” hampir tidak berarti apa-apa. Pertanyaan yang lebih berguna: AI yang mana, untuk tugas apa?"
       ]
     },
     {
-      "judul": "Chatbot AI yang kamu lihat sekarang",
+      "judul": "Dua keluarga: yang memilah dan yang membuat",
       "paragraf": [
-        "Chatbot AI modern bekerja dengan model bahasa. Model ini dilatih pada teks dalam jumlah sangat besar, sehingga ia pandai menebak kata berikutnya yang paling masuk akal dalam sebuah kalimat.",
-        "Karena itu kamu bisa bertanya dengan bahasa sehari-hari, dan chatbot membalas dengan bahasa yang terasa wajar. Kamu tidak perlu menulis kode."
+        "Keluarga pertama memilah, mengurutkan, dan memprediksi. Filter spam memutuskan sebuah email masuk kotak utama atau spam. Aplikasi peta memperkirakan lama perjalanan. Keluarga ini memakai data yang sudah ada dan mengeluarkan label, peringkat, atau angka.",
+        "Keluarga kedua membuat sesuatu yang baru: teks, gambar, suara, atau kode. Ini disebut AI generatif, dan chatbot yang kamu pakai termasuk di dalamnya. Ia tidak memilih satu email dari tumpukan, tetapi menulis email yang belum pernah ada.",
+        "Pelajaran NERUVIA berikutnya terutama membahas keluarga kedua yang bekerja dengan teks."
       ]
     },
     {
-      "judul": "Kenapa sekarang ramai dipakai?",
+      "judul": "Bagaimana AI generatif belajar",
       "paragraf": [
-        "Pertama, kemampuan modelnya naik sehingga hasilnya cukup berguna untuk pekerjaan sehari-hari, seperti merangkum dan menulis draf.",
-        "Kedua, cara memakainya mudah. Kamu cukup mengetik di kolom chat lewat browser atau HP, tanpa pemasangan yang rumit.",
-        "Ketiga, banyak orang sudah mencobanya, sehingga sekarang ada contoh pemakaian yang bisa ditiru."
+        "AI tidak diberi aturan tertulis untuk setiap pertanyaan. Ia dilatih dengan contoh dalam jumlah sangat besar, lalu menemukan pola sendiri. Untuk model bahasa, latihannya berulang kali menebak kelanjutan sebuah teks sampai tebakannya semakin baik.",
+        "Biasanya ada dua tahap. Tahap pertama membuatnya mengenali pola bahasa dari banyak sekali teks. Tahap kedua melatihnya agar mengikuti arahan, membantu, dan menghindari jawaban yang berbahaya.",
+        "Hasilnya sistem yang menyusun jawaban baru dari pola, bukan mengambil jawaban siap pakai dari lemari data. Pelajaran 2 membahasnya lebih dalam."
+      ]
+    },
+    {
+      "judul": "Kenapa sekarang ramai dipakai",
+      "paragraf": [
+        "Gagasan dasarnya sudah lama, tetapi tiga hal bertemu hampir bersamaan. Cara merancang model yang membaca teks panjang jauh lebih baik. Teks digital untuk melatih tersedia sangat banyak. Perangkat komputasi yang kuat cukup tersedia untuk melatih model sebesar itu.",
+        "Ada alasan keempat yang paling terasa: cara memakainya mudah. Kamu cukup mengetik dengan bahasa sehari-hari di browser atau HP, tanpa menulis kode."
+      ]
+    },
+    {
+      "judul": "Kekuatan dan kelemahan datang dari sumber yang sama",
+      "paragraf": [
+        "Karena AI generatif bekerja dengan pola, ia kuat pada pekerjaan yang polanya umum: merangkum, merapikan, menjelaskan konsep umum, dan membuat draf. Karena itu juga ia lemah pada hal yang sangat spesifik, seperti angka tertentu, nama orang, tanggal, atau kutipan, yang bisa terdengar meyakinkan tetapi keliru.",
+        "Jadi AI bukan serba benar dan bukan serba salah. Ia kuat dan lemah di tempat yang bisa diperkirakan."
+      ]
+    },
+    {
+      "judul": "Kesalahan yang sering terjadi",
+      "paragraf": [
+        "Kesalahan pertama: menganggap AI sama dengan otak manusia di dalam komputer. AI tidak punya pengalaman, perasaan, atau niat. Ia menyusun hasil dari pola.",
+        "Kesalahan kedua: menganggap chatbot sama dengan mesin pencari. Mesin pencari menemukan halaman yang sudah ada. Chatbot menyusun teks baru, sehingga hal spesifik yang ia sebut tetap harus dicek.",
+        "Kesalahan ketiga: menganggap jawaban yang lancar pasti benar. Kelancaran berasal dari kemampuan menyusun bahasa, bukan dari pemeriksaan fakta.",
+        "Kesalahan keempat: menempelkan data pribadi atau rahasia ke chatbot supaya jawabannya “lebih pas”. Samarkan dulu atau jangan ditempel."
+      ]
+    },
+    {
+      "judul": "Kapan tidak dipakai atau jangan dijadikan satu-satunya dasar",
+      "paragraf": [
+        "Jangan memakai jawaban AI apa adanya untuk keputusan berisiko tinggi, seperti kesehatan, keuangan, atau urusan hukum. Jangan pula memakainya sebagai sumber tunggal untuk angka, nama, tanggal, atau kutipan yang akan kamu sajikan sebagai fakta.",
+        "Hitungan yang jawabannya pasti, misalnya uang kembalian, lebih aman dikerjakan dengan kalkulator. Untuk semua itu, pakai AI sebagai pembantu membuat draf atau menjelaskan, lalu cek ke sumber aslinya."
       ]
     }
   ],
   "contoh": {
-    "judul": "Contoh (data fiktif)",
-    "teks": "Dina menempelkan catatan rapat tim yang berantakan ke chatbot dan menulis: \"Rangkum jadi 3 poin utama.\" Chatbot membalas tiga poin singkat. Dina lalu membaca catatan aslinya untuk memastikan ketiga poin itu benar sebelum membagikannya ke tim."
+    "judul": "Contoh berpasangan (cerita fiktif)",
+    "teks": "Versi kurang baik: Andi (tokoh fiktif) bertanya ke chatbot, “Berapa jumlah penduduk Desa Sukamaju tahun lalu?” (desa fiktif). Chatbot menjawab dengan angka rapi dan yakin. Andi langsung menulisnya di laporan kelompok tanpa mencari sumber. Versi baik: Laras (tokoh fiktif) meminta chatbot, “Jelaskan perbedaan sensus dan survei dalam tiga kalimat untuk pemula.” Penjelasan umum seperti itu cocok untuk AI. Untuk angka penduduk desanya, Laras mencari dokumen resmi desa dan memakai angka dari sana. Bedanya: Laras memakai AI untuk konsep umum yang berpola, sedangkan angka spesifik ia ambil dari sumber yang bisa ditunjuk. Andi menyerahkan fakta spesifik kepada tebakan yang terdengar yakin."
   },
   "latihan": {
-    "petunjuk": "Buka chatbot AI mana pun yang kamu punya. Ketik: \"Jelaskan apa itu AI dalam tiga kalimat untuk anak SMP.\" Lalu bandingkan jawabannya dengan penjelasan di atas. Apa yang sama, dan apa yang berbeda?"
+    "petunjuk": "Kerjakan di chatbot AI mana pun. Tahap 1 (coba): tulis lima fitur di HP atau aplikasi yang kamu pakai minggu ini, misalnya saran kata saat mengetik, filter spam, rekomendasi, terjemahan, atau jawaban chatbot. Tebak sendiri apakah tiap fitur memilah atau membuat sesuatu yang baru. Tahap 2 (perbaiki): tempelkan daftarmu ke chatbot (tanpa data pribadi), minta ia memeriksa tebakanmu, dan jelaskan satu kalimat untuk tiap tebakan yang keliru. Tahap 3 (bandingkan): minta chatbot menjelaskan apa itu AI dalam tiga kalimat untuk anak SMP, lalu bandingkan dengan pelajaran ini. Apa yang sama, dan apa yang kurang? Daftar periksa mandiri: (1) aku bisa menyebut dua fitur yang memilah dan dua yang membuat; (2) aku tahu tebakan mana yang tadinya keliru; (3) aku bisa menyebut satu hal spesifik dari jawaban chatbot yang perlu kucek; (4) aku tidak menempelkan data pribadi atau rahasia."
   },
   "cek": [
     {
-      "tanya": "Manakah gambaran AI yang paling tepat?",
-      "opsi": ["Otak manusia di dalam komputer", "Program yang menemukan pola dari banyak contoh untuk mengerjakan tugas tertentu", "Mesin pencari yang selalu benar", "Robot yang punya perasaan"],
-      "benar": 1,
-      "jelas": "AI belajar pola dari banyak contoh. Ia tidak berpikir seperti manusia dan tidak selalu benar."
-    },
-    {
-      "tanya": "Chatbot modern pandai menyusun kalimat terutama karena ...",
-      "opsi": ["ia dilatih pada teks dalam jumlah sangat besar", "ia membaca pikiran penggunanya", "ia menyalin satu halaman web yang sama setiap kali", "ia diprogram dengan jawaban untuk setiap pertanyaan"],
-      "benar": 0,
-      "jelas": "Model bahasa dilatih pada banyak teks sehingga ia bisa menebak kata berikutnya yang masuk akal."
-    },
-    {
-      "tanya": "Mana yang BUKAN alasan AI sekarang ramai dipakai?",
-      "opsi": ["Cara memakainya mudah lewat kolom chat", "Hasilnya cukup berguna untuk tugas sehari-hari", "Jawabannya pasti benar sehingga tidak perlu dicek", "Banyak orang sudah mencoba dan berbagi contoh"],
+      "tanya": "Manakah yang termasuk AI generatif?",
+      "opsi": [
+        "Filter spam yang menaruh email ke kotak spam",
+        "Sistem yang menandai transaksi kartu yang janggal",
+        "Chatbot yang menulis draf email baru dari permintaanmu",
+        "Daftar peringkat tayangan yang disusun dari riwayat tontonan"
+      ],
       "benar": 2,
-      "jelas": "AI bisa keliru. Karena itu pelajaran 5 mengajarkan cara mengecek jawaban AI."
+      "jelas": "AI generatif membuat konten baru, seperti draf email. Tiga opsi lain memilah, menandai, atau mengurutkan data yang sudah ada."
+    },
+    {
+      "tanya": "Manakah yang BUKAN salah satu alasan AI generatif sekarang ramai dipakai?",
+      "opsi": [
+        "Cara merancang model untuk teks panjang menjadi jauh lebih baik",
+        "Teks digital untuk melatih tersedia sangat banyak",
+        "Chatbot sudah memeriksa semua faktanya sendiri sehingga tidak perlu dicek",
+        "Cara memakainya mudah lewat bahasa sehari-hari"
+      ],
+      "benar": 2,
+      "jelas": "Chatbot tidak menjamin faktanya benar, dan jawaban yang lancar bukan hasil pemeriksaan fakta. Opsi lain adalah alasan nyata."
+    },
+    {
+      "tanya": "Kamu perlu dua hal untuk laporan: penjelasan umum tentang cara kerja rantai pasok, dan jumlah pekerja di sebuah pabrik tertentu bulan lalu. Cara yang paling tepat?",
+      "opsi": [
+        "Tanyakan keduanya ke chatbot dan salin jawabannya karena terdengar yakin",
+        "Pakai chatbot untuk penjelasan umum, lalu cari jumlah pekerja dari dokumen atau sumber resmi pabrik itu",
+        "Jangan pakai chatbot sama sekali untuk apa pun",
+        "Tanya chatbot keduanya, lalu tanya “yakin?” dan anggap selesai"
+      ],
+      "benar": 1,
+      "jelas": "Penjelasan umum berpola cocok untuk AI, sedangkan angka spesifik harus datang dari sumber yang bisa ditunjuk. Opsi pertama dan keempat menganggap nada yakin sebagai bukti. Opsi ketiga berlebihan karena AI berguna untuk bagian umum."
     }
   ],
   "ringkasan": [
-    "AI mengerjakan tugas dengan memakai pola yang ia pelajari dari banyak contoh.",
-    "Chatbot memakai model bahasa, jadi kamu bisa bertanya dengan bahasa sehari-hari.",
-    "AI berguna tetapi bisa keliru, jadi jawabannya perlu dicek."
+    "AI adalah istilah luas; ada AI yang memilah dan memprediksi, dan ada AI generatif yang membuat teks, gambar, atau kode baru.",
+    "AI generatif ramai dipakai karena rancangan model, data, dan daya komputasi bertemu, ditambah cara memakainya yang mudah.",
+    "AI kuat pada pekerjaan berpola umum dan lemah pada hal spesifik, jadi nama, angka, tanggal, dan kutipan perlu dicek."
   ]
 }
