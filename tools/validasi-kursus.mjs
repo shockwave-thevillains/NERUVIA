@@ -55,6 +55,7 @@ function cekIsi(p, fp, wp) {
   else c.bagian.forEach((b, i) => { if (!b.judul || !Array.isArray(b.paragraf) || !b.paragraf.length || b.paragraf.some((x) => typeof x !== 'string' || !x.trim())) err(`${wp}: bagian[${i}] tidak lengkap`); });
   if (!c.contoh || !c.contoh.teks) err(`${wp}: contoh kosong`);
   if (!c.latihan || !c.latihan.petunjuk) err(`${wp}: latihan kosong`);
+  if (c.interaktif !== undefined) cekInteraktif(c.interaktif, wp);
   if (!Array.isArray(c.cek) || c.cek.length !== 3) err(`${wp}: cek harus 3 soal`);
   else c.cek.forEach((q, i) => {
     if (!q.tanya || !Array.isArray(q.opsi) || q.opsi.length < 3 || q.opsi.length > 5) err(`${wp}: cek[${i}] butuh 3–5 opsi`);
@@ -63,6 +64,28 @@ function cekIsi(p, fp, wp) {
   });
   if (!Array.isArray(c.ringkasan) || c.ringkasan.length !== 3) err(`${wp}: ringkasan harus 3 butir`);
   if (/\b(video|tonton)\b/i.test(JSON.stringify(c))) err(`${wp}: materi tulisan tidak boleh merujuk video`);
+}
+/* Latihan interaktif opsional (kegiatan C3): pasangan prompt, pilih yang lebih sesuai. Batas panjang sama dengan penampil di belajar/pelajaran.html. */
+function cekInteraktif(x, wp) {
+  const str = (v, n) => typeof v === 'string' && v.trim() !== '' && v.length <= n;
+  if (!x || typeof x !== 'object' || Array.isArray(x)) return err(`${wp}: interaktif harus objek`);
+  if (!str(x.judul, 120)) err(`${wp}: interaktif.judul kosong atau lebih dari 120 huruf`);
+  if (!str(x.petunjuk, 500)) err(`${wp}: interaktif.petunjuk kosong atau lebih dari 500 huruf`);
+  if (!Array.isArray(x.pasangan) || x.pasangan.length < 5 || x.pasangan.length > 12) return err(`${wp}: interaktif.pasangan harus 5–12 pasangan`);
+  const hitung = { a: 0, b: 0 };
+  x.pasangan.forEach((q, i) => {
+    const w = `${wp}: interaktif.pasangan[${i}]`;
+    if (!q || typeof q !== 'object' || Array.isArray(q)) return err(`${w} harus objek`);
+    if (!str(q.skenario, 400)) err(`${w}.skenario kosong atau lebih dari 400 huruf`);
+    if (!str(q.a, 900)) err(`${w}.a kosong atau lebih dari 900 huruf`);
+    if (!str(q.b, 900)) err(`${w}.b kosong atau lebih dari 900 huruf`);
+    if (typeof q.a === 'string' && q.a === q.b) err(`${w}: a dan b sama`);
+    if (!str(q.alasan, 700)) err(`${w}.alasan kosong atau lebih dari 700 huruf`);
+    if (q.benar !== 'a' && q.benar !== 'b') err(`${w}.benar harus "a" atau "b"`); else hitung[q.benar]++;
+    if (!Array.isArray(q.unsur) || q.unsur.length > 8 || q.unsur.some((u) => !str(u, 60))) err(`${w}.unsur harus daftar teks (maks 8)`);
+    if (typeof q.skenario === 'string' && !/fiktif/i.test(q.skenario)) err(`${w}.skenario wajib berlabel "fiktif"`);
+  });
+  if (hitung.a === 0 || hitung.b === 0) err(`${wp}: jawaban benar tidak boleh selalu di sisi yang sama (a ${hitung.a}, b ${hitung.b})`);
 }
 if (errs.length) { console.error(`GAGAL, ${errs.length} masalah:\n- ` + errs.join('\n- ')); process.exit(1); }
 const n = d.level.reduce((a, l) => a + l.modul.reduce((b, m) => b + m.pelajaran.length, 0), 0);

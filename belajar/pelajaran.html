@@ -51,6 +51,22 @@ h1{max-width:none;font-size:clamp(32px,4.8vw,52px);margin:16px 0 14px}
 .nav2{margin-top:36px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 .live{min-height:24px;margin-top:14px;font-size:15px;color:var(--ink)}
 .empty{padding:28px;border:1px dashed var(--line);border-radius:20px;color:var(--muted)}
+.lat{margin-top:22px;border:1px solid var(--line);border-radius:18px;padding:18px 20px;background:#fff}
+.lat p{font-size:17px;color:#333}
+.pq{margin-top:20px;border:0}
+.pq legend{font-size:17px;font-weight:600;margin-bottom:10px;color:var(--ink)}
+.pair{display:grid;gap:10px}
+@media(min-width:720px){.pair{grid-template-columns:1fr 1fr}}
+.popt{text-align:left;font:500 16px var(--f-main);color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px 16px;cursor:pointer;display:flex;flex-direction:column;gap:6px;min-height:44px}
+.popt:hover:not([aria-disabled=true]){border-color:var(--ink)}
+.popt[aria-disabled=true]{cursor:default}
+.popt.ok{border-color:var(--ok);background:rgba(27,127,75,.08)}
+.popt.no{border-color:var(--bad);background:rgba(198,40,40,.08)}
+.ptag{font-family:var(--f-pixel);font-size:12px;letter-spacing:.06em;color:var(--muted)}
+.pt{white-space:pre-wrap;overflow-wrap:anywhere}
+.vd{font-family:var(--f-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink)}
+.latact{margin-top:18px}
+.lat [hidden]{display:none}
 @media(prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
 </head>
@@ -79,6 +95,59 @@ h1{max-width:none;font-size:clamp(32px,4.8vw,52px);margin:16px 0 14px}
 
 
   function box(title,text){var b=el('div','box');b.appendChild(el('h3','',title));b.appendChild(el('p','',text));return b}
+  function okInter(x){
+    function s(v,n){return typeof v==='string'&&v.trim()!==''&&v.length<=n}
+    if(!x||typeof x!=='object'||!s(x.judul,120)||!s(x.petunjuk,500)||!Array.isArray(x.pasangan)||x.pasangan.length<1||x.pasangan.length>12)return false;
+    return x.pasangan.every(function(q){return !!q&&typeof q==='object'&&s(q.skenario,400)&&s(q.a,900)&&s(q.b,900)&&s(q.alasan,700)&&(q.benar==='a'||q.benar==='b')&&Array.isArray(q.unsur)&&q.unsur.length<=8&&q.unsur.every(function(u){return s(u,60)})})
+  }
+  /* Latihan interaktif: pilih prompt yang lebih sesuai. Tanpa chatbot sungguhan, tanpa jaringan. Semua teks dari JSON lewat textContent. */
+  function interaktif(x){
+    if(!okInter(x))return null;
+    var n=x.pasangan.length,wrap=el('section','lat'),right=0,answered=0,groups=[];
+    var hid='lat-h';wrap.setAttribute('aria-labelledby',hid);
+    wrap.appendChild(el('span','draft','// Latihan interaktif · Draf'));
+    var h=el('h2','',x.judul);h.id=hid;wrap.appendChild(h);
+    wrap.appendChild(el('p','',x.petunjuk));
+    var score=el('p','score');score.setAttribute('role','status');score.setAttribute('aria-live','polite');
+    var again=el('button','btn');again.type='button';again.textContent='Ulangi latihan';again.hidden=true;
+    function fin(){
+      var m=right===n?'Semua tepat. Coba terapkan unsur-unsur ini pada tugas nyata di latihan di atas.':right*3>=n*2?'Sudah baik. Baca ulang alasan pada situasi yang belum tepat.':'Baca ulang bagian pelajaran di atas, lalu coba lagi.';
+      score.textContent='Skor: '+right+' dari '+n+'. '+m;again.hidden=false;
+    }
+    x.pasangan.forEach(function(q,qi){
+      var fs=el('fieldset','pq'),lg=el('legend','',(qi+1)+'. '+q.skenario),pr=el('div','pair'),fb=el('p','fb');
+      fb.setAttribute('role','status');fb.setAttribute('aria-live','polite');
+      fs.appendChild(lg);
+      var btn={};
+      ['a','b'].forEach(function(k){
+        var b=el('button','popt');b.type='button';b.setAttribute('aria-pressed','false');
+        b.appendChild(el('span','ptag','PROMPT '+k.toUpperCase()));b.appendChild(el('span','pt',q[k]));
+        b.addEventListener('click',function(){
+          if(fs.getAttribute('data-done')==='1')return;
+          fs.setAttribute('data-done','1');
+          var ok=k===q.benar;answered++;if(ok)right++;
+          b.setAttribute('aria-pressed','true');
+          ['a','b'].forEach(function(j){btn[j].setAttribute('aria-disabled','true')});
+          btn[q.benar].classList.add('ok');btn[q.benar].appendChild(el('span','vd','Lebih sesuai'));
+          if(!ok){b.classList.add('no');b.appendChild(el('span','vd','Pilihanmu, kurang sesuai'))}
+          fb.textContent='';fb.appendChild(el('b','',ok?'Benar. ':'Belum tepat. '));
+          fb.appendChild(document.createTextNode(q.alasan+(q.unsur.length?' Unsur yang membedakan: '+q.unsur.join(', ')+'.':'')));
+          if(answered===n)fin();else score.textContent='Dijawab '+answered+' dari '+n;
+        });
+        btn[k]=b;pr.appendChild(b)});
+      fs.appendChild(pr);fs.appendChild(fb);wrap.appendChild(fs);groups.push({fs:fs,btn:btn,fb:fb});
+    });
+    wrap.appendChild(score);
+    var la=el('div','latact');la.appendChild(again);wrap.appendChild(la);
+    again.addEventListener('click',function(){
+      right=0;answered=0;score.textContent='';again.hidden=true;
+      groups.forEach(function(g){
+        g.fs.removeAttribute('data-done');g.fb.textContent='';
+        ['a','b'].forEach(function(j){var b=g.btn[j];b.removeAttribute('aria-disabled');b.setAttribute('aria-pressed','false');b.classList.remove('ok','no');Array.prototype.slice.call(b.querySelectorAll('.vd')).forEach(function(v){b.removeChild(v)})})});
+      groups[0].btn.a.focus();
+    });
+    return wrap;
+  }
   function loadContent(p,body,ready){
     fetch('../content/pelajaran/'+encodeURIComponent(p.id)+'.json').then(function(r){if(!r.ok)throw 0;return r.json()}).then(function(c){
       body.textContent='';
@@ -87,6 +156,7 @@ h1{max-width:none;font-size:clamp(32px,4.8vw,52px);margin:16px 0 14px}
       c.bagian.forEach(function(g){var h=el('h2','',g.judul);body.appendChild(h);g.paragraf.forEach(function(t){body.appendChild(el('p','',t))})});
       if(c.contoh)body.appendChild(box(c.contoh.judul||'Contoh',c.contoh.teks));
       if(c.latihan)body.appendChild(box('Latihan',c.latihan.petunjuk));
+      var lat=interaktif(c.interaktif);if(lat)body.appendChild(lat);
       if(c.cek&&c.cek.length){
         body.appendChild(el('h2','','Cek pemahaman'));
         var right=0,answered=0,score=el('p','score');score.setAttribute('role','status');score.setAttribute('aria-live','polite');

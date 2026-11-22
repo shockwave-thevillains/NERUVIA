@@ -62,6 +62,86 @@
   "latihan": {
     "petunjuk": "Kerjakan di chatbot AI mana pun. Tahap 1 (coba): pilih satu tugas nyata kecil, misalnya mengajak teman ikut kegiatan atau meringkas catatan pendek. Tulis prompt secepat mungkin dalam satu kalimat dan kirim, lalu simpan jawabannya. Tahap 2 (perbaiki): di percakapan baru, tulis ulang prompt itu dengan lima unsur: tugas dengan kata kerja, pembaca dan tujuan, bahan (pakai data karanganmu bila perlu), batasan yang bisa dicek, dan bentuk hasil. Tahap 3 (bandingkan): letakkan kedua jawaban berdampingan. Mana yang paling mendekati kebutuhanmu? Unsur apa yang paling mengubah hasil? Daftar periksa mandiri: (1) kalimat pertamaku berupa perintah dengan kata kerja jelas; (2) aku menyebut pembaca dan tujuan; (3) semua fakta yang dibutuhkan sudah kuberikan, tidak ada yang kuserahkan pada tebakan chatbot; (4) aku bisa mengecek batasan dan bentuk hasil dengan mudah; (5) aku tidak menempelkan data pribadi atau rahasia."
   },
+  "interaktif": {
+    "judul": "Latihan cepat: mana prompt yang lebih sesuai?",
+    "petunjuk": "Tidak ada chatbot sungguhan di sini. Untuk tiap situasi, pilih prompt yang menurutmu lebih sesuai. Setelah memilih, kamu melihat alasannya. Semua tokoh dan tempat di latihan ini fiktif.",
+    "pasangan": [
+      {
+        "skenario": "Raka (tokoh fiktif) ingin mengajak teman satu gang ikut kerja bakti hari Sabtu. Ia minta chatbot menulis pesannya.",
+        "a": "Buat pesan ajakan kerja bakti.",
+        "b": "Susun pesan ajakan kerja bakti untuk teman satu gang di grup pesan. Tujuannya supaya mereka datang Sabtu pukul 07.00 ke pos ronda dan membawa sapu sendiri. Maksimal 50 kata, nada santai, akhiri dengan satu pertanyaan “bisa hadir?”.",
+        "benar": "b",
+        "alasan": "Prompt B menyebut tugas (susun pesan), pembaca dan tujuan, bahan (hari, jam, tempat, bawaan), serta batasan dan bentuk. Prompt A hanya menyebut tugas, jadi chatbot harus menebak sisanya, termasuk jam dan tempat.",
+        "unsur": [
+          "tugas",
+          "pembaca dan tujuan",
+          "bahan",
+          "batasan",
+          "bentuk hasil"
+        ]
+      },
+      {
+        "skenario": "Rani (tokoh fiktif) baru selesai rapat tim. Atasannya hanya punya satu menit untuk membaca hasilnya.",
+        "a": "Ringkas catatan rapat di bawah ini menjadi tiga poin untuk atasanku yang hanya punya satu menit membaca. Tulis keputusan lebih dulu, lalu tugas dan tenggatnya.\nCatatan: [tempel catatan rapat di sini]",
+        "b": "Aku masih pusing dengan rapat tadi. Banyak sekali yang dibahas dan rasanya semuanya penting, jadi aku tidak tahu mulai dari mana. Tolong dibantu ya, terima kasih banyak sebelumnya.",
+        "benar": "a",
+        "alasan": "Prompt A dibuka dengan perintah berkata kerja, menyebut pembaca, jumlah poin, urutan isi, dan memisahkan catatan sebagai bahan. Prompt B hanya bercerita tentang perasaan dan tidak menyebut tugas yang bisa dikerjakan.",
+        "unsur": [
+          "tugas",
+          "pembaca dan tujuan",
+          "bahan",
+          "bentuk hasil"
+        ]
+      },
+      {
+        "skenario": "Pemilik kedai kopi fiktif bernama Kopi Senja ingin mengumumkan jam buka baru kepada pelanggan.",
+        "a": "Tulis pengumuman jam buka baru kedai kami yang bagus dan menarik, lengkap dengan promo yang menarik juga.",
+        "b": "Tulis pengumuman jam buka baru Kopi Senja untuk pelanggan tetap di unggahan media sosial. Bahan: buka Senin sampai Sabtu pukul 08.00–21.00, hari Minggu tutup. Jangan menambah promo atau fakta lain. Maksimal 40 kata.",
+        "benar": "b",
+        "alasan": "Prompt B memberi bahan yang sudah pasti dan melarang karangan tambahan. Prompt A hanya memakai kata sifat (“bagus”, “menarik”) dan meminta promo tanpa bahan, sehingga chatbot kemungkinan mengarang promo yang tidak ada.",
+        "unsur": [
+          "bahan",
+          "batasan",
+          "pembaca dan tujuan"
+        ]
+      },
+      {
+        "skenario": "Seorang pelajar fiktif ingin memahami sebuah artikel panjang yang baru ia baca.",
+        "a": "Jadi begini, aku tadi membaca artikel ini dan menurutku isinya agak panjang. Aku juga tidak terlalu paham, sebenarnya aku butuh bantuan, mungkin kamu bisa melihatnya dan memberi tahu intinya kalau bisa. Kalau tidak bisa juga tidak apa-apa, pokoknya aku ingin mengerti.",
+        "b": "Ringkas artikel di bawah ini menjadi empat kalimat untuk pelajar SMA yang belum pernah belajar topiknya.\nArtikel: [tempel artikel di sini]",
+        "benar": "b",
+        "alasan": "Panjang tidak sama dengan jelas. Prompt A panjang tetapi berputar-putar dan tidak pernah menyebut tugas dengan tegas. Prompt B lebih pendek, tetapi jelas tugas, pembaca, bentuk hasil, dan bahannya.",
+        "unsur": [
+          "tugas",
+          "pembaca dan tujuan",
+          "bentuk hasil",
+          "bahan"
+        ]
+      },
+      {
+        "skenario": "Dina (tokoh fiktif) membaca sebuah kalimat dan ingin tahu arti kata “ambigu”.",
+        "a": "Apa arti kata “ambigu”?",
+        "b": "Jelaskan arti kata “ambigu” untuk pembaca dewasa umum. Tujuannya supaya aku paham kata itu saat membaca. Beri tiga contoh kalimat, maksimal 120 kata, dalam daftar bernomor dan nada formal.",
+        "benar": "a",
+        "alasan": "Untuk pertanyaan sederhana seperti arti sebuah kata, satu kalimat pendek sudah cukup. Prompt B tidak salah, tetapi terlalu berat untuk kebutuhan ini. Tambahkan detail hanya bila jawaban pertama belum sesuai.",
+        "unsur": [
+          "tidak perlu prompt panjang"
+        ]
+      },
+      {
+        "skenario": "Dimas (tokoh fiktif) punya notulen rapat panitia dan sedang terburu-buru. Ia ingin segera mendapat hasil yang bisa dipakai.",
+        "a": "Ringkas notulen di bawah ini menjadi lima poin untuk anggota panitia yang tidak hadir.\nNotulen: [tempel notulen di sini]",
+        "b": "Ringkas notulen rapat, tulis ulang menjadi email resmi, terjemahkan ke bahasa Inggris, buat jadwal rapat berikutnya, dan beri saran menu makan siang panitia. Notulennya ada di bawah. [tempel notulen di sini]",
+        "benar": "a",
+        "alasan": "Prompt A memuat satu tugas dengan pembaca yang jelas dan bahan yang dipisahkan. Prompt B menumpuk lima tugas tak berhubungan dalam satu pesan, sehingga hasilnya mudah tercampur dan sulit diperiksa. Pisahkan menjadi pesan-pesan terpisah.",
+        "unsur": [
+          "satu tugas per pesan",
+          "bahan",
+          "pembaca dan tujuan"
+        ]
+      }
+    ]
+  },
   "cek": [
     {
       "tanya": "Manakah kalimat pembuka prompt yang paling jelas?",
