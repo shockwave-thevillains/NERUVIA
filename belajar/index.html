@@ -19,10 +19,10 @@
 .f:hover{border-color:var(--ink)}
 .f[aria-pressed=true]{background:var(--ink);color:#fff;border-color:var(--ink)}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:16px;align-items:start}
-/* Ruang kosong dipesan selama daftar level dimuat supaya bagian di bawahnya tidak melompat (CLS). Nilai = tinggi terkecil hasil ukur pada tiap jumlah kolom. */
-.grid[aria-busy="true"]{min-height:940px}
-@media(min-width:641px){.grid[aria-busy="true"]{min-height:690px}}
-@media(min-width:1072px){.grid[aria-busy="true"]{min-height:390px}}
+/* Ruang kosong dipesan selama daftar level dimuat supaya bagian di bawahnya tidak melompat (CLS). Nilai = tinggi terkecil hasil ukur pada tiap jumlah kolom (diukur ulang di C4 setelah kartu mendapat tombol Mulai/Lanjutkan: 1037, 763, 512 px). */
+.grid[aria-busy="true"]{min-height:1030px}
+@media(min-width:641px){.grid[aria-busy="true"]{min-height:760px}}
+@media(min-width:1072px){.grid[aria-busy="true"]{min-height:505px}}
 .card{background:var(--card);border:1px solid var(--line);border-radius:28px;padding:26px;display:flex;flex-direction:column;gap:16px}
 .card.soon{opacity:.82}
 .top{display:flex;justify-content:space-between;align-items:center}
@@ -55,6 +55,12 @@ ol.ls li{position:relative}
 ol.ls li:has(a:focus-visible){outline:3px solid var(--ink);outline-offset:2px}
 .ls .tx a:focus-visible{outline:none}
 .ls small{display:block;margin-top:3px;font-size:12px;color:var(--muted)}
+.ls .dr{display:inline-block;margin-left:6px;font-family:var(--f-pixel);font-size:12px;letter-spacing:.06em;line-height:1.2;padding:2px 6px;border:1px solid var(--ink);border-radius:5px;color:var(--ink);vertical-align:middle}
+.go{display:grid;gap:8px;justify-items:start}
+.go a{display:inline-flex;align-items:center;min-height:48px;padding:0 22px;border-radius:999px;background:var(--cyan);border:1px solid var(--cyan);color:var(--ink);font:600 16px var(--f-main);text-decoration:none}
+.go a:hover{filter:brightness(1.08)}
+.go a:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+.go p{font-size:14px;color:var(--muted)}
 .empty{padding:28px;border:1px dashed var(--line);border-radius:20px;color:var(--muted)}
 .badges{margin-top:28px}
 .badges h2,.backup h2{font-family:var(--f-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:400;margin-bottom:12px}
@@ -94,7 +100,7 @@ ol.ls li:has(a:focus-visible){outline:3px solid var(--ink);outline-offset:2px}
   <p class="eyebrow">// Ruang belajar · pratinjau</p>
   <h1>Pilih levelmu, mulai dari nol.</h1>
   <p class="lead">Daftar level dan modul yang sedang dirancang. Progresmu tersimpan di browser ini saja, tidak dikirim ke server.</p>
-  <p class="note">Rancangan materi. Isi pelajaran belum tersedia dan urutan bisa berubah sebelum peluncuran.</p>
+  <p class="note">Rancangan materi. Pelajaran DRAF belum disetujui dan urutan bisa berubah sebelum peluncuran.</p>
 
   <section class="stats" aria-label="Ringkasan progresmu">
     <div class="stat"><b id="s-xp">0</b><span>XP terkumpul</span></div>
@@ -148,11 +154,18 @@ ol.ls li:has(a:focus-visible){outline:3px solid var(--ink);outline-offset:2px}
         var pr=el('div','prog'),tt=el('div','t');tt.appendChild(el('span','',sm.done+' dari '+sm.count+' pelajaran'));tt.appendChild(el('span','',sm.xp+' / '+sm.xpTotal+' XP'));
         var tr=el('div','track');tr.setAttribute('role','progressbar');tr.setAttribute('aria-label','Progres '+l.judul);tr.setAttribute('aria-valuemin','0');tr.setAttribute('aria-valuemax',String(sm.count));tr.setAttribute('aria-valuenow',String(sm.done));
         var f=el('i');f.style.width=(sm.count?Math.round(100*sm.done/sm.count):0)+'%';tr.appendChild(f);pr.appendChild(tt);pr.appendChild(tr);c.appendChild(pr);
+        var nx=window.NVProgress.lanjut(data,'',l.id),go=el('div','go');
+        if(l.status==='segera'){go=null}   /* level belum dibuka: tanpa tombol lanjut (tautan di daftar pelajaran tetap ada) */
+        else if(nx){var ga=el('a','',(sm.done?'Lanjutkan belajar':'Mulai belajar')+' →');ga.href='pelajaran.html?id='+encodeURIComponent(nx.pelajaran.id);go.appendChild(ga);
+          go.appendChild(el('p','','Berikutnya: '+nx.pelajaran.judul+(nx.pelajaran.isi==='draf'?' (draf)':'')))}
+        else if(all.some(function(p){return p.isi!=='belum'}))go.appendChild(el('p','','Semua pelajaran yang sudah ada isinya sudah selesai.'));
+        else go.appendChild(el('p','','Belum ada pelajaran yang bisa dibuka.'));
+        if(go)c.appendChild(go);
         var d=el('details');d.appendChild(el('summary','','Lihat modul dan pelajaran'));
         l.modul.forEach(function(m){
           var mm=el('div','mod');mm.appendChild(el('h3','',m.judul));var ol=el('ol','ls');
           m.pelajaran.forEach(function(p){
-            var li=el('li',done[p.id]?'done':'');var tx=el('div','tx');var ln=el('a','',p.judul);ln.href='pelajaran.html?id='+encodeURIComponent(p.id);ln.style.textDecoration='none';tx.appendChild(ln);tx.appendChild(el('small','',p.jenis+' · '+p.xp+' XP'+(p.isi==='belum'?' · isi belum tersedia':'')));
+            var li=el('li',done[p.id]?'done':'');var tx=el('div','tx');var ln=el('a','',p.judul);ln.href='pelajaran.html?id='+encodeURIComponent(p.id);ln.style.textDecoration='none';tx.appendChild(ln);var sm2=el('small','',p.jenis+' · '+p.xp+' XP'+(p.isi==='belum'?' · isi belum tersedia':''));if(p.isi==='draf')sm2.appendChild(el('span','dr','DRAF'));tx.appendChild(sm2);
             li.appendChild(tx);ol.appendChild(li)});
           mm.appendChild(ol);d.appendChild(mm)});
         c.appendChild(d);

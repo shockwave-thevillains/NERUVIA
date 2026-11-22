@@ -48,6 +48,8 @@ h1{max-width:none;font-size:clamp(32px,4.8vw,52px);margin:16px 0 14px}
 .btn.main[aria-pressed=true]{background:var(--ink);border-color:var(--ink);color:#fff}
 .btn.main:hover{filter:brightness(1.08)}
 .btn[aria-disabled=true]{opacity:.4;pointer-events:none}
+.acts [hidden]{display:none}
+.btn.go{max-width:100%;text-align:left;height:auto;min-height:54px;padding-top:8px;padding-bottom:8px}
 .nav2{margin-top:36px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 .live{min-height:24px;margin-top:14px;font-size:15px;color:var(--ink)}
 .empty{padding:28px;border:1px dashed var(--line);border-radius:20px;color:var(--muted)}
@@ -90,7 +92,7 @@ h1{max-width:none;font-size:clamp(32px,4.8vw,52px);margin:16px 0 14px}
     var flat=[];d.level.forEach(function(l){l.modul.forEach(function(m){m.pelajaran.forEach(function(p){flat.push({l:l,m:m,p:p})})})});
     var i=-1;flat.forEach(function(x,k){if(x.p.id===id)i=k});
     if(i<0)return fail('Pelajaran tidak ditemukan.');
-    show(flat,i);
+    show(flat,i,d);
   }).catch(function(){fail('Pelajaran gagal dimuat. Buka halaman ini lewat server (bukan file lokal) dan coba lagi.')});
 
 
@@ -178,7 +180,7 @@ h1{max-width:none;font-size:clamp(32px,4.8vw,52px);margin:16px 0 14px}
       ready();
     }).catch(function(){body.textContent='';body.appendChild(el('p','','Isi pelajaran gagal dimuat. Muat ulang halaman ini.'));ready()});
   }
-  function show(flat,i){
+  function show(flat,i,kursus){
     var cur=flat[i],p=cur.p,prev=flat[i-1],next=flat[i+1],mod=cur.m.pelajaran;
     document.title=p.judul+' — NERUVIA';
     main.textContent='';
@@ -203,7 +205,8 @@ h1{max-width:none;font-size:clamp(32px,4.8vw,52px);margin:16px 0 14px}
     var tail=document.createDocumentFragment();
     function showTail(){main.appendChild(tail)}
     var acts=el('div','acts'),done=el('button','btn main');done.type='button';
-    acts.appendChild(done);tail.appendChild(acts);
+    var go=el('a','btn main go');go.hidden=true;
+    acts.appendChild(done);acts.appendChild(go);tail.appendChild(acts);
     var live=el('p','live');live.setAttribute('role','status');live.setAttribute('aria-live','polite');tail.appendChild(live);
 
     var nav=el('div','nav2');
@@ -217,7 +220,11 @@ h1{max-width:none;font-size:clamp(32px,4.8vw,52px);margin:16px 0 14px}
       var s=window.NVProgress.summary(mod);
       t1.textContent=s.done+' dari '+s.count+' pelajaran di modul ini';t2.textContent=s.xp+' / '+s.xpTotal+' XP';
       bar.style.width=Math.round(100*s.done/s.count)+'%';tr.setAttribute('aria-valuenow',String(s.done));
-      if(announce)live.textContent=on?('Tersimpan. +'+p.xp+' XP.'+(next?' Lanjut ke pelajaran berikutnya.':'')):'Penanda selesai dibatalkan.';
+      /* C4: sesudah selesai, tawarkan pelajaran berikutnya yang belum selesai dan sudah ada isinya (bisa melompati yang sudah selesai). Tidak berpindah halaman sendiri. */
+      var nx=on?window.NVProgress.lanjut(kursus,p.id):null;
+      if(nx){go.href='pelajaran.html?id='+encodeURIComponent(nx.pelajaran.id);go.textContent='Lanjut: '+nx.pelajaran.judul+(nx.pelajaran.isi==='draf'?' (draf)':'')+' →';go.hidden=false}
+      else{go.hidden=true;go.removeAttribute('href');go.textContent=''}
+      if(announce)live.textContent=on?('Tersimpan. +'+p.xp+' XP. '+(nx?'Berikutnya yang belum selesai: '+nx.pelajaran.judul+'.':'Semua pelajaran yang sudah ada isinya sudah selesai.')):'Penanda selesai dibatalkan.';
     }
     done.addEventListener('click',function(){
       var ok=window.NVProgress.mark(p.id,!window.NVProgress.isDone(p.id));

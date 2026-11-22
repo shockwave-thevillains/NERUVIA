@@ -97,6 +97,32 @@
         { id: 'modul1',  judul: 'Modul 1 Tuntas',  ikon: 'check', syarat: 'Selesaikan semua pelajaran Modul 1', aktif: m1.length > 0 && m1.every(function (p) { return d[p.id]; }) }
       ];
     },
+    /* Pelajaran berikutnya yang belum selesai dan sudah ada isinya (C4). kursus = isi kursus.json; id = pelajaran yang baru dikerjakan
+       (boleh kosong); levelId membatasi ke satu level. Level berstatus "segera" dilewati. Urutan: sesudah id sampai akhir, lalu dari awal
+       sampai sebelum id. Kembalian {level, modul, pelajaran} atau null. Data tak terduga diabaikan, tidak pernah melempar galat. */
+    lanjut: function (kursus, id, levelId) {
+      var flat = [];
+      try {
+        if (!kursus || typeof kursus !== 'object' || !Array.isArray(kursus.level)) return null;
+        kursus.level.forEach(function (l) {
+          if (!l || typeof l !== 'object' || l.status === 'segera' || !Array.isArray(l.modul)) return;
+          if (levelId !== undefined && l.id !== levelId) return;
+          l.modul.forEach(function (m) {
+            if (!m || typeof m !== 'object' || !Array.isArray(m.pelajaran)) return;
+            m.pelajaran.forEach(function (p) {
+              if (p && typeof p === 'object' && okId(p.id) && p.isi !== 'belum') flat.push({ level: l, modul: m, pelajaran: p });
+            });
+          });
+        });
+      } catch (e) { return null; }
+      var d = read().done, at = -1, i;
+      for (i = 0; i < flat.length; i++) { if (flat[i].pelajaran.id === id) { at = i; break; } }
+      for (i = 1; i <= flat.length; i++) {
+        var c = flat[(at + i + flat.length) % flat.length];
+        if (c.pelajaran.id !== id && !d[c.pelajaran.id]) return c;
+      }
+      return null;
+    },
     /* ekspor: objek siap di-JSON-kan */
     exportData: function () { return { app: 'neruvia', versi: 1, diekspor: new Date().toISOString(), done: read().done }; },
     /* impor: validasi ketat, hanya id yang dikenal, gabung (ambil waktu paling awal). */

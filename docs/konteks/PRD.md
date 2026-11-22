@@ -38,7 +38,7 @@ Kurikulum: pakai AI dulu, baru pakai AI dengan aman. Level 1 Modul 1 "Kenalan de
 |---|---|
 | Landing dengan form waitlist | Ada di branch dev, tersambung ke Supabase neruvia-dev (pratinjau terlindungi login Vercel) |
 | Halaman terima kasih | Ada |
-| Ruang Belajar (pratinjau): galeri level, halaman pelajaran, soal cek pemahaman, XP, streak, badge, ekspor/impor progres | Ada, noindex, belum ditautkan dari landing |
+| Ruang Belajar (pratinjau): galeri level, halaman pelajaran, soal cek pemahaman, XP, streak, badge, ekspor/impor progres; pelajaran berisi diberi penanda DRAF; tombol Mulai/Lanjutkan belajar di kartu level dan tautan Lanjut setelah menandai selesai (tidak berpindah sendiri) | Ada, noindex, belum ditautkan dari landing |
 | Pelajaran tertulis Level 1 Modul 1 | Draf 1 dari 5 |
 | Login, komentar, pembayaran | Belum. Dirancang aman lebih dulu sebagai draf |
 | Sertifikat, mode baca tenang, mode hemat data | Setelah MVP, belum diputuskan |
