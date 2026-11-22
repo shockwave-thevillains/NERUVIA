@@ -177,3 +177,15 @@ Sisa pekerjaan S2 yang bukan kode: Master menerapkan draf SQL (PERLU-KEPUTUSAN b
 | K5 Header dan CSP | `vercel.json` berisi header umum (nosniff, Referrer-Policy, Permissions-Policy, HSTS, X-Frame-Options, COOP) dan CSP per halaman tanpa `unsafe-inline`, `unsafe-eval`, atau wildcard; blok inline diizinkan lewat hash dan dibuat oleh `tools/buat-vercel-json.mjs`. `connect-src` hanya `'self'` plus satu host Supabase di halaman yang memuat `config.js`. Berlaku di Vercel saja; GitHub Pages tetap tanpa header sampai meta CSP (D1). | `tools/uji-header-csp.mjs`: 116 pemeriksaan lulus; nol pelanggaran CSP di 5 halaman x 2 lebar, tampilan identik piksel, form/galeri/pelajaran/ekspor berfungsi, kontrol negatif diblokir |
 
 Rincian, aturan kerja (ubah blok inline berarti jalankan ulang generator), dan risiko sisa ada di `docs/security/header-csp.md`. Belum diperiksa: header asli di URL Vercel setelah dev dideploy (run otomatis tidak memakai konektor Vercel).
+
+## Tindak lanjut S4 (Min 22 Nov 2026): rancangan aman login dan komentar
+
+| Temuan | Status setelah S4 | Bukti |
+|---|---|---|
+| K2 Pendaftaran Auth terbuka | Tetap perlu tindakan Master (sakelar hanya di dashboard). Rancangan mewajibkan konfirmasi email, batas laju, dan CAPTCHA saat diaktifkan. | `docs/security/auth-komentar.md` bagian 2 |
+| K3 Anti-spam hanya di klien | Untuk komentar: batas laju di database (3 per menit, 30 per 24 jam), pra-moderasi, pelaporan yang menyembunyikan otomatis, honeypot dan penjaga waktu. Untuk waitlist tetap menunggu keputusan Master (butir 8b). | `uji-komentar-lokal.sql`: komentar ke-4 dalam semenit ditolak |
+| K4 Persetujuan tanpa verifikasi | Untuk komentar dan akun: konfirmasi email wajib. Waitlist tidak berubah. | rancangan |
+| K11 Isi dari pengguna | Komentar menolak `<`, `>`, dan tautan di klien dan server; render lewat `textContent`. | `tools/uji-komentar-draf.mjs`: payload XSS tampil sebagai teks |
+
+Draf SQL diuji di Postgres 16 lokal (tiruan peran dan `auth.uid()`): 71 pemeriksaan lulus, termasuk RLS per peran, kolom yang tidak boleh diisi klien, injeksi SQL sebagai teks, batas laju, laporan, dan catatan moderasi. Belum diuji di proyek Supabase nyata; daftar uji yang perlu dijalankan Master ada di dokumen rancangan bagian 6.
+

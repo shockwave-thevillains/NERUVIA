@@ -14,3 +14,12 @@ Sumber yang dicari (urut prioritas): Claude Academy (academy.claude.com), kursus
 | l1-m3 (aman) | Transparent AI use | https://academy.claude.com/courses/ai-fluency-for-small-businesses/using-data-with-ai | Cocokkan alat dengan tingkat sensitivitas data, buang detail yang tidak perlu | 21 Nov 2026 |
 
 Catatan: indeks Academy hanya memberi garis besar dan potongan teks. Isi lengkap pelajaran belum dibaca. Bila perlu rincian, buka halaman lewat get_content, lalu tetap tulis ulang sendiri.
+
+## Rujukan keamanan (bukan materi pelajaran)
+| Dipakai untuk | Rujukan | URL | Yang dipelajari (parafrase) | Diakses |
+|---|---|---|---|---|
+| S4 auth-komentar | Supabase: Password security | https://supabase.com/docs/guides/auth/password-security | Tidak ada panjang minimal bawaan yang disebut, di bawah 8 tidak dianjurkan; perlindungan sandi bocor memakai HaveIBeenPwned dan tersedia di paket Pro ke atas | 22 Nov 2026 |
+| S4 auth-komentar | Supabase: Rate limits | https://supabase.com/docs/guides/auth/rate-limits | Pendaftaran/masuk 30 per 5 menit per IP, token 150 per 5 menit per IP, email bawaan 2 per jam per project, sebagian dapat diubah di dashboard | 22 Nov 2026 |
+| S4 auth-komentar | Supabase: CAPTCHA protection | https://supabase.com/docs/guides/auth/auth-captcha | hCaptcha dan Cloudflare Turnstile didukung; token dikirim klien sebagai captchaToken | 22 Nov 2026 |
+| S4 auth-komentar | OWASP Authentication Cheat Sheet | https://cheatsheetseries.owasp.org/cheatsheets/Authentication_Cheat_Sheet.html | Panjang sandi minimal 8 (dengan MFA) atau 15 (tanpa MFA), maksimal tidak di bawah 64, tanpa aturan komposisi; balasan sama untuk masuk, daftar, lupa sandi; batas percobaan, MFA. Bagian enumerasi dan MFA diringkas lewat agen pembaca halaman, cek ulang sebelum dikutip | 22 Nov 2026 |
+
