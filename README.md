@@ -1,14 +1,24 @@
-# NERUVIA — Landing page v0.2
+# NERUVIA — Landing dan Ruang Belajar (build dev)
 
-Halaman tunggal statis (HTML + CSS + JS tanpa build), berbasis desain **Variasi 1a** dari Claude Design, dengan tipografi raksasa yang bergerak mengikuti scroll.
+Situs statis (HTML + CSS + JS tanpa build, tanpa dependensi npm di situs). Landing berbasis desain **Variasi 1a** dari Claude Design, dengan tipografi raksasa yang bergerak mengikuti scroll. Branch `dev` juga memuat Ruang Belajar (pratinjau), halaman admin, dan alat uji; branch `main` tayang langsung di GitHub Pages dan hanya berisi landing dan kebijakan privasi (tanpa Ruang Belajar, admin, dan `config.js`). Jangan push atau merge ke `main` tanpa keputusan pemilik proyek (lihat `docs/loop/PERLU-KEPUTUSAN.md`).
+
+Arah produk dan desain ada di `docs/konteks/PRD.md`. Pekerjaan berkala dijalankan lewat loop terjadwal: aturan di `docs/loop/RUNBOOK.md`, antrean dan hasil per kegiatan di `docs/loop/PROGRESS.md`, rincian di `docs/loop/BACKLOG.md`.
 
 ## Struktur
-- `index.html` — seluruh halaman (CSS dan JS di dalam file)
+- `index.html` — landing (CSS dan JS di dalam file). `terima-kasih.html` dibuka setelah form waitlist berhasil; `kebijakan-privasi.html` memuat draf Kebijakan Privasi
+- `config.js` — konfigurasi publik build dev (endpoint dan kunci publishable proyek `neruvia-dev`); tinjau ulang sebelum merge ke `main` (PERLU-KEPUTUSAN butir 6)
+- `belajar/` — Ruang Belajar (pratinjau, `noindex`, belum ditautkan dari landing): `index.html` galeri level, `pelajaran.html?id=...` penampil pelajaran, `progress.js` progres/XP/streak/badge/ekspor-impor, `ruang.css` gaya dasar bersama. Rincian di bagian "Ruang Belajar" di bawah
+- `content/` — isi kursus: `kursus.json` (level, modul, pelajaran) dan `pelajaran/<id>.json` (satu berkas per pelajaran)
+- `supabase/` — SQL: `waitlist.sql` (tabel dan RLS waitlist), `admin/` (tabel admin dan ringkasan, sudah diterapkan ke `neruvia-dev`), `draf/` (draf yang belum diterapkan: perketat waitlist S2, komentar)
+- `docs/` — `konteks/PRD.md` (produk dan desain), `loop/` (runbook, backlog, progres, keputusan, materi, rujukan, audit, performa), `security/` (header CSP, uji keamanan, rancangan login dan komentar), `riset/` (riset pendukung), `admin.md`, `waitlist-backend.md`, `snapshot/`, `video/`
 - `assets/neru.webp`, `assets/neru-wave.webp` — Neru versi terbaru, latar dihapus (hero pakai pose depan, bagian gelap pakai pose miring kanan). Varian responsif `neru-512/768/1024.avif` + `neru-512/768.webp` dan `neru-wave-512/768/1041.avif` + `neru-wave-512/768.webp` dipilih lewat `<picture>`/`srcset` (AVIF dulu, WebP cadangan; `neru.webp` dan `neru-wave.webp` tetap sebagai varian terbesar)
 - `assets/fonts/` — Space Grotesk, Space Mono, Silkscreen (lisensi OFL, disajikan lokal)
 - `admin/` — halaman admin (masuk lewat Supabase Auth, ringkasan waitlist), tahap 1 dari 3, hanya build dev; rincian dan langkah menyiapkan akun di `docs/admin.md`, SQL di `supabase/admin/`
 - `belajar/komentar-draf.js`, `supabase/draf/komentar.sql` — kerangka komentar dan login, DRAF nonaktif (flag `AKTIF = false`, tidak dimuat halaman mana pun, SQL belum diterapkan); rancangan aman di `docs/security/auth-komentar.md`, uji dengan `tools/uji-komentar-draf.mjs` dan `supabase/draf/uji-komentar-lokal.sql`
 - `tools/uji-keamanan.mjs` — gerbang keamanan otomatis sebelum commit (rahasia, sink berbahaya, header, konten, payload jahat di browser); rincian di `docs/security/uji-keamanan.md`
+- `tools/validasi-kursus.mjs` — validator `kursus.json` dan isi pelajaran (id unik, jenis dan XP sesuai aturan, status dan berkas isi, soal cek pemahaman, bidang latihan interaktif); pemeriksaan HTML, URL, dan karakter berbahaya di konten ada di bagian D `tools/uji-keamanan.mjs`; `tools/impor-draf.mjs` dan `tools/uji-impor-draf.mjs` mengimpor draf dari `admin/` ke `content/` dan mengujinya
+- `tools/uji-impor-progres.mjs`, `tools/uji-latihan-interaktif.mjs`, `tools/uji-lanjut-belajar.mjs` — uji impor progres, latihan interaktif, dan tautan Lanjut/tombol Mulai di galeri (ketiganya diuji dengan data rusak dan payload jahat); `tools/uji-komentar-draf.mjs` menguji kerangka komentar yang nonaktif
+- `tools/snapshot.py` — tangkapan layar halaman penuh landing ke `docs/snapshot/<tanggal>/`
 - `vercel.json` — header keamanan dan CSP per halaman untuk hosting Vercel (dibuat oleh `tools/buat-vercel-json.mjs`; jalankan ulang setiap kali blok inline `<script>`/`<style>`/`style=""` berubah, uji dengan `tools/uji-header-csp.mjs`; rincian di `docs/security/header-csp.md`)
 - `tools/inventaris-aset.mjs`, `tools/uji-aset.mjs`, `tools/ukur-cls-font.mjs`, `.vercelignore` — inventaris aset (siapa merujuk apa, apa yang benar-benar diminta halaman), uji aset dengan anggaran ukuran per halaman (berkas hilang, rujukan putus, `width`/`height`, preload, format, aset berat tanpa rujukan), ukur pergeseran tata letak akibat font; `.vercelignore` mengecualikan aset berat tanpa rujukan dari deploy (berkas tetap di repo). Fallback font bermetrik hanya dipasang di beranda; alasan dan angka di `docs/loop/PERFORMA.md` bagian B2
 - `tools/ukur-muat.mjs`, `tools/uji-muat-neru.mjs`, `docs/loop/PERFORMA.md` — ukur performa muat landing (LCP, CLS, bobot, jaringan dibatasi) dan uji perilaku muat frame animasi Neru (dimuat setelah event load, prioritas rendah, dilewati saat hemat data/2G/reduced-motion)
@@ -25,20 +35,31 @@ Halaman tunggal statis (HTML + CSS + JS tanpa build), berbasis desain **Variasi 
 - Carousel jalur belajar dengan scroll-snap, tombol, dan bar progres
 - Transisi: judul terbuka per kata dari balik masker, kartu masuk dari blur ke tajam, dan section lama mundur (mengecil, turun pelan, meredup) saat lembar berikutnya naik. Scroll halus memakai Lenis 1.3.27 (`assets/vendor/`, lisensi MIT) hanya untuk mouse/trackpad; layar sentuh tetap native. `prefers-reduced-motion` mematikan semua gerak
 
+## Ruang Belajar (pratinjau)
+- Galeri level (`belajar/index.html`): filter Semua/Gratis/Segera, daftar modul dan pelajaran, penanda DRAF pada pelajaran yang isinya sudah ada, tombol Mulai belajar atau Lanjutkan belajar di kartu level yang tersedia
+- Pelajaran (`belajar/pelajaran.html?id=<id>`): isi teks, contoh berpasangan, latihan, tiga soal cek pemahaman, tombol Tandai selesai, tautan Lanjut ke pelajaran belum selesai berikutnya (tidak berpindah halaman sendiri). Pelajaran 3 memuat latihan interaktif "pilih prompt yang lebih sesuai"
+- Progres, XP, streak, dan badge tersimpan di `localStorage` peramban; bisa diekspor dan diimpor sebagai JSON (impor divalidasi ketat)
+- Isi pelajaran saat ini: Level 1 Modul 1 (lima pelajaran, semuanya berstatus DRAF sampai disetujui pemilik proyek). Level 2 dan 3 masih "segera" tanpa pelajaran. Semua materi berupa teks dan latihan ringan, tanpa video
+- Menambah pelajaran: tulis `content/pelajaran/<id>.json`, ubah `isi` di `content/kursus.json` menjadi `draf`, lalu jalankan `node tools/validasi-kursus.mjs`. Standar isi di `docs/loop/MATERI.md` dan `docs/loop/RUNBOOK.md`; rujukan riset dicatat di `docs/loop/RUJUKAN.md`
+- Data dari JSON, pengguna, atau berkas impor tidak pernah masuk ke `innerHTML`; semua teks lewat `textContent`
+
 ## Waitlist
-Form berjalan dalam **mode pratinjau** (data tidak dikirim). Untuk menghubungkan ke backend, tambahkan sebelum `</body>`:
+Di build dev, form tersambung ke tabel `waitlist` di project Supabase `neruvia-dev` lewat `config.js` (RLS: anon hanya boleh insert). Tanpa `config.js` (misalnya di `main`) form berjalan dalam **mode pratinjau** (data tidak dikirim). Alamat endpoint bisa diatur lewat variabel sebelum skrip form:
 
 ```html
 <script>window.NERUVIA_WAITLIST_ENDPOINT = 'https://alamat-endpoint-anda';</script>
 ```
 
-Payload POST JSON: `name`, `email`, `jalur`, `consent`, `consent_text`, `ts`. Persetujuan UU PDP No. 27/2022 terpisah dan tidak dicentang otomatis.
+Payload POST JSON: `name`, `email`, `jalur`, `consent`, `consent_text`, `ts`. Persetujuan UU PDP No. 27/2022 terpisah dan tidak dicentang otomatis. Skema, kebijakan, dan cara menguji ada di `docs/waitlist-backend.md`. Kebijakan privasi masih memuat placeholder identitas pengendali data; form tidak boleh menerima data nyata dari publik sebelum itu diisi (PERLU-KEPUTUSAN butir 2).
 
 ## Menjalankan
-Buka `index.html` di browser, atau jalankan `python3 -m http.server`. Untuk GitHub Pages: Settings → Pages → branch `main`, folder `/ (root)`.
+Buka `index.html` di browser, atau jalankan `python3 -m http.server` lalu buka `/`, `/belajar/`, dan `/admin/`. Produksi direncanakan di Vercel (`vercel.json` memuat header keamanan dan CSP); `main` saat ini masih tayang di GitHub Pages (Settings → Pages → branch `main`, folder `/ (root)`).
+
+## Sebelum commit
+Jalankan gerbang di `docs/loop/RUNBOOK.md` (bagian "Gerbang keamanan"). Minimum untuk perubahan kode atau konten: `node tools/validasi-kursus.mjs` dan `node tools/uji-keamanan.mjs` (penuh sekitar 45 detik; `--cepat` hanya untuk perubahan dokumen). Alat lain dipakai sesuai yang diubah: `tools/buat-vercel-json.mjs` bila blok inline berubah, `tools/uji-aset.mjs` untuk aset, `tools/uji-cls-pelajaran.mjs`, `tools/uji-gerak.mjs`, `tools/uji-latihan-interaktif.mjs`, dan `tools/uji-lanjut-belajar.mjs` untuk bagian terkait. Alat berjalan dengan Node.js tanpa paket npm (diuji di Node 22); uji browser memerlukan Playwright.
 
 ## Catatan konten
-Harga, nama jalur, dan teks legal masih placeholder dan perlu ditinjau sebelum rilis publik.
+Harga, nama jalur, dan teks legal masih placeholder dan perlu ditinjau sebelum rilis publik. Klaim yang belum dikonfirmasi pemilik proyek (Level 1 gratis, dukungan chatbot tertentu, praktik dengan versi gratis, sertifikat, harga) tidak boleh ditambah; daftar keputusan yang menunggu ada di `docs/loop/PERLU-KEPUTUSAN.md`.
 
 ## Brand
 - Logo NV dipakai inline (SVG `currentColor`) di navbar dan footer, ikon tab dari `assets/brand/`
