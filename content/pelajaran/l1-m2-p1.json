@@ -1,0 +1,106 @@
+{
+  "id": "l1-m2-p1",
+  "status": "draf",
+  "tujuan": "Setelah pelajaran ini, kamu bisa menulis satu kalimat peran dan beberapa baris konteks yang membuat chatbot menjawab dengan sudut pandang, nada, dan isi yang sesuai dengan situasimu.",
+  "bagian": [
+    {
+      "judul": "Dua hal yang chatbot tidak tahu tentangmu",
+      "paragraf": [
+        "Chatbot tidak tahu siapa kamu, untuk apa hasilnya dipakai, atau seperti apa situasimu. Ia hanya bekerja dari isi percakapan. Dua unsur membantu menutup celah itu: peran dan konteks.",
+        "Peran menjawab pertanyaan “sebagai siapa chatbot menjawab?”. Konteks menjawab pertanyaan “situasi apa yang perlu ia ketahui?”."
+      ]
+    },
+    {
+      "judul": "Apa yang diubah oleh peran",
+      "paragraf": [
+        "Peran mengarahkan sudut pandang, nada, dan kedalaman jawaban. Minta penjelasan tentang cara kerja baterai dari seorang guru sabar untuk anak SMP, lalu minta hal yang sama dari seorang teknisi untuk sesama teknisi. Kedua jawaban akan memakai bahasa dan tingkat rincian yang berbeda. Panduan beberapa penyedia chatbot menyebut satu kalimat peran sudah cukup memfokuskan nada.",
+        "Peran tidak menambah pengetahuan. Menyebut chatbot sebagai “akuntan berpengalaman” tidak membuat angkanya otomatis benar dan tidak memberinya data yang tidak kamu tempel. Peran adalah kacamata, bukan sumber fakta baru."
+      ]
+    },
+    {
+      "judul": "Menulis peran yang berguna",
+      "paragraf": [
+        "Peran yang berguna menyebut tiga hal: siapa yang menjawab, untuk siapa jawabannya, dan sikap yang diinginkan. Contohnya: “Kamu editor yang teliti dan ramah. Kamu membantu pemula merapikan surat lamaran.”",
+        "Satu atau dua kalimat sudah cukup. Pilih peran yang dibutuhkan tugasnya: pengoreksi untuk menyunting, guru untuk menjelaskan, penanya kritis untuk menguji rencana."
+      ]
+    },
+    {
+      "judul": "Konteks: tujuan, pembaca, bahan, dan alasan",
+      "paragraf": [
+        "Konteks adalah fakta tentang situasimu: tujuan hasilnya, pembacanya, dan bahan yang harus dipakai. Pertanyaan tentang cara mengatur waktu belajar akan dijawab berbeda bila chatbot tahu bahwa penanya mahasiswa yang bekerja paruh waktu, bukan pelajar yang seharian di rumah.",
+        "Sertakan juga alasan di balik aturanmu. Aturan “jangan pakai tanda seru” lebih mudah diikuti dengan tepat bila chatbot tahu bahwa pesannya dikirim kepada pelanggan yang sedang kesal. Dengan alasan itu, chatbot juga menghindari kalimat yang terdengar ceria berlebihan.",
+        "Pisahkan konteks dari instruksi. Tulis bahan di bawah judul seperti “Konteks:” atau “Bahan:” supaya jelas mana yang harus dikerjakan. Jangan menempelkan data pribadi atau rahasia; ganti nama asli dengan sebutan umum seperti “pelanggan”."
+      ]
+    },
+    {
+      "judul": "Uji prompt dengan rekan baru",
+      "paragraf": [
+        "Cara cepat mengecek: bayangkan prompt itu kamu berikan kepada rekan yang pintar tetapi baru bergabung dan tidak ikut rapat apa pun. Apa yang akan ia tanyakan sebelum mulai: untuk siapa, untuk apa, dan apa yang tidak boleh ada? Jawab pertanyaan itu di dalam prompt.",
+        "Periksa hasilnya: apakah nadanya sesuai pembaca dan apakah ada fakta yang tidak pernah kamu berikan. Fakta seperti itu harus dicek sendiri."
+      ]
+    },
+    {
+      "judul": "Kesalahan yang sering terjadi",
+      "paragraf": [
+        "Kesalahan pertama: peran yang berlebihan, seperti “kamu pakar nomor satu di dunia”. Peran itu tidak memberi arah.",
+        "Kesalahan kedua: mengira peran menjamin jawaban benar. Chatbot dengan peran apa pun tetap bisa keliru pada angka, tanggal, dan kutipan.",
+        "Kesalahan ketiga: menumpuk konteks tak berhubungan sehingga tugas utama tenggelam.",
+        "Kesalahan keempat: peran yang bertentangan dengan tugas, misalnya “kamu pelawak” untuk surat belasungkawa. Kesalahan kelima: menempelkan nama, nomor, atau dokumen asli demi konteks."
+      ]
+    },
+    {
+      "judul": "Kapan tidak perlu peran atau konteks panjang",
+      "paragraf": [
+        "Untuk pertanyaan sederhana, seperti arti sebuah kata atau terjemahan satu kalimat, peran hanya menambah teks. Tambahkan peran dan konteks bila hasil pertama terasa umum, bernada salah, atau tidak cocok untuk pembacanya.",
+        "Bila kamu sendiri belum tahu tujuan dan pembacanya, putuskan dulu sebelum menulis prompt. Peran dan konteks tidak menggantikan pengecekan hasil."
+      ]
+    }
+  ],
+  "contoh": {
+    "judul": "Contoh berpasangan (cerita fiktif)",
+    "teks": "Versi kurang baik: Bima, pemilik Toko Lestari (tokoh dan toko fiktif), menulis, “Balas keluhan pelanggan ini.” Chatbot membalas dengan surat yang sangat resmi, panjang, dan menjanjikan potongan harga yang tidak pernah ada. Versi baik: Bima menulis, “Kamu admin toko online yang tenang dan sopan. Tulis balasan untuk Ibu Wati, pelanggan yang paketnya terlambat dua hari. Konteks: terlambat karena antrean di ekspedisi, bukan salah pelanggan. Balasan dibaca di aplikasi pesan, jadi singkat, maksimal 60 kata. Jangan pakai tanda seru karena pelanggan sedang kesal. Jangan menjanjikan diskon atau ganti rugi apa pun.” Bedanya: versi baik memberi peran, pembaca, bahan, batasan, dan alasan aturan, sehingga chatbot tidak perlu menebak nada atau mengarang janji."
+  },
+  "latihan": {
+    "petunjuk": "Kerjakan di chatbot AI mana pun. Tahap 1 (coba): pilih satu tugas kecil, misalnya membalas pesan karanganmu sendiri. Tulis dalam satu kalimat tanpa peran dan konteks, kirim, lalu simpan jawabannya. Tahap 2 (perbaiki): di percakapan baru, tulis ulang dengan satu kalimat peran, tiga unsur konteks (tujuan, pembaca, bahan karanganmu), dan satu aturan beserta alasannya. Tahap 3 (bandingkan): letakkan kedua jawaban berdampingan. Lalu ganti hanya perannya (misalnya dari guru menjadi editor) dan lihat apa yang berubah. Daftar periksa mandiri: (1) perannya satu atau dua kalimat dan sesuai tugas; (2) aku menyebut tujuan dan pembaca; (3) bahan terpisah dari instruksi; (4) aturan penting kuberi alasan; (5) tidak ada data pribadi atau rahasia; (6) fakta yang tidak ada di bahanku sudah kucek."
+  },
+  "cek": [
+    {
+      "tanya": "Apa perbedaan utama antara peran dan konteks dalam prompt?",
+      "opsi": [
+        "Peran dan konteks sama saja, hanya dua nama untuk hal yang sama dalam sebuah prompt",
+        "Peran menentukan sebagai siapa chatbot menjawab, sedangkan konteks memberi fakta tentang situasi",
+        "Peran berisi fakta tentang situasimu, sedangkan konteks menentukan nada jawaban",
+        "Peran wajib ada di setiap prompt, sedangkan konteks hanya perlu untuk tugas yang panjang"
+      ],
+      "benar": 1,
+      "jelas": "Peran mengarahkan sudut pandang dan nada; konteks memberi tujuan, pembaca, dan bahan. Opsi pertama dan ketiga mencampuradukkan keduanya. Opsi keempat keliru: untuk pertanyaan sederhana, keduanya boleh dilewati."
+    },
+    {
+      "tanya": "Mengapa menulis “Kamu akuntan berpengalaman” tidak menjamin angka dalam jawaban benar?",
+      "opsi": [
+        "Karena chatbot selalu mengabaikan peran bila tugasnya menyangkut angka atau hitungan",
+        "Karena peran hanya boleh berupa profesi non-teknis",
+        "Karena peran yang pendek selalu kalah oleh data pelatihan milik chatbot",
+        "Karena peran hanya mengatur sudut pandang dan nada, bukan menambah data, jadi angka tetap dicek"
+      ],
+      "benar": 3,
+      "jelas": "Peran seperti kacamata: mengubah cara chatbot memandang tugas, bukan menambah fakta. Opsi lain mengarang aturan yang tidak ada. Angka, tanggal, dan kutipan tetap harus kamu cek."
+    },
+    {
+      "tanya": "Dewi (tokoh fiktif) meminta chatbot menulis permintaan maaf untuk pelanggan. Hasilnya terlalu resmi, terlalu panjang, dan menjanjikan diskon yang tidak ia tawarkan. Langkah terbaik berikutnya?",
+      "opsi": [
+        "Tambahkan pembaca, nada, batas panjang, dan aturan “jangan menjanjikan apa pun di luar bahan” beserta alasannya, lalu cek hasilnya",
+        "Menambahkan peran “pakar komunikasi nomor satu dunia” saja tanpa mengubah hal lain di prompt",
+        "Menempelkan seluruh data dan percakapan pelanggan asli supaya konteksnya lengkap",
+        "Menerima hasilnya apa adanya karena chatbot pasti tahu praktik terbaik"
+      ],
+      "benar": 0,
+      "jelas": "Masalahnya ada pada pembaca, nada, batas, dan fakta, jadi itu yang ditambahkan. Opsi kedua memakai gelar berlebihan tanpa arah. Opsi ketiga membahayakan data pribadi. Opsi keempat berhenti mengecek, padahal janji diskon tidak berasal dari bahan Dewi."
+    }
+  ],
+  "ringkasan": [
+    "Peran mengatur sebagai siapa chatbot menjawab; konteks memberi tujuan, pembaca, bahan, dan alasan.",
+    "Peran tidak menambah fakta. Fakta, angka, dan kutipan tetap harus kamu cek, dan jangan menempelkan data pribadi atau rahasia.",
+    "Uji prompt dengan membayangkan rekan baru, dan lewati peran panjang untuk pertanyaan sederhana."
+  ]
+}

@@ -178,11 +178,25 @@ for (const id of ['', 'tidak-ada', '<img src=x onerror=window.__xss=1>', '"><scr
   await ctx.close();
 }
 {
-  const { ctx, page } = await buka('l1-m1-p5', 390);
-  await page.waitForSelector('.nav2', { timeout: 10000 });
-  const nav = await page.evaluate(() => [...document.querySelectorAll('.nav2 a')].map((a) => ({ off: a.getAttribute('aria-disabled'), href: a.getAttribute('href') })));
-  cek(nav.length === 2 && !!nav[0].href && nav[1].off === 'true' && !nav[1].href, `pelajaran terakhir modul: "Berikutnya" nonaktif (${JSON.stringify(nav)})`);
-  await ctx.close();
+  /* Sejak E1 Level 1 punya Modul 2: p5 Modul 1 tidak lagi terakhir, "Berikutnya" lintas modul ke l1-m2-p1. Pelajaran terakhir diambil dari kursus.json. */
+  const kursus = JSON.parse(readFileSync(join(ROOT, 'content', 'kursus.json'), 'utf8'));
+  const urut = []; kursus.level.forEach((l) => l.modul.forEach((m) => m.pelajaran.forEach((p) => urut.push(p.id))));
+  const terakhir = urut[urut.length - 1];
+  const bacaNav = (page) => page.evaluate(() => [...document.querySelectorAll('.nav2 a')].map((a) => ({ off: a.getAttribute('aria-disabled'), href: a.getAttribute('href') })));
+  {
+    const { ctx, page } = await buka('l1-m1-p5', 390);
+    await page.waitForSelector('.nav2', { timeout: 10000 });
+    const nav = await bacaNav(page);
+    cek(nav.length === 2 && !!nav[0].href && !nav[1].off && /id=l1-m2-p1$/.test(nav[1].href || ''), `p5 Modul 1: "Berikutnya" lintas modul ke l1-m2-p1 (${JSON.stringify(nav)})`);
+    await ctx.close();
+  }
+  {
+    const { ctx, page } = await buka(terakhir, 390);
+    await page.waitForSelector('.nav2', { timeout: 10000 });
+    const nav = await bacaNav(page);
+    cek(nav.length === 2 && !!nav[0].href && nav[1].off === 'true' && !nav[1].href, `pelajaran terakhir kursus (${terakhir}): "Berikutnya" nonaktif (${JSON.stringify(nav)})`);
+    await ctx.close();
+  }
 }
 
 await browser.close(); server.close();

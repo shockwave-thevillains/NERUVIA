@@ -1,6 +1,6 @@
 {
   "versi": 1,
-  "diperbarui": "2026-11-21",
+  "diperbarui": "2026-11-22",
   "catatan": "Rancangan materi. Judul dan urutan bisa berubah sebelum peluncuran. Isi pelajaran belum ditulis kecuali yang berstatus draf.",
   "xp_per_jenis": {
     "Konsep": 10,
@@ -58,6 +58,47 @@
               "jenis": "Latihan",
               "xp": 30,
               "isi": "draf"
+            }
+          ]
+        },
+        {
+          "id": "l1-m2",
+          "judul": "Prompt yang efektif",
+          "pelajaran": [
+            {
+              "id": "l1-m2-p1",
+              "judul": "Memberi peran dan konteks",
+              "jenis": "Praktik",
+              "xp": 20,
+              "isi": "draf"
+            },
+            {
+              "id": "l1-m2-p2",
+              "judul": "Menentukan format hasil",
+              "jenis": "Praktik",
+              "xp": 20,
+              "isi": "belum"
+            },
+            {
+              "id": "l1-m2-p3",
+              "judul": "Memberi contoh agar hasil konsisten",
+              "jenis": "Praktik",
+              "xp": 20,
+              "isi": "belum"
+            },
+            {
+              "id": "l1-m2-p4",
+              "judul": "Memecah tugas besar menjadi langkah kecil",
+              "jenis": "Praktik",
+              "xp": 20,
+              "isi": "belum"
+            },
+            {
+              "id": "l1-m2-p5",
+              "judul": "Menyempurnakan prompt lewat percobaan berulang",
+              "jenis": "Latihan",
+              "xp": 30,
+              "isi": "belum"
             }
           ]
         }

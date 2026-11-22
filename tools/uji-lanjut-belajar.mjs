@@ -128,7 +128,9 @@ for (const w of [390, 768, 1440]) {
     await l1.locator('summary').click();
     cek(`galeri ${t}: pil DRAF tampil di setiap pelajaran yang berisi (${dapat.length})`, (await pg.locator('.ls .dr').count()) === dapat.length);
     cek(`galeri ${t}: teks pil persis DRAF`, (await pg.locator('.ls .dr').allTextContents()).every((x) => x === 'DRAF'));
-    cek(`galeri ${t}: tidak ada label "isi belum tersedia" pada pelajaran berisi`, (await pg.locator('.ls small').allTextContents()).every((x) => !/belum tersedia/.test(x)));
+    const belumN = semua.filter((p) => p.isi === 'belum').length;
+    cek(`galeri ${t}: tidak ada label "isi belum tersedia" pada pelajaran berisi`, (await pg.locator('.ls li:has(.dr) small').allTextContents()).every((x) => !/belum tersedia/.test(x)));
+    cek(`galeri ${t}: label "isi belum tersedia" tepat ada di pelajaran yang belum berisi (${belumN})`, (await pg.locator('.ls small').allTextContents()).filter((x) => /belum tersedia/.test(x)).length === belumN);
     const a = l1.locator('.go a');
     cek(`galeri ${t}: tombol bertuliskan Mulai belajar`, /^Mulai belajar/.test(await a.innerText()));
     cek(`galeri ${t}: tombol menuju pelajaran pertama`, (await a.getAttribute('href')) === 'pelajaran.html?id=' + dapat[0].id);
