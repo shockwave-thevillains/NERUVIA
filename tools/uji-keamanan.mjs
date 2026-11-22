@@ -433,11 +433,21 @@ if (chromium) {
     cek(log.csp.length === 0 && log.err.length === 0, 'form: galat atau pelanggaran CSP ' + log.csp.concat(log.err).join(' | '));
     await ctx.close();
     /* penjaga waktu: kirim segera setelah mengisi */
-    const t = await siapkan(); const k2 = [];
-    await t.page.route('https://*.supabase.co/**', (r) => { k2.push(1); r.fulfill({ status: 500, body: '{}' }); });
-    await t.page.goto(srv.base + '/'); await t.page.fill('#f-email', 'cepat@example.com'); await t.page.check('#f-consent'); await t.page.click('#wl button[type=submit]'); await t.page.waitForTimeout(260);
-    cek(k2.length === 0, 'penjaga waktu: kiriman instan (bot) lolos');
-    await t.ctx.close();
+    /* B3: Playwright kadang menahan klik >1,2 dtk (terukur 1 dari 8 putaran, juga pada kode lama), sehingga kiriman "instan" justru lolos secara sah.
+       Selang fokus pertama sampai klik kirim diukur di dalam halaman; hanya percobaan dengan selang < 1 dtk yang dinilai (maks. 5 percobaan).
+       Penilaian pada percobaan yang sah tidak dilonggarkan: kiriman harus tetap ditahan penjaga waktu. */
+    let sah = false, k2 = [], selang = [];
+    for (let coba = 0; coba < 5 && !sah; coba++) {
+      const t = await siapkan(); k2 = [];
+      await t.page.addInitScript(() => { window.__selang = -1; let t0 = 0; document.addEventListener('focusin', () => { if (!t0) t0 = Date.now(); }, true); document.addEventListener('click', (e) => { if (t0 && e.target && e.target.closest && e.target.closest('#wl button[type=submit]')) window.__selang = Date.now() - t0; }, true); });
+      await t.page.route('https://*.supabase.co/**', (r) => { k2.push(1); r.fulfill({ status: 500, body: '{}' }); });
+      await t.page.goto(srv.base + '/'); await t.page.fill('#f-email', 'cepat@example.com'); await t.page.check('#f-consent'); await t.page.click('#wl button[type=submit]'); await t.page.waitForTimeout(260);
+      const sl = await t.page.evaluate(() => window.__selang); selang.push(sl);
+      sah = sl >= 0 && sl < 1000;
+      await t.ctx.close();
+    }
+    cek(sah, 'penjaga waktu: tidak ada percobaan dengan selang < 1 dtk (selang ms: ' + selang.join(', ') + ')');
+    cek(!sah || k2.length === 0, 'penjaga waktu: kiriman instan (bot) lolos');
     console.log('  form waitlist: payload ' + (NAMA_TOLAK.length + NAMA_PANJANG.length + NAMA_TERIMA.length + EMAIL_TOLAK.length + EMAIL_TERIMA.length) + ' kasus');
   }
 
