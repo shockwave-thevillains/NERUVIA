@@ -1,4 +1,4 @@
--- NERUVIA admin, tahap 1 (22 Nov 2026). DRAF: belum diterapkan ke neruvia-dev (menunggu persetujuan Master di server Supabase).
+-- NERUVIA admin, tahap 1 (22 Nov 2026). DRAF: belum diterapkan ke neruvia-dev (butir 11 PERLU-KEPUTUSAN).
 -- Admin ditentukan oleh user_id di tabel public.admins. Hanya peran postgres/service yang bisa menambah admin
 -- (lewat dashboard SQL), tidak ada jalur lewat API. Email sengaja tidak dipakai sebagai kunci: bila pendaftaran
 -- Auth terbuka, orang lain tidak bisa "mengklaim" admin dengan mendaftar memakai email yang sama.

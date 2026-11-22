@@ -6,6 +6,7 @@ Halaman tunggal statis (HTML + CSS + JS tanpa build), berbasis desain **Variasi 
 - `index.html` — seluruh halaman (CSS dan JS di dalam file)
 - `assets/neru.webp`, `assets/neru-wave.webp` — Neru versi terbaru, latar dihapus (hero pakai pose depan, bagian gelap pakai pose miring kanan)
 - `assets/fonts/` — Space Grotesk, Space Mono, Silkscreen (lisensi OFL, disajikan lokal)
+- `admin/` — halaman admin (masuk lewat Supabase Auth, ringkasan waitlist), tahap 1 dari 3, hanya build dev; rincian dan langkah menyiapkan akun di `docs/admin.md`, SQL di `supabase/admin/`
 - `vercel.json` — header keamanan dan CSP per halaman untuk hosting Vercel (dibuat oleh `tools/buat-vercel-json.mjs`; jalankan ulang setiap kali blok inline `<script>`/`<style>`/`style=""` berubah, uji dengan `tools/uji-header-csp.mjs`; rincian di `docs/security/header-csp.md`)
 - `tools/video/` — sumber video Prompt 101 dengan Neru pixel art + meja belajar (portrait dan landscape), lihat `tools/video/README.md`
 - `docs/video/` — video jadi untuk arsip (Prompt 101 versi maskot, versi pixel portrait 1080x1920, versi pixel landscape 1920x1080)

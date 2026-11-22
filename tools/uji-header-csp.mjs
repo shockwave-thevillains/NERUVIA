@@ -48,13 +48,13 @@ function mulai(denganHeader) {
   });
 }
 
-const halaman = ['/', '/belajar/', '/belajar/pelajaran.html?id=l1-m1-p1', '/terima-kasih.html', '/kebijakan-privasi.html'];
+const halaman = ['/', '/belajar/', '/belajar/pelajaran.html?id=l1-m1-p1', '/terima-kasih.html', '/kebijakan-privasi.html', '/admin/'];
 const a = await mulai(true), b = await mulai(false);
 
 /* header respons */
 {
   const wajib = ['x-content-type-options', 'referrer-policy', 'permissions-policy', 'strict-transport-security', 'x-frame-options', 'cross-origin-opener-policy'];
-  for (const p of ['/', '/index.html', '/belajar', '/belajar/', '/belajar/index.html', '/belajar/pelajaran.html', '/terima-kasih.html', '/kebijakan-privasi.html']) {
+  for (const p of ['/', '/index.html', '/belajar', '/belajar/', '/belajar/index.html', '/belajar/pelajaran.html', '/terima-kasih.html', '/kebijakan-privasi.html', '/admin', '/admin/', '/admin/index.html']) {
     const r = await fetch(a.base + p); const csp = r.headers.get('content-security-policy') || '';
     for (const k of wajib) cek(!!r.headers.get(k), p + ' tanpa header ' + k);
     cek(/default-src 'none'/.test(csp) && /frame-ancestors 'none'/.test(csp) && /base-uri 'none'/.test(csp), p + ' CSP tidak lengkap');
@@ -117,6 +117,62 @@ if (chromium) {
     cek((await page.locator('main').innerText()).length > 200, 'pelajaran: isi tidak tampil');
     cek(log.csp.length === 0, 'galeri/pelajaran: pelanggaran CSP ' + log.csp.join(' | '));
     await page.close();
+  }
+  /* admin: Supabase Auth dan REST ditiru lewat route; kebijakan RLS asli diuji terpisah di SQL */
+  {
+    const b64 = (o) => Buffer.from(JSON.stringify(o)).toString('base64url');
+    const jwt = (email) => b64({ alg: 'HS256', typ: 'JWT' }) + '.' + b64({ email, sub: 'u1', exp: 9999999999 }) + '.' + 'c2lnbmF0dXJlLXRpZGFrLW5ueXRh';
+    const skenario = async (nama, { email, sandiBenar = 'rahasia-benar', admin = true, admins401 = false }) => {
+      const page = await ctx.newPage(); const log = { csp: [], err: [] }; kumpul(page, log); let logout = 0;
+      await page.route('https://*.supabase.co/**', (r) => {
+        const u = new URL(r.request().url()), m = r.request().method();
+        if (u.pathname === '/auth/v1/token') { const bd = JSON.parse(r.request().postData() || '{}'); return bd.password === sandiBenar ? r.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify({ access_token: jwt(email), expires_in: 3600, user: { email } }) }) : r.fulfill({ status: 400, contentType: 'application/json', body: '{"error":"invalid_grant"}' }); }
+        if (u.pathname === '/auth/v1/logout') { logout++; return r.fulfill({ status: 204, body: '' }); }
+        if (u.pathname === '/rest/v1/admins') return admins401 ? r.fulfill({ status: 401, body: '{}' }) : r.fulfill({ status: 200, contentType: 'application/json', body: admin ? '[{"user_id":"u1"}]' : '[]' });
+        if (u.pathname === '/rest/v1/waitlist') return r.fulfill({ status: 200, contentType: 'application/json', headers: { 'content-range': '0-0/42', 'access-control-expose-headers': 'Content-Range' }, body: '[]' });
+        return r.fulfill({ status: 404, body: '' });
+      });
+      await page.goto(a.base + '/admin/', { waitUntil: 'networkidle' });
+      return { page, log, logout: () => logout, nama };
+    };
+    const masuk = async (page, em, pw) => { await page.fill('#a-email', em); await page.fill('#a-sandi', pw); await page.click('#a-kirim'); await page.waitForTimeout(500); };
+    /* 1 sandi salah */
+    let t = await skenario('salah', { email: 'admin@example.com' });
+    await masuk(t.page, 'admin@example.com', 'salah');
+    cek(await t.page.locator('#panel').isHidden() && /salah/.test(await t.page.locator('#a-msg').innerText()), 'admin: sandi salah harus menolak dengan pesan umum');
+    cek((await t.page.inputValue('#a-sandi')) === '', 'admin: kolom sandi harus dikosongkan setelah kirim');
+    /* 5 kali salah: kunci */
+    for (let i = 0; i < 4; i++) { await t.page.fill('#a-sandi', 'x'); await t.page.click('#a-kirim'); await t.page.waitForTimeout(250); }
+    cek(await t.page.locator('#a-kirim').isDisabled(), 'admin: tombol harus terkunci sementara setelah 5 kegagalan');
+    cek(t.log.csp.length === 0, 'admin: pelanggaran CSP saat sandi salah ' + t.log.csp.join('|')); await t.page.close();
+    /* admin sah, simpan sesi, muat ulang, keluar */
+    t = await skenario('sah', { email: 'admin@example.com' });
+    await masuk(t.page, 'admin@example.com', 'rahasia-benar');
+    cek(await t.page.locator('#panel').isVisible() && (await t.page.innerText('#p-email')) === 'admin@example.com' && (await t.page.innerText('#s-total')) === '42', 'admin: panel, email, dan total 42 harus tampil');
+    cek(!(await t.page.evaluate(() => JSON.stringify(sessionStorage)).then((x) => /rahasia|password|refresh/i.test(x))), 'admin: sessionStorage tidak boleh memuat kata sandi atau refresh token');
+    await t.page.screenshot({ path: process.env.ADMIN_SHOTS ? process.env.ADMIN_SHOTS + '/panel-1440.png' : undefined, fullPage: true }).catch(() => {});
+    await t.page.reload({ waitUntil: 'networkidle' }); await t.page.waitForTimeout(400);
+    cek(await t.page.locator('#panel').isVisible(), 'admin: sesi harus pulih setelah muat ulang');
+    await t.page.click('#p-keluar'); await t.page.waitForTimeout(300);
+    cek(await t.page.locator('#masuk').isVisible() && await t.page.locator('#panel').isHidden() && t.logout() === 1, 'admin: keluar harus kembali ke form dan memanggil logout');
+    cek((await t.page.evaluate(() => sessionStorage.length)) === 0, 'admin: sessionStorage harus kosong setelah keluar');
+    cek(t.log.csp.length === 0 && t.log.err.length === 0, 'admin: CSP/galat pada alur sah ' + t.log.csp.concat(t.log.err).join('|')); await t.page.close();
+    /* akun biasa (bukan admin) */
+    t = await skenario('biasa', { email: 'orang@example.com', admin: false });
+    await masuk(t.page, 'orang@example.com', 'rahasia-benar');
+    cek(await t.page.locator('#panel').isHidden() && /tidak terdaftar sebagai admin/.test(await t.page.locator('#a-msg').innerText()) && t.logout() === 1, 'admin: akun non-admin harus ditolak dan token dicabut');
+    cek((await t.page.evaluate(() => sessionStorage.length)) === 0, 'admin: akun non-admin tidak boleh menyisakan sesi'); await t.page.close();
+    /* sesi kedaluwarsa dari server */
+    t = await skenario('401', { email: 'admin@example.com', admins401: true });
+    await masuk(t.page, 'admin@example.com', 'rahasia-benar');
+    cek(await t.page.locator('#panel').isHidden() && /Sesi berakhir/.test(await t.page.locator('#a-msg').innerText()), 'admin: 401 dari server harus mengakhiri sesi');
+    await t.page.close();
+    /* email berisi HTML tidak boleh menjadi elemen */
+    const xss = '<img src=x onerror=window.__xss=1>@example.com';
+    t = await skenario('xss', { email: xss });
+    await masuk(t.page, 'admin@example.com', 'rahasia-benar');
+    cek((await t.page.locator('#p-email img').count()) === 0 && !(await t.page.evaluate(() => window.__xss)), 'admin: email berisi HTML harus tampil sebagai teks');
+    await t.page.close();
   }
   /* kontrol negatif */
   {

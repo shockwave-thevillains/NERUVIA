@@ -9,6 +9,7 @@
 | 7 | selesai (interaktif, 21 Nov) | `belajar/index.html` + `belajar/progress.js`: galeri level, filter Semua/Gratis/Segera, progres dari localStorage | Diuji desktop 1440 dan mobile 390; progres dan XP dihitung benar. Halaman noindex dan belum ditautkan dari landing. |
 | 8 | selesai (interaktif, 21 Nov) | `belajar/pelajaran.html?id=...`: breadcrumb, sebelumnya/berikutnya, tandai selesai, progres modul; CSS dasar dipindah ke `belajar/ruang.css` | Diuji desktop dan mobile: id kosong/salah/berisi HTML ditangani tanpa eksekusi skrip. Isi pelajaran masih placeholder "Materi sedang disusun". |
 | 9 | selesai (interaktif, 21 Nov) | XP, streak (hari lokal beruntun), 5 badge piksel SVG 8x8, ekspor/impor progres JSON di `belajar/` | Impor divalidasi: format, batas 100 KB dan 500 id, hanya id dikenal, gabung tanpa menimpa. Diuji desktop dan mobile. |
+| Admin 1 | selesai sebagian (interaktif, 22 Nov) | `admin/` (masuk, keluar, total pendaftar), `docs/admin.md`, `supabase/admin/001-admin.sql`, `vercel.json` memuat `/admin/` | Diuji Playwright dengan Supabase tiruan (163 pemeriksaan lulus, termasuk CSP). SQL BELUM diterapkan ke neruvia-dev (PERLU-KEPUTUSAN butir 11); tahap 2 dan 3 belum. |
 | Interaktif | selesai (21 Nov) | Penampil isi pelajaran + soal cek pemahaman, draf pelajaran 1, validator isi | Uji desktop dan mobile |
 
 Catatan: baris bernomor 4–9 di atas adalah penomoran lama, sudah selesai secara interaktif dan sudah dicakup ulang oleh paket di BACKLOG.

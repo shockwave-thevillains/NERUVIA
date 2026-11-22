@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Admin — NERUVIA</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/svg+xml" href="../assets/brand/neruvia-icon-cyan.svg">
+<link rel="stylesheet" href="../belajar/ruang.css">
+<link rel="stylesheet" href="admin.css">
+</head>
+<body>
+<a class="skip" href="#isi">Lewati ke isi</a>
+<header>
+  <div class="bar">
+    <a class="brand" href="../index.html" aria-label="NERUVIA, kembali ke beranda"><svg viewBox="7 8 133 70" aria-hidden="true"><path d="M9,11 L31,11 L72.2,54.9 L85.4,75.2 L63.8,75.2 L26.5,42 L26.5,75.2 L9,75.2Z M58.3,13 L72.3,13 L94.5,41.5 L117,10.5 L136.7,10.5 L99.5,68.5Z" fill="currentColor" stroke="currentColor" stroke-width="6" stroke-linejoin="round" fill-rule="evenodd"/></svg>NERUVIA</a>
+    <a class="back" href="../index.html">← Beranda</a>
+  </div>
+</header>
+<main id="isi">
+  <p class="eyebrow">// Admin · pratinjau dev</p>
+
+  <section id="masuk" aria-labelledby="h-masuk">
+    <h1 id="h-masuk">Masuk admin.</h1>
+    <p class="lead">Khusus pengelola NERUVIA. Data yang tampil dilindungi di sisi server; halaman ini hanya antarmuka.</p>
+    <form id="f-masuk" class="login" novalidate>
+      <label for="a-email">Email</label>
+      <input id="a-email" name="email" type="email" autocomplete="username" inputmode="email" maxlength="254" required>
+      <label for="a-sandi">Kata sandi</label>
+      <input id="a-sandi" name="sandi" type="password" autocomplete="current-password" maxlength="200" required>
+      <button type="submit" class="f solid" id="a-kirim">Masuk</button>
+      <p class="msg" id="a-msg" role="status" aria-live="polite"></p>
+    </form>
+  </section>
+
+  <section id="panel" hidden aria-labelledby="h-panel">
+    <div class="head">
+      <div>
+        <h1 id="h-panel">Dashboard.</h1>
+        <p class="lead">Masuk sebagai <b id="p-email">—</b>. Sesi berakhir otomatis dan tidak menyimpan kata sandi.</p>
+      </div>
+      <button type="button" class="f" id="p-keluar">Keluar</button>
+    </div>
+    <section class="stats" aria-label="Ringkasan waitlist">
+      <div class="stat"><b id="s-total">—</b><span>total pendaftar waitlist</span></div>
+    </section>
+    <p class="msg" id="p-msg" role="status" aria-live="polite"></p>
+    <section class="next" aria-label="Tahap berikutnya">
+      <div class="soon"><h2>Pendaftar per hari dan per level</h2><p>Tahap 2. Grafik dari data waitlist.</p></div>
+      <div class="soon"><h2>Penjualan</h2><p>Menunggu metode pembayaran dan harga ditetapkan.</p></div>
+      <div class="soon"><h2>Pelajaran dan video</h2><p>Tahap 3. Editor pelajaran dan unggah video ke penyimpanan.</p></div>
+    </section>
+  </section>
+  <noscript><p class="note">Halaman admin memerlukan JavaScript.</p></noscript>
+</main>
+<script src="../config.js"></script>
+<script src="admin.js"></script>
+</body>
+</html>
