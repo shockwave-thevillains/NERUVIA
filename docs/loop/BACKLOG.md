@@ -27,7 +27,14 @@ Dasar: OWASP ASVS (input validation, output encoding, session, logging) dan OWAS
 
 ## Paket B
 1. Performa: lazy-load frame Neru dan atur prioritas muat.
-2. Performa: preload font, ukuran dan format gambar.
+2. Performa berat (B2), kerjakan semua butir berikut dalam satu run:
+   a. Inventaris: daftar seluruh berkas di `assets/` dan `config`/halaman yang memuatnya (ukuran, format, dipakai oleh halaman mana, dimuat kapan). Simpan sebagai tabel di `docs/loop/PERFORMA.md`. Temuan awal: `neru-menoleh-web.webp` 5,5 MB, `neru-menoleh-sumber.mp4` 3,1 MB, tiga PNG maskot di `assets/brand/maskot/` masing-masing 1,3-1,4 MB, tidak ada rujukan di HTML/JS/CSS; buktikan dengan pencarian, lalu pindahkan ke luar deploy (`.vercelignore`) atau catat alasan menyimpannya.
+   b. Font: periksa lima berkas woff2, tentukan font yang benar-benar dipakai per halaman, pasang `preload` hanya untuk font kritis (dengan `crossorigin`), `font-display: swap`, dan `size-adjust`/fallback metrik agar tidak bergeser. Uji dengan jaringan lambat (throttling) dan catat pergeseran tata letak.
+   c. Gambar: buat varian responsif (`srcset` + `sizes`) untuk `neru.webp`, `neru-wave.webp`, dan gambar lain di halaman; beri `width`/`height` eksplisit; pertimbangkan AVIF bila ukuran turun minimal 20% tanpa selisih visual terlihat (bandingkan piksel dan catat). Jangan merusak mode `prefers-reduced-motion`.
+   d. Regenerasi `vercel.json` dengan `tools/buat-vercel-json.mjs` bila ada perubahan inline, jalankan `tools/uji-header-csp.mjs` dan `tools/uji-keamanan.mjs` penuh (bukan `--cepat`), dan tidak boleh ada pelonggaran CSP.
+   e. Ukur dengan `tools/ukur-muat.mjs`: 3 halaman (beranda, belajar, terima-kasih) x 3 viewport (390, 768, 1440) x 3 kali ulang, sebelum dan sesudah. Simpan median LCP, CLS, bobot transfer, jumlah permintaan di PERFORMA.md bersama perhitungan selisih.
+   f. Tulis alat uji baru `tools/uji-aset.mjs` (minimal 30 kasus: berkas hilang, rujukan putus, ukuran melebihi anggaran, format salah, atribut `width`/`height` kosong, preload tanpa `crossorigin`, masukan jahat) dan masukkan anggaran ukuran per halaman ke dalamnya.
+   g. Tinjauan mandiri dua tahap atas seluruh diff, lalu verifikasi akhir di Vercel: tunggu deploy READY, ukur ulang di URL dev yang sebenarnya, bandingkan dengan hasil lokal.
 3. Ukur dengan Playwright sebelum dan sesudah (LCP, CLS, bobot transfer) dan verifikasi `prefers-reduced-motion`. Catat angka di PROGRESS.
 4. Draf pelajaran 2 (`l1-m1-p2`, Cara chatbot menyusun jawaban).
 5. Draf pelajaran 3 (`l1-m1-p3`, Menulis prompt pertama yang jelas).

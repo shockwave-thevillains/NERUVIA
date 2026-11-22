@@ -83,3 +83,11 @@ Kinerja dan polesan (B1–B3, H, D): ukur dulu tiga kali dengan alat yang sama, 
 
 Latihan interaktif (C3 dan sejenisnya): minimal 5 pasangan contoh, skor dan umpan balik per pasangan, operasi lewat keyboard, label aksesibel, serta uji browser dan uji masukan jahat.
 
+## Beban berat (22 Nov, permintaan Master: aktivitas lebih berat dan memakai lebih banyak batas 5 jam)
+Aturan ini menambah Standar kedalaman. Master ingin batas pemakaian 5 jam terpakai banyak, jadi satu run tidak boleh selesai dengan pekerjaan ringan.
+1. Kerjakan SEMUA butir yang tertulis pada kegiatan di BACKLOG, termasuk butir a sampai g bila ada. Tidak ada butir yang boleh dilewati atau diganti catatan "nanti".
+2. Jalankan seluruh gerbang penuh dua kali: sebelum mengubah (dasar ukur) dan sesudah (hasil). Pakai `tools/uji-keamanan.mjs` tanpa `--cepat`.
+3. Uji di browser nyata pada tiga lebar (390, 768, 1440) untuk setiap halaman yang tersentuh, ambil tangkapan layar, dan periksa sendiri hasilnya.
+4. Setelah deploy Vercel READY, verifikasi ulang pada URL deploy yang sebenarnya, bukan hanya lokal.
+5. Tinjauan mandiri dua tahap dan catatan "yang tidak diperiksa" wajib ada di kolom hasil PROGRESS.md.
+6. Run yang selesai dengan kurang dari lima langkah verifikasi terukur dianggap belum selesai; lanjutkan sampai bukti lengkap.
