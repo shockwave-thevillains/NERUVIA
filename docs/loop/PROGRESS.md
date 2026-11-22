@@ -33,56 +33,56 @@ Status: belum, sedang (diklaim run), selesai, gagal. Kolom commit berisi hash. R
 | B1 | Min 22 Nov 12:30 | Lazy-load frame Neru dan prioritas muat: 21 frame kini diminta setelah event load, lewat requestIdleCallback, prioritas rendah, dilewati saat hemat data/2G/reduced-motion; perbaikan galat laten `drawImage` saat frame gagal; preload hero fetchpriority=high. Diukur 9 putaran per kondisi (`tools/ukur-muat.mjs`, 1,6 Mbps): HP LCP 3664 → 2240 ms, event load 15349 → 2338 ms, frame diminta sebelum LCP 21 → 0; desktop load 6315 → 2332 ms, LCP tetap ±750 ms (elemen teks). Harga: animasi menyala ±0,2–0,3 dtk lebih lambat. Uji `tools/uji-muat-neru.mjs` 48 lulus (13 gagal pada kode lama), CSP 201 lulus, uji-keamanan 653 lulus, tampilan reduced-motion identik piksel 1440/390. Angka di `docs/loop/PERFORMA.md`. | selesai | 4d8c05a |
 | B2 | Min 22 Nov 13:20 | Audit aset penuh dan optimasi muat: inventaris 98 berkas (15 tanpa rujukan, 13,4 MB, dikecualikan lewat `.vercelignore`), beranda memakai `<picture>` AVIF+WebP dengan `srcset`/`sizes`, preload hero AVIF tunggal, tingkat frame baru `frames-m` untuk HP/tablet, fallback font bermetrik hanya di beranda, tinggi galeri dan badge dipesan (CLS), `tools/uji-aset.mjs` (344 pemeriksaan repo + 66 kasus uji mandiri), `tools/inventaris-aset.mjs`, `tools/ukur-cls-font.mjs`. Hasil lokal (median, 1,6 Mbps): beranda HP LCP 2228 → 1478 ms, bobot 2932 → 1764 KB (-40%), load 2343 → 1457 ms; desktop bobot 1189 → 1017 KB; halaman kecil tidak berubah dalam sebaran; CLS font-ditunda maks 0,2397 → 0,0331 (`/belajar/` 768 px 0,2397 → 0,0022). 18 tangkapan layar 390/768/1440 sebelum vs sesudah: 15 identik piksel, 3 beranda hanya beda di hero (resampling AVIF). Dicoba lalu dibatalkan karena terukur memperlambat 16–90 ms: preload font dan fallback font di halaman kecil. Gerbang: uji-keamanan penuh 653 → 664 lulus, CSP 201, uji-muat-neru 90, validator lulus. Tinjauan mandiri dua tahap dan daftar yang tidak diperiksa di PERFORMA.md; verifikasi di URL Vercel belum bisa (konektor dilarang, URL dev tak tercatat; PERLU-KEPUTUSAN butir 14). | selesai | 200e008 |
 | B3 | Min 22 Nov 14:10 | Ukur performa sebelum dan sesudah (LCP, CLS, bobot), cek reduced-motion (run slot 4 mulai 14:59 WIB dan menyelesaikan kegiatan ini; klaim ulang run lain pukul 15:52 WIB mungkin berjalan bersamaan, jadi run itu perlu `git pull` dan jangan mengerjakan ulang). Dikerjakan: lima sisa CLS diperbaiki. (1) `pelajaran.html` memasang tombol selesai, status, dan navigasi setelah isi pelajaran tiba (tadinya melompat 0,115/0,095/0,062 pada 390/768/1440 px di sebagian putaran); (2) lead beranda `max-width:21em` (720–820 px 0,034 menjadi 0,0005); (3) baris marquee ikut fallback font kapital (1000–1200 px 0,030 menjadi 0,002); (4) `.meta` kebijakan privasi `max-width:640px` (768 px 0,016 menjadi 0,0004); (5) temuan reduced-motion: `scroll-behavior:smooth` tidak dimatikan di kebijakan privasi dan terima kasih, kini `auto` di bawah reduce. Sapuan CLS 8 lebar x 5 halaman x 3 putaran: sel > 0,01 turun 9 menjadi 1 dari 40, putaran > 0,01 turun 26 menjadi 3 dari 120, terburuk 0,1152 menjadi 0,0122; pada 3 lebar standar x 3 gelombang 31 menjadi 0 dari 135 putaran. Muat (2 gelombang x 3 putaran, 5 halaman x 3 profil): LCP, bobot, permintaan tidak berubah di luar sebaran, CLS pelajaran desktop 0,062 menjadi 0, galat skrip 0. Uji baru `tools/uji-cls-pelajaran.mjs` 71 lulus (kode lama gagal 10); `ukur-cls-font.mjs` kini menerima `--lebar` dan `--halaman`. 36 tangkapan layar 390–1440 sebelum vs sesudah identik piksel. Reduced-motion diperiksa 4 halaman x 3 lebar x 2 mode. Gerbang penuh: uji-keamanan 663 menjadi 664 lulus, CSP 201, aset 344+66, Neru 90, validator, impor lulus. Tidak diperiksa: deploy Vercel nyata (konektor dilarang), Safari/Firefox, fallback font Android, lebar di antara yang disapu (sisa `/belajar/` 720 px 0,012); rincian dan tinjauan dua tahap di PERFORMA.md bagian B3. | selesai | 1078a2d |
-| B4 | Min 22 Nov 15:00 | Draf pelajaran 2 (l1-m1-p2) Cara chatbot menyusun jawaban | belum | |
-| B5 | Min 22 Nov 15:50 | Draf pelajaran 3 (l1-m1-p3) Menulis prompt pertama yang jelas | belum | |
-| B6 | Min 22 Nov 18:30 | Perdalam pelajaran 1 (l1-m1-p1) ke standar kedalaman: tulis ulang isi, contoh berpasangan, latihan tiga tahap, riset 4 rujukan | belum | |
-| C1 | Min 22 Nov 19:20 | Draf pelajaran 4 (l1-m1-p4) Memperbaiki hasil yang belum sesuai | belum | |
-| C2 | Min 22 Nov 20:10 | Draf pelajaran 5 (l1-m1-p5) Mengecek jawaban AI sebelum dipakai | belum | |
-| C3 | Min 22 Nov 21:00 | Latihan interaktif prompt jelek vs prompt bagus (pelajaran 3) | belum | |
-| C4 | Min 22 Nov 21:50 | Penanda Draf di galeri dan lanjut otomatis ke pelajaran berikutnya | belum | |
-| C5 | Sen 23 Nov 00:30 | Jalankan validator, perbarui README dan PROGRESS | belum | |
-| E1 | Sen 23 Nov 01:20 | L1 Modul 2 pelajaran 1: Memberi peran dan konteks | belum | |
-| E2 | Sen 23 Nov 02:10 | L1 Modul 2 pelajaran 2: Menentukan format hasil | belum | |
-| E3 | Sen 23 Nov 03:00 | L1 Modul 2 pelajaran 3: Memberi contoh agar hasil konsisten | belum | |
-| E4 | Sen 23 Nov 03:50 | L1 Modul 2 pelajaran 4: Memecah tugas besar menjadi langkah kecil | belum | |
-| E5 | Sen 23 Nov 06:30 | L1 Modul 2 pelajaran 5: Menyempurnakan prompt lewat percobaan berulang | belum | |
-| F1 | Sen 23 Nov 07:20 | L1 Modul 3 pelajaran 1: Data yang tidak boleh ditempel ke chatbot | belum | |
-| F2 | Sen 23 Nov 08:10 | L1 Modul 3 pelajaran 2: Kenapa AI bisa keliru dengan yakin (halusinasi) | belum | |
-| F3 | Sen 23 Nov 09:00 | L1 Modul 3 pelajaran 3: Keterbatasan dan bias jawaban AI | belum | |
-| F4 | Sen 23 Nov 09:50 | L1 Modul 3 pelajaran 4: Etika dasar, menyebut bantuan AI, menghormati karya orang lain | belum | |
-| F5 | Sen 23 Nov 12:30 | L1 Modul 3 pelajaran 5: Kebiasaan kerja, tinjau, simpan versi, tanggung jawab tetap pada kamu | belum | |
-| G1 | Sen 23 Nov 13:20 | L2 Modul 1 pelajaran 1: Merangkum dokumen panjang | belum | |
-| G2 | Sen 23 Nov 14:10 | L2 Modul 1 pelajaran 2: Menulis email yang jelas dan sopan | belum | |
-| G3 | Sen 23 Nov 15:00 | L2 Modul 1 pelajaran 3: Menyusun laporan singkat dari catatan | belum | |
-| G4 | Sen 23 Nov 15:50 | L2 Modul 1 pelajaran 4: Mengolah data sederhana | belum | |
-| G5 | Sen 23 Nov 18:30 | L2 Modul 1 pelajaran 5: Mengecek hasil sebelum dikirim | belum | |
-| I1 | Sen 23 Nov 19:20 | L2 Modul 2 pelajaran 1: Mencari informasi dan memeriksa sumbernya | belum | |
-| I2 | Sen 23 Nov 20:10 | L2 Modul 2 pelajaran 2: Merangkum beberapa sumber tanpa mencampur fakta | belum | |
-| I3 | Sen 23 Nov 21:00 | L2 Modul 2 pelajaran 3: Belajar topik baru lewat pertanyaan bertahap | belum | |
-| I4 | Sen 23 Nov 21:50 | L2 Modul 2 pelajaran 4: Membuat kartu belajar dan soal latihan dari catatan | belum | |
-| I5 | Sel 24 Nov 00:30 | L2 Modul 2 pelajaran 5: Mencatat rujukan dan menghindari plagiarisme | belum | |
-| J1 | Sel 24 Nov 01:20 | L2 Modul 3 pelajaran 1: Menyunting tulisan sendiri dengan bantuan AI | belum | |
-| J2 | Sel 24 Nov 02:10 | L2 Modul 3 pelajaran 2: Menyesuaikan tulisan untuk pembaca yang berbeda | belum | |
-| J3 | Sel 24 Nov 03:00 | L2 Modul 3 pelajaran 3: Dari ide ke kerangka tulisan | belum | |
-| J4 | Sel 24 Nov 03:50 | L2 Modul 3 pelajaran 4: Menerjemahkan dan menyesuaikan nada | belum | |
-| J5 | Sel 24 Nov 06:30 | L2 Modul 3 pelajaran 5: Memeriksa orisinalitas dan hak cipta | belum | |
-| K1 | Sel 24 Nov 07:20 | Riset kurikulum Level 3 AI Lanjutan (`docs/riset/kurikulum-level3.md`), usulan modul dan rujukan | belum | |
-| K2 | Sel 24 Nov 08:10 | Riset kurikulum cybersecurity pemula berorientasi pertahanan (`docs/riset/kurikulum-cybersecurity.md`) | belum | |
-| K3 | Sel 24 Nov 09:00 | Rancangan jalur cybersecurity di `kursus.json` (`docs/riset/struktur-jalur.md`), tanpa mengubah data | belum | |
-| K4 | Sel 24 Nov 09:50 | Draf halaman Harga dan akses sebagai opsi tertulis (`docs/draf/harga-akses.md`), tanpa angka final | belum | |
-| K5 | Sel 24 Nov 12:30 | Draf email sambutan dan pengumuman waitlist (`docs/draf/email-waitlist.md`), tanpa mengirim | belum | |
-| L1 | Sel 24 Nov 13:20 | Alat cek materi `tools/cek-materi.mjs`: panjang kalimat, kata terlarang, klaim belum dikonfirmasi, beserta ujinya | belum | |
-| L2 | Sel 24 Nov 14:10 | Perintah tunggal `tools/uji-semua.mjs` (validator, uji impor draf, uji keamanan cepat) dan catat di RUNBOOK | belum | |
-| L3 | Sel 24 Nov 15:00 | Panduan penulis pelajaran dan templat JSON (`docs/panduan-penulis.md`) | belum | |
-| L4 | Sel 24 Nov 15:50 | Dokumen arsitektur dan alur data (`docs/arsitektur.md`) | belum | |
-| L5 | Sel 24 Nov 18:30 | Tinjauan konsistensi semua pelajaran dan glosarium (`docs/loop/GLOSARIUM.md`) | belum | |
-| H1 | Sel 24 Nov 19:20 | Meta tag, Open Graph, robots.txt, sitemap.xml | belum | |
-| H2 | Sel 24 Nov 20:10 | Halaman 404 bergaya situs | belum | |
-| H3 | Sel 24 Nov 21:00 | Tautan kecil ke ruang belajar dari landing | belum | |
-| H4 | Sel 24 Nov 21:50 | Uji lintas viewport (360, 390, 768, 1024, 1440) dan perbaiki | belum | |
-| H5 | Rab 25 Nov 00:30 | Uji keyboard menyeluruh landing, form, galeri, pelajaran | belum | |
-| D1 | Rab 25 Nov 01:20 | CSP lewat meta dan pengecekan SRI aset vendor | belum | |
-| D2 | Rab 25 Nov 02:10 | Cek semua tautan internal dan eksternal | belum | |
-| D3 | Rab 25 Nov 03:00 | Audit aksesibilitas ulang dan bandingkan dengan AUDIT.md | belum | |
-| D4 | Rab 25 Nov 03:50 | Perbarui README dan docs, snapshot ke Notion bila tersedia | belum | |
-| D5 | Rab 25 Nov 06:30 | Ringkasan akhir, dev siap ditinjau, nonaktifkan kelima tugas terjadwal | belum | |
+| B4 | Min 22 Nov 15:50 | Draf pelajaran 2 (l1-m1-p2) Cara chatbot menyusun jawaban | belum | |
+| B5 | Min 22 Nov 18:30 | Draf pelajaran 3 (l1-m1-p3) Menulis prompt pertama yang jelas | belum | |
+| B6 | Min 22 Nov 19:20 | Perdalam pelajaran 1 (l1-m1-p1) ke standar kedalaman: tulis ulang isi, contoh berpasangan, latihan tiga tahap, riset 4 rujukan | belum | |
+| C1 | Min 22 Nov 20:10 | Draf pelajaran 4 (l1-m1-p4) Memperbaiki hasil yang belum sesuai | belum | |
+| C2 | Min 22 Nov 20:59 | Draf pelajaran 5 (l1-m1-p5) Mengecek jawaban AI sebelum dipakai | belum | |
+| C3 | Min 22 Nov 21:50 | Latihan interaktif prompt jelek vs prompt bagus (pelajaran 3) | belum | |
+| C4 | Sen 23 Nov 00:30 | Penanda Draf di galeri dan lanjut otomatis ke pelajaran berikutnya | belum | |
+| C5 | Sen 23 Nov 01:20 | Jalankan validator, perbarui README dan PROGRESS | belum | |
+| E1 | Sen 23 Nov 02:10 | L1 Modul 2 pelajaran 1: Memberi peran dan konteks | belum | |
+| E2 | Sen 23 Nov 02:59 | L1 Modul 2 pelajaran 2: Menentukan format hasil | belum | |
+| E3 | Sen 23 Nov 03:50 | L1 Modul 2 pelajaran 3: Memberi contoh agar hasil konsisten | belum | |
+| E4 | Sen 23 Nov 06:30 | L1 Modul 2 pelajaran 4: Memecah tugas besar menjadi langkah kecil | belum | |
+| E5 | Sen 23 Nov 07:20 | L1 Modul 2 pelajaran 5: Menyempurnakan prompt lewat percobaan berulang | belum | |
+| F1 | Sen 23 Nov 08:10 | L1 Modul 3 pelajaran 1: Data yang tidak boleh ditempel ke chatbot | belum | |
+| F2 | Sen 23 Nov 08:59 | L1 Modul 3 pelajaran 2: Kenapa AI bisa keliru dengan yakin (halusinasi) | belum | |
+| F3 | Sen 23 Nov 09:50 | L1 Modul 3 pelajaran 3: Keterbatasan dan bias jawaban AI | belum | |
+| F4 | Sen 23 Nov 12:30 | L1 Modul 3 pelajaran 4: Etika dasar, menyebut bantuan AI, menghormati karya orang lain | belum | |
+| F5 | Sen 23 Nov 13:20 | L1 Modul 3 pelajaran 5: Kebiasaan kerja, tinjau, simpan versi, tanggung jawab tetap pada kamu | belum | |
+| G1 | Sen 23 Nov 14:10 | L2 Modul 1 pelajaran 1: Merangkum dokumen panjang | belum | |
+| G2 | Sen 23 Nov 14:59 | L2 Modul 1 pelajaran 2: Menulis email yang jelas dan sopan | belum | |
+| G3 | Sen 23 Nov 15:50 | L2 Modul 1 pelajaran 3: Menyusun laporan singkat dari catatan | belum | |
+| G4 | Sen 23 Nov 18:30 | L2 Modul 1 pelajaran 4: Mengolah data sederhana | belum | |
+| G5 | Sen 23 Nov 19:20 | L2 Modul 1 pelajaran 5: Mengecek hasil sebelum dikirim | belum | |
+| I1 | Sen 23 Nov 20:10 | L2 Modul 2 pelajaran 1: Mencari informasi dan memeriksa sumbernya | belum | |
+| I2 | Sen 23 Nov 20:59 | L2 Modul 2 pelajaran 2: Merangkum beberapa sumber tanpa mencampur fakta | belum | |
+| I3 | Sen 23 Nov 21:50 | L2 Modul 2 pelajaran 3: Belajar topik baru lewat pertanyaan bertahap | belum | |
+| I4 | Sel 24 Nov 00:30 | L2 Modul 2 pelajaran 4: Membuat kartu belajar dan soal latihan dari catatan | belum | |
+| I5 | Sel 24 Nov 01:20 | L2 Modul 2 pelajaran 5: Mencatat rujukan dan menghindari plagiarisme | belum | |
+| J1 | Sel 24 Nov 02:10 | L2 Modul 3 pelajaran 1: Menyunting tulisan sendiri dengan bantuan AI | belum | |
+| J2 | Sel 24 Nov 02:59 | L2 Modul 3 pelajaran 2: Menyesuaikan tulisan untuk pembaca yang berbeda | belum | |
+| J3 | Sel 24 Nov 03:50 | L2 Modul 3 pelajaran 3: Dari ide ke kerangka tulisan | belum | |
+| J4 | Sel 24 Nov 06:30 | L2 Modul 3 pelajaran 4: Menerjemahkan dan menyesuaikan nada | belum | |
+| J5 | Sel 24 Nov 07:20 | L2 Modul 3 pelajaran 5: Memeriksa orisinalitas dan hak cipta | belum | |
+| K1 | Sel 24 Nov 08:10 | Riset kurikulum Level 3 AI Lanjutan (`docs/riset/kurikulum-level3.md`), usulan modul dan rujukan | belum | |
+| K2 | Sel 24 Nov 08:59 | Riset kurikulum cybersecurity pemula berorientasi pertahanan (`docs/riset/kurikulum-cybersecurity.md`) | belum | |
+| K3 | Sel 24 Nov 09:50 | Rancangan jalur cybersecurity di `kursus.json` (`docs/riset/struktur-jalur.md`), tanpa mengubah data | belum | |
+| K4 | Sel 24 Nov 12:30 | Draf halaman Harga dan akses sebagai opsi tertulis (`docs/draf/harga-akses.md`), tanpa angka final | belum | |
+| K5 | Sel 24 Nov 13:20 | Draf email sambutan dan pengumuman waitlist (`docs/draf/email-waitlist.md`), tanpa mengirim | belum | |
+| L1 | Sel 24 Nov 14:10 | Alat cek materi `tools/cek-materi.mjs`: panjang kalimat, kata terlarang, klaim belum dikonfirmasi, beserta ujinya | belum | |
+| L2 | Sel 24 Nov 14:59 | Perintah tunggal `tools/uji-semua.mjs` (validator, uji impor draf, uji keamanan cepat) dan catat di RUNBOOK | belum | |
+| L3 | Sel 24 Nov 15:50 | Panduan penulis pelajaran dan templat JSON (`docs/panduan-penulis.md`) | belum | |
+| L4 | Sel 24 Nov 18:30 | Dokumen arsitektur dan alur data (`docs/arsitektur.md`) | belum | |
+| L5 | Sel 24 Nov 19:20 | Tinjauan konsistensi semua pelajaran dan glosarium (`docs/loop/GLOSARIUM.md`) | belum | |
+| H1 | Sel 24 Nov 20:10 | Meta tag, Open Graph, robots.txt, sitemap.xml | belum | |
+| H2 | Sel 24 Nov 20:59 | Halaman 404 bergaya situs | belum | |
+| H3 | Sel 24 Nov 21:50 | Tautan kecil ke ruang belajar dari landing | belum | |
+| H4 | Rab 25 Nov 00:30 | Uji lintas viewport (360, 390, 768, 1024, 1440) dan perbaiki | belum | |
+| H5 | Rab 25 Nov 01:20 | Uji keyboard menyeluruh landing, form, galeri, pelajaran | belum | |
+| D1 | Rab 25 Nov 02:10 | CSP lewat meta dan pengecekan SRI aset vendor | belum | |
+| D2 | Rab 25 Nov 02:59 | Cek semua tautan internal dan eksternal | belum | |
+| D3 | Rab 25 Nov 03:50 | Audit aksesibilitas ulang dan bandingkan dengan AUDIT.md | belum | |
+| D4 | Rab 25 Nov 06:30 | Perbarui README dan docs, snapshot ke Notion bila tersedia | belum | |
+| D5 | Rab 25 Nov 07:20 | Ringkasan akhir, dev siap ditinjau, nonaktifkan kelima tugas terjadwal | belum | |
