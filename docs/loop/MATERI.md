@@ -47,4 +47,18 @@ Level 2 (AI untuk Kerja) dan Level 3 (AI Lanjutan) baru dirancang setelah Level 
 5. Mengecek hasil sebelum dikirim ke orang lain
 
 
+## Level 2 · Modul 2 · Riset dan belajar dengan AI (Paket I, ditambahkan Master 22 Nov)
+1. Mencari informasi dan memeriksa sumbernya
+2. Merangkum beberapa sumber tanpa mencampur fakta
+3. Belajar topik baru lewat pertanyaan bertahap
+4. Membuat kartu belajar dan soal latihan dari catatan
+5. Mencatat rujukan dan menghindari plagiarisme
+
+## Level 2 · Modul 3 · Menulis dan membuat konten dengan AI (Paket J, ditambahkan Master 22 Nov)
+1. Menyunting tulisan sendiri dengan bantuan AI
+2. Menyesuaikan tulisan untuk pembaca yang berbeda
+3. Dari ide ke kerangka tulisan
+4. Menerjemahkan dan menyesuaikan nada
+5. Memeriksa orisinalitas dan hak cipta
+
 Sebelum menulis, ikuti bagian "Riset rujukan" di RUNBOOK.md dan catat hasilnya di RUJUKAN.md.

@@ -23,7 +23,7 @@ Status: belum, sedang (diklaim run), selesai, gagal. Kolom commit berisi hash. R
 | A1 | Min 22 Nov 00:45 | Audit desktop dan mobile terhadap PRD dan arah visual, hasil ke AUDIT.md | selesai | b84cf1e |
 | A2 | Min 22 Nov 01:35 | Perbaiki celah teratas dari audit: F2 menu mobile (tombol 48 px, panel layar penuh, Escape, fokus kembali, konten di-inert, tutup saat melebar). Diuji Playwright 390 dan 360 px; desktop 1440 identik piksel. F4 tidak dikerjakan (kegiatan A5). Validator lulus; uji-keamanan.mjs belum ada (Paket S). | selesai | 8a073c2 |
 | A3 | Min 22 Nov 02:25 | Navigasi mobile dan area ketuk minimal 44 px. Menu mobile sudah dari A2; A3 memperbesar semua area ketuk (F5): tautan header, chip jalur, footer landing, filter/brand/kembali/ringkasan/kartu pelajaran di galeri, breadcrumb, daftar isi dan footer kebijakan privasi. Diukur Playwright 1440 dan 390 px: tersisa hanya tautan inline dalam kalimat (dikecualikan). Validator lulus; uji-keamanan.mjs belum ada. | selesai | 54af905 |
-| A4 | Min 22 Nov 03:15 | Hapus pastel (F3) dan perbaiki kontras (F7): variabel pastel dihapus, badge, pil, SELESAI, skor dan pesan status memakai cyan/putih/garis abu, hijau/merah hanya jawaban benar/salah dan galat; nomor bagian kebijakan privasi #888 jadi #666; pil 12 px. Pemindai kontras lima halaman dua lebar tanpa kegagalan AA (nav landing positif palsu, terendah 11,55:1). Validator lulus; uji-keamanan.mjs belum ada. | selesai | selesai | f70e330 |
+| A4 | Min 22 Nov 03:15 | Hapus pastel (F3) dan perbaiki kontras (F7): variabel pastel dihapus, badge, pil, SELESAI, skor dan pesan status memakai cyan/putih/garis abu, hijau/merah hanya jawaban benar/salah dan galat; nomor bagian kebijakan privasi #888 jadi #666; pil 12 px. Pemindai kontras lima halaman dua lebar tanpa kegagalan AA (nav landing positif palsu, terendah 11,55:1). Validator lulus; uji-keamanan.mjs belum ada. | selesai | f70e330 |
 | A5 | Min 22 Nov 04:05 | Aksesibilitas tahap belajar dan carousel (F4, F6, F8): rotasi bisa dijeda dan berhenti saat hover/fokus/setelah dipilih, tombol JEDA/PUTAR 44 px, peran tab diganti grup tombol dengan aria-current, carousel aria-disabled di ujung plus Home/End, fokus kolom isian 2 px. Diuji Playwright 1440 dan 390 px dan reduced-motion. Validator lulus; uji-keamanan.mjs belum ada. | selesai | 4cefe7a |
 | S1 | Min 22 Nov 06:45 | Audit keamanan: model ancaman (AUDIT-KEAMANAN.md). 11 temuan (K1 enumerasi email lewat 409 tertinggi; K2–K11 sedang/rendah), STRIDE per aset, bukti uji impor progres dan pencarian sink (tanpa innerHTML/eval/on*), tanpa rahasia di repo dan riwayat. Perlu tindakan Master di PERLU-KEPUTUSAN butir 8. Validator lulus; uji-keamanan.mjs belum ada. | selesai | 96f4b86 |
 | S2 | Min 22 Nov 07:35 | Validasi input dan encoding output: form waitlist (NFKC, buang karakter kontrol/bidi, daftar putih karakter, awalan rumus ditolak, cek ulang level) dan impor progres (tanggal ISO nyata 2026–besok, id ketat, baca localStorage membuang entri rusak, objek tanpa prototipe; K8, K9). Draf SQL `supabase/draf/waitlist-s2-perketat.sql` untuk K6, K7, K1 diuji di Postgres 16 lokal, belum diterapkan (PERLU-KEPUTUSAN butir 9). Uji: `tools/uji-impor-progres.mjs` 57 lulus, Playwright form 32 nama dan 27 email, landing dan galeri 1440/390 identik piksel. Validator lulus; uji-keamanan.mjs belum ada. | selesai | ad8fea2 |
@@ -55,13 +55,33 @@ Status: belum, sedang (diklaim run), selesai, gagal. Kolom commit berisi hash. R
 | G3 | Sen 23 Nov 14:25 | L2 Modul 1 pelajaran 3: Menyusun laporan singkat dari catatan | belum | |
 | G4 | Sen 23 Nov 15:15 | L2 Modul 1 pelajaran 4: Mengolah data sederhana | belum | |
 | G5 | Sen 23 Nov 16:05 | L2 Modul 1 pelajaran 5: Mengecek hasil sebelum dikirim | belum | |
-| H1 | Sen 23 Nov 18:45 | Meta tag, Open Graph, robots.txt, sitemap.xml | belum | |
-| H2 | Sen 23 Nov 19:35 | Halaman 404 bergaya situs | belum | |
-| H3 | Sen 23 Nov 20:25 | Tautan kecil ke ruang belajar dari landing | belum | |
-| H4 | Sen 23 Nov 21:15 | Uji lintas viewport (360, 390, 768, 1024, 1440) dan perbaiki | belum | |
-| H5 | Sen 23 Nov 22:05 | Uji keyboard menyeluruh landing, form, galeri, pelajaran | belum | |
-| D1 | Sel 24 Nov 00:45 | CSP lewat meta dan pengecekan SRI aset vendor | belum | |
-| D2 | Sel 24 Nov 01:35 | Cek semua tautan internal dan eksternal | belum | |
-| D3 | Sel 24 Nov 02:25 | Audit aksesibilitas ulang dan bandingkan dengan AUDIT.md | belum | |
-| D4 | Sel 24 Nov 03:15 | Perbarui README dan docs, snapshot ke Notion bila tersedia | belum | |
-| D5 | Sel 24 Nov 04:05 | Ringkasan akhir, dev siap ditinjau, nonaktifkan kelima tugas terjadwal | belum | |
+| I1 | Sen 23 Nov 18:45 | L2 Modul 2 pelajaran 1: Mencari informasi dan memeriksa sumbernya | belum | |
+| I2 | Sen 23 Nov 19:35 | L2 Modul 2 pelajaran 2: Merangkum beberapa sumber tanpa mencampur fakta | belum | |
+| I3 | Sen 23 Nov 20:25 | L2 Modul 2 pelajaran 3: Belajar topik baru lewat pertanyaan bertahap | belum | |
+| I4 | Sen 23 Nov 21:15 | L2 Modul 2 pelajaran 4: Membuat kartu belajar dan soal latihan dari catatan | belum | |
+| I5 | Sen 23 Nov 22:05 | L2 Modul 2 pelajaran 5: Mencatat rujukan dan menghindari plagiarisme | belum | |
+| J1 | Sel 24 Nov 00:45 | L2 Modul 3 pelajaran 1: Menyunting tulisan sendiri dengan bantuan AI | belum | |
+| J2 | Sel 24 Nov 01:35 | L2 Modul 3 pelajaran 2: Menyesuaikan tulisan untuk pembaca yang berbeda | belum | |
+| J3 | Sel 24 Nov 02:25 | L2 Modul 3 pelajaran 3: Dari ide ke kerangka tulisan | belum | |
+| J4 | Sel 24 Nov 03:15 | L2 Modul 3 pelajaran 4: Menerjemahkan dan menyesuaikan nada | belum | |
+| J5 | Sel 24 Nov 04:05 | L2 Modul 3 pelajaran 5: Memeriksa orisinalitas dan hak cipta | belum | |
+| K1 | Sel 24 Nov 06:45 | Riset kurikulum Level 3 AI Lanjutan (`docs/riset/kurikulum-level3.md`), usulan modul dan rujukan | belum | |
+| K2 | Sel 24 Nov 07:35 | Riset kurikulum cybersecurity pemula berorientasi pertahanan (`docs/riset/kurikulum-cybersecurity.md`) | belum | |
+| K3 | Sel 24 Nov 08:25 | Rancangan jalur cybersecurity di `kursus.json` (`docs/riset/struktur-jalur.md`), tanpa mengubah data | belum | |
+| K4 | Sel 24 Nov 09:15 | Draf halaman Harga dan akses sebagai opsi tertulis (`docs/draf/harga-akses.md`), tanpa angka final | belum | |
+| K5 | Sel 24 Nov 10:05 | Draf email sambutan dan pengumuman waitlist (`docs/draf/email-waitlist.md`), tanpa mengirim | belum | |
+| L1 | Sel 24 Nov 12:45 | Alat cek materi `tools/cek-materi.mjs`: panjang kalimat, kata terlarang, klaim belum dikonfirmasi, beserta ujinya | belum | |
+| L2 | Sel 24 Nov 13:35 | Perintah tunggal `tools/uji-semua.mjs` (validator, uji impor draf, uji keamanan cepat) dan catat di RUNBOOK | belum | |
+| L3 | Sel 24 Nov 14:25 | Panduan penulis pelajaran dan templat JSON (`docs/panduan-penulis.md`) | belum | |
+| L4 | Sel 24 Nov 15:15 | Dokumen arsitektur dan alur data (`docs/arsitektur.md`) | belum | |
+| L5 | Sel 24 Nov 16:05 | Tinjauan konsistensi semua pelajaran dan glosarium (`docs/loop/GLOSARIUM.md`) | belum | |
+| H1 | Sel 24 Nov 18:45 | Meta tag, Open Graph, robots.txt, sitemap.xml | belum | |
+| H2 | Sel 24 Nov 19:35 | Halaman 404 bergaya situs | belum | |
+| H3 | Sel 24 Nov 20:25 | Tautan kecil ke ruang belajar dari landing | belum | |
+| H4 | Sel 24 Nov 21:15 | Uji lintas viewport (360, 390, 768, 1024, 1440) dan perbaiki | belum | |
+| H5 | Sel 24 Nov 22:05 | Uji keyboard menyeluruh landing, form, galeri, pelajaran | belum | |
+| D1 | Rab 25 Nov 00:45 | CSP lewat meta dan pengecekan SRI aset vendor | belum | |
+| D2 | Rab 25 Nov 01:35 | Cek semua tautan internal dan eksternal | belum | |
+| D3 | Rab 25 Nov 02:25 | Audit aksesibilitas ulang dan bandingkan dengan AUDIT.md | belum | |
+| D4 | Rab 25 Nov 03:15 | Perbarui README dan docs, snapshot ke Notion bila tersedia | belum | |
+| D5 | Rab 25 Nov 04:05 | Ringkasan akhir, dev siap ditinjau, nonaktifkan kelima tugas terjadwal | belum | |

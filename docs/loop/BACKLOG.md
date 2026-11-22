@@ -2,7 +2,7 @@
 
 Keputusan yang berlaku: fase 1 tetap statis (HTML + Supabase JS), fitur daftar berupa waitlist dulu, pilot sudah lolos. Master melimpahkan pekerjaan ke Claude selama seminggu (21–28 Nov 2026), termasuk di jam Master memakai Claude.
 
-Satu run mengerjakan SATU kegiatan, dan lima run berselang 50 menit mengisi satu jendela batas 5 jam (lihat antrean di PROGRESS.md). Satu kegiatan menghasilkan satu commit. Paket dikerjakan berurutan: A, S, B, C, E, F, G, H, D. Paket S (keamanan) wajib selesai sebelum pelajaran baru mana pun dibuat, termasuk pelajaran 2 dan 3 di Paket B. Semua materi pelajaran berupa teks saja, tanpa video, mengikuti `docs/loop/MATERI.md`. Tiap draf pelajaran berupa berkas `content/pelajaran/<id>.json`, lalu `isi` di `kursus.json` diubah menjadi `draf` dan `node tools/validasi-kursus.mjs` harus lulus.
+Satu run mengerjakan SATU kegiatan, dan lima run berselang 50 menit mengisi satu jendela batas 5 jam (lihat antrean di PROGRESS.md). Satu kegiatan menghasilkan satu commit. Paket dikerjakan berurutan: A, S, B, C, E, F, G, I, J, K, L, H, D (paket I–L ditambahkan Master 22 Nov untuk memakai sisa batas pemakaian). Paket S (keamanan) wajib selesai sebelum pelajaran baru mana pun dibuat, termasuk pelajaran 2 dan 3 di Paket B. Semua materi pelajaran berupa teks saja, tanpa video, mengikuti `docs/loop/MATERI.md`. Tiap draf pelajaran berupa berkas `content/pelajaran/<id>.json`, lalu `isi` di `kursus.json` diubah menjadi `draf` dan `node tools/validasi-kursus.mjs` harus lulus.
 
 Sudah selesai (jangan dikerjakan ulang): form waitlist, halaman terima kasih, SQL dan dokumen backend, `kursus.json` dan validator, galeri `belajar/`, halaman pelajaran dengan penampil isi dan soal cek pemahaman, XP/streak/badge, ekspor/impor progres, draf pelajaran 1.
 
@@ -45,6 +45,28 @@ Draf pelajaran nomor 1–5 sesuai MATERI.md, satu pelajaran satu kegiatan. Tamba
 
 ## Paket G (Level 2 Modul 1: AI untuk Kerja)
 Rancang dan draf lima pelajaran sesuai MATERI.md: merangkum dokumen, menulis email, menyusun laporan singkat, mengolah data sederhana, mengecek hasil sebelum dikirim. Ubah status Level 2 menjadi `segera` tetap, tetapi tampilkan modulnya di galeri. Semua contoh memakai data fiktif.
+
+## Paket I (Level 2 Modul 2: Riset dan belajar dengan AI)
+Ditambahkan 22 Nov atas permintaan Master. Lima pelajaran sesuai MATERI.md, satu pelajaran satu kegiatan. Tambahkan modul `l2-m2` ke `kursus.json` (Level 2 tetap berstatus `segera`; ikuti aturan validator). Semua contoh memakai data fiktif berlabel. Tekankan memeriksa sumber, bukan mempercayai satu jawaban AI.
+
+## Paket J (Level 2 Modul 3: Menulis dan membuat konten dengan AI)
+Ditambahkan 22 Nov. Lima pelajaran sesuai MATERI.md. Tambahkan modul `l2-m3`. Bagian hak cipta cukup umum, tanpa nomor pasal dan tanpa nasihat hukum.
+
+## Paket K (Rancangan dan riset, hanya dokumen)
+Ditambahkan 22 Nov. Hasil berupa dokumen di `docs/riset/` atau `docs/draf/`, bukan perubahan situs. Setiap dokumen memuat ringkasan, rujukan (URL) dengan tanggal akses, dan daftar hal yang belum terverifikasi. Aturan khusus:
+1. Kurikulum Level 3: usulan modul dan urutan, dibandingkan dengan materi setara di platform lain (Claude Academy dan sumber gratis), ditulis ulang dengan kata sendiri.
+2. Kurikulum cybersecurity pemula: hanya sisi pertahanan dan kebiasaan aman (kata sandi, phishing, privasi, pembaruan, cadangan). Dilarang memuat langkah serangan, eksploitasi, atau bahan yang bisa dipakai menyerang pihak lain.
+3. Rancangan jalur cybersecurity di `kursus.json`: skema, id, filter galeri. Jangan mengubah `kursus.json` dan validator; hanya dokumen usulan.
+4. Draf Harga dan akses: tulis opsi (gratis, langganan, bayar per kursus) tanpa angka final dan tanpa menyebut sertifikat atau dukungan produk tertentu. Rujuk `docs/riset/pembayaran-monetisasi.md`.
+5. Draf email sambutan dan pengumuman waitlist: teks saja, tanpa mengirim dan tanpa menyambungkan layanan email. Sertakan cara berhenti berlangganan dan rujukan ke dasar persetujuan form.
+
+## Paket L (Alat dan dokumentasi)
+Ditambahkan 22 Nov. Tanpa mengubah perilaku situs.
+1. `tools/cek-materi.mjs` dengan uji pada salinan sementara; keluaran hanya peringatan, bukan pengubah berkas.
+2. `tools/uji-semua.mjs` menjalankan validator, uji impor draf, dan uji keamanan cepat; catat di RUNBOOK.
+3. `docs/panduan-penulis.md` dengan templat JSON pelajaran.
+4. `docs/arsitektur.md`: struktur repo, alur data, peran Supabase dan Vercel, cara menjalankan alat. Tanpa kunci dan tanpa identitas pembuat.
+5. Tinjauan konsistensi istilah dan nada semua pelajaran, lalu `docs/loop/GLOSARIUM.md`. Perbaikan teks hanya pada pelajaran berstatus DRAF.
 
 ## Paket H (Polesan situs)
 1. Meta tag, Open Graph, `robots.txt` dan `sitemap.xml` (jangan masukkan halaman noindex).
