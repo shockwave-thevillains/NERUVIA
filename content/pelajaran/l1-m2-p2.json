@@ -1,0 +1,104 @@
+{
+  "id": "l1-m2-p2",
+  "status": "draf",
+  "tujuan": "Setelah pelajaran ini, kamu bisa menentukan bentuk, panjang, urutan, dan nada jawaban chatbot dalam prompt, lalu mengecek bahwa hasilnya benar-benar sesuai.",
+  "bagian": [
+    {
+      "judul": "Chatbot menebak bentuk jawabanmu",
+      "paragraf": [
+        "Chatbot tahu apa yang kamu tanyakan, tetapi tidak tahu bagaimana jawabannya akan kamu pakai. Apakah hasilnya ditempel ke pesan grup, dicetak, atau dibaca sekilas di ponsel? Bila kamu diam soal ini, ia menebak. Tebakannya bisa berupa jawaban panjang dengan banyak butir, padahal kamu butuh tiga kalimat.",
+        "Bentuk jawaban adalah bagian dari permintaan, sama seperti isinya."
+      ]
+    },
+    {
+      "judul": "Empat hal yang bisa kamu tentukan",
+      "paragraf": [
+        "Pertama, bentuk: paragraf, daftar bernomor, daftar butir, tabel, surel, atau teks polos. Kedua, panjang: “dua paragraf”, “maksimal lima butir”, atau “di bawah 100 kata”. Ketiga, urutan: bagian apa yang muncul lebih dulu, misalnya kesimpulan di awal lalu alasannya. Keempat, nada dan bahasa: santai, resmi, atau Bahasa Indonesia sehari-hari tanpa istilah asing.",
+        "Sebut hanya yang akan membuat hasil tidak terpakai bila meleset."
+      ]
+    },
+    {
+      "judul": "Cara menyebut format dengan jelas",
+      "paragraf": [
+        "Katakan apa yang kamu inginkan, bukan hanya apa yang tidak kamu inginkan. “Jangan terlalu panjang” masih samar, sedangkan “tiga kalimat” jelas. “Jangan pakai tabel” tidak memberi tahu gantinya, sedangkan “satu baris per hari, dipisah tanda hubung” memberi tahu.",
+        "Beri alasan bila ada. “Tanpa tanda tebal karena teks ini ditempel ke aplikasi pesan” membantu chatbot memilih bentuk yang tepat, bukan hanya patuh pada satu larangan.",
+        "Bila bentuknya sulit dijelaskan, tulis kerangka kecil sebagai contoh, misalnya judul, lalu dua butir, lalu satu kalimat penutup. Chatbot cenderung meniru kerangka itu. Gaya prompt-mu juga berpengaruh: prompt yang penuh butir dan simbol cenderung dijawab dengan gaya serupa, jadi tulis dalam kalimat biasa bila kamu ingin paragraf."
+      ]
+    },
+    {
+      "judul": "Pilih bentuk yang membantu pembaca",
+      "paragraf": [
+        "Tabel cocok untuk membandingkan beberapa pilihan menurut beberapa sisi. Daftar bernomor cocok untuk langkah yang harus berurutan. Daftar butir cocok untuk hal yang sejajar. Paragraf cocok untuk penjelasan yang sebab-akibatnya perlu terbaca mengalir.",
+        "Tentukan dulu siapa yang membaca dan di mana. Pembaca di ponsel dengan waktu sedikit butuh kesimpulan di baris pertama. Hasil yang akan ditempel ke tempat lain perlu bentuk yang tetap rapi di sana."
+      ]
+    },
+    {
+      "judul": "Panjang: ukur sendiri hasilnya",
+      "paragraf": [
+        "Chatbot bisa melenceng dari batas panjang, terutama batas jumlah kata. Anggap batas itu sebagai arah, lalu hitung sendiri bila batasnya penting, misalnya untuk kolom formulir atau pesan singkat.",
+        "Mengubah bentuk juga bisa menggeser isi. Saat daftar dipadatkan menjadi tabel, satu alasan atau angka bisa hilang atau berubah. Setelah meminta bentuk baru, bandingkan isinya dengan versi sebelumnya dan cek ulang angka, tanggal, dan nama."
+      ]
+    },
+    {
+      "judul": "Kesalahan yang sering terjadi",
+      "paragraf": [
+        "Pertama, hanya melarang tanpa menyebut gantinya. Kedua, meminta terlalu banyak aturan sekaligus sehingga sebagian terlewat; pilih tiga yang paling penting. Ketiga, bentuk yang bertentangan, misalnya “satu kalimat” sambil meminta lima alasan lengkap.",
+        "Keempat, percaya bahwa tampilan rapi berarti isinya benar. Tabel yang indah tetap bisa berisi angka yang keliru. Kelima, menempelkan data pribadi sebagai contoh bentuk; pakai contoh karangan."
+      ]
+    },
+    {
+      "judul": "Kapan tidak perlu mengatur format",
+      "paragraf": [
+        "Untuk pertanyaan singkat, seperti arti sebuah kata, bentuk bawaan sudah cukup.",
+        "Atur format setelah isinya cukup baik. Bila isinya belum tepat, memoles bentuk tidak menolong. Bila kamu belum tahu bentuk apa yang berguna, minta dua bentuk berbeda lalu pilih."
+      ]
+    }
+  ],
+  "contoh": {
+    "judul": "Contoh berpasangan (cerita fiktif)",
+    "teks": "Versi kurang baik: Pak Hendra, ketua RT di perumahan fiktif “Griya Asri”, menulis, “Buatkan jadwal ronda minggu ini.” Chatbot menjawab dengan tiga paragraf pembuka, tabel bergaris, dan tanda tebal di mana-mana. Saat ditempel ke grup pesan warga, tabelnya berantakan dan pesannya terlalu panjang untuk dibaca. Versi baik: “Buatkan jadwal ronda minggu ini untuk tujuh warga dengan nama karangan: Andra, Budi, Citra, Dewi, Eko, Farah, Gita. Satu orang per malam, setiap orang tepat sekali. Format: satu baris per hari, ditulis ‘Senin: Andra’, tanpa tabel dan tanpa tanda tebal, karena teks ini ditempel ke grup pesan. Tutup dengan satu kalimat ajakan, nada ramah. Maksimal 60 kata.” Bedanya: versi baik menyebut bentuk, urutan, panjang, nada, dan alasan. Setelah itu Pak Hendra tetap mengecek bahwa tujuh hari terisi dan setiap nama muncul tepat sekali."
+  },
+  "latihan": {
+    "petunjuk": "Kerjakan di chatbot AI mana pun. Tahap 1 (coba): pilih tugas karangan, misalnya pengumuman acara sekolah fiktif. Tulis permintaan satu kalimat tanpa menyebut bentuk, kirim, lalu simpan hasilnya. Tahap 2 (perbaiki): di percakapan baru, tulis ulang dengan empat hal: bentuk, panjang, urutan, dan nada, serta satu alasan untuk salah satu aturan. Tahap 3 (bandingkan): letakkan kedua hasil berdampingan dan nilai mana yang bisa langsung dipakai. Lalu minta bentuk lain, misalnya dari daftar menjadi tabel, dan cek apakah isinya tetap sama. Daftar periksa mandiri: (1) bentuk yang kuminta cocok dengan tempat hasil dipakai; (2) aku menyebut panjang dan sudah menghitung hasilnya; (3) aturan kuberi gantinya, bukan hanya larangan; (4) isi tidak bergeser setelah bentuk diubah; (5) angka, tanggal, dan nama sudah kucek; (6) tidak ada data pribadi dalam contoh."
+  },
+  "cek": [
+    {
+      "tanya": "Mengapa chatbot sering menjawab dengan bentuk dan panjang yang tidak kamu inginkan?",
+      "opsi": [
+        "Karena chatbot sengaja mengabaikan permintaan yang pendek",
+        "Karena ia tidak tahu bagaimana hasilnya akan dipakai, sehingga menebak bentuk dan panjangnya",
+        "Karena bentuk jawaban hanya bisa diatur lewat pengaturan aplikasi, bukan lewat prompt",
+        "Karena chatbot hanya bisa menjawab dalam bentuk paragraf panjang"
+      ],
+      "benar": 1,
+      "jelas": "Bentuk jawaban bagian dari permintaan; bila tidak disebut, chatbot menebak. Opsi lain mengarang batasan yang tidak ada: prompt bisa mengatur bentuk, dan chatbot tidak sengaja mengabaikan permintaan pendek."
+    },
+    {
+      "tanya": "Manakah instruksi format yang paling jelas?",
+      "opsi": [
+        "“Jangan terlalu panjang dan jangan rumit.”",
+        "“Pokoknya yang bagus dan rapi.”",
+        "“Tiga butir, masing-masing satu kalimat, tanpa tabel karena teks ditempel ke aplikasi pesan.”",
+        "“Jangan pakai tabel dan jangan pakai butir.”"
+      ],
+      "benar": 2,
+      "jelas": "Opsi ketiga menyebut bentuk, panjang, dan alasan. Opsi pertama dan kedua samar. Opsi keempat hanya melarang tanpa menyebut bentuk gantinya."
+    },
+    {
+      "tanya": "Sari (tokoh fiktif) meminta ringkasan rapat “maksimal 50 kata” dalam bentuk tabel, lalu menyalinnya ke formulir tanpa membaca ulang. Hasilnya 80 kata dan satu tanggal berubah. Apa langkah terbaik?",
+      "opsi": [
+        "Hitung kata hasilnya, bandingkan tanggal dan angka dengan catatan asli, lalu minta ringkas ulang bila perlu",
+        "Menambah kata “tolong” di prompt agar chatbot patuh pada batas kata",
+        "Menerima hasilnya karena tabel yang rapi berarti isinya benar",
+        "Menempelkan seluruh catatan asli berisi data pribadi peserta agar chatbot lebih teliti"
+      ],
+      "benar": 0,
+      "jelas": "Batas kata bisa meleset dan perubahan bentuk bisa menggeser isi, jadi hitung dan cek sendiri. Opsi kedua tidak menjamin apa pun. Opsi ketiga mengira tampilan rapi sama dengan benar. Opsi keempat membahayakan data pribadi."
+    }
+  ],
+  "ringkasan": [
+    "Chatbot menebak bentuk jawaban bila tidak diberi tahu; tentukan bentuk, panjang, urutan, dan nada seperlunya.",
+    "Sebut apa yang kamu inginkan beserta alasannya, dan pilih bentuk sesuai pembaca dan tempat hasil dipakai.",
+    "Hitung sendiri panjangnya dan cek isi setelah bentuk diubah, karena tampilan rapi tidak menjamin isinya benar."
+  ]
+}
