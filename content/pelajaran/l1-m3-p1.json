@@ -1,0 +1,102 @@
+{
+  "id": "l1-m3-p1",
+  "status": "draf",
+  "tujuan": "Setelah pelajaran ini, kamu bisa mengenali data yang sebaiknya tidak ditempel ke chatbot AI, membersihkan data dari pengenal sebelum dipakai, dan tahu langkah bila sesuatu terlanjur terkirim.",
+  "bagian": [
+    {
+      "judul": "Yang kamu ketik tidak selalu berhenti di layar",
+      "paragraf": [
+        "Pesanmu dikirim ke sebuah layanan. Kantor privasi pemerintah Kanada mencatat bahwa informasi yang kamu masukkan mungkin dikumpulkan dan disimpan, dan dalam beberapa kasus dipakai melatih sistem AI. Aturan tiap layanan dan paket bisa berbeda.",
+        "Claude Academy menggambarkan jalurnya: sebagian data hanya bertahan selama percakapan, sebagian tersimpan di dalam produk, dan sedikit bisa menjangkau lebih jauh. Biasanya ada pengaturan yang bisa kamu ubah. Kebiasaan pertama: anggap pesanmu bisa disimpan, lalu putuskan apa yang pantas dikirim."
+      ]
+    },
+    {
+      "judul": "Lima kelompok data yang jangan ditempel",
+      "paragraf": [
+        "Pertama, kunci akses: kata sandi, PIN, dan kode OTP. Kedua, identitas dan keuangan: nomor KTP, paspor, rekening, dan kartu. Ketiga, data kesehatan dan hal pribadi sensitif lain. Keempat, data orang lain, terutama anak-anak, karena mereka tidak ikut memutuskan. Kelima, dokumen rahasia kerja seperti kontrak dan daftar pelanggan.",
+        "Daftar ini selaras dengan panduan ESET dan saran Kanada. Indonesia punya aturan pelindungan data pribadi, tetapi pelajaran ini bukan nasihat hukum. Untuk urusan hukum atau kebijakan kantor, tanyakan ke pihak yang berwenang."
+      ]
+    },
+    {
+      "judul": "Tiga pertanyaan sebelum menempel",
+      "paragraf": [
+        "Satu: apakah AI benar-benar perlu data ini? Claude Academy menganjurkan melihat informasi apa yang dibutuhkan, bukan yang disertakan karena kebiasaan. Dua: bisakah data ini diganti atau dibuang tanpa mengurangi hasil? Tiga, dari ESET: apakah aku nyaman bila orang lain melihat ini?",
+        "Bila tidak perlu, buang. Bila bisa diganti, ganti dulu. Bila tidak nyaman, jangan kirim sebelum dibersihkan."
+      ]
+    },
+    {
+      "judul": "Cara membersihkan data",
+      "paragraf": [
+        "Mulailah dari tujuan. Bila kamu hanya ingin tahu pola, misalnya jenis keluhan yang paling sering, nama dan kontak tidak diperlukan. Langkah dari Claude Academy: ganti nama dengan sebutan umum seperti “Pelanggan A”, hapus kontak, dan bulatkan angka bila tidak perlu persis.",
+        "Perhatikan kombinasi: nama jalan, jabatan, dan tanggal lahir bisa menunjuk satu orang walau tanpa nama. Bila ragu, hapus."
+      ]
+    },
+    {
+      "judul": "Cocokkan alat dengan kepekaan data",
+      "paragraf": [
+        "Tidak semua alat dan paket sama. Claude Academy menyebut sebagian layanan memakai masukan untuk melatih model dan sebagian tidak, serta masa simpan percakapan berbeda-beda. Data yang lebih sensitif butuh alat dengan perlindungan lebih ketat; untuk bahan umum belum tentu.",
+        "Baca halaman privasi penyedia: bagian pelatihan model, masa simpan, dan cara menghapus riwayat. Penyedia tanpa informasi ini patut dicurigai."
+      ]
+    },
+    {
+      "judul": "Kesalahan yang sering terjadi",
+      "paragraf": [
+        "Pertama, menempel seluruh berkas padahal hanya satu kolom yang dibutuhkan. Kedua, mengira mengganti nama sudah aman, padahal alamat, tanggal, dan jabatan masih bisa mengenali orang. Ketiga, menempel data orang lain tanpa pikir panjang. Keempat, menyamakan semua alat. Kelima, menaruh kata sandi atau OTP di chat supaya “dicek”. Keenam, diam saja saat terlanjur mengirim. Ketujuh, mengira hasil yang rapi berarti datanya aman."
+      ]
+    },
+    {
+      "judul": "Kapan tidak boleh masuk sama sekali, dan bila sudah terlanjur",
+      "paragraf": [
+        "Ada data yang tidak punya versi aman. Kata sandi, PIN, dan OTP tidak bisa disamarkan; jangan pernah dikirim. Dokumen yang mengikatmu pada kewajiban rahasia hanya boleh masuk bila kebijakan kantor dan alatnya mengizinkan. Bila tidak jelas, anggap jawabannya tidak.",
+        "Bila terlanjur, Claude Academy menyarankan: hapus percakapan, ajukan permintaan penghapusan lewat proses penyedia untuk kasus sangat sensitif, dan beri tahu pihak berwenang di tempat kerja bila ada aturannya. Untuk kata sandi, segera ganti. Penghapusan belum tentu menarik kembali semuanya, jadi pencegahan tetap utama."
+      ]
+    }
+  ],
+  "contoh": {
+    "judul": "Contoh berpasangan (cerita fiktif)",
+    "teks": "Bu Sari, staf toko online fiktif “Toko Lentera”, ingin tahu jenis keluhan pelanggan yang paling sering muncul bulan ini. Versi kurang baik: ia menempel seluruh ekspor spreadsheet berisi nama lengkap, nomor telepon, alamat rumah, nomor pesanan, dan isi keluhan, lalu menulis “Rangkum keluhan ini.” Semua data pelanggan ikut terkirim padahal AI hanya perlu isi keluhan. Versi baik: ia menyalin ke berkas baru, menghapus kolom nama, telepon, dan alamat, mengganti nomor pesanan dengan “Pesanan 1, 2, 3”, lalu membaca ulang isi keluhan. Satu keluhan menyebut nama jalan, jadi ia menggantinya dengan “[alamat]”. Ia menulis: “Berikut 30 keluhan pelanggan toko online (data bersih). Kelompokkan menurut jenis masalah dan sebut tiga yang paling sering.” Bedanya: versi baik hanya mengirim yang dibutuhkan tujuan, mengganti pengenal, dan memeriksa kalimat bebas."
+  },
+  "latihan": {
+    "petunjuk": "Kerjakan di chatbot AI mana pun, hanya dengan data karangan; jangan pakai data asli siapa pun. Tahap 1 (coba): buat tabel fiktif sepuluh baris dengan kolom nama, telepon, alamat, tanggal, dan satu kalimat keluhan. Tandai tiap kolom: perlu, boleh dibuang, atau harus diganti. Tahap 2 (perbaiki): buat salinan bersih; hapus kolom tak perlu, ganti nama dengan “Orang A, B, C”, lalu baca kalimat bebas untuk mencari pengenal yang terselip. Tahap 3 (bandingkan): minta chatbot mengelompokkan keluhan dari salinan bersih, lalu catat apakah hasilnya masih berguna. Daftar periksa: (1) tujuan ditulis dulu; (2) hanya kolom perlu yang dikirim; (3) pengenal diganti atau dibuang, termasuk di kalimat bebas; (4) tanpa kata sandi, PIN, OTP; (5) pengaturan privasi alat dibaca; (6) hasil tetap diperiksa sendiri."
+  },
+  "cek": [
+    {
+      "tanya": "Manakah yang termasuk data yang sebaiknya tidak ditempel ke chatbot AI?",
+      "opsi": [
+        "Pertanyaan umum tentang cara kerja mesin cuci",
+        "Kode OTP yang baru dikirim bank ke ponselmu",
+        "Daftar ide judul untuk poster acara RT fiktif",
+        "Penjelasan istilah “inflasi” dari buku pelajaran"
+      ],
+      "benar": 1,
+      "jelas": "OTP adalah kunci akses dan tidak punya versi aman. Tiga opsi lain bersifat umum dan tanpa data pribadi; menganggap semuanya terlarang keliru karena kehati-hatian tidak berarti menghindari semua penggunaan."
+    },
+    {
+      "tanya": "Dani (tokoh fiktif) ingin mencari pola umpan balik dari 50 peserta kursus. Ia mengganti nama peserta dengan “Peserta 1, 2, 3” tetapi membiarkan kolom email dan alamat. Apa kekeliruan utamanya?",
+      "opsi": [
+        "Mengganti nama justru memperburuk hasil",
+        "Untuk mencari pola, email dan alamat tidak perlu, dan keduanya masih bisa mengenali orang",
+        "Chatbot tidak bisa membaca tabel yang kolomnya diganti",
+        "Semua data peserta wajib dikirim agar hasilnya sah"
+      ],
+      "benar": 1,
+      "jelas": "Pola tidak butuh email atau alamat, dan keduanya masih bisa mengenali orang. Opsi pertama dan ketiga mengarang akibat tanpa dasar. Opsi keempat membalik prinsip: kirim sedikit mungkin yang dibutuhkan tujuan."
+    },
+    {
+      "tanya": "Rina (tokoh fiktif) sadar baru menempel nomor rekening dan data pelanggan ke chatbot. Langkah terbaik berikutnya?",
+      "opsi": [
+        "Diam saja karena percakapan akan hilang sendiri",
+        "Mengirim data yang sama lagi supaya chatbot “terbiasa”",
+        "Menghapus percakapan, mengajukan penghapusan lewat proses penyedia, dan memberi tahu pihak berwenang di tempat kerja bila ada aturannya",
+        "Menyalahkan chatbot lalu berhenti memakai internet"
+      ],
+      "benar": 2,
+      "jelas": "Hapus percakapan, ajukan penghapusan, dan ikuti prosedur kantor. Opsi pertama berisiko karena tidak ada jaminan hilang sendiri. Opsi kedua menambah paparan. Opsi keempat berlebihan dan tidak menyelesaikan apa pun."
+    }
+  ],
+  "ringkasan": [
+    "Jangan tempel kata sandi, PIN, OTP, nomor identitas atau rekening, data kesehatan, data orang lain, atau dokumen rahasia.",
+    "Tanya dulu: AI perlu ini? Bisa diganti atau dibuang? Nyaman bila orang lain melihat? Bersihkan pengenal, termasuk di kalimat bebas.",
+    "Cocokkan alat dengan kepekaan data. Bila terlanjur: hapus percakapan, minta penghapusan, ganti kata sandi, lapor sesuai aturan kerjamu."
+  ]
+}

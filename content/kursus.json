@@ -1,6 +1,6 @@
 {
   "versi": 1,
-  "diperbarui": "2026-11-22",
+  "diperbarui": "2026-11-23",
   "catatan": "Rancangan materi. Judul dan urutan bisa berubah sebelum peluncuran. Isi pelajaran belum ditulis kecuali yang berstatus draf.",
   "xp_per_jenis": {
     "Konsep": 10,
@@ -99,6 +99,47 @@
               "jenis": "Latihan",
               "xp": 30,
               "isi": "draf"
+            }
+          ]
+        },
+        {
+          "id": "l1-m3",
+          "judul": "Memakai AI dengan aman dan bertanggung jawab",
+          "pelajaran": [
+            {
+              "id": "l1-m3-p1",
+              "judul": "Data yang tidak boleh ditempel ke chatbot",
+              "jenis": "Praktik",
+              "xp": 20,
+              "isi": "draf"
+            },
+            {
+              "id": "l1-m3-p2",
+              "judul": "Kenapa AI bisa keliru dengan yakin (halusinasi)",
+              "jenis": "Konsep",
+              "xp": 10,
+              "isi": "belum"
+            },
+            {
+              "id": "l1-m3-p3",
+              "judul": "Keterbatasan dan bias jawaban AI",
+              "jenis": "Konsep",
+              "xp": 10,
+              "isi": "belum"
+            },
+            {
+              "id": "l1-m3-p4",
+              "judul": "Etika dasar: menyebut bantuan AI dan menghormati karya orang lain",
+              "jenis": "Konsep",
+              "xp": 10,
+              "isi": "belum"
+            },
+            {
+              "id": "l1-m3-p5",
+              "judul": "Kebiasaan kerja: tinjau, simpan versi, tanggung jawab tetap pada kamu",
+              "jenis": "Latihan",
+              "xp": 30,
+              "isi": "belum"
             }
           ]
         }
