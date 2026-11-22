@@ -1,0 +1,100 @@
+{
+  "id": "l1-m3-p2",
+  "status": "draf",
+  "tujuan": "Setelah pelajaran ini, kamu bisa menjelaskan kenapa chatbot AI kadang menjawab keliru dengan nada yakin, mengenali permintaan yang paling rawan, dan memakai kebiasaan sederhana untuk menangkap jawaban karangan.",
+  "bagian": [
+    {
+      "judul": "Apa itu halusinasi AI",
+      "paragraf": [
+        "Halusinasi adalah jawaban AI yang terdengar masuk akal tetapi keliru atau tanpa dasar. Contohnya: judul buku yang tidak pernah terbit, statistik yang tidak ada di mana pun, atau tautan ke halaman yang tak pernah ada. Dokumentasi Claude menyebutnya teks yang keliru secara fakta atau tidak sesuai konteks yang diberikan.",
+        "Yang membuatnya berbahaya: jawaban keliru tidak bertanda khusus. Bentuknya sama rapi dengan jawaban benar."
+      ]
+    },
+    {
+      "judul": "Kenapa AI bisa mengarang",
+      "paragraf": [
+        "Chatbot belajar dari teks dalam jumlah sangat besar, lalu menyusun jawaban kata demi kata berdasarkan apa yang biasanya muncul berikutnya. Bayangkan saran kata di keyboard ponsel, tetapi jauh lebih canggih. Ia bukan mesin pencari yang mengambil dokumen yang sudah ada.",
+        "Kelancaran dan karangan berasal dari mekanisme yang sama. Bila topiknya sering dibahas, polanya banyak dan jawabannya biasanya tepat. Bila topiknya langka, datanya tipis, tetapi kalimat yang pantas tetap tersusun. Penyebab lengkapnya masih diteliti. Yang bisa kamu pegang: AI tidak punya tanda “ini fakta, ini tebakan” yang selalu bisa dipercaya."
+      ]
+    },
+    {
+      "judul": "Di mana halusinasi paling sering muncul",
+      "paragraf": [
+        "Kekeliruan menumpuk pada hal yang spesifik: nama, tanggal, angka, kutipan, judul penelitian, dan alamat tautan. Makin tepat klaimnya, makin perlu dicek. Topik langka, tokoh kurang terkenal, dan kejadian sangat baru juga rawan.",
+        "Pekerjaan yang sering dilakukan AI, seperti merapikan kalimat atau merangkum teks yang kamu tempel sendiri, biasanya lebih aman. Pertanyaannya bukan “bisakah AI dipercaya”, melainkan “seberapa ketat aku harus memeriksa untuk permintaan ini”."
+      ]
+    },
+    {
+      "judul": "Kebiasaan yang mengurangi risiko",
+      "paragraf": [
+        "Beberapa kebiasaan bisa dipakai di chatbot mana pun. Pertama, beri izin untuk tidak tahu: “Bila tidak yakin, katakan saja tidak tahu.” Kedua, minta sumber, lalu tanyakan apakah sumber itu benar-benar mendukung kalimatnya. Ketiga, tempelkan dokumen milikmu dan minta AI menjawab hanya dari dokumen itu, dengan kutipan pendek. Keempat, tanyakan seberapa yakin AI dan bagian mana yang mungkin salah. Kelima, buka percakapan baru, tempel jawaban tadi, dan minta AI mencari kekeliruannya.",
+        "Claude Academy dan dokumentasi Claude menyarankan hal-hal ini, dan dokumentasi itu menegaskan bahwa teknik semacam itu mengurangi tetapi tidak menghilangkan halusinasi. Untuk hal penting, cocokkan dengan sumber tepercaya."
+      ]
+    },
+    {
+      "judul": "Cara memeriksa dengan cepat",
+      "paragraf": [
+        "Pakai tiga langkah. Satu: tandai klaim spesifik (nama, angka, tanggal, kutipan, tautan). Dua: buka sumber aslinya sendiri, jangan hanya bertanya lagi ke AI yang sama. Tiga: bagi hasilnya menjadi terbukti, tidak ketemu, dan salah. Klaim yang tidak ketemu jangan dipakai."
+      ]
+    },
+    {
+      "judul": "Kesalahan yang sering terjadi",
+      "paragraf": [
+        "Pertama, menganggap jawaban yang lancar dan rapi pasti benar. Kedua, hanya mengecek yang terasa janggal, padahal karangan justru terasa wajar. Ketiga, bertanya “kamu yakin?” lalu menerima “ya” sebagai bukti. Keempat, menyalin sitasi tanpa membuka sumbernya. Kelima, mengira AI masa kini pasti tidak lagi berhalusinasi sehingga berhenti mengecek. Keenam, mencurigai semua jawaban sama beratnya hingga lelah dan berhenti."
+      ]
+    },
+    {
+      "judul": "Kapan tidak perlu curiga berat, dan kapan jangan mengandalkannya",
+      "paragraf": [
+        "Untuk brainstorming, kerangka tulisan, atau merapikan teks milikmu, kekeliruan fakta biasanya tidak merugikan dan pemeriksaan ringan cukup. Tetapi untuk keputusan tentang kesehatan, hukum, atau uang, jangan jadikan jawaban AI satu-satunya dasar. Pelajaran ini bukan nasihat profesional; tanyakan ke orang yang berwenang di bidangnya. Aturan praktisnya: makin besar akibat bila salah, makin berat pemeriksaannya."
+      ]
+    }
+  ],
+  "contoh": {
+    "judul": "Contoh berpasangan (cerita fiktif)",
+    "teks": "Dewi, mahasiswa fiktif, menulis tugas tentang kebiasaan membaca remaja di kota kecil. Versi kurang baik: ia menulis “Berikan lima statistik dan tiga jurnal tentang minat baca remaja di kota kecil, lengkap dengan tahun.” Chatbot menjawab rapi dengan angka, nama jurnal, dan tahun. Dewi menyalinnya tanpa membuka satu pun, dan salah satu jurnal ternyata tidak ada. Versi baik: ia menulis “Bila ada data yang kamu tidak yakin, katakan tidak tahu. Beri dua rujukan yang bisa kucari sendiri, dan tandai mana yang yakin, mana yang dugaan.” Ia mencari kedua rujukan di situs perpustakaan: satu ketemu, satu tidak, jadi yang tidak ketemu ia buang dan catat sebagai tidak terverifikasi. Bedanya: versi baik memberi izin tidak tahu, memisahkan yakin dari dugaan, dan memeriksa sumber asli."
+  },
+  "latihan": {
+    "petunjuk": "Kerjakan di chatbot AI mana pun, dengan topik yang kamu kuasai dan bisa dicek sendiri. Jangan tempel data pribadi. Tahap 1 (coba): minta AI menyebut lima fakta spesifik tentang topikmu (angka, tanggal, nama, kutipan, rujukan) dan catat seberapa yakin nadanya. Tahap 2 (perbaiki): periksa kelimanya ke sumber asli dan beri tanda terbukti, tidak ketemu, atau salah; lalu ulangi permintaan di percakapan baru dengan kalimat “bila tidak yakin, katakan tidak tahu”. Tahap 3 (bandingkan): hitung berapa yang terbukti di kedua percobaan. Daftar periksa: (1) topik yang kamu kuasai; (2) tiap klaim spesifik dicek ke sumber asli; (3) tautan dan kutipan dibuka sendiri; (4) klaim yang tidak ketemu tidak dipakai; (5) izin “tidak tahu” dicoba; (6) pemeriksaan makin berat bila akibatnya besar."
+  },
+  "cek": [
+    {
+      "tanya": "Manakah yang paling tepat menjelaskan kenapa chatbot AI bisa memberi jawaban karangan yang terdengar yakin?",
+      "opsi": [
+        "Ia menyusun jawaban berdasarkan pola kata yang biasanya muncul, sehingga kalimat yang pantas bisa tersusun walau datanya tipis",
+        "Ia selalu mengambil jawaban dari sebuah basis data yang kadang rusak",
+        "Ia sengaja berbohong agar pengguna tetap memakainya",
+        "Ia hanya keliru bila pertanyaan ditulis dengan salah ketik"
+      ],
+      "benar": 0,
+      "jelas": "AI menyusun jawaban dari pola, jadi kelancaran dan karangan berasal dari mekanisme yang sama. Opsi kedua keliru karena AI bukan mesin pencari yang mengambil dokumen. Opsi ketiga mengarang niat yang tidak ada. Opsi keempat keliru karena halusinasi bisa muncul pada pertanyaan yang ditulis sempurna."
+    },
+    {
+      "tanya": "Dari permintaan berikut, mana yang paling perlu diperiksa ketat sebelum jawabannya dipakai?",
+      "opsi": [
+        "Merapikan tiga kalimat yang kamu tulis sendiri",
+        "Daftar judul jurnal lengkap dengan tahun terbit untuk topik yang sangat sempit",
+        "Ide nama untuk acara RT fiktif",
+        "Penjelasan umum tentang cara kerja saran kata di keyboard ponsel"
+      ],
+      "benar": 1,
+      "jelas": "Judul, tahun, dan sumber adalah hal spesifik dengan topik sempit, kombinasi paling rawan karangan. Tiga opsi lain berupa pekerjaan umum atau kreatif yang akibat kekeliruannya kecil."
+    },
+    {
+      "tanya": "Rudi (tokoh fiktif) mendapat jawaban AI berisi tiga kutipan dari sebuah laporan. Ia bertanya “Kamu yakin?”, AI menjawab “Ya, yakin”, dan Rudi memakai ketiganya. Apa langkah yang lebih tepat?",
+      "opsi": [
+        "Bertanya “Kamu yakin?” sekali lagi agar jawabannya lebih mantap",
+        "Memakai kutipan itu karena AI sudah menyatakan yakin",
+        "Membuka laporan aslinya, mencocokkan ketiga kutipan, dan membuang yang tidak ketemu",
+        "Menghapus percakapan lalu berhenti memakai AI untuk selamanya"
+      ],
+      "benar": 2,
+      "jelas": "Pemeriksaan harus ke sumber asli. Pernyataan yakin dari AI bukan bukti, dan mengulang pertanyaan tidak menambah bukti. Opsi keempat berlebihan: AI tetap berguna bila hasilnya diperiksa sesuai taruhannya."
+    }
+  ],
+  "ringkasan": [
+    "Halusinasi adalah jawaban yang terdengar benar tetapi keliru atau tanpa dasar. Nada yakin bukan bukti benar.",
+    "Paling rawan pada hal spesifik: nama, angka, tanggal, kutipan, sumber, dan tautan, terutama untuk topik langka atau sangat baru.",
+    "Beri izin “tidak tahu”, minta sumber, lalu buka sumber aslinya sendiri. Makin besar akibat bila salah, makin berat pemeriksaannya."
+  ]
+}
