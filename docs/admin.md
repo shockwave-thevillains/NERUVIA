@@ -33,6 +33,14 @@ Tidak ada pihak luar yang boleh membuat akun. Penutup: trigger `tolak_pendaftara
 4. Buka `/admin/` di build dev dan masuk.
 5. Pendaftaran akun baru sudah ditutup (22 Nov 2026) lewat trigger `tolak_pendaftaran` di `auth.users` (`supabase/admin/004-tutup-pendaftaran.sql`): setiap INSERT ke `auth.users` ditolak, termasuk pembuatan user dari dashboard. Untuk membuat akun admin baru, hapus trigger itu sebentar (perintahnya ada di berkas SQL), buat user, lalu pasang lagi. Sakelar bawaan Supabase (Authentication, Sign In / Providers, "Allow new users to sign up") setara dan sebaiknya ikut dimatikan oleh Master. Disarankan juga mengaktifkan MFA TOTP untuk akun admin; tahap berikutnya akan menuntut AAL2 bila MFA aktif.
 
+## Memasukkan draf pelajaran ke situs
+1. Di `/admin/`, buka draf, klik "Unduh JSON".
+2. Pastikan id pelajarannya sudah ada di `content/kursus.json`.
+3. Uji coba: `node tools/impor-draf.mjs unduhan.json` (tidak menulis apa pun).
+4. Tulis: `node tools/impor-draf.mjs unduhan.json --tulis` (opsi `--status final` bila sudah disetujui, `--timpa` bila berkas isi sudah ada).
+5. Alat memeriksa format id, kunci yang diizinkan, ukuran, dan menjalankan `tools/validasi-kursus.mjs`. Bila gagal, semua berkas dikembalikan.
+6. Tinjau isinya oleh manusia, lalu commit ke `dev`. Uji alat: `node tools/uji-impor-draf.mjs`.
+
 ## Dashboard (tahap 2)
 - Angka total, per hari, dan per level datang dari dua view `security_invoker` yang hanya memuat agregat. RLS tabel `waitlist` tetap berlaku: admin melihat angka sebenarnya, akun login lain melihat 0 baris, `anon` ditolak (tanpa hak select). Diuji di Supabase asli dalam transaksi yang dibatalkan.
 - Daftar terbaru memakai tabel `waitlist` langsung (10 baris). Email hanya tampil disamarkan (`a***@domain`); nama dan semua isi sel lewat `textContent`. Grafik dibuat dari elemen SVG, tanpa `innerHTML` dan tanpa atribut `style`, jadi CSP `/admin/` tetap tanpa hash.
