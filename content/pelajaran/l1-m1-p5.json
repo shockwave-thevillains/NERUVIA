@@ -1,0 +1,103 @@
+{
+  "id": "l1-m1-p5",
+  "status": "draf",
+  "tujuan": "Setelah pelajaran ini, kamu bisa memutuskan seberapa ketat harus mengecek jawaban chatbot, lalu memeriksa bagian yang paling rawan ke sumber di luar percakapan sebelum jawaban itu dipakai.",
+  "bagian": [
+    {
+      "judul": "Lancar belum berarti benar",
+      "paragraf": [
+        "Jawaban chatbot hampir selalu enak dibaca: kalimatnya rapi dan nadanya yakin. Itu hanya menunjukkan teksnya tersusun baik, bukan isinya benar.",
+        "Ingat pelajaran 2: chatbot menebak kelanjutan teks yang masuk akal. Tebakan bisa meleset, dan nada yakin tetap muncul. Karena itu, mengecek adalah bagian dari memakai chatbot."
+      ]
+    },
+    {
+      "judul": "Sesuaikan ketelitian dengan risikonya",
+      "paragraf": [
+        "Tidak semua jawaban perlu diperiksa sama ketat. Tanyakan: kalau jawaban ini keliru dan sudah kupakai, apa akibatnya? Nama kelompok belajar yang kurang pas hampir tanpa akibat. Angka salah di tugas akhir atau di surat untuk pihak lain berakibat nyata.",
+        "Ketelitian itu bertingkat, bukan sakelar hidup-mati. Makin besar akibatnya, makin ketat pengecekanmu."
+      ]
+    },
+    {
+      "judul": "Periksa dulu bagian yang paling rawan",
+      "paragraf": [
+        "Yang paling sering keliru adalah hal yang sangat spesifik: angka, tanggal, nama orang atau lembaga, kutipan, judul artikel, dan tautan. Semuanya bisa terdengar masuk akal padahal dikarang.",
+        "Baca jawaban sambil menandai hal spesifik. Itulah daftar periksamu. Kalimat umum jarang jadi masalah, sedangkan “laporan terbit 2023 dan menyebut 62 persen” wajib dicocokkan."
+      ]
+    },
+    {
+      "judul": "Cocokkan dengan sesuatu di luar percakapan",
+      "paragraf": [
+        "Bandingkan jawaban dengan hal yang bukan berasal dari chatbot itu: bahan yang kamu tempel sendiri, situs atau dokumen resmi, catatan kuliah, atau orang yang paham topiknya. Bertanya “yakin?” kepada chatbot yang sama bukan pemeriksaan.",
+        "Chatbot bisa membantu: minta ia menunjukkan potongan bahan di balik tiap klaim dan menandai klaim yang hanya berasal dari pengetahuan umumnya. Itu sinyal untuk memilih apa yang dicek dulu. Kutipan atau tautan darinya tetap harus kamu buka dan baca sendiri."
+      ]
+    },
+    {
+      "judul": "Cari juga yang hilang dan yang rapuh",
+      "paragraf": [
+        "Jawaban bisa salah karena ada yang kurang. Ringkasan yang lancar mungkin melewatkan syarat, risiko, atau pengecualian. Tanyakan: apa yang tidak disebut, dan asumsi apa yang dipakai diam-diam?",
+        "Uji juga ketahanannya: apakah masih benar untuk pembaca atau tahun yang berbeda? Kamu boleh meminta chatbot mencari celah jawabannya sendiri. Anggap itu pendapat kedua, bukan keputusan."
+      ]
+    },
+    {
+      "judul": "Kesalahan yang sering terjadi",
+      "paragraf": [
+        "Kesalahan pertama: percaya karena tampilannya meyakinkan. Kedua: bertanya “yakin?” lalu menganggap jawaban “ya” sebagai bukti. Ketiga: hanya memeriksa kalimat umum, sementara angka, nama, dan kutipan lolos.",
+        "Keempat: memoles gaya padahal masalahnya fakta. Kelima: mengecek hanya di akhir pada tugas bertahap, sehingga satu kekeliruan awal menular ke semua bagian. Keenam: menempelkan data pribadi atau rahasia demi “mencocokkan” fakta."
+      ]
+    },
+    {
+      "judul": "Kapan tidak perlu pengecekan berat",
+      "paragraf": [
+        "Untuk curah gagasan, nama acara, atau draf yang akan kamu tulis ulang, cukup baca sekilas. Pengecekan berat juga sia-sia bila kamu tidak punya pembanding: bila tidak tahu jawaban yang benar, cari sumber atau orang yang tahu.",
+        "Jangan melewatkannya untuk hal yang dibaca orang lain atau dipakai mengambil keputusan. Klaim yang tak bisa ditelusuri ke sumber dianggap belum terkonfirmasi, jangan dipakai sebagai fakta."
+      ]
+    }
+  ],
+  "contoh": {
+    "judul": "Contoh berpasangan (cerita fiktif)",
+    "teks": "Versi kurang baik: Sari, mahasiswa fiktif, meminta chatbot menulis latar belakang tentang kebiasaan membaca remaja. Hasilnya rapi dan memuat “Survei Lembaga Literasi Nusantara 2023 menemukan 62 persen remaja membaca kurang dari satu jam sehari”. Sari menyalinnya karena tampak meyakinkan, bertanya “yakin?”, dan chatbot menjawab ya. Dosennya mencari survei itu dan tidak menemukannya. Versi baik: Sari menandai tiga hal spesifik: nama lembaga, tahun, dan angka 62 persen. Ia meminta chatbot menyebut sumber tiap klaim dan melabeli yang berasal dari pengetahuan umum. Chatbot mengaku angka itu tidak punya sumber yang bisa ditunjukkan. Sari mencari di situs resmi dan perpustakaan kampus, menemukan satu laporan nyata dengan angka berbeda, lalu memakainya beserta sumbernya. Bagian umum ia biarkan. Perbedaannya: versi baik mengecek bagian rawan ke luar percakapan, bukan ke chatbot yang sama. Semua nama dan angka dalam contoh ini fiktif."
+  },
+  "latihan": {
+    "petunjuk": "Kerjakan di chatbot AI mana pun, dengan topik yang kamu kenal. Tahap 1 (coba): minta satu paragraf pendek tentang topik itu yang memuat minimal tiga hal spesifik (angka, tanggal, nama). Jangan mengecek dulu. Tahap 2 (perbaiki): tandai semua hal spesifik, lalu buat tabel kecil berisi klaim, cara cek, dan hasil. Cek tiap klaim ke sumber di luar chatbot. Setelah itu minta chatbot menyebut sumber tiap klaim dan melabeli yang berasal dari pengetahuan umum, dan bandingkan dengan hasil cekmu. Minta ia memperbaiki bagian yang keliru. Tahap 3 (bandingkan): tulis dua kalimat tentang bagian mana yang benar, mana yang keliru atau tak pasti, dan apakah label chatbot cocok dengan hasil cekmu. Daftar periksa mandiri: (1) aku menimbang akibat bila jawaban keliru; (2) aku menandai semua angka, tanggal, nama, kutipan, dan tautan; (3) klaim penting kucocokkan dengan sesuatu di luar percakapan; (4) aku mencari yang tidak disebut; (5) klaim yang tak bisa ditelusuri kuanggap belum terkonfirmasi; (6) aku tidak menempelkan data pribadi atau rahasia."
+  },
+  "cek": [
+    {
+      "tanya": "Chatbot memberi ringkasan yang rapi dengan nada sangat yakin. Apa kesimpulan yang tepat?",
+      "opsi": [
+        "Isinya pasti benar, karena chatbot tidak menulis yakin bila ragu",
+        "Tampilan rapi dan nada yakin belum membuktikan kebenaran, jadi hal spesifik tetap dicek",
+        "Isinya pasti salah, karena chatbot tidak bisa dipercaya sama sekali",
+        "Isinya benar bila chatbot menjawab ya saat ditanya “yakin?”"
+      ],
+      "benar": 1,
+      "jelas": "Chatbot menyusun teks yang masuk akal, jadi kelancaran tidak membuktikan kebenaran. Opsi pertama keliru karena nada yakin tetap muncul saat jawaban meleset. Opsi ketiga terlalu ekstrem: banyak bagian benar, hanya perlu diperiksa. Opsi keempat bergantung pada chatbot yang sama."
+    },
+    {
+      "tanya": "Jawaban chatbot berisi ajakan umum untuk rajin membaca, persentase dari “survei 2023”, nama seorang peneliti, dan saran gaya penulisan. Apa yang diperiksa lebih dulu?",
+      "opsi": [
+        "Ajakan umum dan saran gaya penulisan",
+        "Kalimat yang paling panjang",
+        "Persentase dan nama peneliti, karena hal spesifik paling rawan dikarang",
+        "Kalimat pertama, karena biasanya paling penting"
+      ],
+      "benar": 2,
+      "jelas": "Angka, nama, kutipan, dan judul paling mudah terdengar masuk akal padahal keliru. Opsi pertama berisi kalimat umum yang jarang bermasalah. Panjang dan urutan kalimat (opsi kedua dan keempat) tidak berhubungan dengan kerawanan."
+    },
+    {
+      "tanya": "Dewi meminta ringkasan dokumen kebijakan kantor fiktif untuk dibagikan ke rekan kerja. Hasilnya lancar. Apa langkah terbaik sebelum dibagikan?",
+      "opsi": [
+        "Bandingkan dengan dokumen asli, periksa angka dan tanggal, dan cari syarat atau pengecualian yang terlewat",
+        "Perbaiki kalimat yang janggal saja",
+        "Minta chatbot menulis ulang dengan nada lebih formal",
+        "Bagikan dulu dan tunggu rekan melapor bila ada yang salah"
+      ],
+      "benar": 0,
+      "jelas": "Ringkasan ini dipakai orang lain, jadi akibatnya besar dan pengecekan harus ketat: cocokkan dengan sumber asli dan cari yang terlewat. Opsi kedua dan ketiga hanya merapikan gaya padahal masalahnya fakta dan kelengkapan. Opsi keempat memindahkan tugas mengecek kepada orang lain."
+    }
+  ],
+  "ringkasan": [
+    "Jawaban yang lancar dan yakin belum tentu benar. Sesuaikan ketelitian dengan akibat bila jawaban itu keliru.",
+    "Periksa dulu hal spesifik (angka, tanggal, nama, kutipan, tautan) dengan membandingkannya ke sumber di luar percakapan, dan cari juga yang terlewat.",
+    "Pengecekan oleh chatbot yang sama hanya sinyal. Klaim yang tak bisa ditelusuri belum terkonfirmasi, dan tanggung jawab akhir tetap padamu."
+  ]
+}
