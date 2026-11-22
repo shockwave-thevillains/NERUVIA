@@ -1,0 +1,103 @@
+{
+  "id": "l1-m2-p5",
+  "status": "draf",
+  "tujuan": "Setelah pelajaran ini, kamu bisa memperbaiki prompt lewat beberapa putaran percobaan: membaca hasil, menebak apa yang kurang, mengubah satu hal, lalu membandingkan hasilnya dengan versi sebelumnya.",
+  "bagian": [
+    {
+      "judul": "Prompt pertama hanyalah titik awal",
+      "paragraf": [
+        "Hampir tidak ada orang yang menulis prompt sempurna pada percobaan pertama. Claude Academy menyebut prompt pertama sebagai awal percakapan, bukan permintaan sekali jadi. Microsoft juga mencatat bahwa kamu biasanya menindaklanjuti hasil dengan prompt lain.",
+        "Hasil yang meleset bukan tanda kamu gagal. Itu bahan untuk putaran berikutnya."
+      ]
+    },
+    {
+      "judul": "Empat langkah dalam satu putaran",
+      "paragraf": [
+        "Satu putaran punya empat langkah. Coba: kirim prompt dan simpan hasilnya. Baca: bandingkan hasil dengan syarat yang kamu tulis sebelum mencoba. Ubah: perbaiki satu hal yang paling jelas kurang. Bandingkan: lihat apakah hasil baru lebih baik daripada hasil lama.",
+        "Pola ini mirip alur di Claude Academy: tetapkan tujuan, tulis prompt awal, nilai hasilnya, terapkan perbaikan, lalu nilai lagi. Catatan di kertas sudah cukup."
+      ]
+    },
+    {
+      "judul": "Membaca hasil dengan mencari polanya",
+      "paragraf": [
+        "Sebelum mengubah apa pun, tulis dua atau tiga syarat hasil yang baik, misalnya “di bawah 60 kata”, “nada ramah”, “menyebut jam buka”. Lalu periksa hasil satu per satu. Syarat yang gagal bisa langsung ditindaklanjuti; rasa “kurang pas” sulit diperbaiki.",
+        "Bila punya beberapa bahan uji, cari pola. Pelajaran evaluasi di Claude Academy menyarankan mengelompokkan kegagalan menurut jenis bahan dan bagian yang salah, karena kegagalan yang mengumpul biasanya punya satu sebab."
+      ]
+    },
+    {
+      "judul": "Ubah satu hal pada satu waktu",
+      "paragraf": [
+        "Kalau kamu mengubah peran, format, dan contoh sekaligus, kamu tidak tahu perubahan mana yang berjasa atau merusak. Academy menyebut prinsipnya: ubah satu hal, nilai dampaknya, lalu bangun di atas yang berhasil.",
+        "Pilihan perubahan datang dari pelajaran sebelumnya: tambah konteks, jelaskan format, beri contoh, atau pecah tugas. Google menambahkan ide kecil: pakai susunan kalimat lain atau ubah urutan isi prompt. Catat tiap perubahan beserta hasilnya."
+      ]
+    },
+    {
+      "judul": "Umpan balik yang spesifik dan kapan mulai dari awal",
+      "paragraf": [
+        "Dalam percakapan yang sama, beri tahu apa yang harus berubah. “Buat lebih bagus” tidak memberi arah. “Potong kalimat pembuka dan akhiri dengan ajakan memesan” jelas. Claude Academy juga menekankan umpan balik yang rinci.",
+        "Bila percakapan sudah melenceng, bawa prompt terbaikmu ke percakapan baru yang bersih. Dokumen resmi Claude menyebut pola draf, tinjau, lalu perbaiki. Kamu boleh meminta chatbot menilai draf terhadap syarat yang kamu tulis, tetapi keputusan akhir tetap di tanganmu."
+      ]
+    },
+    {
+      "judul": "Kesalahan yang sering terjadi",
+      "paragraf": [
+        "Pertama, mengubah banyak hal sekaligus. Kedua, menilai dari satu hasil saja; Microsoft mencatat prompt yang sama bisa menghasilkan jawaban berbeda, jadi ulangi prompt akhir sebelum puas. Ketiga, tidak menyimpan versi lama sehingga tidak bisa kembali.",
+        "Keempat, memperbaiki tanpa syarat yang jelas, sehingga tidak tahu kapan selesai. Kelima, menganggap hasil yang rapi pasti benar; Microsoft menyarankan meninjau dan memverifikasi jawaban. Keenam, menempelkan data pribadi asli di setiap putaran."
+      ]
+    },
+    {
+      "judul": "Kapan berhenti atau tidak perlu mengulang",
+      "paragraf": [
+        "Berhenti bila semua syarat terpenuhi dan hasilnya stabil setelah diulang. Berhenti juga bila tiga putaran berturut-turut tidak membawa perbaikan berarti; tugasnya mungkin perlu dipecah.",
+        "Tugas kecil, seperti menanyakan arti satu istilah, tidak perlu empat putaran. Kejar hasil yang cukup baik, bukan yang tanpa cela."
+      ]
+    }
+  ],
+  "contoh": {
+    "judul": "Contoh berpasangan (cerita fiktif)",
+    "teks": "Pak Dedi, pemilik warung kopi fiktif “Kopi Pelita”, ingin deskripsi singkat satu menu untuk papan tulis. Versi kurang baik: ia meminta “Tulis deskripsi kopi susu.” Hasilnya panjang dan puitis. Ia menulis ulang dengan lima perubahan sekaligus: peran copywriter, batas 20 kata, nada gaul, contoh dari warung lain, dan permintaan menyebut promo. Hasilnya pendek, tetapi nadanya aneh dan promonya dikarang. Ia tidak tahu perubahan mana yang bermasalah. Versi baik: sebelum mulai, ia menulis tiga syarat: maksimal 20 kata, nada ramah, tanpa promo. Putaran 1, prompt awal: melanggar syarat panjang (41 kata). Putaran 2, ia hanya menambah “maksimal 20 kata”: panjang beres, nada kaku. Putaran 3, ia hanya menambah “nada ramah seperti sapaan ke tetangga”: nada pas. Putaran 4, ia mengulang prompt akhir dengan dua menu lain: satu hasil menyebut promo, jadi ia menambah “jangan sebut promo.” Ia menyimpan versi 4 dan catatannya. Bedanya: syarat ditulis dulu, satu perubahan per putaran, tiap hasil dibandingkan, dan prompt akhir diuji pada bahan lain."
+  },
+  "latihan": {
+    "petunjuk": "Kerjakan di chatbot AI mana pun. Tahap 1 (coba): pilih tugas karangan kecil, misalnya deskripsi satu produk fiktif untuk poster atau pesan pengumuman untuk grup RT fiktif. Tulis prompt pertamamu, simpan hasilnya, dan tulis tiga syarat hasil yang baik. Tahap 2 (perbaiki): jalankan tiga putaran. Tiap putaran hanya mengubah satu hal, catat apa yang kamu ubah, lalu periksa hasil terhadap tiga syaratmu. Tahap 3 (bandingkan): letakkan hasil putaran 0 dan hasil terakhir berdampingan. Ulangi prompt terakhir satu kali di percakapan baru dan coba juga dengan satu bahan lain. Tulis satu kalimat: perubahan mana yang paling berpengaruh? Daftar periksa mandiri: (1) syarat ditulis sebelum mencoba; (2) satu perubahan per putaran; (3) tiap versi disimpan; (4) hasil diperiksa terhadap syarat, bukan hanya terasa; (5) prompt akhir diuji ulang; (6) tanpa data pribadi asli."
+  },
+  "cek": [
+    {
+      "tanya": "Mengapa sebaiknya mengubah satu hal saja pada setiap putaran perbaikan prompt?",
+      "opsi": [
+        "Karena chatbot hanya bisa membaca satu perubahan per pesan",
+        "Karena kamu jadi tahu perubahan mana yang membuat hasil membaik atau memburuk",
+        "Karena perubahan kedua selalu membatalkan perubahan pertama",
+        "Karena prompt yang sering diubah otomatis dianggap salah"
+      ],
+      "benar": 1,
+      "jelas": "Dengan satu perubahan per putaran, sebab dan akibat mudah dilacak. Opsi pertama mengarang batas yang tidak ada. Opsi ketiga keliru karena perubahan bisa bekerja bersama. Opsi keempat juga mengarang aturan yang tidak ada."
+    },
+    {
+      "tanya": "Rina (tokoh fiktif) mencoba prompt perbaikannya satu kali, hasilnya bagus, lalu ia menyatakan prompt itu final. Apa risiko terbesarnya?",
+      "opsi": [
+        "Prompt yang berhasil sekali tidak boleh dipakai lagi",
+        "Chatbot akan menolak prompt yang dipakai dua kali",
+        "Prompt yang sama bisa memberi hasil berbeda di lain waktu, jadi satu hasil bagus belum menjamin stabil",
+        "Hasil yang bagus berarti isinya pasti benar dan tidak perlu dicek"
+      ],
+      "benar": 2,
+      "jelas": "Hasil bisa berubah antarpercobaan, jadi ulangi dan uji pada bahan lain. Opsi pertama dan kedua mengarang larangan. Opsi keempat keliru karena hasil yang tampak bagus tetap bisa salah dan harus diperiksa."
+    },
+    {
+      "tanya": "Budi (tokoh fiktif) mengubah peran, format, dan contoh sekaligus. Hasil barunya lebih buruk dan ia tidak tahu penyebabnya. Apa langkah terbaik berikutnya?",
+      "opsi": [
+        "Menambah tiga perubahan lagi supaya salah satunya pasti tepat",
+        "Kembali ke versi terakhir yang baik, lalu mengubah satu hal dan memeriksa hasilnya",
+        "Berhenti memakai chatbot karena prompt tidak bisa diperbaiki",
+        "Menghapus semua syarat supaya hasilnya tidak dinilai"
+      ],
+      "benar": 1,
+      "jelas": "Kembali ke versi yang disimpan lalu mengubah satu hal melacak penyebabnya. Opsi pertama menambah ketidakjelasan. Opsi ketiga menyerah terlalu cepat. Opsi keempat membuang ukuran yang justru membantu menilai."
+    }
+  ],
+  "ringkasan": [
+    "Prompt pertama adalah titik awal; perbaiki lewat putaran coba, baca, ubah satu hal, lalu bandingkan.",
+    "Tulis syarat hasil lebih dulu, simpan setiap versi, dan ubah satu hal per putaran agar kamu tahu mana yang berpengaruh.",
+    "Uji ulang prompt akhir dan periksa isinya; berhenti bila syarat terpenuhi atau perbaikan sudah tidak berarti."
+  ]
+}
