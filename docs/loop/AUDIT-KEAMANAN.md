@@ -169,3 +169,11 @@ Catatan ketat: pesan galat form tetap lewat `textContent`; pesan impor progres s
 
 Sisa pekerjaan S2 yang bukan kode: Master menerapkan draf SQL (PERLU-KEPUTUSAN butir 9). Kolom `name` yang sudah berisi baris uji lama ditangani oleh `NOT VALID` pada constraint baru; setelah baris lama dirapikan, jalankan bagian E di berkas SQL.
 
+
+## Tindak lanjut S3 (Min 22 Nov 2026): header keamanan dan CSP
+
+| Temuan | Status setelah S3 | Bukti |
+|---|---|---|
+| K5 Header dan CSP | `vercel.json` berisi header umum (nosniff, Referrer-Policy, Permissions-Policy, HSTS, X-Frame-Options, COOP) dan CSP per halaman tanpa `unsafe-inline`, `unsafe-eval`, atau wildcard; blok inline diizinkan lewat hash dan dibuat oleh `tools/buat-vercel-json.mjs`. `connect-src` hanya `'self'` plus satu host Supabase di halaman yang memuat `config.js`. Berlaku di Vercel saja; GitHub Pages tetap tanpa header sampai meta CSP (D1). | `tools/uji-header-csp.mjs`: 116 pemeriksaan lulus; nol pelanggaran CSP di 5 halaman x 2 lebar, tampilan identik piksel, form/galeri/pelajaran/ekspor berfungsi, kontrol negatif diblokir |
+
+Rincian, aturan kerja (ubah blok inline berarti jalankan ulang generator), dan risiko sisa ada di `docs/security/header-csp.md`. Belum diperiksa: header asli di URL Vercel setelah dev dideploy (run otomatis tidak memakai konektor Vercel).

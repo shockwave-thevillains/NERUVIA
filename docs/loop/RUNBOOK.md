@@ -40,6 +40,7 @@ Lima tugas terjadwal ("NERUVIA loop web 1" sampai "5") berjalan tiap hari di emp
 ## Gerbang keamanan
 - Pelajaran baru tidak boleh dikerjakan sebelum Paket S selesai menurut PROGRESS.
 - Sebelum setiap commit yang menyentuh kode atau konten, jalankan `node tools/uji-keamanan.mjs` (setelah dibuat di Paket S) dan `node tools/validasi-kursus.mjs`. Bila ada yang gagal, perbaiki dulu.
+- Bila kegiatan mengubah isi `<script>`, `<style>`, atau atribut `style=""` di halaman HTML mana pun, jalankan `node tools/buat-vercel-json.mjs`, lalu `node tools/buat-vercel-json.mjs --cek` dan `node tools/uji-header-csp.mjs` (jika Playwright tersedia) sebelum commit, dan sertakan `vercel.json` di commit yang sama. Tanpa itu halaman memuat tetapi diblokir CSP di Vercel. Lihat `docs/security/header-csp.md`.
 - Data dari pengguna, berkas impor, atau JSON isi pelajaran tidak boleh masuk ke `innerHTML`, `eval`, atau atribut `on*`. Pakai `textContent`.
 - Jangan menaruh kunci rahasia di repo. Kunci publik (anon/publishable) hanya boleh ada di konfigurasi build dev.
 

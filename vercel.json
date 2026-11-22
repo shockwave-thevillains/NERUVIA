@@ -1,0 +1,109 @@
+{
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "accelerometer=(), autoplay=(), bluetooth=(), browsing-topics=(), camera=(), display-capture=(), geolocation=(), gyroscope=(), hid=(), magnetometer=(), microphone=(), midi=(), payment=(), serial=(), usb=(), xr-spatial-tracking=()"
+        },
+        {
+          "key": "Strict-Transport-Security",
+          "value": "max-age=31536000"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "Cross-Origin-Opener-Policy",
+          "value": "same-origin"
+        },
+        {
+          "key": "X-Permitted-Cross-Domain-Policies",
+          "value": "none"
+        }
+      ]
+    },
+    {
+      "source": "/belajar",
+      "headers": [
+        {
+          "key": "Content-Security-Policy",
+          "value": "default-src 'none'; script-src 'self' 'sha256-wjH99RpMqymXUfnaGSdJBN2rq6ROWXiRAmwofTtGY/E='; style-src 'self' 'sha256-M6A71nlF7aiPpGeV/ZkeoMgHvpkPmId3+89TbSUlCOY='; style-src-attr 'none'; img-src 'self'; font-src 'self'; connect-src 'self'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests"
+        }
+      ]
+    },
+    {
+      "source": "/belajar/",
+      "headers": [
+        {
+          "key": "Content-Security-Policy",
+          "value": "default-src 'none'; script-src 'self' 'sha256-wjH99RpMqymXUfnaGSdJBN2rq6ROWXiRAmwofTtGY/E='; style-src 'self' 'sha256-M6A71nlF7aiPpGeV/ZkeoMgHvpkPmId3+89TbSUlCOY='; style-src-attr 'none'; img-src 'self'; font-src 'self'; connect-src 'self'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests"
+        }
+      ]
+    },
+    {
+      "source": "/belajar/index.html",
+      "headers": [
+        {
+          "key": "Content-Security-Policy",
+          "value": "default-src 'none'; script-src 'self' 'sha256-wjH99RpMqymXUfnaGSdJBN2rq6ROWXiRAmwofTtGY/E='; style-src 'self' 'sha256-M6A71nlF7aiPpGeV/ZkeoMgHvpkPmId3+89TbSUlCOY='; style-src-attr 'none'; img-src 'self'; font-src 'self'; connect-src 'self'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests"
+        }
+      ]
+    },
+    {
+      "source": "/belajar/pelajaran.html",
+      "headers": [
+        {
+          "key": "Content-Security-Policy",
+          "value": "default-src 'none'; script-src 'self' 'sha256-URt+IbQoLLGbx32HkjhENbsK/kOUs4GGq9S9r/8bZhA='; style-src 'self' 'sha256-N+WVKpUagX6qv/XYk5InOIYgUWElKM+ur6MN2rYMM8g='; style-src-attr 'none'; img-src 'self'; font-src 'self'; connect-src 'self'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests"
+        }
+      ]
+    },
+    {
+      "source": "/",
+      "headers": [
+        {
+          "key": "Content-Security-Policy",
+          "value": "default-src 'none'; script-src 'self' 'sha256-9yVPleo+y1MAj09u+hM2TT784nZ5OXfdUkw60zxGLYs=' 'sha256-KirvLWTDOF6L3D0LUfkJGV3VE7X8VsAeYdrHQ4P/Sgw='; style-src 'self' 'sha256-E1O6bMoy0cy/2px1avsKpMHkiHXlpGb61r/9lFzU0+s='; style-src-attr 'unsafe-hashes' 'sha256-EcZGD7T/Iu4g8RN266yWUfQA7cyj3BOQBqAmuPMcgJw=' 'sha256-mRjn5IOJQ6dVhVurZ3R6N0BR+9EXtVC5fxgoGB6En0A=' 'sha256-jjkM05djFdShnbvxIFw8MJ0di1Pw8HX6iTtEa1xben0=' 'sha256-9hrzG3hTXUP1jQ7U0ikT/SFSv/VT5Ja+y4vYrZEng38=' 'sha256-0JZDwT60YUi5Y+rYEUpgZHf8MPSpMJ4xqOWdPJcwurw=' 'sha256-KzamepoJvqRl6Q3Y+fjHnYc56kFRkC4wITBJAMhazbI=' 'sha256-FkZHUa5nzeqZWBY2m7qKSbMB9FsYtsBlrQtliZI9VwU=' 'sha256-FUawOlTVVeozychtrKT63nhCi9UBMIhL83cYYErv1oM=' 'sha256-dz1VsrXMHOkPP5ejLVEMfNOiaBo2kehxbYkodc2nsS8=' 'sha256-RLR2Dj8aQ3pRdsoF7PFgQtdhexXGp/hq/MLnXVK2rnY=' 'sha256-azvXrZ4pM4MX/f1cEKZm7dQ45kIChVLHqyqo7y+IcWA=' 'sha256-vdOX/YJsDiDlyiE4fuKXw29sKuGmcyhbF9dnJLxIe78=' 'sha256-F7nfARENCfEBGcOhEdylZWiM4FPzSSJZaRCP5tZkgV0=' 'sha256-Yh3YaREMoBdHTp9gngh97wq6qqWTVtwmJhAoGSS8XTE=' 'sha256-C1s0kN3lflAPSnCGFcXhKb7xbqfl7XP9Mlj7wys5FUI='; img-src 'self'; font-src 'self'; connect-src 'self' https://buxnhdafaafhrlviaotw.supabase.co; base-uri 'none'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests"
+        }
+      ]
+    },
+    {
+      "source": "/index.html",
+      "headers": [
+        {
+          "key": "Content-Security-Policy",
+          "value": "default-src 'none'; script-src 'self' 'sha256-9yVPleo+y1MAj09u+hM2TT784nZ5OXfdUkw60zxGLYs=' 'sha256-KirvLWTDOF6L3D0LUfkJGV3VE7X8VsAeYdrHQ4P/Sgw='; style-src 'self' 'sha256-E1O6bMoy0cy/2px1avsKpMHkiHXlpGb61r/9lFzU0+s='; style-src-attr 'unsafe-hashes' 'sha256-EcZGD7T/Iu4g8RN266yWUfQA7cyj3BOQBqAmuPMcgJw=' 'sha256-mRjn5IOJQ6dVhVurZ3R6N0BR+9EXtVC5fxgoGB6En0A=' 'sha256-jjkM05djFdShnbvxIFw8MJ0di1Pw8HX6iTtEa1xben0=' 'sha256-9hrzG3hTXUP1jQ7U0ikT/SFSv/VT5Ja+y4vYrZEng38=' 'sha256-0JZDwT60YUi5Y+rYEUpgZHf8MPSpMJ4xqOWdPJcwurw=' 'sha256-KzamepoJvqRl6Q3Y+fjHnYc56kFRkC4wITBJAMhazbI=' 'sha256-FkZHUa5nzeqZWBY2m7qKSbMB9FsYtsBlrQtliZI9VwU=' 'sha256-FUawOlTVVeozychtrKT63nhCi9UBMIhL83cYYErv1oM=' 'sha256-dz1VsrXMHOkPP5ejLVEMfNOiaBo2kehxbYkodc2nsS8=' 'sha256-RLR2Dj8aQ3pRdsoF7PFgQtdhexXGp/hq/MLnXVK2rnY=' 'sha256-azvXrZ4pM4MX/f1cEKZm7dQ45kIChVLHqyqo7y+IcWA=' 'sha256-vdOX/YJsDiDlyiE4fuKXw29sKuGmcyhbF9dnJLxIe78=' 'sha256-F7nfARENCfEBGcOhEdylZWiM4FPzSSJZaRCP5tZkgV0=' 'sha256-Yh3YaREMoBdHTp9gngh97wq6qqWTVtwmJhAoGSS8XTE=' 'sha256-C1s0kN3lflAPSnCGFcXhKb7xbqfl7XP9Mlj7wys5FUI='; img-src 'self'; font-src 'self'; connect-src 'self' https://buxnhdafaafhrlviaotw.supabase.co; base-uri 'none'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests"
+        }
+      ]
+    },
+    {
+      "source": "/kebijakan-privasi.html",
+      "headers": [
+        {
+          "key": "Content-Security-Policy",
+          "value": "default-src 'none'; script-src 'self'; style-src 'self' 'sha256-DBawiMShz4m1O0WeWZ0w/bv5vLlB1fcAL1PPJBEb2dc='; style-src-attr 'unsafe-hashes' 'sha256-ksGPa9rBx3qdJd85P0QDyQNATrJagvS5YtLUpHxWuto='; img-src 'self'; font-src 'self'; connect-src 'self'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests"
+        }
+      ]
+    },
+    {
+      "source": "/terima-kasih.html",
+      "headers": [
+        {
+          "key": "Content-Security-Policy",
+          "value": "default-src 'none'; script-src 'self' 'sha256-Kf5HY+j4RqCIkP7G0ExDvgCZVnMyJNiJ5fjry+4OaQE='; style-src 'self' 'sha256-PFLRp9ug/17VrU2VY9hrVLlxTKqoRwPESbF0YF4Y4Ls='; style-src-attr 'none'; img-src 'self'; font-src 'self'; connect-src 'self'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests"
+        }
+      ]
+    }
+  ]
+}
