@@ -1,0 +1,105 @@
+{
+  "id": "l1-m1-p3",
+  "status": "draf",
+  "tujuan": "Setelah pelajaran ini, kamu bisa menulis prompt pertama yang jelas dengan menyebut tugas, tujuan dan pembaca, bahan, serta bentuk hasil yang kamu inginkan.",
+  "bagian": [
+    {
+      "judul": "Prompt adalah pesan kerja, bukan sandi",
+      "paragraf": [
+        "Prompt adalah teks yang kamu kirim ke chatbot. Bayangkan kamu menitipkan pekerjaan kepada rekan baru yang pintar, rajin, dan belum mengenalmu. Ia tidak bisa membaca pikiranmu dan tidak tahu untuk apa hasilnya dipakai.",
+        "Pelajaran sebelumnya menunjukkan bahwa chatbot hanya bekerja dari isi percakapan. Jadi semua yang kamu anggap sudah jelas harus ikut ditulis, kalau tidak, chatbot akan menebak."
+      ]
+    },
+    {
+      "judul": "Mulai dari tugas yang bisa dilakukan",
+      "paragraf": [
+        "Kalimat pertama sebaiknya berupa perintah dengan kata kerja yang jelas: tulis, ringkas, bandingkan, susun, jelaskan, periksa. Perintah seperti ini lebih mudah dijalankan daripada pertanyaan melingkar atau cerita panjang yang baru menyebut maksud di akhir.",
+        "Sebutkan juga hasil yang kamu mau, misalnya “susun pengumuman”, bukan hanya “bantu aku soal pengumuman”. Kata “bantu” belum menjelaskan apa-apa."
+      ]
+    },
+    {
+      "judul": "Tambahkan tujuan dan pembaca",
+      "paragraf": [
+        "Tugas yang sama bisa menghasilkan tulisan yang sangat berbeda tergantung untuk siapa dan untuk apa. Pengumuman untuk warga lanjut usia berbeda dari pengumuman untuk anak SMA.",
+        "Tulis satu atau dua kalimat tentang tujuan dan pembacanya. Contohnya: “Pengumuman ini dibaca di grup WhatsApp warga, mayoritas berusia di atas 50 tahun, dan tujuannya supaya mereka datang tepat waktu.” Dua kalimat ini sering lebih berguna daripada sepuluh kata sifat seperti “bagus” dan “menarik”."
+      ]
+    },
+    {
+      "judul": "Berikan bahan dan batasan",
+      "paragraf": [
+        "Kalau kamu punya fakta, tempel faktanya. Chatbot tidak tahu jam acaramu, nama panitiamu, atau aturan kantormu. Bila tidak diberi, ia bisa mengisinya dengan karangan yang terdengar masuk akal.",
+        "Beri juga batasan yang bisa dicek: jumlah kata, jumlah poin, bahasa, atau hal yang tidak boleh ada. Pisahkan bahan dari instruksi, misalnya dengan baris pemisah atau judul “Bahan:”, supaya jelas mana yang harus dikerjakan dan mana yang hanya bahan."
+      ]
+    },
+    {
+      "judul": "Tentukan bentuk hasil",
+      "paragraf": [
+        "Sebutkan bentuk yang kamu butuhkan: tabel, daftar bernomor, tiga paragraf, atau satu pesan singkat. Tanpa petunjuk bentuk, chatbot memilih sendiri, dan pilihannya belum tentu cocok dengan tempat kamu akan memakainya.",
+        "Satu cara mudah mengecek prompt: tunjukkan kepada orang yang tidak tahu konteksmu. Kalau ia bingung harus mengerjakan apa, chatbot kemungkinan besar juga bingung."
+      ]
+    },
+    {
+      "judul": "Kesalahan yang sering terjadi",
+      "paragraf": [
+        "Kesalahan pertama: terlalu singkat, misalnya “buat pengumuman rapat”. Hasilnya umum karena tujuan, pembaca, dan bahan tidak ada.",
+        "Kesalahan kedua: menumpuk banyak tugas tak berhubungan dalam satu pesan. Pisahkan menjadi pesan-pesan terpisah.",
+        "Kesalahan ketiga: hanya menyebut bentuk tanpa tujuan, misalnya “maksimal 100 kata dan menarik”. Chatbot bisa memenuhi batas kata tetapi memotong bagian yang sebenarnya paling penting bagimu.",
+        "Kesalahan keempat: menulis prompt yang sangat panjang tetapi isinya berputar-putar. Panjang tidak sama dengan jelas."
+      ]
+    },
+    {
+      "judul": "Kapan tidak perlu prompt panjang",
+      "paragraf": [
+        "Untuk pertanyaan sederhana seperti arti sebuah kata atau terjemahan satu kalimat, satu kalimat pendek sudah cukup. Tambahkan detail hanya bila hasil pertama belum sesuai.",
+        "Prompt yang jelas juga bukan jaminan jawaban benar. Fakta spesifik seperti angka, tanggal, dan kutipan tetap harus kamu cek sendiri. Jangan pernah menempelkan data pribadi atau rahasia hanya supaya prompt terasa lengkap."
+      ]
+    }
+  ],
+  "contoh": {
+    "judul": "Contoh berpasangan (cerita fiktif)",
+    "teks": "Versi kurang baik: Dimas, ketua panitia lomba kebersihan RT 07 (tokoh fiktif), menulis, “Buat pengumuman lomba.” Chatbot memberi pengumuman umum yang penuh kata semangat tetapi tanpa jam, tempat, dan cara mendaftar, bahkan mengarang hadiah. Versi baik: Dimas menulis, “Susun pengumuman lomba kebersihan untuk grup WhatsApp warga RT 07. Pembaca mayoritas berusia di atas 50 tahun, tujuannya supaya mereka mendaftar sebelum Jumat. Bahan: acara Minggu 6 Desember pukul 07.00 di lapangan RT, daftar ke Bu Sari, tanpa biaya. Jangan menambah hadiah atau fakta lain. Bentuk: maksimal 80 kata, bahasa santai, diakhiri satu ajakan.” Bedanya: versi baik menyebut tugas, pembaca dan tujuan, bahan, batasan, serta bentuk, sehingga chatbot tidak perlu menebak. Dimas tetap mencocokkan hasilnya dengan bahannya sebelum mengirim."
+  },
+  "latihan": {
+    "petunjuk": "Kerjakan di chatbot AI mana pun. Tahap 1 (coba): pilih satu tugas nyata kecil, misalnya mengajak teman ikut kegiatan atau meringkas catatan pendek. Tulis prompt secepat mungkin dalam satu kalimat dan kirim, lalu simpan jawabannya. Tahap 2 (perbaiki): di percakapan baru, tulis ulang prompt itu dengan lima unsur: tugas dengan kata kerja, pembaca dan tujuan, bahan (pakai data karanganmu bila perlu), batasan yang bisa dicek, dan bentuk hasil. Tahap 3 (bandingkan): letakkan kedua jawaban berdampingan. Mana yang paling mendekati kebutuhanmu? Unsur apa yang paling mengubah hasil? Daftar periksa mandiri: (1) kalimat pertamaku berupa perintah dengan kata kerja jelas; (2) aku menyebut pembaca dan tujuan; (3) semua fakta yang dibutuhkan sudah kuberikan, tidak ada yang kuserahkan pada tebakan chatbot; (4) aku bisa mengecek batasan dan bentuk hasil dengan mudah; (5) aku tidak menempelkan data pribadi atau rahasia."
+  },
+  "cek": [
+    {
+      "tanya": "Manakah kalimat pembuka prompt yang paling jelas?",
+      "opsi": [
+        "Aku bingung soal laporan ini, kira-kira bagaimana ya?",
+        "Ringkas laporan di bawah ini menjadi tiga poin untuk atasanku.",
+        "Bantu aku soal laporan.",
+        "Tolong buat laporan yang bagus dan menarik."
+      ],
+      "benar": 1,
+      "jelas": "Opsi kedua dibuka dengan perintah berkata kerja, menyebut hasilnya (tiga poin), dan pembacanya (atasan). Opsi pertama dan ketiga tidak menyebut tugas yang bisa dikerjakan, dan opsi keempat hanya memakai kata sifat yang tidak bisa dicek."
+    },
+    {
+      "tanya": "Mengapa prompt “Buat pengumuman lomba” sering menghasilkan pengumuman yang tidak bisa dipakai?",
+      "opsi": [
+        "Karena chatbot sengaja memberi jawaban buruk pada prompt pendek",
+        "Karena chatbot tidak tahu jam, tempat, pembaca, dan tujuanmu, sehingga ia menebak atau mengarang",
+        "Karena kata “lomba” tidak dikenali oleh chatbot",
+        "Karena pengumuman harus selalu ditulis manusia"
+      ],
+      "benar": 1,
+      "jelas": "Chatbot hanya bekerja dari isi percakapan. Tanpa bahan dan tujuan, ia mengisi kekosongan dengan tebakan. Opsi pertama dan ketiga mengarang sebab yang tidak ada, dan opsi keempat tidak benar karena chatbot bisa menyusun pengumuman bila diberi bahan."
+    },
+    {
+      "tanya": "Kamu perlu pesan singkat untuk mengingatkan tetangga soal jadwal ronda. Prompt manakah yang paling tepat dipakai pertama kali?",
+      "opsi": [
+        "Tulis pengumuman. Pembaca: tetangga yang sebagian sudah lansia, tujuan: ingat jadwal ronda. Bahan: giliran Rabu malam, pukul 22.00, pos RT 03. Maksimal 50 kata, nada ramah.",
+        "Buat pesan ronda.",
+        "Tulis pesan ronda yang sangat bagus, sangat sopan, sangat lengkap, dan sangat menarik, tanpa menyebut jadwal.",
+        "Tulis pesan ronda, lalu rangkum rapat bulan lalu dan buatkan juga poster serta surat izin."
+      ],
+      "benar": 0,
+      "jelas": "Opsi pertama memuat tugas, pembaca, tujuan, bahan, batasan, dan bentuk. Opsi kedua terlalu singkat, opsi ketiga hanya kata sifat tanpa bahan, dan opsi keempat menumpuk beberapa tugas yang tidak berhubungan dalam satu pesan."
+    }
+  ],
+  "ringkasan": [
+    "Prompt yang jelas dibuka dengan perintah berkata kerja yang menyebut hasil yang kamu mau.",
+    "Tambahkan tujuan dan pembaca, bahan yang benar, batasan yang bisa dicek, dan bentuk hasil, supaya chatbot tidak perlu menebak.",
+    "Prompt jelas tidak menjamin jawaban benar: cek hal spesifik, jangan menumpuk banyak tugas dalam satu pesan, dan jangan menempelkan data pribadi."
+  ]
+}
