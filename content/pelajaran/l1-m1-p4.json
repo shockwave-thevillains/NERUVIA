@@ -1,0 +1,104 @@
+{
+  "id": "l1-m1-p4",
+  "status": "draf",
+  "tujuan": "Setelah pelajaran ini, kamu bisa mendiagnosis apa yang belum sesuai dari jawaban chatbot, lalu memperbaikinya dengan umpan balik yang spesifik, satu perubahan per putaran.",
+  "bagian": [
+    {
+      "judul": "Hasil pertama adalah draf",
+      "paragraf": [
+        "Jarang ada jawaban chatbot yang langsung pas. Anggap hasil pertama sebagai draf, seperti coretan awal rekan kerja. Tugasmu sekarang adalah menilai, lalu mengarahkan perbaikannya.",
+        "Percakapan memang dirancang untuk bolak-balik. Chatbot melihat jawabanmu sebelumnya dan perbaikanmu, jadi kamu tidak perlu mengulang semuanya dari awal setiap kali."
+      ]
+    },
+    {
+      "judul": "Cari dulu apa yang meleset",
+      "paragraf": [
+        "Sebelum mengetik perbaikan, tanyakan: apa tepatnya yang kurang? Biasanya salah satu dari lima hal ini. Terlalu umum, karena konteks dan pembaca belum disebut. Panjangnya tidak cocok. Bentuknya tidak sesuai, misalnya paragraf padahal kamu butuh daftar. Nadanya keliru. Atau isinya ada yang salah atau tidak ada di bahanmu.",
+        "Memberi nama pada masalahnya membuat perbaikanmu tepat sasaran. “Kurang bagus” tidak memberi arah, sedangkan “terlalu panjang dan terlalu kaku” jelas."
+      ]
+    },
+    {
+      "judul": "Beri umpan balik yang spesifik",
+      "paragraf": [
+        "Umpan balik yang baik menyebut bagian mana yang diubah dan menjadi apa. Bandingkan “buat lebih pendek” dengan “pangkas jadi sekitar 90 kata dan buang paragraf kedua”. Yang kedua bisa langsung dikerjakan dan mudah kamu cek.",
+        "Jelaskan juga alasannya bila perlu, misalnya “pembacanya dosen yang sibuk”. Alasan membantu chatbot menebak dengan benar pada hal yang tidak kamu sebut."
+      ]
+    },
+    {
+      "judul": "Ubah satu hal per putaran",
+      "paragraf": [
+        "Bila kamu mengubah nada, panjang, dan bentuk sekaligus, kamu sulit tahu perubahan mana yang membantu dan mana yang merusak. Ubah satu atau dua hal saja per putaran, lalu lihat hasilnya.",
+        "Katakan juga apa yang harus dipertahankan, misalnya “alasan di paragraf kedua sudah bagus, jangan diubah”. Tanpa pesan ini, bagian yang sudah baik ikut berubah."
+      ]
+    },
+    {
+      "judul": "Kapan mulai percakapan baru",
+      "paragraf": [
+        "Perbaikan kecil sebaiknya berlanjut di percakapan yang sama. Tetapi bila arah utamanya meleset, percakapan sudah berantakan, atau chatbot terus mengulang kesalahan yang sama, mulai percakapan baru dengan prompt yang lebih jelas.",
+        "Di percakapan baru, tempel hanya bahan yang perlu. Tulis prompt yang sudah memuat pelajaran dari putaran sebelumnya, misalnya pembaca, panjang, dan nada yang kini kamu ketahui."
+      ]
+    },
+    {
+      "judul": "Kesalahan yang sering terjadi",
+      "paragraf": [
+        "Kesalahan pertama: membalas hanya dengan “jelek, buat lagi”. Chatbot tidak tahu apa yang salah, jadi hasil berikutnya acak.",
+        "Kesalahan kedua: mengubah semuanya sekaligus, sehingga kamu tidak tahu apa yang berhasil. Kesalahan ketiga: tidak menyebut apa yang sudah bagus, sehingga bagian itu ikut berubah.",
+        "Kesalahan keempat: terus memoles kalimat padahal masalahnya fakta. Kesalahan kelima: menerima hasil yang rapi tanpa memeriksanya. Tulisan yang tampak selesai mudah membuat kita berhenti mengecek."
+      ]
+    },
+    {
+      "judul": "Kapan tidak perlu mengulang",
+      "paragraf": [
+        "Berhenti memperbaiki bila hasilnya sudah cukup untuk kebutuhanmu. Mengejar sempurna sering memakan waktu lebih lama daripada menyunting sendiri dua kalimat.",
+        "Mengulang juga tidak menyelesaikan masalah fakta. Bila ada angka, tanggal, atau kutipan yang meragukan, cocokkan dengan sumber atau bahanmu sendiri, bukan hanya meminta chatbot menulis ulang. Jangan menempelkan data pribadi atau rahasia saat memberi bahan perbaikan."
+      ]
+    }
+  ],
+  "contoh": {
+    "judul": "Contoh berpasangan (cerita fiktif)",
+    "teks": "Versi kurang baik: Bima, mahasiswa fiktif, meminta chatbot menulis email perpanjangan tenggat tugas kepada dosennya. Hasilnya tiga paragraf dengan pembuka sangat resmi. Bima membalas, “Jelek, buat lagi.” Hasil kedua sama panjangnya, nadanya berubah ke santai, dan alasan sakit yang tidak pernah ia sebut muncul sebagai karangan. Versi baik: Bima lebih dulu menamai masalahnya: terlalu panjang, terlalu kaku, dan ada alasan yang tidak ia minta. Ia membalas, “Pertahankan paragraf kedua tentang bukti kemajuan tugasku. Pangkas jadi sekitar 90 kata. Ganti pembukanya menjadi sapaan sopan yang hangat. Buang alasan sakit, karena aku tidak sakit. Jangan menambah alasan baru.” Hasilnya pas, lalu Bima mencocokkan isinya dengan faktanya sebelum mengirim. Perbedaannya: versi baik menyebut apa yang salah, apa yang dipertahankan, dan batas yang bisa dicek, sehingga satu putaran sudah cukup."
+  },
+  "latihan": {
+    "petunjuk": "Kerjakan di chatbot AI mana pun. Tahap 1 (coba): minta chatbot menulis pesan pendek untuk tugas nyata kecil, misalnya mengajak teman kerja kelompok. Biarkan hasil pertama apa adanya dan jangan perbaiki prompt awalnya. Tahap 2 (perbaiki): tulis satu daftar kecil. Apa yang sudah bagus? Apa yang paling meleset (umum, panjang, bentuk, nada, atau isi)? Lalu balas dengan umpan balik spesifik yang mengubah satu atau dua hal saja dan menyebut apa yang dipertahankan. Ulangi satu putaran lagi bila perlu. Tahap 3 (bandingkan): letakkan hasil pertama dan terakhir berdampingan, lalu tulis satu kalimat tentang perubahan yang paling berpengaruh. Bandingkan juga dengan membalas hanya “jelek, buat lagi” di percakapan lain. Daftar periksa mandiri: (1) aku menamai apa yang meleset sebelum membalas; (2) balasanku menyebut bagian dan perubahan yang jelas; (3) aku mengubah paling banyak dua hal; (4) aku menyebut apa yang harus dipertahankan; (5) fakta dalam hasil sudah kucocokkan dengan bahanku, dan aku tidak menempelkan data pribadi."
+  },
+  "cek": [
+    {
+      "tanya": "Manakah balasan perbaikan yang paling berguna setelah chatbot memberi ringkasan yang terlalu panjang?",
+      "opsi": [
+        "Jelek, buat lagi.",
+        "Ringkasannya kurang bagus, coba yang lebih baik.",
+        "Pangkas jadi lima poin, masing-masing satu kalimat, dan pertahankan poin tentang tenggat.",
+        "Tulis ulang semuanya dengan nada, panjang, dan bentuk yang berbeda."
+      ],
+      "benar": 2,
+      "jelas": "Opsi ketiga menyebut bagian yang diubah, bentuk dan panjang yang diinginkan, serta apa yang dipertahankan. Opsi pertama dan kedua tidak memberi arah. Opsi keempat mengubah semuanya sekaligus sehingga kamu tidak tahu perubahan mana yang membantu."
+    },
+    {
+      "tanya": "Mengapa sebaiknya hanya satu atau dua hal yang diubah pada tiap putaran perbaikan?",
+      "opsi": [
+        "Supaya kamu bisa melihat perubahan mana yang membantu dan mana yang merusak",
+        "Karena chatbot hanya sanggup memahami satu instruksi sekali jalan",
+        "Karena putaran perbaikan dibatasi dua kali per percakapan",
+        "Karena perubahan banyak hal selalu menghasilkan jawaban yang salah"
+      ],
+      "benar": 0,
+      "jelas": "Mengubah sedikit hal membuat sebab dan akibat mudah dilacak. Opsi kedua dan ketiga mengarang aturan yang tidak ada, dan opsi keempat berlebihan: perubahan banyak hal tidak selalu salah, hanya sulit dievaluasi."
+    },
+    {
+      "tanya": "Rina meminta ringkasan artikel yang ia tempel. Hasilnya rapi, tetapi memuat persentase yang tidak ada di artikel. Apa langkah terbaik?",
+      "opsi": [
+        "Menerimanya, karena angkanya kecil dan hasilnya sudah rapi",
+        "Menulis ulang prompt dari nol dengan kata “lebih akurat” tanpa memeriksa apa pun",
+        "Bertanya “yakin?” lalu percaya bila chatbot menjawab ya",
+        "Mencocokkan angka itu dengan artikel, lalu meminta chatbot membuang yang tidak ada di bahan dan hanya memakai isi artikel"
+      ],
+      "benar": 3,
+      "jelas": "Masalahnya fakta, jadi kamu perlu memeriksa dan membatasi chatbot pada bahan. Opsi pertama berhenti mengecek karena hasil tampak rapi. Opsi kedua dan ketiga mengandalkan chatbot menilai dirinya sendiri tanpa pemeriksaan ke sumber."
+    }
+  ],
+  "ringkasan": [
+    "Anggap hasil pertama sebagai draf, namai apa yang meleset (terlalu umum, panjang, bentuk, nada, atau isi), lalu beri umpan balik yang spesifik.",
+    "Ubah satu atau dua hal per putaran dan sebut apa yang harus dipertahankan. Mulai percakapan baru bila arah utamanya meleset.",
+    "Mengulang tidak memperbaiki fakta: cocokkan angka, tanggal, dan kutipan dengan sumber, dan jangan menempelkan data pribadi."
+  ]
+}
