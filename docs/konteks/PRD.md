@@ -13,7 +13,7 @@ Diperbarui 21 Nov 2026. Menggantikan v0.2 (18 Nov). Ringkasan ini dipakai run ot
 
 ## 2. Produk
 Platform belajar daring berbahasa Indonesia. Alur: halaman jual publik (landing) dan Ruang Belajar. Jalur awal: Level 1 "AI dari Nol", lalu Level 2 "AI untuk Kerja", lalu Level 3 "AI Lanjutan". Cybersecurity dirancang setelah itu.
-Kurikulum: pakai AI dulu, baru pakai AI dengan aman. Level 1 Modul 1 "Kenalan dengan AI" sudah punya draf pelajaran 1, 2, 3, 4, dan 5. Modul 2 "Prompt yang efektif" sudah ada di kursus.json dengan pelajaran 1, 2, dan 3 berstatus draf (E1 22 Nov, E2 dan E3 23 Nov). Pelajaran 3 juga memuat latihan interaktif "pilih prompt yang lebih sesuai" (6 situasi fiktif, skor dan alasan per situasi, tanpa chatbot sungguhan; draf).
+Kurikulum: pakai AI dulu, baru pakai AI dengan aman. Level 1 Modul 1 "Kenalan dengan AI" sudah punya draf pelajaran 1, 2, 3, 4, dan 5. Modul 2 "Prompt yang efektif" sudah ada di kursus.json dengan pelajaran 1, 2, 3, dan 4 berstatus draf (E1 22 Nov, E2, E3, dan E4 23 Nov). Pelajaran 3 juga memuat latihan interaktif "pilih prompt yang lebih sesuai" (6 situasi fiktif, skor dan alasan per situasi, tanpa chatbot sungguhan; draf).
 
 ## 3. Pengguna dan monetisasi
 - Pengguna: pemula dewasa yang ingin memakai AI untuk tugas nyata. Pelajar 13–17 dengan persetujuan orang tua terverifikasi dan <13 ditolak; kapan dibuka belum diputuskan.
@@ -39,7 +39,7 @@ Kurikulum: pakai AI dulu, baru pakai AI dengan aman. Level 1 Modul 1 "Kenalan de
 | Landing dengan form waitlist | Ada di branch dev, tersambung ke Supabase neruvia-dev (pratinjau terlindungi login Vercel) |
 | Halaman terima kasih | Ada |
 | Ruang Belajar (pratinjau): galeri level, halaman pelajaran, soal cek pemahaman, XP, streak, badge, ekspor/impor progres; pelajaran berisi diberi penanda DRAF; tombol Mulai/Lanjutkan belajar di kartu level dan tautan Lanjut setelah menandai selesai (tidak berpindah sendiri) | Ada, noindex, belum ditautkan dari landing |
-| Pelajaran tertulis Level 1 | Modul 1: draf 5 dari 5. Modul 2: draf 3 dari 5 (pelajaran 1, 2, dan 3). Modul 3 belum |
+| Pelajaran tertulis Level 1 | Modul 1: draf 5 dari 5. Modul 2: draf 4 dari 5 (pelajaran 1, 2, 3, dan 4). Modul 3 belum |
 | Login, komentar, pembayaran | Belum. Dirancang aman lebih dulu sebagai draf |
 | Sertifikat, mode baca tenang, mode hemat data | Setelah MVP, belum diputuskan |
 

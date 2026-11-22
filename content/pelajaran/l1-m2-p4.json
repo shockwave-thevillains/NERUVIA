@@ -1,0 +1,103 @@
+{
+  "id": "l1-m2-p4",
+  "status": "draf",
+  "tujuan": "Setelah pelajaran ini, kamu bisa memecah tugas besar menjadi beberapa langkah kecil yang berurutan, memeriksa hasil tiap langkah, lalu membawa hasil yang sudah benar ke langkah berikutnya.",
+  "bagian": [
+    {
+      "judul": "Satu pesan besar sering menghasilkan jawaban yang tipis",
+      "paragraf": [
+        "Bayangkan kamu meminta seorang teman membuat rencana acara, anggaran, jadwal, pembagian tugas, dan pengumuman sekaligus. Mungkin semuanya dikerjakan, tetapi tiap bagian dangkal dan saling bertabrakan. Chatbot bisa begitu juga.",
+        "Claude Academy mencatat bahwa prompt panjang dengan banyak syarat bisa membuat sebagian syarat terlewat. Tugas rumit lebih baik dikerjakan bertahap, satu fokus pada satu waktu."
+      ]
+    },
+    {
+      "judul": "Tiga pertanyaan untuk menentukan langkah",
+      "paragraf": [
+        "Pertama, apa hasil akhirnya? Tulis dalam satu kalimat, misalnya “pengumuman siap kirim”. Kedua, bagian apa yang harus selesai lebih dulu? Keputusan kegiatan harus ada sebelum jadwal, dan jadwal sebelum pembagian tugas.",
+        "Ketiga, apa yang bisa kamu periksa di tiap langkah? Hasil langkah yang baik bisa kamu baca dan nilai dalam satu menit. Bila terlalu panjang untuk diperiksa, langkah itu masih terlalu besar."
+      ]
+    },
+    {
+      "judul": "Dua cara menyusun langkah",
+      "paragraf": [
+        "Cara berurutan dipakai bila langkah bergantung pada langkah sebelumnya: keluaran satu prompt menjadi bahan prompt berikutnya. Panduan Google Cloud dan Microsoft Learn sama-sama menggambarkan pola ini.",
+        "Cara terpisah dipakai bila beberapa bagian tidak saling menunggu. Kerjakan sendiri-sendiri, lalu gabungkan di langkah terakhir; Google menyebutnya menggabungkan jawaban. Pemula sebaiknya mulai dari cara berurutan."
+      ]
+    },
+    {
+      "judul": "Cara menjalankannya di chatbot",
+      "paragraf": [
+        "Kamu tidak perlu alat khusus. Tulis langkah pertama, baca hasilnya, perbaiki bila perlu, lalu tempel hasil yang sudah kamu setujui ke pesan langkah kedua. Tulis juga apa yang belum dikerjakan di langkah itu, misalnya “jangan buat anggaran dulu”.",
+        "Bawa hanya bahan yang dibutuhkan langkah berikutnya; Microsoft Learn menyarankan hal serupa. Kamu juga boleh meminta chatbot mengusulkan daftar langkah lebih dulu, lalu kamu ubah sebelum mulai."
+      ]
+    },
+    {
+      "judul": "Periksa di setiap titik sebelum lanjut",
+      "paragraf": [
+        "Keuntungan terbesar memecah tugas adalah kesalahan tertangkap lebih awal. Microsoft Learn menekankan memeriksa hasil antarlangkah, dan Google Cloud menyebut prompt kecil memudahkan pengendalian serta pencarian sumber masalah.",
+        "Bacalah hasil, cocokkan dengan syarat yang kamu tulis, dan perbaiki dulu bila meleset. Melanjutkan dengan hasil keliru berarti langkah berikutnya dibangun di atas kekeliruan."
+      ]
+    },
+    {
+      "judul": "Kesalahan yang sering terjadi",
+      "paragraf": [
+        "Pertama, memecah terlalu halus sampai kamu kelelahan menyalin. Kedua, memecah tanpa urutan, sehingga langkah dua membutuhkan hal yang baru ada di langkah empat. Ketiga, melompat ke langkah berikutnya tanpa membaca hasilnya.",
+        "Keempat, lupa membawa keputusan lama, misalnya batas anggaran. Kelima, menempelkan seluruh percakapan padahal satu bagian cukup. Keenam, mencampur tugas yang tidak berhubungan dalam satu percakapan; Claude Academy menyebutnya kesalahan umum."
+      ]
+    },
+    {
+      "judul": "Kapan tidak perlu memecah",
+      "paragraf": [
+        "Tugas kecil, seperti menjelaskan satu istilah atau memperbaiki satu paragraf, tidak perlu dipecah. Claude Academy mencatat bahwa model penalaran modern makin mampu berpikir bertahap sendiri, sedangkan dokumen resmi Claude menyebut pemecahan eksplisit tetap berguna bila kamu ingin memeriksa hasil antara.",
+        "Pecah bila tugasnya punya banyak syarat, banyak bagian, atau akibat kesalahannya besar. Bila ragu, coba satu pesan dulu, lalu pecah jika hasilnya tipis atau bertabrakan."
+      ]
+    }
+  ],
+  "contoh": {
+    "judul": "Contoh berpasangan (cerita fiktif)",
+    "teks": "Versi kurang baik: Bu Wulan, panitia bazar RT 07 fiktif untuk 150 warga, menulis, “Buatkan rencana bazar lengkap: kegiatan, jadwal, anggaran Rp3 juta, pembagian tugas, dan pengumuman.” Hasilnya panjang, tetapi jadwalnya memuat lomba yang tidak ada di anggaran, dan ia tidak tahu bagian mana yang harus dibetulkan. Versi baik: langkah 1, “Aku panitia bazar RT fiktif, 150 warga, satu hari Minggu pagi. Usulkan lima kegiatan. Jangan dulu buat jadwal atau anggaran.” Ia memilih empat kegiatan. Langkah 2, “Dari empat kegiatan ini [tempel], buat jadwal pukul 07.00–12.00 dalam tabel.” Ia mengubah satu jam yang bentrok. Langkah 3, “Dari jadwal final ini [tempel], buat daftar tugas dan perkiraan biaya, total maksimal Rp3 juta.” Langkah 4, “Tulis pengumuman 80 kata dari jadwal final.” Bedanya: satu fokus per langkah, bagian yang belum waktunya dilarang, hasil diperiksa sebelum lanjut, dan hanya bahan perlu yang ditempel. Bu Wulan tetap menghitung biaya sendiri, karena chatbot bisa keliru berhitung."
+  },
+  "latihan": {
+    "petunjuk": "Kerjakan di chatbot AI mana pun. Tahap 1 (coba): pilih tugas karangan dengan beberapa bagian, misalnya rencana belajar dua minggu untuk ujian fiktif, lengkap dengan jadwal, daftar bahan, dan pesan penyemangat. Tulis semuanya dalam satu pesan, lalu simpan hasilnya. Tahap 2 (perbaiki): di percakapan baru, tulis tiga atau empat langkah berurutan. Tiap langkah memuat satu fokus, satu larangan, dan bahan yang sudah kamu periksa dari langkah sebelumnya. Baca dan perbaiki hasil sebelum lanjut. Tahap 3 (bandingkan): letakkan kedua hasil akhir berdampingan, lalu nilai mana yang lebih sesuai syarat dan lebih mudah diperbaiki. Daftar periksa mandiri: (1) hasil akhir satu kalimat; (2) urutan masuk akal; (3) tiap langkah bisa diperiksa; (4) hasil dibaca sebelum lanjut; (5) hanya bahan perlu yang ditempel; (6) tanpa data pribadi asli."
+  },
+  "cek": [
+    {
+      "tanya": "Mengapa memecah tugas besar menjadi langkah kecil sering membantu?",
+      "opsi": [
+        "Karena tiap langkah punya satu fokus dan hasilnya bisa kamu periksa sebelum lanjut",
+        "Karena chatbot hanya bisa menjawab satu kalimat pendek",
+        "Karena hasil langkah kecil pasti benar sehingga tidak perlu dibaca",
+        "Karena langkah kecil membuat prompt panjang tidak diperlukan sama sekali"
+      ],
+      "benar": 0,
+      "jelas": "Fokus tunggal dan pemeriksaan di tiap titik adalah manfaat utamanya. Opsi kedua mengarang batas yang tidak ada. Opsi ketiga keliru karena hasil tetap bisa salah dan harus dibaca. Opsi keempat keliru karena tiap langkah tetap perlu instruksi yang jelas."
+    },
+    {
+      "tanya": "Dani (tokoh fiktif) meminta rencana acara, jadwal, anggaran, dan pengumuman dalam satu pesan. Hasilnya jadwal dan anggaran saling bertentangan, dan ia bingung bagian mana yang harus diperbaiki. Apa penyebab paling mungkin?",
+      "opsi": [
+        "Chatbot tidak membaca pesannya",
+        "Terlalu banyak bagian yang saling bergantung dikerjakan sekaligus, sehingga tidak ada titik pemeriksaan",
+        "Pesan itu tidak memakai huruf kapital",
+        "Acara fiktif tidak bisa direncanakan chatbot"
+      ],
+      "benar": 1,
+      "jelas": "Bagian yang saling bergantung perlu diselesaikan berurutan dan diperiksa satu per satu. Opsi pertama tidak sesuai karena chatbot memang membaca pesan. Opsi ketiga dan keempat mengarang sebab yang tidak ada."
+    },
+    {
+      "tanya": "Sinta (tokoh fiktif) selesai membuat jadwal di langkah 2, tetapi ada dua kegiatan yang jamnya bentrok. Ia ingin lanjut ke langkah 3 untuk daftar tugas. Apa yang sebaiknya ia lakukan?",
+      "opsi": [
+        "Lanjut saja, karena langkah 3 akan memperbaikinya otomatis",
+        "Tempel seluruh percakapan ke langkah 3 agar chatbot menemukan kesalahannya",
+        "Perbaiki dulu jadwalnya, lalu tempel hanya jadwal yang sudah benar ke langkah 3",
+        "Ulangi dari langkah 1 tanpa membaca hasil apa pun"
+      ],
+      "benar": 2,
+      "jelas": "Kesalahan harus dibetulkan sebelum dijadikan bahan langkah berikutnya, dan hanya bahan yang perlu yang dibawa. Opsi pertama membiarkan kesalahan terbawa. Opsi kedua membebani langkah baru dengan bahan yang tidak perlu. Opsi keempat membuang pekerjaan tanpa belajar dari hasilnya."
+    }
+  ],
+  "ringkasan": [
+    "Tugas besar dengan banyak bagian lebih mudah dikerjakan bila dipecah menjadi langkah berurutan, masing-masing satu fokus.",
+    "Periksa hasil tiap langkah dan perbaiki dulu sebelum menempelnya sebagai bahan langkah berikutnya, dengan membawa hanya bahan yang perlu.",
+    "Tugas kecil tidak perlu dipecah; pecah bila bagiannya banyak, saling bergantung, atau akibat kesalahannya besar."
+  ]
+}
