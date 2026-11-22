@@ -20,6 +20,8 @@ Lima tugas terjadwal ("NERUVIA loop web 1" sampai "5") berjalan tiap hari di emp
 - Tulis kegiatan yang tidak sempat dikerjakan sebagai "belum" di PROGRESS. Jangan melaporkan selesai tanpa bukti dari run ini.
 
 ## Larangan
+
+- Jangan membuka pendaftaran akun Auth (trigger `tolak_pendaftaran`, lihat `docs/admin.md`, bagian "Status pendaftaran akun"). Pendaftaran ditutup selama beta atas keputusan Master; hanya Master yang boleh membukanya.
 - Materi pelajaran hanya berupa teks dan latihan interaktif ringan. Jangan membuat video, audio, atau gambar buatan. Ikuti standar di `docs/loop/MATERI.md`.
 - Jangan push atau merge ke `main`. `main` tayang langsung di GitHub Pages.
 - Jangan menampilkan identitas pembuat (nama, bio, kontak pribadi) di halaman, commit, atau dokumen. Penulis commit tetap "Claude".

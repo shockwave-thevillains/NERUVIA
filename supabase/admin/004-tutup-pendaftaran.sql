@@ -2,6 +2,8 @@
 -- Setiap INSERT ke auth.users ditolak, baik lewat pendaftaran publik maupun pembuatan user di dashboard.
 -- Akun yang sudah ada (akun dummy admin) tetap bisa masuk. Diterapkan ke neruvia-dev (migrasi tutup_pendaftaran_auth).
 --
+-- STATUS: DITUTUP selama beta (keputusan Master, 22 Nov 2026). Hanya Master yang memutuskan kapan dibuka. Rincian: docs/admin.md, bagian "Status pendaftaran akun".
+--
 -- Membuka kembali (mis. saat membuat akun admin sungguhan di dashboard, lalu tutup lagi):
 --   drop trigger tolak_pendaftaran on auth.users;
 -- Menutup lagi:
@@ -18,3 +20,5 @@ revoke all on function private.tolak_pendaftaran() from public, anon, authentica
 drop trigger if exists tolak_pendaftaran on auth.users;
 create trigger tolak_pendaftaran before insert on auth.users
   for each row execute function private.tolak_pendaftaran();
+
+comment on function private.tolak_pendaftaran() is 'BETA: pendaftaran akun ditutup atas keputusan Master (22 Nov 2026). Untuk membuka: drop trigger tolak_pendaftaran on auth.users; lihat docs/admin.md, bagian Status pendaftaran akun.';

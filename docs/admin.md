@@ -18,6 +18,13 @@ Penjualan menunggu metode pembayaran dan harga yang belum diputuskan; dashboard-
 - Setelah masuk, halaman hanya membuka panel bila server mengembalikan tepat satu baris dari `admins`; akun lain langsung dikeluarkan dan tokennya dicabut. Menyembunyikan panel di klien bukan pengaman; data tetap ditolak RLS.
 - Semua teks lewat `textContent`; tidak ada `innerHTML`. CSP halaman ini tanpa blok inline (`admin.js` dan `admin.css` berkas terpisah), `connect-src` hanya `'self'` dan host Supabase.
 
+## Status pendaftaran akun: DITUTUP selama beta (22 Nov 2026, keputusan Master)
+Tidak ada pihak luar yang boleh membuat akun. Penutup: trigger `tolak_pendaftaran` pada `auth.users` di `neruvia-dev` (`supabase/admin/004-tutup-pendaftaran.sql`). Waitlist di landing tetap terbuka karena tidak membuat akun.
+- Membuka kembali (setelah beta, atau sementara untuk membuat admin sungguhan): `drop trigger tolak_pendaftaran on auth.users;` lalu tutup lagi dengan `create trigger tolak_pendaftaran before insert on auth.users for each row execute function private.tolak_pendaftaran();`
+- Sebelum dibuka untuk umum, selesaikan dulu: K3 (perlindungan spam/Turnstile), rancangan `docs/security/auth-komentar.md`, ganti atau hapus akun dummy admin, aktifkan MFA admin, dan matikan sakelar signup di dashboard hanya bila memang ingin menutup lewat pengaturan bawaan.
+- Sakelar "Allow new users to sign up" di dashboard (Authentication, Sign In / Providers) sebaiknya ikut dimatikan. Konektor tidak bisa mengubahnya, jadi Master yang menekannya.
+- Proyek produksi (bila dibuat nanti) belum memakai trigger ini. Terapkan 004 sebelum proyek itu menerima lalu lintas.
+
 ## Menyiapkan akun admin pertama (Master)
 1. Sudah selesai: `supabase/admin/001-admin.sql` diterapkan ke `neruvia-dev` (22 Nov 2026).
 2. Dashboard Supabase, Authentication, Users, Add user: isi email dan kata sandi kuat (panjang, unik), centang auto confirm.

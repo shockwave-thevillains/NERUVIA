@@ -6,6 +6,8 @@ Satu run mengerjakan SATU kegiatan, dan lima run berselang 50 menit mengisi satu
 
 Sudah selesai (jangan dikerjakan ulang): form waitlist, halaman terima kasih, SQL dan dokumen backend, `kursus.json` dan validator, galeri `belajar/`, halaman pelajaran dengan penampil isi dan soal cek pemahaman, XP/streak/badge, ekspor/impor progres, draf pelajaran 1.
 
+Catatan beta (22 Nov): pendaftaran akun Auth ditutup, jadi kegiatan login, komentar, dan akun pengguna hanya berupa rancangan atau kode di balik flag nonaktif. Pembukaan kembali menunggu keputusan Master (`docs/admin.md`).
+
 ## Paket A
 1. Audit desktop dan mobile terhadap `docs/konteks/PRD.md` (bagian Desain). Tulis `docs/loop/AUDIT.md` berisi temuan berperingkat.
 2. Perbaiki celah teratas dari audit.
