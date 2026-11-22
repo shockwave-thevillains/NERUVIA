@@ -1,0 +1,104 @@
+{
+  "id": "l1-m2-p3",
+  "status": "draf",
+  "tujuan": "Setelah pelajaran ini, kamu bisa menyertakan contoh dalam prompt agar bentuk dan gaya jawaban chatbot konsisten, lalu memeriksa bahwa polanya ditiru tanpa isinya ikut disalin.",
+  "bagian": [
+    {
+      "judul": "Menunjukkan sering lebih cepat daripada menjelaskan",
+      "paragraf": [
+        "Ada aturan yang sulit dijelaskan dengan kata, tetapi mudah ditunjukkan, misalnya gaya bahasa yang “hangat tapi tidak lebay” atau cara memberi label pada pesan pelanggan. Bila kamu menulis dua atau tiga pasangan masukan dan hasil yang kamu inginkan, chatbot bisa menangkap polanya.",
+        "Cara ini disebut prompt dengan contoh (few-shot); tanpa contoh disebut zero-shot. Kamu memberi sampel yang sudah benar, lalu meminta chatbot mengerjakan bahan baru dengan cara sama."
+      ]
+    },
+    {
+      "judul": "Satu contoh atau beberapa",
+      "paragraf": [
+        "Satu contoh cukup untuk menunjukkan bentuk, misalnya urutan bagian sebuah pengumuman. Beberapa contoh lebih baik bila ada beberapa kemungkinan jawaban atau kasus yang mudah salah dibaca.",
+        "Dokumen resmi Claude menyarankan tiga sampai lima contoh, sedangkan panduan Google menyuruh kamu mencoba sendiri. Terlalu sedikit mungkin tidak mengubah apa-apa, terlalu banyak bisa membuat chatbot terpaku. Mulai dari dua atau tiga, lalu tambah bila hasilnya masih meleset."
+      ]
+    },
+    {
+      "judul": "Cara menyusun contoh",
+      "paragraf": [
+        "Pertama, tulis instruksi singkat lebih dulu, misalnya “Beri label pada pesan pelanggan berikut”. Contoh tanpa instruksi membuat chatbot menebak pola yang kamu maksud.",
+        "Kedua, beri setiap contoh bentuk yang sama persis, dengan penanda yang sama, misalnya “Pesan:” lalu “Label:”. Pemisah yang konsisten membantu chatbot membedakan contoh dari bahan yang harus dikerjakan, dan dokumen Claude maupun Google menyarankannya.",
+        "Ketiga, bila alasan sebuah hasil tidak jelas, tambahkan satu kalimat penjelasan. Terakhir, tutup dengan bahan baru dalam bentuk yang sama, bagian hasilnya dikosongkan."
+      ]
+    },
+    {
+      "judul": "Pilih contoh yang beragam",
+      "paragraf": [
+        "Contoh yang semuanya mirip mengajarkan pola sempit. Bila ketiga contohmu pesan pendek berisi pujian, chatbot bisa menyimpulkan bahwa pesan pendek pasti pujian.",
+        "Pilih contoh yang mewakili ragam pekerjaanmu: satu yang mudah, satu yang berbeda jenis, dan satu kasus yang membingungkan. Kasus membingungkan paling berharga, karena di situlah chatbot paling sering salah."
+      ]
+    },
+    {
+      "judul": "Awas: chatbot bisa meniru terlalu persis",
+      "paragraf": [
+        "Contoh membawa isi dan bentuk sekaligus. Chatbot bisa ikut membawa kata, panjang, atau topik contohmu ke hasil, padahal kamu hanya ingin gayanya. Dokumentasi Microsoft memperingatkan bahwa beberapa contoh bisa membuat model mempelajari pola palsu, dan dokumen Claude meminta contoh yang beragam agar pola yang tidak diinginkan tidak terbawa.",
+        "Karena itu, pakai bahan baru yang berbeda dari contoh, lalu periksa: apakah hasil menjiplak frasa contoh atau semuanya sepanjang contoh? Bila ya, tambah contoh yang berbeda, atau tulis “ikuti gayanya, jangan pakai kalimat dari contoh”."
+      ]
+    },
+    {
+      "judul": "Kesalahan yang sering terjadi",
+      "paragraf": [
+        "Pertama, contoh yang bertentangan: satu memakai “Keluhan”, yang lain “keluhan pelanggan”, sehingga hasilnya ikut tidak seragam. Kedua, contoh yang isinya salah; chatbot meniru kesalahan itu dengan setia. Ketiga, contoh yang semuanya sejenis.",
+        "Keempat, tidak menulis instruksi dan berharap contoh bicara sendiri. Kelima, menempelkan data pribadi asli sebagai contoh; pakai nama dan isi karangan. Keenam, menganggap hasil benar hanya karena bentuknya sama dengan contoh, padahal bentuk konsisten tidak menjamin isi benar."
+      ]
+    },
+    {
+      "judul": "Kapan tidak perlu contoh",
+      "paragraf": [
+        "Coba dulu tanpa contoh. Untuk tugas umum, seperti menjelaskan sebuah istilah, chatbot sering sudah cukup baik, dan contoh hanya memanjangkan prompt. Panduan Microsoft juga menyarankan memulai tanpa contoh sebagai pembanding, lalu menambah contoh bila hasilnya kurang.",
+        "Contoh tidak menggantikan penalaran. Untuk soal yang butuh perhitungan atau langkah rumit, pecah tugasnya (dibahas di pelajaran berikutnya) dan periksa hasilnya sendiri."
+      ]
+    }
+  ],
+  "contoh": {
+    "judul": "Contoh berpasangan (cerita fiktif)",
+    "teks": "Versi kurang baik: Bu Ratih, pemilik toko kue fiktif “Kue Mentari”, menulis, “Kelompokkan pesan pelanggan ini.” Chatbot membalas dengan label berbeda-beda, seperti “komplain”, “Keluhan”, dan “masalah pengiriman”, jadi daftarnya tidak bisa disaring. Versi baik: “Beri satu label pada tiap pesan pelanggan. Pilihan label hanya: Pesanan, Pertanyaan, Keluhan. Pesan: ‘Besok bisa kirim 20 kotak bolu?’ Label: Pesanan. Pesan: ‘Apakah kuenya mengandung kacang?’ Label: Pertanyaan. Pesan: ‘Kuenya enak, tetapi datang terlambat dua jam.’ Label: Keluhan (ada pujian, tetapi masalah utamanya keterlambatan). Pesan: ‘Tolong tambah 5 kotak, dan kuenya kemarin agak kering.’ Label:” Bedanya: versi baik membatasi pilihan label, memakai bentuk yang sama di tiap contoh, menyertakan kasus yang membingungkan beserta alasannya, dan mengakhiri dengan bahan baru. Bu Ratih tetap membaca hasilnya sendiri, karena pesan terakhir memuat pesanan sekaligus keluhan."
+  },
+  "latihan": {
+    "petunjuk": "Kerjakan di chatbot AI mana pun. Tahap 1 (coba): pilih tugas karangan, misalnya memberi label pada lima pesan pelanggan fiktif toko buku. Tulis permintaan tanpa contoh, kirim, lalu simpan hasilnya. Tahap 2 (perbaiki): di percakapan baru, tulis satu kalimat instruksi, daftar label yang diizinkan, dan tiga contoh berbentuk sama, termasuk satu kasus membingungkan beserta alasannya. Tahap 3 (bandingkan): letakkan kedua hasil berdampingan dan nilai mana yang labelnya lebih seragam. Daftar periksa mandiri: (1) instruksi ditulis sebelum contoh; (2) semua contoh berbentuk sama; (3) contoh beragam dan memuat satu kasus sulit; (4) label di contoh sudah kucek benar; (5) hasil tidak menjiplak kata dari contoh; (6) tidak ada data pribadi asli."
+  },
+  "cek": [
+    {
+      "tanya": "Mengapa menyertakan contoh dalam prompt sering membuat hasil lebih konsisten?",
+      "opsi": [
+        "Karena contoh menunjukkan pola yang diinginkan, sehingga chatbot tidak perlu menebak bentuk atau gayanya",
+        "Karena chatbot hanya bisa bekerja bila diberi minimal sepuluh contoh",
+        "Karena contoh membuat chatbot pasti benar secara isi",
+        "Karena contoh mengganti instruksi, sehingga instruksi tidak perlu ditulis"
+      ],
+      "benar": 0,
+      "jelas": "Contoh menunjukkan pola yang sulit dijelaskan dengan kata-kata. Opsi kedua mengarang syarat jumlah yang tidak ada. Opsi ketiga keliru karena bentuk yang sama tidak menjamin isi benar. Opsi keempat keliru karena instruksi tetap diperlukan agar pola yang dimaksud jelas."
+    },
+    {
+      "tanya": "Dani (tokoh fiktif) memberi tiga contoh pesan pelanggan. Ketiganya pujian pendek dan berlabel “Pujian”. Mengapa hasilnya mungkin keliru pada pesan panjang yang berisi keluhan?",
+      "opsi": [
+        "Karena chatbot tidak membaca contoh sama sekali",
+        "Karena contoh yang semuanya sejenis bisa menanamkan pola palsu, misalnya pesan pendek pasti pujian",
+        "Karena pesan panjang tidak boleh diberi label",
+        "Karena label harus ditulis dengan huruf besar semua"
+      ],
+      "benar": 1,
+      "jelas": "Contoh yang seragam mengajarkan pola yang sempit. Opsi pertama tidak sesuai karena contoh memang dibaca dan ditiru. Opsi ketiga dan keempat mengarang aturan yang tidak ada."
+    },
+    {
+      "tanya": "Sinta (tokoh fiktif) meminta chatbot menulis pengumuman bergaya contohnya. Hasilnya memakai kalimat pembuka yang sama persis dengan contoh dan panjangnya sama. Apa langkah terbaik?",
+      "opsi": [
+        "Menerima hasilnya karena bentuknya sudah sama dengan contoh",
+        "Menambah satu contoh lagi yang sama persis agar lebih kuat",
+        "Memakai bahan baru yang berbeda, menambah contoh yang beragam, dan menulis instruksi agar gaya diikuti tanpa menyalin kalimat contoh",
+        "Menempelkan pengumuman asli berisi nama warga agar chatbot lebih paham"
+      ],
+      "benar": 2,
+      "jelas": "Chatbot meniru isi dan bentuk contoh terlalu persis, jadi contoh perlu lebih beragam dan instruksi perlu menegaskan yang ditiru hanya gayanya. Opsi pertama dan kedua memperkuat masalahnya. Opsi keempat membahayakan data pribadi."
+    }
+  ],
+  "ringkasan": [
+    "Contoh menunjukkan pola yang sulit dijelaskan: tulis instruksi singkat, lalu dua atau tiga contoh berbentuk sama.",
+    "Pilih contoh yang beragam dan benar, termasuk satu kasus yang membingungkan; contoh yang seragam menanamkan pola palsu.",
+    "Cek apakah hasil menjiplak contoh dan periksa isinya; bentuk yang sama tidak menjamin isi benar."
+  ]
+}
