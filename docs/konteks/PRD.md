@@ -13,7 +13,7 @@ Diperbarui 21 Nov 2026. Menggantikan v0.2 (18 Nov). Ringkasan ini dipakai run ot
 
 ## 2. Produk
 Platform belajar daring berbahasa Indonesia. Alur: halaman jual publik (landing) dan Ruang Belajar. Jalur awal: Level 1 "AI dari Nol", lalu Level 2 "AI untuk Kerja", lalu Level 3 "AI Lanjutan". Cybersecurity dirancang setelah itu.
-Kurikulum: pakai AI dulu, baru pakai AI dengan aman. Level 1 Modul 1 "Kenalan dengan AI" sudah punya draf pelajaran 1, 2, 3, 4, dan 5. Modul 2 "Prompt yang efektif" sudah ada di kursus.json dengan pelajaran 1, 2, 3, 4, dan 5 berstatus draf (E1 22 Nov; E2, E3, E4, dan E5 23 Nov). Modul 3 "Memakai AI dengan aman dan bertanggung jawab" sudah ada di kursus.json dengan pelajaran 1 dan 2 berstatus draf (F1 dan F2, 23 Nov) dan pelajaran 3 sampai 5 berstatus belum. Pelajaran 3 juga memuat latihan interaktif "pilih prompt yang lebih sesuai" (6 situasi fiktif, skor dan alasan per situasi, tanpa chatbot sungguhan; draf).
+Kurikulum: pakai AI dulu, baru pakai AI dengan aman. Level 1 Modul 1 "Kenalan dengan AI" sudah punya draf pelajaran 1, 2, 3, 4, dan 5. Modul 2 "Prompt yang efektif" sudah ada di kursus.json dengan pelajaran 1, 2, 3, 4, dan 5 berstatus draf (E1 22 Nov; E2, E3, E4, dan E5 23 Nov). Modul 3 "Memakai AI dengan aman dan bertanggung jawab" sudah ada di kursus.json dengan pelajaran 1, 2, dan 3 berstatus draf (F1, F2, dan F3, 23 Nov) dan pelajaran 4 dan 5 berstatus belum. Pelajaran 3 juga memuat latihan interaktif "pilih prompt yang lebih sesuai" (6 situasi fiktif, skor dan alasan per situasi, tanpa chatbot sungguhan; draf).
 
 ## 3. Pengguna dan monetisasi
 - Pengguna: pemula dewasa yang ingin memakai AI untuk tugas nyata. Pelajar 13–17 dengan persetujuan orang tua terverifikasi dan <13 ditolak; kapan dibuka belum diputuskan.
@@ -39,7 +39,7 @@ Kurikulum: pakai AI dulu, baru pakai AI dengan aman. Level 1 Modul 1 "Kenalan de
 | Landing dengan form waitlist | Ada di branch dev, tersambung ke Supabase neruvia-dev (pratinjau terlindungi login Vercel) |
 | Halaman terima kasih | Ada |
 | Ruang Belajar (pratinjau): galeri level, halaman pelajaran, soal cek pemahaman, XP, streak, badge, ekspor/impor progres; pelajaran berisi diberi penanda DRAF; tombol Mulai/Lanjutkan belajar di kartu level dan tautan Lanjut setelah menandai selesai (tidak berpindah sendiri) | Ada, noindex, belum ditautkan dari landing |
-| Pelajaran tertulis Level 1 | Modul 1: draf 5 dari 5. Modul 2: draf 5 dari 5. Modul 3: draf 2 dari 5 (pelajaran 1 dan 2) |
+| Pelajaran tertulis Level 1 | Modul 1: draf 5 dari 5. Modul 2: draf 5 dari 5. Modul 3: draf 3 dari 5 (pelajaran 1, 2, dan 3) |
 | Login, komentar, pembayaran | Belum. Dirancang aman lebih dulu sebagai draf |
 | Sertifikat, mode baca tenang, mode hemat data | Setelah MVP, belum diputuskan |
 

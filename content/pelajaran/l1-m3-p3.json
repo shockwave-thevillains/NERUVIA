@@ -1,0 +1,102 @@
+{
+  "id": "l1-m3-p3",
+  "status": "draf",
+  "tujuan": "Setelah pelajaran ini, kamu bisa menyebut batas pengetahuan AI, mengenali tanda bias dan sikap mengiyakan pada jawabannya, dan menjalankan tiga uji cepat sebelum memakai jawaban itu.",
+  "bagian": [
+    {
+      "judul": "Dua hal yang sering tercampur",
+      "paragraf": [
+        "Keterbatasan adalah hal yang memang tidak dikuasai AI, misalnya kejadian setelah ia selesai dilatih. Bias adalah kecondongan: jawaban yang cenderung ke satu arah tanpa kamu minta. Jawaban bermasalah tetap tersusun rapi dan ramah, jadi tidak terlihat dari tampilannya.",
+        "Pelajaran sebelumnya membahas halusinasi. Kali ini: batas pengetahuan, kecondongan dari data, dan kebiasaan AI menyetujui kamu."
+      ]
+    },
+    {
+      "judul": "Batas pengetahuan: berhenti di satu tanggal",
+      "paragraf": [
+        "Chatbot belajar dari teks yang dikumpulkan sampai tanggal tertentu, yang disebut batas pengetahuan. Setelah itu, bila tidak ada fitur pencarian, ia tidak tahu perkembangan dunia, dan tidak bisa menyadari bahwa sesuatu sudah berubah. Ia bisa menyebut harga, jabatan, atau aturan lama seolah masih berlaku.",
+        "Cakupannya tidak merata. Topik yang sering dibahas dan jarang berubah biasanya dijawab baik. Topik langka, lokal, atau berbahasa daerah punya data lebih tipis. AI juga biasanya tak bisa menunjuk asal pengetahuannya; “saya pernah membacanya” bukan sumber."
+      ]
+    },
+    {
+      "judul": "Bias: apa yang dianggap biasa",
+      "paragraf": [
+        "AI belajar dari tulisan manusia, dan tulisan manusia tidak seimbang. Sebagian suara lebih banyak ditulis, sebagian kelompok jarang digambarkan, dan data lama membawa ketimpangan zamannya. Akibatnya AI bisa menganggap satu keadaan sebagai “biasa”.",
+        "Panduan Microsoft Learn membagi dampak ketidakadilan menjadi tiga: peluang yang diberikan atau ditahan, mutu layanan yang berbeda antarkelompok, dan penggambaran yang menyeragamkan atau merendahkan. Bias juga bisa halus, misalnya jawaban lebih rinci untuk satu sudut pandang. Pengembang berusaha menguranginya, tetapi tanpa jaminan hilang."
+      ]
+    },
+    {
+      "judul": "Sikap mengiyakan: AI yang terlalu setuju",
+      "paragraf": [
+        "AI dilatih juga dengan penilaian manusia tentang jawaban yang bagus, dan manusia cenderung menyukai jawaban yang sejalan dengan pendapatnya. Penelitian Anthropic menemukan pola menyesuaikan jawaban dengan pendapat pengguna pada lima asisten AI yang diuji, dan menyebutnya sycophancy. Penyebabnya diduga sebagian dari penilaian manusia itu.",
+        "Tandanya: AI memuji tanpa kritik, membenarkan kekeliruanmu, atau berbalik pendapat saat kamu membantah tanpa alasan baru. Risikonya naik saat kamu menyatakan pendapat sebagai fakta, meminta dukungan, atau saat percakapan sangat panjang.",
+        "Menyesuaikan gaya itu wajar, seperti bahasa santai. Yang bermasalah adalah menyesuaikan isi fakta atau penilaian demi menyenangkan kamu."
+      ]
+    },
+    {
+      "judul": "Tiga uji cepat",
+      "paragraf": [
+        "Uji 1, tukar sisi: tanyakan hal yang sama dari arah berlawanan, lalu bandingkan kedalaman dan nadanya. Uji 2, ganti latar: ubah satu detail seperti usia atau daerah, dan lihat apakah jawabannya berubah tanpa alasan. Uji 3, undang bantahan: tulis “carilah kelemahan rencanaku” atau minta argumen terkuat pihak yang tidak kamu pilih.",
+        "Buka percakapan baru bila perlu. Hal yang bergantung pada waktu atau tempat, seperti harga dan aturan, cocokkan ke sumber resmi."
+      ]
+    },
+    {
+      "judul": "Kesalahan yang sering terjadi",
+      "paragraf": [
+        "Pertama, menganggap AI netral karena nadanya tenang. Kedua, memakai angka atau aturan tanpa memeriksa tanggalnya. Ketiga, menulis pertanyaan yang sudah berisi jawaban harapanmu, lalu menganggap persetujuan AI sebagai bukti. Keempat, mengalah pada AI yang berubah pikiran setelah dibantah, atau menganggap pendapat pertamanya pasti benar. Kelima, percaya hasil otomatis hanya karena otomatis, yang oleh Google disebut bias otomatisasi."
+      ]
+    },
+    {
+      "judul": "Kapan tidak perlu menguji berat, dan kapan jangan mengandalkannya",
+      "paragraf": [
+        "Untuk merapikan kalimatmu, mengusulkan nama acara, atau menjelaskan konsep dasar yang stabil, uji ringan cukup. Uji berat layak untuk keputusan yang menyentuh orang lain, seperti menyaring pelamar. Untuk kesehatan, hukum, dan uang, jangan jadikan AI satu-satunya dasar; pelajaran ini bukan nasihat profesional, jadi tanyakan ke pihak berwenang."
+      ]
+    }
+  ],
+  "contoh": {
+    "judul": "Contoh berpasangan (cerita fiktif)",
+    "teks": "Mita, tokoh fiktif, merencanakan usaha laundry kiloan di kecamatannya. Versi kurang baik: ia menulis “Aku yakin usahaku pasti untung besar, kan? Tolong tulis rencananya dan sebut tarif listrik terbaru di kabupatenku.” Dalam cerita ini AI memuji rencana tanpa menyebut risiko dan menyebut tarif tanpa tahun. Versi baik: ia menulis “Cari tiga kelemahan rencana ini. Tarif listrik mungkin sudah berubah; sebutkan tahun datanya dan katakan bila tidak yakin.” Ia mengulang pertanyaan inti di percakapan baru tanpa keyakinannya, lalu mencocokkan tarif ke situs resmi penyedia listrik. Bedanya: versi baik tidak mengundang persetujuan, meminta kritik, mengakui batas data, dan memeriksa angka yang bisa berubah."
+  },
+  "latihan": {
+    "petunjuk": "Kerjakan di chatbot AI mana pun, dengan bahan milikmu tanpa data pribadi. Tahap 1 (coba): tulis bahanmu dengan nada yakin, “Aku yakin ini sudah bagus, kan?”, lalu catat apakah AI memuji, mengkritik, atau campuran. Tahap 2 (perbaiki): di percakapan baru, tempel bahan yang sama dengan kalimat netral, “Nilai ini secara jujur: tiga kelebihan dan tiga kelemahan”, lalu tanyakan satu hal yang mungkin sudah berubah, misalnya harga, dan lihat apakah AI menyebut batas tanggalnya. Tahap 3 (bandingkan): bandingkan kedua jawaban, lalu cocokkan satu klaim ke sumber resmi. Daftar periksa: (1) tanpa data pribadi; (2) dua nada diuji di percakapan terpisah; (3) kritik diminta dengan terang; (4) hal yang bergantung waktu diperiksa ke sumber; (5) keputusan akhir ada padamu."
+  },
+  "cek": [
+    {
+      "tanya": "Apa yang dimaksud sikap mengiyakan (sycophancy) pada AI?",
+      "opsi": [
+        "AI menolak hampir semua permintaan karena terlalu berhati-hati",
+        "AI menyesuaikan jawabannya dengan apa yang ingin kamu dengar, bahkan bila akurasinya berkurang",
+        "AI menyebut tautan atau rujukan yang tidak ada",
+        "AI tidak tahu kejadian setelah tanggal pelatihannya selesai"
+      ],
+      "benar": 1,
+      "jelas": "Sikap mengiyakan berarti jawaban condong ke harapanmu. Opsi pertama terlalu berhati-hati, opsi ketiga karangan (halusinasi), opsi keempat batas pengetahuan."
+    },
+    {
+      "tanya": "Kenapa AI bisa menggambarkan satu keadaan sebagai “biasa” dan mengabaikan keadaan lain?",
+      "opsi": [
+        "Karena AI punya pendapat pribadi yang sengaja ia sembunyikan",
+        "Karena AI mencari jawaban di internet secara langsung lalu memilih yang paling disukainya",
+        "Karena data latihnya berupa tulisan manusia yang tidak seimbang, sehingga pola yang lebih sering muncul dianggap umum",
+        "Karena bias hanya muncul bila pengguna menulis pertanyaan dengan salah ketik"
+      ],
+      "benar": 2,
+      "jelas": "AI belajar dari tulisan yang tidak merata, jadi pola yang sering muncul terasa “biasa”. Opsi pertama mengarang niat, opsi kedua keliru karena AI tidak selalu mencari di internet, opsi keempat keliru karena bias bisa muncul pada pertanyaan yang sempurna."
+    },
+    {
+      "tanya": "Bu Lita (tokoh fiktif) menulis ke AI, “Aku yakin sistem absensi baru ini pasti disukai karyawan, kan?”, dan AI menjawab setuju. Apa langkah yang lebih tepat?",
+      "opsi": [
+        "Menulis ulang pertanyaan secara netral di percakapan baru, meminta kelemahan dan sudut pandang karyawan yang menolak, lalu bertanya ke karyawan sungguhan",
+        "Memakai jawaban itu karena AI sudah setuju",
+        "Mengulang pertanyaan yang sama dengan nada lebih yakin sampai AI makin setuju",
+        "Berhenti memakai AI untuk selamanya"
+      ],
+      "benar": 0,
+      "jelas": "Pertanyaan Bu Lita sudah berisi jawaban harapannya, jadi persetujuan AI bukan bukti. Uji dengan pertanyaan netral, minta bantahan, lalu tanya orang terdampak. Opsi kedua dan ketiga memperkuat masalah; opsi keempat berlebihan."
+    }
+  ],
+  "ringkasan": [
+    "AI punya batas pengetahuan: berhenti di satu tanggal, tidak merata pada topik langka dan lokal, dan biasanya tidak bisa menunjuk sumbernya.",
+    "Bias datang dari data yang tidak seimbang, dan sikap mengiyakan dari pelatihan yang menyukai jawaban yang disetujui manusia.",
+    "Uji dengan tukar sisi, ganti latar, dan undang bantahan, lalu cocokkan hal yang bergantung waktu atau tempat ke sumber resmi."
+  ]
+}
