@@ -1,4 +1,4 @@
-/* Admin NERUVIA, tahap 1: masuk lewat Supabase Auth (email + kata sandi) dan tampilkan ringkasan waitlist.
+/* Admin NERUVIA, tahap 1-2: masuk lewat Supabase Auth (email + kata sandi) dan tampilkan dashboard waitlist.
    Keamanan sebenarnya ada di server (RLS: hanya user_id di tabel admins yang boleh membaca waitlist).
    Halaman ini tidak memakai pustaka luar, tidak memakai innerHTML, dan hanya menyimpan token akses
    (tanpa refresh token dan tanpa kata sandi) di sessionStorage sampai tab ditutup atau token kedaluwarsa. */
@@ -12,6 +12,8 @@
 
   var form = $('f-masuk'), emailEl = $('a-email'), sandiEl = $('a-sandi'), kirim = $('a-kirim'), msg = $('a-msg');
   var secMasuk = $('masuk'), secPanel = $('panel'), pEmail = $('p-email'), pMsg = $('p-msg'), sTotal = $('s-total');
+  var sHari = $('s-hari'), sPekan = $('s-pekan'), cHari = $('c-hari'), lJalur = $('l-jalur'), tBaru = $('t-baru').tBodies[0], eMsg = $('e-msg'), bCsv = $('b-csv');
+  var NS = 'http://www.w3.org/2000/svg';
 
   var origin = '', apikey = '';
   var ep = window.NERUVIA_WAITLIST_ENDPOINT, hdr = window.NERUVIA_WAITLIST_HEADERS;
@@ -47,7 +49,8 @@
 
   function tampilMasuk(pesan, kelas) {
     secPanel.hidden = true; secMasuk.hidden = false;
-    pEmail.textContent = '—'; sTotal.textContent = '—'; say(pMsg, '');
+    pEmail.textContent = '—'; sTotal.textContent = '—'; sHari.textContent = '—'; sPekan.textContent = '—';
+    cHari.textContent = ''; lJalur.textContent = ''; tBaru.textContent = ''; say(pMsg, ''); say(eMsg, '');
     say(msg, pesan || '', kelas);
   }
   function keluarLokal(pesan, kelas) {
@@ -64,16 +67,135 @@
     timer = setTimeout(function () { keluarLokal('Sesi berakhir. Masuk lagi untuk melanjutkan.', ''); }, Math.max(1000, expAt - Date.now()));
   }
 
-  function muatRingkasan() {
-    say(pMsg, 'Memuat ringkasan…');
-    api('/rest/v1/waitlist?select=id&limit=1', { headers: { Prefer: 'count=exact' } }).then(function (r) {
-      if (r.status === 401) return keluarLokal('Sesi berakhir. Masuk lagi untuk melanjutkan.', '');
+  /* ---------- dashboard waitlist (tahap 2) ----------
+     Semua angka datang dari server lewat view security invoker, jadi RLS tetap berlaku.
+     Isi sel selalu lewat textContent atau atribut SVG; tidak ada innerHTML. */
+  function svg(nama, atr, teks) {
+    var e = d.createElementNS(NS, nama);
+    for (var k in atr) if (Object.prototype.hasOwnProperty.call(atr, k)) e.setAttribute(k, atr[k]);
+    if (teks != null) e.textContent = teks;
+    return e;
+  }
+  function tglWib(mundur) { return new Date(Date.now() + 7 * 3600000 - mundur * 86400000).toISOString().slice(0, 10); }
+  function waktuWib(iso) {
+    var t = Date.parse(iso); if (isNaN(t)) return '—';
+    return new Date(t + 7 * 3600000).toISOString().slice(0, 16).replace('T', ' ');
+  }
+  function samar(em) {
+    var m = /^([^@]{1,200})@([^@]{1,200})$/.exec(typeof em === 'string' ? em : '');
+    return m ? m[1].charAt(0) + '***@' + m[2] : '—';
+  }
+  function ambil(path, opt) {
+    return api(path, opt).then(function (r) {
+      if (r.status === 401) { keluarLokal('Sesi berakhir. Masuk lagi untuk melanjutkan.', ''); throw { dihentikan: true }; }
       if (!r.ok) throw 0;
+      return r;
+    });
+  }
+  function ambilJson(path) { return ambil(path).then(function (r) { return r.json(); }); }
+  function jumlahOk(x) { return typeof x === 'number' && isFinite(x) && x >= 0 && Math.floor(x) === x && x < 1e9; }
+
+  function gambarHari(petaHari) {
+    var n = 14, W = 560, H = 176, alas = 142, tinggi = 112, slot = W / n, lebar = 26, nilai = [], tanggal = [], maks = 1, jumlah = 0, i;
+    for (i = n - 1; i >= 0; i--) { var tg = tglWib(i), v = petaHari[tg] || 0; tanggal.push(tg); nilai.push(v); jumlah += v; if (v > maks) maks = v; }
+    var g = svg('svg', { viewBox: '0 0 ' + W + ' ' + H, role: 'img', 'aria-label': 'Grafik batang pendaftar per hari, 14 hari terakhir. Total ' + jumlah + ', hari ini ' + nilai[n - 1] + '.' });
+    for (i = 0; i < n; i++) {
+      var x = i * slot + (slot - lebar) / 2, h = nilai[i] ? Math.max(3, nilai[i] / maks * tinggi) : 2;
+      g.appendChild(svg('rect', { x: x, y: alas - h, width: lebar, height: h, rx: 3, 'class': nilai[i] ? (i === n - 1 ? 'bar ini' : 'bar') : 'nol' }));
+      if (nilai[i]) g.appendChild(svg('text', { x: x + lebar / 2, y: alas - h - 6, 'text-anchor': 'middle' }, String(nilai[i])));
+      g.appendChild(svg('text', { x: x + lebar / 2, y: alas + 18, 'text-anchor': 'middle', 'class': 'tgl' }, tanggal[i].slice(8)));
+    }
+    cHari.textContent = ''; cHari.appendChild(g);
+    return nilai;
+  }
+  function gambarJalur(baris) {
+    var total = 0; baris.forEach(function (b) { total += b.jumlah; });
+    lJalur.textContent = '';
+    if (!baris.length) { var k = d.createElement('li'); k.textContent = 'Belum ada pendaftar.'; lJalur.appendChild(k); return; }
+    baris.forEach(function (b) {
+      var li = d.createElement('li'), nm = d.createElement('span'), n = d.createElement('b');
+      nm.textContent = b.jalur; n.textContent = String(b.jumlah);
+      var g = svg('svg', { viewBox: '0 0 100 10', preserveAspectRatio: 'none', 'aria-hidden': 'true' });
+      g.appendChild(svg('rect', { 'class': 'bg', x: 0, y: 0, width: 100, height: 10 }));
+      g.appendChild(svg('rect', { 'class': 'fg', x: 0, y: 0, width: Math.max(2, b.jumlah / Math.max(1, total) * 100), height: 10 }));
+      li.appendChild(nm); li.appendChild(g); li.appendChild(n); lJalur.appendChild(li);
+    });
+  }
+  function gambarBaru(baris) {
+    tBaru.textContent = '';
+    if (!baris.length) {
+      var tr0 = d.createElement('tr'), td0 = d.createElement('td'); td0.colSpan = 4; td0.className = 'kosong'; td0.textContent = 'Belum ada pendaftar.';
+      tr0.appendChild(td0); tBaru.appendChild(tr0); return;
+    }
+    baris.forEach(function (b) {
+      var tr = d.createElement('tr');
+      [waktuWib(b.created_at), typeof b.name === 'string' && b.name ? b.name.slice(0, 80) : '—', samar(b.email), typeof b.jalur === 'string' ? b.jalur.slice(0, 60) : '—'].forEach(function (t) {
+        var td = d.createElement('td'); td.textContent = t; tr.appendChild(td);
+      });
+      tBaru.appendChild(tr);
+    });
+  }
+
+  function muatDashboard() {
+    var gagal = 0, tersisa = 4;
+    function selesai() { if (--tersisa === 0 && !secPanel.hidden) say(pMsg, gagal ? 'Sebagian data gagal dimuat. Muat ulang halaman, lalu coba lagi.' : '', gagal ? 'err' : ''); }
+    function galat(e) { if (!(e && e.dihentikan)) gagal++; }
+    say(pMsg, 'Memuat dashboard…');
+
+    ambil('/rest/v1/waitlist?select=id&limit=1', { headers: { Prefer: 'count=exact' } }).then(function (r) {
       var cr = /\/(\d{1,9})$/.exec(r.headers.get('content-range') || '');
       if (!cr) throw 0;                       /* jangan tampilkan 0 bila jumlah tidak terbaca */
-      sTotal.textContent = cr[1]; say(pMsg, '');
-    }).catch(function () { sTotal.textContent = '—'; say(pMsg, 'Ringkasan gagal dimuat. Muat ulang halaman, lalu coba lagi.', 'err'); });
+      sTotal.textContent = cr[1];
+    }).catch(function (e) { sTotal.textContent = '—'; galat(e); }).then(selesai);
+
+    ambilJson('/rest/v1/waitlist_per_hari?select=hari,jumlah&order=hari.desc&limit=60').then(function (baris) {
+      if (!Array.isArray(baris)) throw 0;
+      var peta = {};
+      baris.forEach(function (b) { if (b && typeof b.hari === 'string' && /^\d{4}-\d\d-\d\d$/.test(b.hari) && jumlahOk(b.jumlah)) peta[b.hari] = b.jumlah; });
+      var nilai = gambarHari(peta), pekan = 0;
+      for (var i = nilai.length - 7; i < nilai.length; i++) pekan += nilai[i];
+      sHari.textContent = String(nilai[nilai.length - 1]); sPekan.textContent = String(pekan);
+    }).catch(function (e) { sHari.textContent = '—'; sPekan.textContent = '—'; cHari.textContent = ''; galat(e); }).then(selesai);
+
+    ambilJson('/rest/v1/waitlist_per_jalur?select=jalur,jumlah&order=jumlah.desc').then(function (baris) {
+      if (!Array.isArray(baris)) throw 0;
+      gambarJalur(baris.filter(function (b) { return b && typeof b.jalur === 'string' && jumlahOk(b.jumlah); }).map(function (b) { return { jalur: b.jalur.slice(0, 60), jumlah: b.jumlah }; }));
+    }).catch(function (e) { lJalur.textContent = ''; galat(e); }).then(selesai);
+
+    ambilJson('/rest/v1/waitlist?select=created_at,name,email,jalur&order=created_at.desc&limit=10').then(function (baris) {
+      if (!Array.isArray(baris)) throw 0;
+      gambarBaru(baris.filter(function (b) { return b && typeof b === 'object'; }));
+    }).catch(function (e) { tBaru.textContent = ''; galat(e); }).then(selesai);
   }
+
+  /* ---------- ekspor CSV aman rumus ---------- */
+  function selCsv(v) {
+    var t = v == null ? '' : String(v);
+    if (/^[\t\r\n ]*[=+\-@]/.test(t) || /^[\t\r]/.test(t)) t = "'" + t;      /* cegah injeksi rumus di Excel/Sheets */
+    return '"' + t.replace(/"/g, '""') + '"';
+  }
+  function unduhCsv() {
+    var HAL = 1000, MAKS = 20, rows = ['"waktu_utc","nama","email","level"'], hal = 0;
+    bCsv.disabled = true; say(eMsg, 'Menyiapkan CSV…');
+    function berikut() {
+      return ambilJson('/rest/v1/waitlist?select=created_at,name,email,jalur&order=created_at.asc,id.asc&limit=' + HAL + '&offset=' + (hal * HAL)).then(function (baris) {
+        if (!Array.isArray(baris)) throw 0;
+        baris.forEach(function (b) { rows.push([selCsv(b.created_at), selCsv(b.name), selCsv(b.email), selCsv(b.jalur)].join(',')); });
+        hal++;
+        if (baris.length === HAL && hal < MAKS) return berikut();
+        return baris.length === HAL;       /* true bila terpotong di batas */
+      });
+    }
+    berikut().then(function (terpotong) {
+      var blob = new Blob(['﻿' + rows.join('\r\n') + '\r\n'], { type: 'text/csv;charset=utf-8' });
+      var url = URL.createObjectURL(blob), a = d.createElement('a');
+      a.href = url; a.download = 'waitlist-neruvia-' + tglWib(0) + '.csv'; a.rel = 'noopener'; d.body.appendChild(a); a.click(); d.body.removeChild(a);
+      setTimeout(function () { URL.revokeObjectURL(url); }, 1000);
+      say(eMsg, (rows.length - 1) + ' baris diunduh.' + (terpotong ? ' Dibatasi ' + (HAL * MAKS) + ' baris.' : ''), 'ok');
+    }).catch(function (e) { if (!(e && e.dihentikan)) say(eMsg, 'CSV gagal dibuat. Coba lagi.', 'err'); })
+      .then(function () { bCsv.disabled = false; });
+  }
+  bCsv.addEventListener('click', unduhCsv);
 
   /* Boleh masuk panel hanya bila server mengizinkan membaca baris sendiri di tabel admins. */
   function cekAdmin(email) {
@@ -83,7 +205,7 @@
       return r.json().then(function (rows) {
         if (!Array.isArray(rows) || rows.length !== 1) { keluar('Akun ini tidak terdaftar sebagai admin.'); return; }
         secMasuk.hidden = true; secPanel.hidden = false; say(msg, '');
-        pEmail.textContent = email || '—'; jadwalKedaluwarsa(); muatRingkasan(); $('h-panel').setAttribute('tabindex', '-1'); $('h-panel').focus();
+        pEmail.textContent = email || '—'; jadwalKedaluwarsa(); muatDashboard(); $('h-panel').setAttribute('tabindex', '-1'); $('h-panel').focus();
       });
     }).catch(function () { keluarLokal('Gagal memeriksa akses. Coba lagi.', 'err'); });
   }

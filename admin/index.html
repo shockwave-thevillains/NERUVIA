@@ -43,10 +43,38 @@
     </div>
     <section class="stats" aria-label="Ringkasan waitlist">
       <div class="stat"><b id="s-total">—</b><span>total pendaftar waitlist</span></div>
+      <div class="stat"><b id="s-hari">—</b><span>pendaftar hari ini (WIB)</span></div>
+      <div class="stat"><b id="s-pekan">—</b><span>pendaftar 7 hari terakhir</span></div>
     </section>
     <p class="msg" id="p-msg" role="status" aria-live="polite"></p>
+
+    <section class="blok" aria-labelledby="h-hari">
+      <h2 id="h-hari">Pendaftar per hari</h2>
+      <p class="sub">14 hari terakhir, menurut tanggal WIB. Batang cyan adalah hari ini.</p>
+      <div id="c-hari" class="chart"></div>
+    </section>
+
+    <section class="blok" aria-labelledby="h-jalur">
+      <h2 id="h-jalur">Pendaftar per level</h2>
+      <p class="sub">Level yang dipilih saat mendaftar.</p>
+      <ul id="l-jalur" class="rows"></ul>
+    </section>
+
+    <section class="blok" aria-labelledby="h-baru">
+      <div class="head">
+        <div><h2 id="h-baru">Pendaftar terbaru</h2><p class="sub">10 terakhir, email disamarkan.</p></div>
+        <button type="button" class="f" id="b-csv">Unduh semua (CSV)</button>
+      </div>
+      <div class="tw"><table id="t-baru">
+        <caption class="sr">Sepuluh pendaftar waitlist terbaru</caption>
+        <thead><tr><th scope="col">Waktu (WIB)</th><th scope="col">Nama</th><th scope="col">Email</th><th scope="col">Level</th></tr></thead>
+        <tbody></tbody>
+      </table></div>
+      <p class="msg" id="e-msg" role="status" aria-live="polite"></p>
+      <p class="note">CSV memuat nama dan email lengkap. Perlakukan sebagai data pribadi: simpan seperlunya, jangan dibagikan, dan hapus bila sudah tidak dipakai. Sel yang diawali = + - @ diberi tanda petik agar tidak dibaca sebagai rumus.</p>
+    </section>
+
     <section class="next" aria-label="Tahap berikutnya">
-      <div class="soon"><h2>Pendaftar per hari dan per level</h2><p>Tahap 2. Grafik dari data waitlist.</p></div>
       <div class="soon"><h2>Penjualan</h2><p>Menunggu metode pembayaran dan harga ditetapkan.</p></div>
       <div class="soon"><h2>Pelajaran dan video</h2><p>Tahap 3. Editor pelajaran dan unggah video ke penyimpanan.</p></div>
     </section>

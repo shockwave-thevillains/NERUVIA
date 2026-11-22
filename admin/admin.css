@@ -1,21 +1,45 @@
 [hidden]{display:none!important}
+.sr{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
 .login{margin-top:32px;max-width:420px;display:grid;gap:10px;background:var(--card);border:1px solid var(--line);border-radius:24px;padding:26px}
 .login label{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
-.login input{height:48px;border-radius:12px;border:1px solid var(--line);background:var(--ink);color:#fff;padding:0 14px;font:400 16px var(--f-main)}
-.login input:focus-visible{outline:2px solid var(--cyan);outline-offset:2px;border-color:var(--cyan)}
-.f{cursor:pointer;font:500 15px var(--f-main);height:44px;padding:0 18px;border-radius:999px;border:1px solid var(--line);background:transparent;color:#fff}
-.f:hover{border-color:#fff}
-.f.solid{margin-top:8px;background:#fff;color:var(--ink);border-color:#fff}
+.login input{height:48px;border-radius:12px;border:1px solid var(--line);background:#fff;color:var(--ink);padding:0 14px;font:400 16px var(--f-main)}
+.login input:focus-visible{outline:3px solid var(--ink);outline-offset:2px;border-color:var(--ink)}
+.f{cursor:pointer;font:500 15px var(--f-main);height:44px;padding:0 18px;border-radius:999px;border:1px solid var(--line);background:#fff;color:var(--ink)}
+.f:hover{border-color:var(--ink)}
+.f:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
+.f.solid{margin-top:8px;background:var(--ink);color:#fff;border-color:var(--ink)}
 .f[disabled]{opacity:.55;cursor:not-allowed}
 .msg{min-height:22px;font-size:15px;color:var(--muted)}
 .msg.err{color:var(--bad)}
 .msg.ok{color:var(--ok)}
 .head{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap}
-.stats{margin:32px 0 8px;display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
+.stats{margin:32px 0 8px;display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px}
 .stat{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:18px 20px}
-.stat b{display:block;font-family:var(--f-pixel);font-size:clamp(22px,3vw,32px);font-weight:400;color:var(--cyan);line-height:1.2}
+.stat b{display:block;font-family:var(--f-pixel);font-size:clamp(22px,3vw,32px);font-weight:400;color:var(--ink);line-height:1.2}
 .stat span{font-size:14px;color:var(--muted)}
+.blok{margin-top:28px;background:var(--card);border:1px solid var(--line);border-radius:24px;padding:22px}
+.blok h2{font-size:20px;line-height:1.25;letter-spacing:-.01em}
+.sub{font-size:14px;color:var(--muted);margin-top:2px}
+.chart{margin-top:14px}
+.chart svg{display:block;width:100%;height:auto}
+.chart .bar{fill:var(--ink)}
+.chart .bar.ini{fill:var(--cyan);stroke:var(--ink);stroke-width:1}
+.chart .nol{fill:var(--line)}
+.chart text{font:400 16px var(--f-mono);fill:var(--ink)}
+.chart text.tgl{fill:var(--muted)}
+.rows{list-style:none;margin:14px 0 0;padding:0;display:grid;gap:10px}
+.rows li{display:grid;grid-template-columns:minmax(110px,180px) 1fr auto;gap:12px;align-items:center;font-size:15px}
+.rows svg{display:block;width:100%;height:10px}
+.rows .bg{fill:#fff;stroke:var(--line)}
+.rows .fg{fill:var(--ink)}
+.rows b{font-family:var(--f-mono);font-weight:700;min-width:2ch;text-align:right}
+.tw{margin-top:14px;overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th,td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--line);white-space:nowrap}
+th{font-family:var(--f-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:400}
+td.kosong{color:var(--muted);white-space:normal}
 .next{margin-top:28px;display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}
-.soon{border:1px dashed var(--line);border-radius:20px;padding:18px 20px;opacity:.8}
+.soon{border:1px dashed var(--line);border-radius:20px;padding:18px 20px}
 .soon h2{font-size:18px;line-height:1.25;letter-spacing:-.01em;margin-bottom:6px}
 .soon p{font-size:14px;color:var(--muted)}
+@media (max-width:520px){.rows li{grid-template-columns:1fr auto}.rows svg{grid-column:1/-1;grid-row:2}}

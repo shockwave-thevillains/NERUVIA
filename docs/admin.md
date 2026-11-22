@@ -1,4 +1,4 @@
-# Admin NERUVIA (tahap 1 dari 3, build dev saja)
+# Admin NERUVIA (tahap 2 dari 3, build dev saja)
 
 Tujuan: satu tempat untuk memantau pendaftar (dan kelak penjualan) serta memasukkan pelajaran dan video baru tanpa menyunting berkas di repo. Situs tetap statis; keamanan ada di Supabase (Auth + RLS), bukan di halaman.
 
@@ -6,7 +6,7 @@ Tujuan: satu tempat untuk memantau pendaftar (dan kelak penjualan) serta memasuk
 | Tahap | Isi | Status |
 |---|---|---|
 | 1 | Skema admin, halaman `admin/` (masuk, keluar, total pendaftar), CSP | Halaman selesai. SQL diterapkan ke `neruvia-dev` 22 Nov 2026 (migrasi `admin_tahap1`); uji RLS lulus. Tinggal membuat akun admin (langkah 2-3 di bawah) dan login sungguhan |
-| 2 | Dashboard waitlist: pendaftar per hari, per level, daftar terbaru dengan email disamarkan, ekspor CSV aman rumus | belum |
+| 2 | Dashboard waitlist: total, hari ini, 7 hari terakhir, grafik 14 hari (WIB), pendaftar per level, 10 pendaftar terbaru dengan email disamarkan, ekspor CSV aman rumus | Selesai. View `waitlist_per_hari` dan `waitlist_per_jalur` (security invoker) diterapkan ke `neruvia-dev` 22 Nov 2026 (`supabase/admin/002-dashboard.sql`) |
 | 3 | Editor pelajaran (teks + soal, divalidasi seperti `validasi-kursus.mjs`, simpan sebagai draf) dan unggah video ke Supabase Storage | belum |
 
 Penjualan menunggu metode pembayaran dan harga yang belum diputuskan; dashboard-nya dirancang setelah itu.
@@ -26,8 +26,14 @@ Penjualan menunggu metode pembayaran dan harga yang belum diputuskan; dashboard-
 4. Buka `/admin/` di build dev dan masuk.
 5. Disarankan: matikan pendaftaran akun baru (Authentication, sakelar signup) dan aktifkan MFA TOTP untuk akun admin; tahap berikutnya akan menuntut AAL2 bila MFA aktif.
 
+## Dashboard (tahap 2)
+- Angka total, per hari, dan per level datang dari dua view `security_invoker` yang hanya memuat agregat. RLS tabel `waitlist` tetap berlaku: admin melihat angka sebenarnya, akun login lain melihat 0 baris, `anon` ditolak (tanpa hak select). Diuji di Supabase asli dalam transaksi yang dibatalkan.
+- Daftar terbaru memakai tabel `waitlist` langsung (10 baris). Email hanya tampil disamarkan (`a***@domain`); nama dan semua isi sel lewat `textContent`. Grafik dibuat dari elemen SVG, tanpa `innerHTML` dan tanpa atribut `style`, jadi CSP `/admin/` tetap tanpa hash.
+- Ekspor CSV mengambil 1000 baris per permintaan (batas 20.000 baris), memakai BOM UTF-8 agar Excel membaca aksara dengan benar, dan memberi tanda petik di depan sel yang diawali `=`, `+`, `-`, atau `@` (termasuk setelah spasi atau tab) supaya tidak dibaca sebagai rumus. CSV memuat nama dan email lengkap: perlakukan sebagai data pribadi.
+- Tanggal "hari ini" dan batang grafik memakai tanggal WIB (UTC+7), sama dengan pengelompokan di view.
+
 ## Uji
-`node tools/uji-header-csp.mjs` mencakup `/admin/` dengan Supabase tiruan (sandi salah dan kunci, admin sah, pulih setelah muat ulang, keluar, akun non-admin ditolak dan token dicabut, 401 mengakhiri sesi, email berisi HTML tampil sebagai teks, tanpa pelanggaran CSP). Kebijakan RLS asli harus diuji di SQL setelah skema diterapkan (lihat bagian Uji RLS di PERLU-KEPUTUSAN butir 11).
+`node tools/uji-header-csp.mjs` mencakup `/admin/` dengan Supabase tiruan (sandi salah dan kunci, admin sah, dashboard dan CSV aman rumus, kegagalan sebagian data, pulih setelah muat ulang, keluar, akun non-admin ditolak dan token dicabut, 401 mengakhiri sesi, email berisi HTML tampil sebagai teks, tanpa pelanggaran CSP). Kebijakan RLS asli harus diuji di SQL setelah skema diterapkan (lihat bagian Uji RLS di PERLU-KEPUTUSAN butir 11).
 
 ## Hasil uji RLS di Supabase asli (22 Nov 2026)
 Dijalankan sebagai transaksi yang dibatalkan dengan `set local role` dan `request.jwt.claims`; tidak ada baris tersisa. Advisor keamanan: tanpa temuan.

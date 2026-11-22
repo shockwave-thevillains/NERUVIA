@@ -122,14 +122,29 @@ if (chromium) {
   {
     const b64 = (o) => Buffer.from(JSON.stringify(o)).toString('base64url');
     const jwt = (email) => b64({ alg: 'HS256', typ: 'JWT' }) + '.' + b64({ email, sub: 'u1', exp: 9999999999 }) + '.' + 'c2lnbmF0dXJlLXRpZGFrLW5ueXRh';
-    const skenario = async (nama, { email, sandiBenar = 'rahasia-benar', admin = true, admins401 = false }) => {
+    const hariIni = new Date(Date.now() + 7 * 3600000).toISOString().slice(0, 10);
+    const contoh = [
+      { created_at: hariIni + 'T03:04:05+00:00', name: '=HYPERLINK("http://contoh.invalid","klik")', email: 'andi@example.com', jalur: 'AI dari Nol' },
+      { created_at: hariIni + 'T01:00:00+00:00', name: '<b>Tebal</b> "Siti", Ayu', email: '+x@example.com', jalur: 'AI untuk Kerja' },
+      { created_at: '2026-11-01T00:00:00+00:00', name: '@sum', email: 'dewi.lestari@example.co.id', jalur: '-1+1' },
+    ];
+    const csvHal = [];
+    const skenario = async (nama, { email, sandiBenar = 'rahasia-benar', admin = true, admins401 = false, jalur500 = false }) => {
       const page = await ctx.newPage(); const log = { csp: [], err: [] }; kumpul(page, log); let logout = 0;
       await page.route('https://*.supabase.co/**', (r) => {
         const u = new URL(r.request().url()), m = r.request().method();
         if (u.pathname === '/auth/v1/token') { const bd = JSON.parse(r.request().postData() || '{}'); return bd.password === sandiBenar ? r.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify({ access_token: jwt(email), expires_in: 3600, user: { email } }) }) : r.fulfill({ status: 400, contentType: 'application/json', body: '{"error":"invalid_grant"}' }); }
         if (u.pathname === '/auth/v1/logout') { logout++; return r.fulfill({ status: 204, body: '' }); }
         if (u.pathname === '/rest/v1/admins') return admins401 ? r.fulfill({ status: 401, body: '{}' }) : r.fulfill({ status: 200, contentType: 'application/json', body: admin ? '[{"user_id":"u1"}]' : '[]' });
-        if (u.pathname === '/rest/v1/waitlist') return r.fulfill({ status: 200, contentType: 'application/json', headers: { 'content-range': '0-0/42', 'access-control-expose-headers': 'Content-Range' }, body: '[]' });
+        const jsonOk = (x, h = {}) => r.fulfill({ status: 200, contentType: 'application/json', headers: h, body: JSON.stringify(x) });
+        if (u.pathname === '/rest/v1/waitlist_per_hari') return jsonOk([{ hari: hariIni, jumlah: 3 }, { hari: new Date(Date.parse(hariIni) - 86400000).toISOString().slice(0, 10), jumlah: 2 }, { hari: '1999-01-01', jumlah: 7 }, { hari: 'ngawur', jumlah: 1 }]);
+        if (u.pathname === '/rest/v1/waitlist_per_jalur') return jalur500 ? r.fulfill({ status: 500, body: '{}' }) : jsonOk([{ jalur: 'AI dari Nol', jumlah: 4 }, { jalur: '<img src=x onerror=window.__xss=2>', jumlah: 1 }]);
+        if (u.pathname === '/rest/v1/waitlist') {
+          const sel = u.searchParams.get('select') || '';
+          if (sel === 'id') return jsonOk([], { 'content-range': '0-0/42', 'access-control-expose-headers': 'Content-Range' });
+          if (u.searchParams.get('limit') === '1000') { csvHal.push(u.searchParams.get('offset')); return jsonOk(u.searchParams.get('offset') === '0' ? contoh : []); }
+          return jsonOk(contoh);
+        }
         return r.fulfill({ status: 404, body: '' });
       });
       await page.goto(a.base + '/admin/', { waitUntil: 'networkidle' });
@@ -157,6 +172,30 @@ if (chromium) {
     cek(await t.page.locator('#masuk').isVisible() && await t.page.locator('#panel').isHidden() && t.logout() === 1, 'admin: keluar harus kembali ke form dan memanggil logout');
     cek((await t.page.evaluate(() => sessionStorage.length)) === 0, 'admin: sessionStorage harus kosong setelah keluar');
     cek(t.log.csp.length === 0 && t.log.err.length === 0, 'admin: CSP/galat pada alur sah ' + t.log.csp.concat(t.log.err).join('|')); await t.page.close();
+    /* dashboard: angka, grafik, tabel, ekspor CSV aman rumus */
+    t = await skenario('dashboard', { email: 'admin@example.com' });
+    await masuk(t.page, 'admin@example.com', 'rahasia-benar');
+    cek((await t.page.innerText('#s-hari')) === '3' && (await t.page.innerText('#s-pekan')) === '5', 'dashboard: hari ini harus 3 dan 7 hari terakhir 5 (data di luar jendela dan tanggal rusak diabaikan)');
+    cek((await t.page.locator('#c-hari svg rect').count()) === 14 && (await t.page.locator('#c-hari svg rect.ini').count()) === 1, 'dashboard: grafik harus 14 batang dan satu batang hari ini');
+    cek((await t.page.locator('#l-jalur li').count()) === 2 && (await t.page.innerText('#l-jalur li:first-child')).includes('AI dari Nol'), 'dashboard: dua baris level harus tampil');
+    cek((await t.page.locator('#l-jalur img, #t-baru img, #t-baru b').count()) === 0 && !(await t.page.evaluate(() => window.__xss)), 'dashboard: HTML di data harus tampil sebagai teks');
+    const baris = await t.page.locator('#t-baru tbody tr').allInnerTexts();
+    cek(baris.length === 3 && baris[0].includes('a***@example.com') && !baris.join('').includes('andi@') && baris[2].includes('d***@example.co.id'), 'dashboard: tiga baris terbaru dengan email disamarkan ' + JSON.stringify(baris));
+    cek(/^\d{4}-\d\d-\d\d \d\d:\d\d/.test(baris[0]) && baris[0].includes(hariIni), 'dashboard: waktu harus dalam WIB');
+    cek((await t.page.locator('#p-msg').innerText()) === '', 'dashboard: tanpa pesan galat saat semua data termuat');
+    const [unduh] = await Promise.all([t.page.waitForEvent('download'), t.page.click('#b-csv')]);
+    const teksCsv = readFileSync(await unduh.path(), 'utf8');
+    cek(/^waitlist-neruvia-\d{4}-\d\d-\d\d\.csv$/.test(unduh.suggestedFilename()), 'csv: nama berkas ' + unduh.suggestedFilename());
+    cek(teksCsv.startsWith('\ufeff"waktu_utc","nama","email","level"'), 'csv: BOM dan header harus ada');
+    cek(teksCsv.includes('"\'=HYPERLINK(""http://contoh.invalid"",""klik"")"') && teksCsv.includes('"\'+x@example.com"') && teksCsv.includes('"\'@sum"') && teksCsv.includes('"\'-1+1"'), 'csv: sel berawalan = + - @ harus diberi tanda petik ' + teksCsv);
+    cek(teksCsv.includes('"<b>Tebal</b> ""Siti"", Ayu"'), 'csv: tanda petik dan koma harus di-escape');
+    cek(teksCsv.split('\r\n').filter(Boolean).length === 4 && csvHal[0] === '0', 'csv: empat baris (header + 3) dan halaman dimulai dari offset 0');
+    cek(/3 baris diunduh/.test(await t.page.innerText('#e-msg')), 'csv: pesan jumlah baris');
+    cek(t.log.csp.length === 0 && t.log.err.length === 0, 'dashboard: CSP/galat ' + t.log.csp.concat(t.log.err).join('|')); await t.page.close();
+    /* sebagian data gagal: tidak boleh menampilkan angka palsu */
+    t = await skenario('dashboard-gagal', { email: 'admin@example.com', jalur500: true });
+    await masuk(t.page, 'admin@example.com', 'rahasia-benar');
+    cek(/Sebagian data gagal/.test(await t.page.innerText('#p-msg')) && (await t.page.locator('#l-jalur li').count()) === 0 && (await t.page.innerText('#s-total')) === '42', 'dashboard: kegagalan satu bagian harus dilaporkan tanpa merusak bagian lain'); await t.page.close();
     /* akun biasa (bukan admin) */
     t = await skenario('biasa', { email: 'orang@example.com', admin: false });
     await masuk(t.page, 'orang@example.com', 'rahasia-benar');
