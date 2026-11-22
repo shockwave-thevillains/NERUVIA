@@ -1,6 +1,6 @@
 # Runbook loop NERUVIA
 
-Tujuan: menyelesaikan web NERUVIA (fitur daftar dan galeri belajar) lewat run terjadwal. Satu run mengerjakan TEPAT SATU kegiatan. Lima tugas terjadwal berjalan berselang 50 menit sehingga satu jendela batas 5 jam berisi 5 kegiatan, masing-masing di sesi sendiri.
+Tujuan: menyelesaikan web NERUVIA (fitur daftar dan galeri belajar) lewat run terjadwal. Mulai 22 Nov (permintaan Master) satu run mengerjakan sampai DUA kegiatan berurutan: tiap kegiatan diklaim sendiri, lulus gerbang sendiri, memakai satu commit dan satu push. Kegiatan kedua hanya dikerjakan bila kegiatan pertama selesai dan lulus gerbang; bila gagal atau ragu, berhenti setelah kegiatan pertama. Lima tugas terjadwal berjalan berselang 50 menit, masing-masing di sesi sendiri, sehingga satu jendela memuat hingga 10 kegiatan.
 
 ## Jadwal
 Lima tugas terjadwal ("NERUVIA loop web 1" sampai "5") berjalan tiap hari di empat jendela: awal 00:45, 06:45, 12:45, 18:45 WIB. Slot 1 mulai di menit 0 jendela, slot 2 di +50, slot 3 di +100, slot 4 di +150, slot 5 di +200 menit. Mulai 28 Nov hanya dua jendela (00:45 dan 06:45). Run yang mulai sebelum Min 22 Nov 2026 00:30 WIB atau di luar jendela yang berlaku harus berhenti dengan satu kalimat tanpa mengerjakan apa pun.
