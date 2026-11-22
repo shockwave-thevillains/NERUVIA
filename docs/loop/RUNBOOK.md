@@ -3,7 +3,7 @@
 Tujuan: menyelesaikan web NERUVIA (fitur daftar dan galeri belajar) lewat run terjadwal. Satu run mengerjakan TEPAT SATU kegiatan. Lima tugas terjadwal berjalan berselang 50 menit sehingga satu jendela batas 5 jam berisi 5 kegiatan, masing-masing di sesi sendiri.
 
 ## Jadwal
-Lima tugas terjadwal ("NERUVIA loop web 1" sampai "5") berjalan tiap hari di empat jendela: awal 00:45, 06:45, 12:45, 18:45 WIB. Slot 1 mulai di menit 0 jendela, slot 2 di +50, slot 3 di +100, slot 4 di +150, slot 5 di +200 menit. Mulai 28 Nov hanya dua jendela (00:45 dan 06:45). Run yang mulai sebelum Min 22 Nov 2026 00:30 WIB atau di luar jendela yang berlaku harus berhenti dengan satu kalimat tanpa mengerjakan apa pun.
+Lima tugas terjadwal ("NERUVIA loop web 1" sampai "5") berjalan tiap hari di empat jendela: awal 00:30, 06:30, 12:30, 18:30 WIB (dimajukan 15 menit pada 22 Nov atas permintaan Master; slot 4 berjalan di menit :59 jam sebelumnya). Slot 1 mulai di menit 0 jendela, slot 2 di +50, slot 3 di +100, slot 4 di +150, slot 5 di +200 menit. Mulai 28 Nov hanya dua jendela (00:45 dan 06:45; jadwal itu mengembalikan menit lama). Run yang mulai sebelum Min 22 Nov 2026 00:30 WIB atau di luar jendela yang berlaku harus berhenti dengan satu kalimat tanpa mengerjakan apa pun.
 
 ## Mulai run
 1. Buka repo `shockwave-thevillains/NERUVIA`, branch `dev`. Clone bila folder kerja belum ada, lalu `git pull origin dev`.
