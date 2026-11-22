@@ -19,6 +19,10 @@
 .f:hover{border-color:var(--ink)}
 .f[aria-pressed=true]{background:var(--ink);color:#fff;border-color:var(--ink)}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:16px;align-items:start}
+/* Ruang kosong dipesan selama daftar level dimuat supaya bagian di bawahnya tidak melompat (CLS). Nilai = tinggi terkecil hasil ukur pada tiap jumlah kolom. */
+.grid[aria-busy="true"]{min-height:940px}
+@media(min-width:641px){.grid[aria-busy="true"]{min-height:690px}}
+@media(min-width:1072px){.grid[aria-busy="true"]{min-height:390px}}
 .card{background:var(--card);border:1px solid var(--line);border-radius:28px;padding:26px;display:flex;flex-direction:column;gap:16px}
 .card.soon{opacity:.82}
 .top{display:flex;justify-content:space-between;align-items:center}
@@ -55,6 +59,11 @@ ol.ls li:has(a:focus-visible){outline:3px solid var(--ink);outline-offset:2px}
 .badges{margin-top:28px}
 .badges h2,.backup h2{font-family:var(--f-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:400;margin-bottom:12px}
 #badges{list-style:none;display:flex;gap:10px;flex-wrap:wrap}
+/* Daftar badge diisi skrip setelah kursus.json tiba; tingginya dipesan selagi kosong (nilai = tinggi terkecil hasil ukur di tiap rentang lebar). */
+#badges:empty{min-height:350px}
+@media(min-width:400px){#badges:empty{min-height:275px}}
+@media(min-width:480px){#badges:empty{min-height:205px}}
+@media(min-width:700px){#badges:empty{min-height:130px}}
 #badges li{display:flex;align-items:center;gap:12px;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:10px 16px 10px 12px;min-width:0}
 #badges li.off svg{opacity:.5}
 #badges li.off b{color:var(--muted)}
@@ -105,7 +114,7 @@ ol.ls li:has(a:focus-visible){outline:3px solid var(--ink);outline-offset:2px}
     <button type="button" class="f" data-f="segera" aria-pressed="false">Segera</button>
   </div>
 
-  <div class="grid" id="grid" aria-live="polite"><div class="empty">Memuat daftar level…</div></div>
+  <div class="grid" id="grid" aria-live="polite" aria-busy="true"><div class="empty">Memuat daftar level…</div></div>
   <noscript><div class="empty">Halaman ini memerlukan JavaScript untuk menampilkan daftar level.</div></noscript>
 
   <section class="backup" aria-labelledby="h-bk">
@@ -126,7 +135,7 @@ ol.ls li:has(a:focus-visible){outline:3px solid var(--ink);outline-offset:2px}
   function el(t,c,x){var e=document.createElement(t);if(c)e.className=c;if(x!=null)e.textContent=x;return e}
   function lessons(l){var a=[];l.modul.forEach(function(m){m.pelajaran.forEach(function(p){a.push(p)})});return a}
   function render(){
-    grid.textContent='';
+    grid.textContent='';grid.removeAttribute('aria-busy');
     var shown=data.level.filter(function(l){return filter==='semua'||l.status===filter});
     if(!shown.length){grid.appendChild(el('div','empty','Belum ada level untuk filter ini.'));return}
     shown.forEach(function(l){
@@ -177,7 +186,7 @@ ol.ls li:has(a:focus-visible){outline:3px solid var(--ink);outline-offset:2px}
   Array.prototype.forEach.call(document.querySelectorAll('.f'),function(b){b.addEventListener('click',function(){
     filter=b.getAttribute('data-f');Array.prototype.forEach.call(document.querySelectorAll('.f'),function(x){x.setAttribute('aria-pressed',x===b)});if(data)render()})});
   fetch('../content/kursus.json').then(function(r){if(!r.ok)throw 0;return r.json()}).then(function(j){data=j;stats();render()})
-    .catch(function(){grid.textContent='';grid.appendChild(el('div','empty','Daftar level gagal dimuat. Buka halaman ini lewat server (bukan file lokal) dan coba lagi.'))});
+    .catch(function(){grid.textContent='';grid.removeAttribute('aria-busy');grid.appendChild(el('div','empty','Daftar level gagal dimuat. Buka halaman ini lewat server (bukan file lokal) dan coba lagi.'))});
   window.addEventListener('storage',function(){if(data){stats();render()}});
 })();
 </script>

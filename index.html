@@ -13,7 +13,7 @@
 <link rel="icon" type="image/svg+xml" href="assets/brand/neruvia-icon-cyan.svg">
 <link rel="apple-touch-icon" href="assets/brand/neruvia-icon-cyan-180.png">
 <link rel="preload" href="assets/fonts/SpaceGrotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="assets/neru.webp" as="image" type="image/webp" fetchpriority="high">
+<link rel="preload" as="image" type="image/avif" imagesrcset="assets/neru-512.avif 512w, assets/neru-768.avif 768w, assets/neru-1024.avif 1024w" imagesizes="(max-width:900px) min(64vw,360px), min(39vw,585px)" fetchpriority="high">
 
 <style>
 /* ---------- FONT (disajikan lokal, OFL) ---------- */
@@ -22,6 +22,13 @@
 @font-face{font-family:'Space Mono';font-weight:700;font-style:normal;font-display:swap;src:url(assets/fonts/SpaceMono-700-latin.woff2) format('woff2')}
 @font-face{font-family:'Silkscreen';font-weight:400;font-style:normal;font-display:swap;src:url(assets/fonts/Silkscreen-400-latin.woff2) format('woff2')}
 @font-face{font-family:'Silkscreen';font-weight:700;font-style:normal;font-display:swap;src:url(assets/fonts/Silkscreen-700-latin.woff2) format('woff2')}
+@font-face{font-family:'Space Grotesk Fallback';font-weight:300 599;src:local('Arial'),local('Liberation Sans'),local('Helvetica');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;size-adjust:106%;ascent-override:92.8%;descent-override:27.5%;line-gap-override:0%}
+@font-face{font-family:'Space Grotesk Fallback';font-weight:600 700;src:local('Arial Bold'),local('Arial-BoldMT'),local('Liberation Sans Bold'),local('Helvetica Bold');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;size-adjust:100.3%;ascent-override:98.1%;descent-override:29.1%;line-gap-override:0%}
+/* Judul NERUVIA hanya huruf kapital tebal: Space Grotesk 700 sekitar 10% lebih sempit dari Arial Bold pada tujuh huruf itu, jadi diberi fallback sendiri supaya judul raksasa tidak melompat saat font tiba. */
+@font-face{font-family:'Space Grotesk Title Fallback';font-weight:700;src:local('Arial Bold'),local('Arial-BoldMT'),local('Liberation Sans Bold'),local('Helvetica Bold');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;size-adjust:89.9%;ascent-override:109.5%;descent-override:32.5%;line-gap-override:0%}
+@font-face{font-family:'Space Mono Fallback';font-weight:400;src:local('Courier New'),local('Liberation Mono'),local('Cousine');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;size-adjust:102%;ascent-override:109.8%;descent-override:35.4%;line-gap-override:0%}
+@font-face{font-family:'Space Mono Fallback';font-weight:700;src:local('Courier New Bold'),local('Liberation Mono Bold'),local('Cousine Bold');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;size-adjust:102%;ascent-override:109.8%;descent-override:35.4%;line-gap-override:0%}
+@font-face{font-family:'Silkscreen Fallback';font-weight:400 700;src:local('Courier New'),local('Liberation Mono'),local('Cousine');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;size-adjust:113.4%;ascent-override:90.8%;descent-override:22%;line-gap-override:0%}
 
 /* ---------- TOKEN (Arah Visual v0.2) ---------- */
 :root{
@@ -29,9 +36,9 @@
   --d-surface:#0E0E0E; --d-card:#141414; --d-line:#2E2E2E; --d-muted:#B5B5B5;
   --cyan:#38E1FF;
   --ease-lux:cubic-bezier(.16,1,.3,1);
-  --f-main:'Space Grotesk',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
-  --f-mono:'Space Mono',ui-monospace,Menlo,Consolas,monospace;
-  --f-pixel:'Silkscreen','Courier New',monospace;
+  --f-main:'Space Grotesk','Space Grotesk Fallback',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  --f-mono:'Space Mono','Space Mono Fallback',ui-monospace,Menlo,Consolas,monospace;
+  --f-pixel:'Silkscreen','Silkscreen Fallback','Courier New',monospace;
   --u:min(1vw,15px);
   --pad:clamp(20px,5.5vw,80px);
   --sheet:clamp(32px,4vw,56px);
@@ -75,7 +82,7 @@ button{font:inherit}
 
 /* ---------- 1. HERO (terang) ---------- */
 .hero{position:relative;background:var(--paper);height:max(calc(var(--u) * 62.5),min(100svh,760px));min-height:640px;overflow:clip;isolation:isolate;padding-bottom:var(--sheet)}
-.hero .title{position:absolute;left:calc(var(--u) * 3.6);right:0;top:calc(var(--u) * 9.6);text-align:left;font-size:calc(var(--u) * 14.8);line-height:1;font-weight:700;letter-spacing:-.045em;white-space:nowrap;z-index:1;
+.hero .title{font-family:'Space Grotesk','Space Grotesk Title Fallback',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;position:absolute;left:calc(var(--u) * 3.6);right:0;top:calc(var(--u) * 9.6);text-align:left;font-size:calc(var(--u) * 14.8);line-height:1;font-weight:700;letter-spacing:-.045em;white-space:nowrap;z-index:1;
   transform:translate3d(0,calc(var(--hp,0) * 70px),0);will-change:transform}
 .hero .title span{display:inline-block;opacity:0;transform:translateY(.35em);animation:rise .9s cubic-bezier(.2,.8,.2,1) forwards;animation-delay:calc(var(--i) * 60ms + 100ms)}
 @keyframes rise{to{opacity:1;transform:none}}
@@ -402,7 +409,7 @@ html.lenis,html.lenis body{height:auto}
   <h1 class="title" id="h1" aria-label="NERUVIA">
     <span style="--i:0" aria-hidden="true">N</span><span style="--i:1" aria-hidden="true">E</span><span style="--i:2" aria-hidden="true">R</span><span style="--i:3" aria-hidden="true">U</span><span style="--i:4" aria-hidden="true">V</span><span style="--i:5" aria-hidden="true">I</span><span style="--i:6" aria-hidden="true">A</span>
   </h1>
-  <div class="neru" id="neru"><img src="assets/neru.webp" width="1024" height="1272" alt="Neru, maskot NERUVIA, robot kucing berheadphone dengan mata cyan menyala" fetchpriority="high"><canvas width="547" height="648" aria-hidden="true"></canvas></div>
+  <div class="neru" id="neru"><picture><source type="image/avif" srcset="assets/neru-512.avif 512w, assets/neru-768.avif 768w, assets/neru-1024.avif 1024w" sizes="(max-width:900px) min(64vw,360px), min(39vw,585px)"><img src="assets/neru.webp" srcset="assets/neru-512.webp 512w, assets/neru-768.webp 768w, assets/neru.webp 1024w" sizes="(max-width:900px) min(64vw,360px), min(39vw,585px)" width="1024" height="1272" alt="Neru, maskot NERUVIA, robot kucing berheadphone dengan mata cyan menyala" fetchpriority="high"></picture><canvas width="547" height="648" aria-hidden="true"></canvas></div>
   <div class="copy">
     <p class="lead">Belajar AI dari nol, tanpa harus jago teknologi.</p>
     <div class="btns">
@@ -425,7 +432,7 @@ html.lenis,html.lenis body{height:auto}
     <div class="row r1">LEARN <b>/PRACTICE</b> /CERTIFY /LEARN</div>
     <div class="row r2">CERTIFY /LEARN /PRACTICE /CERTIFY</div>
   </div>
-  <div class="wave" aria-hidden="true"><img src="assets/neru-wave.webp" width="1041" height="1273" alt="" loading="lazy" decoding="async"></div>
+  <div class="wave" aria-hidden="true"><picture><source type="image/avif" srcset="assets/neru-wave-512.avif 512w, assets/neru-wave-768.avif 768w, assets/neru-wave-1041.avif 1041w" sizes="(max-width:900px) clamp(130px,34vw,220px), clamp(150px,22vw,330px)"><img src="assets/neru-wave.webp" srcset="assets/neru-wave-512.webp 512w, assets/neru-wave-768.webp 768w, assets/neru-wave.webp 1041w" sizes="(max-width:900px) clamp(130px,34vw,220px), clamp(150px,22vw,330px)" width="1041" height="1273" alt="" loading="lazy" decoding="async"></picture></div>
 
   <div class="wrap">
     <div class="steps" id="steps" role="group" aria-label="Tahap belajar, pilih salah satu untuk menyorotnya">
@@ -605,11 +612,11 @@ html.lenis,html.lenis body{height:auto}
     var box=$('#neru'); if(!box||reduce) return;
     var cv=$('canvas',box), N=21, NEUTRAL=13.5, frames=[], ok=0;
     if(!cv||!cv.getContext) return;
-    /* Frame 2x (Real-ESRGAN) dipakai bila kotak Neru butuh > 700 px fisik (layar retina, HP);
-       selain itu frame asli 547 px sudah cukup dan lebih ringan. */
+    /* Tiga tingkat frame menurut piksel fisik kotak Neru: <= 700 px frame asli 547 px; 701-900 px (HP, tablet)
+       frame menengah 820 px; di atas 900 px (layar retina desktop) frame 2x 1094 px (Real-ESRGAN). */
     var need=box.getBoundingClientRect().width*(window.devicePixelRatio||1);
-    var dir=need>700 ? 'frames-2x' : 'frames';
-    if(dir==='frames-2x'){ cv.width=1094; cv.height=1296 }
+    var dir=need>900 ? 'frames-2x' : need>700 ? 'frames-m' : 'frames';
+    if(dir==='frames-2x'){ cv.width=1094; cv.height=1296 } else if(dir==='frames-m'){ cv.width=820; cv.height=972 }
     var ctx=cv.getContext('2d'), cur=NEUTRAL, tgt=NEUTRAL, shown=-1, ready=false;
     var hasPtr=false, px=0, py=0, vis=true, raf=0, t0=performance.now();
     function draw(i){ if(i===shown) return; shown=i; ctx.clearRect(0,0,cv.width,cv.height); ctx.drawImage(frames[i],0,0,cv.width,cv.height) }

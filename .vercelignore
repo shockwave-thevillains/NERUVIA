@@ -1,0 +1,10 @@
+# Aset berat tanpa rujukan dari halaman mana pun (dibuktikan tools/inventaris-aset.mjs dan tools/uji-aset.mjs).
+# Berkas tetap ada di repo sebagai sumber; hanya tidak ikut diunggah ke deploy.
+# Keputusan soal docs/, tools/, supabase/ sengaja tidak dimasukkan di sini (PERLU-KEPUTUSAN butir 13, hak Master).
+assets/maskot-animasi/neru-menoleh-web.webp
+assets/maskot-animasi/neru-menoleh-sumber.mp4
+assets/maskot-animasi/neru-menoleh.webm
+assets/brand/maskot/neru-terbaru-01-miring-kanan.png
+assets/brand/maskot/neru-terbaru-02-depan.png
+assets/brand/maskot/neru-terbaru-03-miring-kiri.png
+assets/brand/neruvia-icon-cyan-1024.png

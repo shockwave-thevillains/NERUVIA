@@ -19,6 +19,7 @@ const arg = (n, d) => { const i = process.argv.indexOf('--' + n); return i > 0 &
 const RUNS = Math.max(1, Math.min(9, parseInt(arg('runs', '3'), 10) || 3));
 const JALAN = arg('jalan', '/');
 const LABEL = arg('label', 'ukur');
+const HANYA = arg('profil', '');
 if (!JALAN.startsWith('/') || JALAN.includes('..')) { console.error('--jalan harus diawali / dan tanpa ..'); process.exit(1); }
 
 let chromium;
@@ -39,6 +40,7 @@ const base = 'http://127.0.0.1:' + server.address().port;
 
 const PROFIL = {
   desktop1440: { viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1, cpu: 1 },
+  tablet768: { viewport: { width: 768, height: 1024 }, deviceScaleFactor: 2, isMobile: true, hasTouch: true, cpu: 2 },
   mobile390: { viewport: { width: 390, height: 844 }, deviceScaleFactor: 3, isMobile: true, hasTouch: true, cpu: 4 },
 };
 
@@ -90,6 +92,7 @@ async function satuPutaran(browser, nama, prof) {
 const browser = await chromium.launch();
 const hasil = {};
 for (const [nama, prof] of Object.entries(PROFIL)) {
+  if (HANYA && !HANYA.split(',').includes(nama)) continue;
   const runs = [];
   for (let i = 0; i < RUNS; i++) runs.push(await satuPutaran(browser, nama, prof));
   const med = {};

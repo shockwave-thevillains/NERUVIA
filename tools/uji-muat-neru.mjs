@@ -18,11 +18,13 @@ const cek = (ok, ket) => { if (ok) lulus++; else { gagal++; console.log('  GAGAL
 /* ---- bagian statis (tanpa browser) ---- */
 const html = readFileSync(join(ROOT, 'index.html'), 'utf8');
 const imgHero = (html.match(/<img[^>]*src="assets\/neru\.webp"[^>]*>/) || [''])[0];
-const preload = (html.match(/<link[^>]*rel="preload"[^>]*href="assets\/neru\.webp"[^>]*>/) || [''])[0];
+const preload = (html.match(/<link[^>]*rel="preload"[^>]*imagesrcset="assets\/neru-512\.avif[^>]*>/) || [''])[0];
 const imgWave = (html.match(/<img[^>]*src="assets\/neru-wave\.webp"[^>]*>/) || [''])[0];
 cek(/fetchpriority="high"/.test(imgHero), 'gambar hero harus fetchpriority=high');
 cek(!/loading="lazy"/.test(imgHero), 'gambar hero (LCP) tidak boleh loading=lazy');
 cek(/fetchpriority="high"/.test(preload), 'preload gambar hero harus fetchpriority=high');
+cek(/type="image\/avif"/.test(preload) && /imagesizes="/.test(preload), 'preload hero memakai AVIF dengan imagesizes (satu preload saja, supaya tidak ada unduhan ganda)');
+cek((html.match(/<link[^>]*rel="preload"[^>]*as="image"/g) || []).length === 1, 'hanya satu preload gambar di beranda');
 cek(/loading="lazy"/.test(imgWave) && /decoding="async"/.test(imgWave), 'gambar wave harus loading=lazy dan decoding=async');
 
 let chromium;
@@ -41,7 +43,7 @@ const server = await new Promise((res) => {
 });
 const base = 'http://127.0.0.1:' + server.address().port;
 const browser = await chromium.launch();
-const PROF = { d1440: { viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1 }, m390: { viewport: { width: 390, height: 844 }, deviceScaleFactor: 3, isMobile: true, hasTouch: true } };
+const PROF = { d1440: { viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1 }, d1440x2: { viewport: { width: 1440, height: 900 }, deviceScaleFactor: 2 }, d1440x125: { viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1.25 }, t768: { viewport: { width: 768, height: 1024 }, deviceScaleFactor: 2, isMobile: true, hasTouch: true }, m360x1: { viewport: { width: 360, height: 740 }, deviceScaleFactor: 1, isMobile: true, hasTouch: true }, m430: { viewport: { width: 430, height: 932 }, deviceScaleFactor: 3, isMobile: true, hasTouch: true }, m390: { viewport: { width: 390, height: 844 }, deviceScaleFactor: 3, isMobile: true, hasTouch: true } };
 
 /* buka halaman dengan opsi; kembalikan ringkasan */
 async function buka(profil, o = {}) {
@@ -77,7 +79,8 @@ async function buka(profil, o = {}) {
 }
 
 /* 1. jalur normal: desktop dan HP */
-for (const [p, dirOk, lebar] of [['d1440', '/frames/', 547], ['m390', '/frames-2x/', 1094]]) {
+/* tiga tingkat frame menurut piksel fisik kotak Neru: <=700 frames (547), 701-900 frames-m (820), >900 frames-2x (1094) */
+for (const [p, dirOk, lebar] of [['d1440', '/frames/', 547], ['m390', '/frames-m/', 820], ['d1440x2', '/frames-2x/', 1094], ['d1440x125', '/frames-m/', 820], ['t768', '/frames-m/', 820], ['m360x1', '/frames/', 547], ['m430', '/frames-m/', 820]]) {
   const r = await buka(p, { live: true });
   cek(r.frameSebelumLoad === 0, `${p}: tidak ada frame diminta sebelum load (ada ${r.frameSebelumLoad})`);
   cek(r.frames.length === 21, `${p}: 21 frame diminta (ada ${r.frames.length})`);
