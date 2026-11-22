@@ -1,0 +1,101 @@
+{
+  "id": "l1-m1-p2",
+  "status": "draf",
+  "tujuan": "Setelah pelajaran ini, kamu bisa menjelaskan dengan kata-katamu sendiri bagaimana chatbot menyusun jawaban, lalu memakai penjelasan itu untuk memutuskan bagian jawaban mana yang perlu kamu cek.",
+  "bagian": [
+    {
+      "judul": "Chatbot menebak, bukan mencari",
+      "paragraf": [
+        "Kamu pasti pernah melihat HP menyarankan kata berikutnya saat mengetik. Kamu menulis “Selamat”, lalu HP menawarkan “pagi”. Chatbot bekerja dengan gagasan yang mirip, hanya skalanya jauh lebih besar.",
+        "Chatbot tidak membuka lemari berisi jawaban siap pakai. Ia menyusun jawaban baru dengan menebak kelanjutan teks yang paling masuk akal, berdasarkan pola yang ia pelajari dari teks latihnya.",
+        "Karena itu jawabannya terdengar lancar. Tetapi lancar tidak sama dengan benar."
+      ]
+    },
+    {
+      "judul": "Kalimatmu dipotong menjadi token",
+      "paragraf": [
+        "Sebelum menebak, chatbot memecah teks menjadi potongan kecil bernama token. Satu token bisa berupa satu kata, sebagian kata, atau satu tanda baca. Kata yang sering dipakai biasanya cukup satu token. Kata yang jarang muncul dipecah menjadi beberapa token.",
+        "Kamu tidak perlu menghitung token. Cukup ingat bahwa chatbot bekerja dengan potongan teks, bukan membaca kalimat seperti manusia."
+      ]
+    },
+    {
+      "judul": "Jawaban disusun satu potongan demi satu potongan",
+      "paragraf": [
+        "Pada setiap langkah, model menghitung peluang untuk banyak kemungkinan token berikutnya, lalu memilih satu. Potongan yang terpilih ditambahkan ke jawaban, dan proses itu diulang sampai jawaban selesai.",
+        "Pemilihannya memakai peluang, bukan satu pilihan yang pasti. Itu sebabnya pertanyaan yang sama bisa menghasilkan susunan kalimat yang berbeda setiap kali kamu bertanya.",
+        "Kalimat yang berbeda tidak masalah. Fakta yang berbeda adalah tanda bahaya. Bila dua jawaban memberi angka atau nama yang tidak sama, kamu wajib mengeceknya."
+      ]
+    },
+    {
+      "judul": "Chatbot hanya melihat isi jendela percakapan",
+      "paragraf": [
+        "Semua yang bisa dipertimbangkan chatbot saat menjawab ada dalam satu ruang kerja bernama jendela konteks. Isinya pesanmu, jawaban sebelumnya, dan dokumen yang kamu tempel. Ukurannya terbatas.",
+        "Bila percakapan terlalu panjang, bagian lama bisa tersingkir tanpa pemberitahuan. Percakapan baru pada umumnya mulai dari kosong, kecuali aplikasimu punya fitur memori yang kamu aktifkan.",
+        "Jadi, taruh hal terpenting di awal pesan. Bila percakapan sudah panjang dan mutu jawaban turun, mulai percakapan baru dengan ringkasan singkat."
+      ]
+    },
+    {
+      "judul": "Kesalahan yang sering terjadi",
+      "paragraf": [
+        "Kesalahan pertama: menganggap chatbot sama dengan mesin pencari. Mesin pencari menemukan halaman yang sudah ada. Chatbot menyusun teks baru, sehingga bisa mengarang nama, angka, tanggal, kutipan, atau tautan yang terdengar nyata. Bagian yang paling spesifik adalah bagian yang paling perlu dicek.",
+        "Kesalahan kedua: menganggap nada yakin berarti benar. Chatbot bisa terdengar sama yakinnya saat benar maupun saat salah.",
+        "Kesalahan ketiga: mengira chatbot mengingat koreksimu selamanya. Koreksi hanya berlaku di dalam percakapan itu."
+      ]
+    },
+    {
+      "judul": "Kapan jangan mengandalkan jawabannya begitu saja",
+      "paragraf": [
+        "Jangan memakai jawaban chatbot apa adanya untuk angka, tanggal, nama, kutipan, atau tautan yang akan kamu pakai sebagai fakta. Jangan pula memakainya sendirian untuk keputusan berisiko tinggi, seperti urusan kesehatan, uang, atau hukum.",
+        "Waspada juga pada kejadian yang sangat baru dan topik yang sangat khusus. Pola yang dipelajari chatbot tipis di sana, jadi tebakannya lebih mudah meleset.",
+        "Untuk semua itu, pakai chatbot sebagai pembuat draf atau penjelas, lalu cek ke sumber aslinya. Chatbot paling aman dipakai untuk pekerjaan berpola umum, seperti merangkum, merapikan, dan menjelaskan konsep yang umum."
+      ]
+    }
+  ],
+  "contoh": {
+    "judul": "Contoh berpasangan (cerita fiktif)",
+    "teks": "Versi kurang baik: Rani bertanya, “Siapa penulis laporan kecamatan itu dan tahun berapa terbit?” Chatbot menjawab dengan lancar, lengkap dengan nama dan tahun yang terdengar meyakinkan. Rani langsung menyalinnya ke tugas, padahal laporan itu fiktif dan tidak pernah ada. Versi baik: Rani menempelkan teks laporan yang ia punya, lalu bertanya, “Berdasarkan teks ini saja, apa tiga poin utamanya? Bila suatu hal tidak ada di teks, katakan tidak ada.” Setelah itu ia mencocokkan ketiga poin dengan teks aslinya. Bedanya: pada versi kurang baik chatbot diminta menebak fakta spesifik dari pola latihnya. Pada versi baik jawabannya dibatasi pada teks yang ada di jendela percakapan, dan hasilnya dicek."
+  },
+  "latihan": {
+    "petunjuk": "Kerjakan di chatbot AI mana pun. Tahap 1 (coba): buka dua percakapan baru, lalu ajukan pertanyaan yang sama persis di keduanya, “Sebutkan tiga contoh pemakaian AI di sekolah, lengkap dengan satu angka statistik untuk tiap contoh.” Tahap 2 (perbaiki): di percakapan baru, tempelkan satu paragraf pendek buatanmu sendiri tentang AI di sekolah, lalu minta tiga poin utama hanya dari paragraf itu dan minta chatbot menyebut bila ada hal yang tidak ada di teks. Tahap 3 (bandingkan): letakkan semua jawaban berdampingan. Bagian mana yang berbeda antara dua percakapan pertama? Mana yang bisa kamu cocokkan dengan teksmu sendiri? Daftar periksa mandiri: (1) aku bisa menunjuk bagian yang berbeda antara dua jawaban pertama; (2) aku tahu angka mana yang harus dicek ke sumber; (3) aku bisa menjelaskan mengapa jawaban tahap 2 lebih mudah dicek; (4) aku sudah menuliskan satu kebiasaan baru yang akan kupakai."
+  },
+  "cek": [
+    {
+      "tanya": "Manakah gambaran yang paling tepat tentang cara inti chatbot menyusun jawaban?",
+      "opsi": [
+        "Mengambil jawaban jadi dari lemari data lalu menyalinnya",
+        "Menebak potongan teks berikutnya satu demi satu berdasarkan pola dari teks latihnya",
+        "Selalu mencari di internet lalu merangkum hasilnya",
+        "Memahami pertanyaan seperti manusia lalu menimbang mana yang benar"
+      ],
+      "benar": 1,
+      "jelas": "Inti kerja chatbot adalah menebak potongan teks berikutnya. Ia tidak menyalin jawaban jadi dan tidak otomatis menimbang kebenaran. Sebagian aplikasi menambah fitur pencarian, tetapi kata “selalu” membuat opsi ketiga keliru."
+    },
+    {
+      "tanya": "Kamu mengajukan pertanyaan yang sama dua kali. Kalimat jawabannya berbeda, tetapi faktanya sama. Apa artinya?",
+      "opsi": [
+        "Chatbot rusak dan tidak bisa dipercaya",
+        "Wajar, karena potongan teks dipilih berdasarkan peluang sehingga susunan kalimat bisa berubah",
+        "Salah satu jawaban pasti bohong",
+        "Chatbot lupa pertanyaan yang pertama"
+      ],
+      "benar": 1,
+      "jelas": "Pemilihan token memakai peluang, jadi susunan kalimat bisa berbeda. Yang perlu dicurigai adalah fakta yang berbeda, bukan kalimat yang berbeda."
+    },
+    {
+      "tanya": "Percakapanmu sudah sangat panjang. Chatbot mulai mengabaikan aturan format yang kamu tulis di awal. Langkah apa yang paling tepat?",
+      "opsi": [
+        "Terus melanjutkan, karena chatbot pasti masih mengingat semuanya",
+        "Mulai percakapan baru, tulis aturan format dan ringkasan konteks di awal pesan",
+        "Menyimpulkan bahwa chatbot tidak mampu mengikuti aturan sama sekali",
+        "Mengulang aturan yang sama di tengah pesan panjang berkali-kali"
+      ],
+      "benar": 1,
+      "jelas": "Jendela percakapan terbatas, dan bagian lama bisa tersingkir tanpa pemberitahuan. Percakapan baru dengan aturan di awal lebih andal. Opsi pertama keliru karena chatbot tidak menjamin mengingat semuanya. Opsi ketiga menyalahkan kemampuan padahal masalahnya ruang kerja yang penuh. Opsi keempat menambah isi pada jendela yang sudah penuh, sehingga masalahnya tidak hilang."
+    }
+  ],
+  "ringkasan": [
+    "Chatbot menyusun jawaban dengan menebak potongan teks berikutnya, sepotong demi sepotong, berdasarkan pola dari teks latihnya.",
+    "Karena pemilihannya memakai peluang, kalimat bisa berbeda, dan bagian yang spesifik seperti nama, angka, tanggal, kutipan, dan tautan paling perlu dicek.",
+    "Chatbot hanya mempertimbangkan isi jendela percakapan, jadi taruh hal terpenting di awal dan mulai percakapan baru bila sudah terlalu panjang."
+  ]
+}

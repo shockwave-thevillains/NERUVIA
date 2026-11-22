@@ -1,6 +1,6 @@
 // Uji tools/impor-draf.mjs pada salinan sementara (repo asli tidak disentuh).
 // Pakai: node tools/uji-impor-draf.mjs
-import { cpSync, mkdtempSync, rmSync, readFileSync, writeFileSync, existsSync } from 'node:fs';
+import { cpSync, mkdtempSync, rmSync, readFileSync, writeFileSync, existsSync, unlinkSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join as gabung } from 'node:path';
 import { spawnSync } from 'node:child_process';
@@ -13,6 +13,15 @@ cpSync(gabung(asal, 'content'), gabung(tmp, 'content'), { recursive: true });
 const skrip = gabung(tmp, 'tools/impor-draf.mjs');
 const baca = (p) => readFileSync(gabung(tmp, p), 'utf8');
 const dasar = JSON.parse(baca('content/pelajaran/l1-m1-p1.json'));
+// Fixture mandiri: uji ini memakai l1-m1-p2 dan l1-m1-p3 sebagai pelajaran yang BELUM berisi.
+// Seiring draf asli ditulis (B4, B5, ...), salinan sementara direset ke keadaan itu agar uji tidak ikut gagal.
+{
+  const kk = JSON.parse(baca('content/kursus.json'));
+  for (const l of kk.level) for (const m of l.modul) for (const q of m.pelajaran) {
+    if (q.id === 'l1-m1-p2' || q.id === 'l1-m1-p3') { q.isi = 'belum'; const f = gabung(tmp, 'content/pelajaran/' + q.id + '.json'); if (existsSync(f)) unlinkSync(f); }
+  }
+  writeFileSync(gabung(tmp, 'content/kursus.json'), JSON.stringify(kk, null, 2) + '\n');
+}
 const contoh = (ubah = (x) => x) => { const o = ubah(structuredClone({ ...dasar, id: 'l1-m1-p2' })); return o; };
 let nomor = 0, lulus = 0, gagal = 0;
 const uji = (nama, kondisi) => { nomor++; if (kondisi) lulus++; else { gagal++; console.error('GAGAL: ' + nama); } };
