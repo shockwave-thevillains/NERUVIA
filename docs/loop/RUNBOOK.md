@@ -41,7 +41,8 @@ Lima tugas terjadwal ("NERUVIA loop web 1" sampai "5") berjalan tiap hari di emp
 
 ## Gerbang keamanan
 - Pelajaran baru tidak boleh dikerjakan sebelum Paket S selesai menurut PROGRESS.
-- Sebelum setiap commit yang menyentuh kode atau konten, jalankan `node tools/uji-keamanan.mjs` (setelah dibuat di Paket S) dan `node tools/validasi-kursus.mjs`. Bila ada yang gagal, perbaiki dulu.
+- Sebelum setiap commit yang menyentuh kode atau konten, jalankan `node tools/uji-keamanan.mjs` dan `node tools/validasi-kursus.mjs`. Bila ada yang gagal, perbaiki dulu; jangan melemahkan uji agar lulus. `uji-keamanan.mjs` memindai berkas baru yang belum di-commit, riwayat git, sink berbahaya, header, konten kursus, dan menjalankan payload jahat di browser (sekitar 45 detik). Kode keluar 0 lulus, 1 gagal, 2 lulus tetapi Playwright tidak ada (uji browser dilewati; catat di PROGRESS). Untuk commit yang hanya mengubah dokumen (`docs/`, tanpa kode atau konten) boleh memakai `--cepat` (tanpa browser, 2 detik).
+- Pemindai JS dan HTML di `uji-keamanan.mjs` adalah pemindai teks. Bila sebuah kegiatan sah memerlukan pola yang ditandainya, jangan menambah pengecualian diam-diam: catat alasannya di PERLU-KEPUTUSAN dan di kode pengecualian (satu-satunya pengecualian saat ini ada di bagian B, dua alat `tools/video/`).
 - Bila kegiatan mengubah isi `<script>`, `<style>`, atau atribut `style=""` di halaman HTML mana pun, jalankan `node tools/buat-vercel-json.mjs`, lalu `node tools/buat-vercel-json.mjs --cek` dan `node tools/uji-header-csp.mjs` (jika Playwright tersedia) sebelum commit, dan sertakan `vercel.json` di commit yang sama. Tanpa itu halaman memuat tetapi diblokir CSP di Vercel. Lihat `docs/security/header-csp.md`.
 - Data dari pengguna, berkas impor, atau JSON isi pelajaran tidak boleh masuk ke `innerHTML`, `eval`, atau atribut `on*`. Pakai `textContent`.
 - Jangan menaruh kunci rahasia di repo. Kunci publik (anon/publishable) hanya boleh ada di konfigurasi build dev.

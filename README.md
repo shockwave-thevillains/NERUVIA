@@ -8,6 +8,7 @@ Halaman tunggal statis (HTML + CSS + JS tanpa build), berbasis desain **Variasi 
 - `assets/fonts/` — Space Grotesk, Space Mono, Silkscreen (lisensi OFL, disajikan lokal)
 - `admin/` — halaman admin (masuk lewat Supabase Auth, ringkasan waitlist), tahap 1 dari 3, hanya build dev; rincian dan langkah menyiapkan akun di `docs/admin.md`, SQL di `supabase/admin/`
 - `belajar/komentar-draf.js`, `supabase/draf/komentar.sql` — kerangka komentar dan login, DRAF nonaktif (flag `AKTIF = false`, tidak dimuat halaman mana pun, SQL belum diterapkan); rancangan aman di `docs/security/auth-komentar.md`, uji dengan `tools/uji-komentar-draf.mjs` dan `supabase/draf/uji-komentar-lokal.sql`
+- `tools/uji-keamanan.mjs` — gerbang keamanan otomatis sebelum commit (rahasia, sink berbahaya, header, konten, payload jahat di browser); rincian di `docs/security/uji-keamanan.md`
 - `vercel.json` — header keamanan dan CSP per halaman untuk hosting Vercel (dibuat oleh `tools/buat-vercel-json.mjs`; jalankan ulang setiap kali blok inline `<script>`/`<style>`/`style=""` berubah, uji dengan `tools/uji-header-csp.mjs`; rincian di `docs/security/header-csp.md`)
 - `tools/video/` — sumber video Prompt 101 dengan Neru pixel art + meja belajar (portrait dan landscape), lihat `tools/video/README.md`
 - `docs/video/` — video jadi untuk arsip (Prompt 101 versi maskot, versi pixel portrait 1080x1920, versi pixel landscape 1920x1080)
