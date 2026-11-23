@@ -1,0 +1,101 @@
+{
+  "id": "l2-m2-p2",
+  "status": "draf",
+  "tujuan": "Setelah pelajaran ini, kamu bisa meminta AI merangkum beberapa sumber sekaligus tanpa mencampur fakta antarsumber, lalu memeriksa hasilnya kalimat demi kalimat.",
+  "bagian": [
+    {
+      "judul": "Satu sumber dan banyak sumber itu beda",
+      "paragraf": [
+        "Merangkum satu artikel berarti memadatkan isinya. Merangkum tiga artikel berarti menyatukan tiga suara, dan di situlah fakta mudah tercampur. Panduan menulis Purdue OWL membedakan ringkasan, yang menyampaikan ulang isi sumber, dari sintesis, yang menarik kesimpulan lebih luas dari beberapa sumber.",
+        "Pelajaran ini membahas versi aman: ringkasan yang tiap kalimatnya bisa ditelusuri ke satu sumber. Kesimpulan sintesis kamu tambahkan sendiri setelah faktanya bersih."
+      ]
+    },
+    {
+      "judul": "Kenapa AI mudah mencampur",
+      "paragraf": [
+        "Makalah Belem dan kawan-kawan (arXiv, 2024, direvisi 2025) menguji lima model bahasa yang merangkum banyak dokumen berbahasa Inggris. Sebagian isi ringkasan tidak cocok dengan rujukan, dan kesalahan paling sering berupa ringkasan terlalu umum atau tidak mengikuti instruksi, bukan karangan murni.",
+        "Dua temuan lain relevan. Bila topik yang diminta tidak dibahas dokumen, model sering tetap membuat ringkasan. Bagian akhir ringkasan juga lebih sering keliru. Penelitian itu memakai penilai otomatis dan tidak menguji sumber bertentangan, jadi anggap sebagai peringatan, bukan angka pasti."
+      ]
+    },
+    {
+      "judul": "Beri kode pada setiap sumber",
+      "paragraf": [
+        "Sebelum menempel teks, beri tiap sumber kode dan judul, misalnya S1, S2, S3. Lalu minta setiap kalimat ringkasan diakhiri kode sumbernya. Tutorial Claude Academy tentang cara orang memeriksa hasil AI menyarankan meminta AI menyebut sumber tiap klaim.",
+        "Kode membuat pemeriksaan murah: bila kalimat berkode S2 tidak ada di S2, kamu langsung tahu mana yang salah. Minta kutipan langsung untuk angka dan nama."
+      ]
+    },
+    {
+      "judul": "Pisahkan yang sepakat, yang beda, dan yang tunggal",
+      "paragraf": [
+        "Panduan UT Austin menyarankan menandai tema tiap sumber, mencatat tema yang muncul di beberapa sumber, lalu membandingkan cara tiap sumber membahasnya. Jadikan tiga daftar: hal yang disebut semua sumber, hal yang disebut berbeda, dan hal yang hanya disebut satu sumber.",
+        "Bila dua sumber memberi angka berbeda, laporkan keduanya beserta kodenya. Jangan rata-ratakan atau pilih diam-diam. Purdue OWL juga mengingatkan agar tidak memaksakan hubungan yang tidak ada dan tidak membuang sumber yang menyimpang."
+      ]
+    },
+    {
+      "judul": "Izinkan AI berkata “tidak disebut”",
+      "paragraf": [
+        "Karena model cenderung tetap menjawab, beri jalan keluar tertulis: “Bila hal ini tidak ada di sumber, tulis tidak disebut.” Minta juga ia menandai kalimat yang kurang diyakininya, seperti saran use case sintesis wawancara di Academy.",
+        "Pisahkan isi sumber dari tafsiranmu. Panduan Universitas Toronto menyebut tulisan yang hanya berupa rangkaian ringkasan sebagai kesalahan sintesis paling umum. Tulis kesimpulanmu sendiri dan beri label kesimpulan."
+      ]
+    },
+    {
+      "judul": "Kesalahan yang sering terjadi",
+      "paragraf": [
+        "Pertama, menempel semua sumber tanpa kode. Kedua, menerima angka gabungan seperti “sekitar 50” padahal sumbernya menyebut dua angka. Ketiga, membiarkan AI menjawab subtopik yang tidak ada di sumber. Keempat, mengira tulisan rapi berarti setia pada sumber. Kelima, memeriksa hanya paragraf pertama. Keenam, mencampur kesimpulan AI dengan isi sumber. Ketujuh, membuang sumber yang bertentangan karena merusak alur cerita."
+      ]
+    },
+    {
+      "judul": "Kapan tidak perlu seketat ini, dan kapan jangan mengandalkannya",
+      "paragraf": [
+        "Untuk catatan pribadi, kode sumber dan tiga daftar bisa berlebihan. Untuk laporan, tugas, atau keputusan, periksa satu per satu, terutama angka, nama, dan tanggal. Tutorial diligence Academy memberi contoh penulis yang mengecek tiap ringkasan ke dokumen aslinya dan menemukan kekeliruan. Untuk urusan kesehatan, hukum, atau keuangan, ringkasan AI bukan dasar keputusan. Ini bukan nasihat hukum, keuangan, atau medis."
+      ]
+    }
+  ],
+  "contoh": {
+    "judul": "Contoh berpasangan (cerita fiktif)",
+    "teks": "Tiara, tokoh fiktif, menyiapkan laporan RT tentang kebun komunitas Kampung Hijau Lestari (juga fiktif). Tiga catatannya: S1, laporan dinas, 40 keluarga ikut, dihitung bulan Maret. S2, buletin kelurahan, 55 keluarga, dihitung bulan Juni. S3, catatan pengurus, panen sayur meningkat tanpa angka. Versi kurang baik: Tiara menempel semuanya dan minta ringkasan. AI menulis “Sekitar 50 keluarga ikut dan panen naik 30 persen.” Angka 50 mencampur S1 dan S2, dan 30 persen tidak ada di sumber mana pun. Versi baik: Tiara memberi kode, meminta tiap kalimat berkode, dan meminta tiga daftar. Hasilnya: Sepakat, kebun diikuti warga (S1, S2). Beda, 40 keluarga menurut S1 dan 55 menurut S2, bulan hitungnya berbeda. Tunggal, panen meningkat hanya menurut S3, besarnya tidak disebut. Bedanya: versi pertama tampak pasti, versi kedua menunjukkan perbedaan dan celah, sehingga Tiara tahu apa yang perlu ditanya."
+  },
+  "latihan": {
+    "petunjuk": "Kerjakan di chatbot AI mana pun tanpa data pribadi nyata. Tulis tiga catatan pendek karanganmu, dua kalimat tiap catatan, dengan satu angka berbeda di dua catatan dan satu hal yang hanya ada di satu catatan. Beri kode S1, S2, S3. Tahap 1 (coba): minta AI merangkum ketiganya dalam satu paragraf tanpa aturan tambahan. Tahap 2 (perbaiki): minta lagi dengan aturan: tiap kalimat diakhiri kode sumber, buat tiga daftar (sepakat, beda, tunggal), dan tulis tidak disebut bila informasi tidak ada. Tambahkan satu pertanyaan tentang hal yang sengaja tidak kamu tulis. Tahap 3 (bandingkan): cocokkan tiap kalimat kedua versi dengan catatanmu, tandai yang tidak didukung, lalu tulis satu kalimat tentang versi yang lebih mudah diperiksa. Daftar periksa: (1) tanpa data pribadi; (2) sumber berkode; (3) tiap kalimat dicocokkan; (4) angka berbeda dilaporkan keduanya; (5) hal yang tidak ada dijawab tidak disebut."
+  },
+  "cek": [
+    {
+      "tanya": "Kamu menempel tiga sumber dan ingin tiap kalimat ringkasan bisa dicek ke asalnya. Permintaan mana yang paling membantu?",
+      "opsi": [
+        "Meminta ringkasan sesingkat mungkin supaya kalimat yang diperiksa sedikit",
+        "Meminta AI menulis formal agar hasilnya terdengar lebih kredibel",
+        "Memberi kode pada tiap sumber, lalu meminta tiap kalimat diakhiri kode itu",
+        "Meminta AI berjanji bahwa semua kalimat setia pada sumber"
+      ],
+      "benar": 2,
+      "jelas": "Kode sumber membuat tiap kalimat bisa dicocokkan ke satu teks asli. Ringkasan pendek tetap bisa mencampur fakta, gaya formal hanya mengubah nada, dan janji AI bukan pemeriksaan."
+    },
+    {
+      "tanya": "Sumber S1 menyebut 40 keluarga dan S2 menyebut 55 keluarga. Ringkasan AI menulis “sekitar 50 keluarga”. Apa masalah utamanya?",
+      "opsi": [
+        "Angka itu menyembunyikan perbedaan dua sumber dan bukan dari sumber mana pun",
+        "Angka itu terlalu kecil sehingga ringkasan tampak kurang meyakinkan",
+        "Angka itu benar karena nilai tengah dua sumber selalu menjadi pilihan paling aman",
+        "Angka itu sebaiknya dibulatkan ke puluhan supaya terlihat lebih rapi"
+      ],
+      "benar": 0,
+      "jelas": "Ringkasan yang baik melaporkan kedua angka beserta kodenya. Nilai tengah tidak dilaporkan sumber mana pun, dan pembulatan menjauhkannya dari sumber."
+    },
+    {
+      "tanya": "Kamu meminta ringkasan tiga artikel tentang subtopik biaya, tetapi ternyata tidak ada artikel yang membahasnya. AI tetap menulis paragraf tentang biaya. Langkah paling tepat?",
+      "opsi": [
+        "Memakai paragraf itu karena ditulis lancar dan terdengar masuk akal",
+        "Mencari dukungannya di artikel, lalu menghapus paragraf bila tidak ditemukan",
+        "Meminta AI mengulang sampai paragraf biayanya menjadi lebih panjang dan rinci",
+        "Menyalin paragraf itu dan menambahkan catatan bahwa isinya berasal dari AI"
+      ],
+      "benar": 1,
+      "jelas": "Model sering tetap menjawab saat informasi tidak ada, jadi kalimat yang tidak ditemukan di sumber dibuang dan ditulis tidak disebut. Mengulang atau memberi catatan tidak membuat isinya didukung sumber."
+    }
+  ],
+  "ringkasan": [
+    "Beri kode tiap sumber dan minta tiap kalimat ringkasan memuat kode itu.",
+    "Pisahkan hal yang disepakati, berbeda, dan hanya disebut satu sumber; laporkan angka berbeda apa adanya.",
+    "Izinkan AI menulis tidak disebut, cocokkan tiap kalimat ke sumbernya, dan tulis kesimpulanmu sendiri sebagai kesimpulan."
+  ]
+}
