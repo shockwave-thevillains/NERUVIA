@@ -1,0 +1,101 @@
+{
+  "id": "l1-m3-p5",
+  "status": "draf",
+  "tujuan": "Setelah pelajaran ini, kamu bisa memeriksa hasil AI dengan kebiasaan yang tetap, menyimpan versi pekerjaan supaya bisa dilacak dan dipulihkan, dan menjelaskan bahwa kamu yang bertanggung jawab atas hasil akhir.",
+  "bagian": [
+    {
+      "judul": "Tiga kebiasaan kecil yang melindungi pekerjaanmu",
+      "paragraf": [
+        "Pelajaran sebelumnya membahas data pribadi, halusinasi, bias, dan etika. Pelajaran ini merangkumnya menjadi tiga kebiasaan untuk setiap pemakaian AI: tinjau, simpan versi, dan sadari bahwa tanggung jawab tetap padamu.",
+        "Kebiasaan itu terdengar sepele, tetapi banyak kesalahan dengan AI terjadi karena salah satunya dilewati."
+      ]
+    },
+    {
+      "judul": "Tinjau: baca seperti penyunting yang skeptis",
+      "paragraf": [
+        "Pelajaran Claude Academy tentang tugas yang diserahkan ke AI menyarankan membaca hasilnya seperti draf dari rekan yang kamu percaya tetapi belum kamu kenal baik. Tiga pertanyaannya: apakah hasilnya memenuhi tujuan yang sebenarnya, apakah fakta dan angkanya cocok dengan sumber aslimu, dan adakah tanggal, nama, atau kutipan yang tak bisa kamu lacak ke bahan yang kamu berikan.",
+        "Baca seluruhnya, bukan hanya awal dan akhir; kesalahan sering bersembunyi di angka kecil atau kalimat yang terdengar meyakinkan. Bila hasilnya hampir benar, minta AI memperbaiki bagian tertentu. Bila salahnya mendasar, biasanya ada konteks penting yang belum kamu berikan."
+      ]
+    },
+    {
+      "judul": "Simpan versi: supaya bisa kembali dan bisa menjelaskan",
+      "paragraf": [
+        "Kerja dengan AI sering berupa banyak putaran. Tanpa catatan, kamu cepat lupa versi mana yang kamu periksa dan apa yang awalnya kamu tulis sendiri. Menyimpan versi membantumu kembali ke versi yang lebih baik, menunjukkan apa yang kamu ubah, dan membuktikan bahwa kamu memeriksa.",
+        "Simpan tulisan aslimu sebelum meminta bantuan. Simpan keluaran AI sebagai berkas terpisah dengan nama yang jelas, misalnya laporan-1-asli, laporan-2-dari-AI, laporan-3-final. Tulis satu baris catatan tentang permintaan dan perubahanmu. Banyak aplikasi dokumen daring punya riwayat versi bawaan; menurut halaman bantuan Google Docs, versi bisa diberi nama, dan menghapus riwayat bersifat permanen."
+      ]
+    },
+    {
+      "judul": "Tanggung jawab tetap pada kamu",
+      "paragraf": [
+        "Kalimat “itu kan hasil AI” tidak membebaskan siapa pun. Kursus Claude Academy untuk pembuat aplikasi menyebutnya begini: kamu memegang hasilnya, bukan sekadar keluarannya. Panduan pemerintah Selandia Baru untuk layanan publik juga meminta manusia ikut terlibat, memahami data yang dimasukkan, serta memeriksa dan menyetujui hasilnya.",
+        "Peninjauan juga harus sungguhan. Regulator perlindungan data Inggris (ICO) memperingatkan tentang automation bias, yaitu kecenderungan terlalu percaya pada keluaran mesin sehingga peninjauan hanya menjadi stempel. Tandanya: kamu bisa menjelaskan isinya tanpa melihat AI dan berani mengubah atau menolaknya."
+      ]
+    },
+    {
+      "judul": "Alur ringkas sebelum menyerahkan",
+      "paragraf": [
+        "Gabungkan ketiganya menjadi satu alur pendek. Pertama, simpan versi asli dan versi dari AI. Kedua, baca seluruh hasil dengan tiga pertanyaan peninjau dan cocokkan angka dengan sumbermu. Ketiga, bila taruhannya tinggi, minta orang lain membaca; panduan Selandia Baru dan modul Salesforce Trailhead sama-sama menganjurkannya. Keempat, simpan versi final dan catat perubahanmu. Kelima, serahkan sambil siap menjawab pertanyaan."
+      ]
+    },
+    {
+      "judul": "Kesalahan yang sering terjadi",
+      "paragraf": [
+        "Pertama, menyalin hasil AI ke pekerjaan akhir tanpa membaca. Kedua, hanya memeriksa tata bahasa, padahal fakta, angka, dan kecocokan dengan tujuan juga perlu dicek. Ketiga, menimpa berkas yang sama sehingga versi asli hilang. Keempat, mengira pernyataan “dibantu AI” sudah menggantikan pemeriksaan. Kelima, meminta AI menilai hasil buatannya sendiri lalu menganggapnya pemeriksaan independen. Keenam, tidak mencatat apa yang kamu ubah."
+      ]
+    },
+    {
+      "judul": "Kapan tidak perlu prosedur penuh",
+      "paragraf": [
+        "Tidak semua pemakaian butuh alur lima langkah. Memeriksa ejaan di catatan pribadi atau mencari ide nama untuk dirimu sendiri cukup dibaca sekilas. Makin banyak orang terdampak dan makin besar akibat kesalahan, makin lengkap tinjauan yang perlu kamu lakukan.",
+        "Jangan jadikan AI satu-satunya dasar untuk urusan hukum, kesehatan, atau uang. Tanyakan ke pihak yang berwenang. Pelajaran ini bukan nasihat hukum."
+      ]
+    }
+  ],
+  "contoh": {
+    "judul": "Contoh berpasangan (cerita fiktif)",
+    "teks": "Pak Heri, tokoh fiktif, pengurus koperasi sekolah, harus mengirim ringkasan penjualan bulanan ke kepala sekolah. Versi kurang baik: ia menempelkan catatan kasar ke chatbot, menyalin hasilnya ke satu berkas dengan menimpa catatan lamanya, lalu mengirimnya. Angka total ternyata berbeda dari buku kas dan catatan aslinya sudah hilang. Versi baik: ia menyimpan catatan asli sebagai laporan-1-asli, meminta chatbot merapikan ringkasan dan menyimpannya sebagai laporan-2-dari-AI, mencocokkan setiap angka dengan buku kas, memperbaiki total yang keliru, menyimpan laporan-3-final dengan catatan satu baris tentang perubahannya, dan meminta bendahara membaca sebelum dikirim. Bedanya: versi baik meninjau seluruh isi, menyimpan jejak, dan memegang tanggung jawab akhir."
+  },
+  "latihan": {
+    "petunjuk": "Kerjakan di chatbot AI mana pun, dengan bahan karanganmu sendiri tanpa data pribadi, misalnya catatan penjualan kue fiktif lima baris. Tahap 1 (coba): simpan catatanmu sebagai versi asli, minta AI merapikannya menjadi ringkasan tiga kalimat, lalu simpan hasilnya sebagai berkas terpisah. Tahap 2 (perbaiki): tinjau dengan tiga pertanyaan peninjau, cocokkan setiap angka dengan catatan aslimu, tandai yang keliru atau tak bisa dilacak, lalu perbaiki dan simpan versi final dengan catatan satu baris tentang perubahan. Tahap 3 (bandingkan): bandingkan ketiga versimu, lalu tulis satu kalimat tentang apa yang paling berubah dan satu kalimat bahwa kamu bertanggung jawab atas hasil akhir. Daftar periksa: (1) tanpa data pribadi; (2) versi asli tidak tertimpa; (3) setiap angka dicocokkan dengan sumber; (4) perubahan tercatat; (5) kamu bisa menjelaskan hasil final tanpa membuka AI."
+  },
+  "cek": [
+    {
+      "tanya": "Mana yang paling tepat sebagai alasan menyimpan versi asli sebelum meminta bantuan AI?",
+      "opsi": [
+        "Supaya AI tidak bisa mengubahnya",
+        "Supaya kamu bisa kembali ke versi sebelumnya dan menunjukkan apa yang berubah serta apa yang kamu periksa",
+        "Supaya hasilnya otomatis lebih akurat",
+        "Supaya tidak perlu meninjau hasil AI"
+      ],
+      "benar": 1,
+      "jelas": "Versi asli memungkinkan kamu kembali, membandingkan, dan menjelaskan perubahan. Menyimpan tidak membuat AI lebih akurat dan tidak menggantikan peninjauan."
+    },
+    {
+      "tanya": "Kenapa meminta AI menilai hasil buatannya sendiri tidak cukup sebagai peninjauan?",
+      "opsi": [
+        "Karena AI tidak pernah bisa memeriksa apa pun",
+        "Karena penilaian itu bisa mengulang kekeliruan yang sama dan tidak menggantikan pencocokan dengan sumber aslimu serta penilaianmu",
+        "Karena AI hanya boleh dipakai sekali per tugas",
+        "Karena hasil AI selalu benar sehingga tidak perlu dinilai"
+      ],
+      "benar": 1,
+      "jelas": "AI bisa menunjukkan hal yang perlu dicek, tetapi bukan pemeriksa independen. Opsi pertama berlebihan, opsi ketiga tidak berdasar, opsi keempat keliru karena AI bisa salah."
+    },
+    {
+      "tanya": "Sinta (tokoh fiktif) memakai chatbot untuk menyusun daftar belanja acara dan sudah mengirimnya ke panitia. Ia baru sadar versi aslinya tertimpa dan satu harga belum ia cek. Panitia bertanya dari mana angka itu. Apa langkah yang paling tepat?",
+      "opsi": [
+        "Menjawab bahwa itu hasil AI sehingga bukan salahnya",
+        "Mengecek harga ke sumber aslinya sekarang, memperbaiki daftar, memberi tahu panitia, dan mulai menyimpan versi serta catatan perubahan",
+        "Menghapus semua berkas agar tidak ada yang bisa membandingkan",
+        "Meminta AI mengirim klarifikasi atas namanya tanpa dibaca"
+      ],
+      "benar": 1,
+      "jelas": "Tanggung jawab ada pada Sinta: mengoreksi, memberi tahu, dan memperbaiki kebiasaan. Opsi pertama menghindari tanggung jawab, opsi ketiga menyembunyikan jejak, opsi keempat mengulang kesalahan tanpa peninjauan."
+    }
+  ],
+  "ringkasan": [
+    "Tinjau seluruh hasil AI seperti penyunting yang skeptis: cocokkan tujuan, fakta, dan angka dengan sumbermu, dan curigai yang tak bisa dilacak.",
+    "Simpan versi asli, versi dari AI, dan versi final dengan nama jelas serta satu baris catatan perubahan, supaya bisa kembali dan menjelaskan.",
+    "Tanggung jawab atas hasil akhir tetap padamu: peninjauan harus sungguhan, bukan stempel, dan taruhan tinggi layak dibaca orang lain."
+  ]
+}
