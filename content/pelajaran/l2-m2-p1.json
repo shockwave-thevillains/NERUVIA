@@ -1,0 +1,102 @@
+{
+  "id": "l2-m2-p1",
+  "status": "draf",
+  "tujuan": "Setelah pelajaran ini, kamu bisa memakai AI untuk menemukan bahan riset, lalu memeriksa sumbernya dengan tiga pertanyaan sebelum memakainya.",
+  "bagian": [
+    {
+      "judul": "Jawaban AI adalah petunjuk, bukan bukti",
+      "paragraf": [
+        "Hasil pencarian AI sering rapi dan terdengar yakin. Pelajaran Claude Academy tentang riset dengan AI menyebut AI mempercepat orientasi, tetapi kamulah pengambil keputusan yang harus menilai hasilnya.",
+        "Anggap jawaban AI sebagai peta awal: menunjukkan arah, belum membuktikan apa pun."
+      ]
+    },
+    {
+      "judul": "Tiga pertanyaan untuk setiap sumber",
+      "paragraf": [
+        "Studi Breakstone dan kawan-kawan (2021) mengacu pada kebiasaan pemeriksa fakta profesional saat menilai situs asing. Mereka dipandu tiga pertanyaan: siapa di balik informasi ini, apa buktinya, dan apa kata sumber lain.",
+        "Pakai tiga pertanyaan itu untuk sumber apa pun, termasuk yang disebut AI. Yang pertama paling sering dilewati."
+      ]
+    },
+    {
+      "judul": "Baca ke samping, jangan hanya ke bawah",
+      "paragraf": [
+        "Studi itu menemukan mahasiswa umumnya membaca vertikal: menelaah satu halaman dari atas ke bawah atau membuka halaman “Tentang” situs itu. Pemeriksa fakta justru cepat keluar dari situs asing dan membuka tab baru untuk mencari tahu pemiliknya dari sumber lain. Itu disebut lateral reading, membaca ke samping.",
+        "Dari 87 mahasiswa yang mengikuti kursus daring pendek, yang membaca ke samping pada satu tugas naik dari 3 menjadi 67. Studi ini hanya satu mata kuliah tanpa kelompok pembanding, jadi hasilnya menjanjikan, bukan pasti. Studi itu juga mencatat kekeliruan umum: menganggap alamat .org otomatis tepercaya atau menilai dari tampilan situs."
+      ]
+    },
+    {
+      "judul": "Telusuri klaim dan rujukan sampai ke asalnya",
+      "paragraf": [
+        "Panduan perpustakaan beberapa universitas (Boston, Northwestern, VCU, London Metropolitan) sepakat: judul, penulis, tahun, atau jurnal dalam rujukan buatan AI bisa keliru, bahkan seluruh rujukan bisa fiktif. Cari judul persis di Google Scholar atau katalog perpustakaan. Bila tidak ketemu, jangan pakai.",
+        "Bila sumbernya ada, buka dan baca bagian yang dikutip. Northwestern mengingatkan bahwa sumber yang benar pun bisa dikutip keliru, dan Boston menambahkan bahwa tautan dari alat AI belum menjamin sumber itu mendukung klaimnya.",
+        "Tutorial Claude Academy menyarankan meminta AI menyebut asal tiap klaim, mengutip bagian sumbernya, dan melabeli klaim dari pengetahuan umum sebagai “tanpa sumber”. Anggap jawabannya daftar yang harus kamu cek."
+      ]
+    },
+    {
+      "judul": "Ingat batas pengetahuan AI",
+      "paragraf": [
+        "Pelajaran Academy tentang pengetahuan AI menjelaskan bahwa model belajar dari data sampai tanggal tertentu, jadi perubahan sesudahnya tidak ia ketahui kecuali produknya memakai pencarian web.",
+        "Waspadai informasi yang cepat berubah: jabatan, harga, aturan, berita. Cari ke sumber resmi yang memegang datanya."
+      ]
+    },
+    {
+      "judul": "Kesalahan yang sering terjadi",
+      "paragraf": [
+        "Pertama, menganggap tautan dari AI pasti mendukung klaimnya tanpa membukanya. Kedua, menilai sumber dari tampilan situsnya. Ketiga, memercayai alamat .org atau .edu tanpa mencari tahu pengelolanya. Keempat, mengutip rujukan yang tidak bisa kamu temukan sendiri. Kelima, berhenti di satu sumber. Keenam, memakai angka lama. Ketujuh, bertanya ke AI yang sama apakah jawabannya benar, lalu menganggapnya sudah diperiksa."
+      ]
+    },
+    {
+      "judul": "Kapan tidak perlu pemeriksaan berat",
+      "paragraf": [
+        "Sesuaikan usaha dengan taruhannya. Mencari ide nama acara tidak butuh penelusuran panjang. Angka untuk tugas, laporan, atau keputusan uang perlu dicocokkan ke sumbernya. Untuk urusan kesehatan, hukum, atau keuangan, tanyakan ke pihak berwenang. Pelajaran ini bukan nasihat hukum, keuangan, atau medis."
+      ]
+    }
+  ],
+  "contoh": {
+    "judul": "Contoh berpasangan (cerita fiktif)",
+    "teks": "Larasati, tokoh fiktif, menulis tugas tentang program bank sampah di Kota Sumber Jaya (juga fiktif). AI menjawab bahwa program itu mengurangi sampah rumah tangga hingga 74 persen, dengan rujukan “Jurnal Lingkungan Nusantara, 2021” dan sebuah tautan. Versi kurang baik: Larasati menyalin angka dan rujukan itu karena terlihat ilmiah. Dosennya tidak menemukan artikelnya. Versi baik: Larasati mencari judul persis di Google Scholar, tidak menemukannya, dan tidak memakai rujukan itu. Ia membuka tautannya, melihat angka 74 persen tidak ada di sana, lalu membuka tab baru untuk mencari tahu pengelola situsnya. Ia mencari data dinas lingkungan kota (fiktif) dan satu sumber pembanding, lalu menandai angka yang belum terkonfirmasi. Bedanya: versi kurang baik memakai AI sebagai sumber, versi baik memakainya sebagai petunjuk arah lalu memeriksa sendiri."
+  },
+  "latihan": {
+    "petunjuk": "Kerjakan di chatbot AI mana pun dengan topik umum tanpa data pribadi, misalnya manfaat membaca sebelum tidur. Tahap 1 (coba): minta AI menjelaskan topik itu dengan tiga sumber dan catat yang disebutnya. Tahap 2 (perbaiki): untuk tiap sumber, cari judulnya di mesin pencari, buka halamannya bila ada, lalu jawab tiga pertanyaan: siapa di baliknya (cari lewat tab baru), apa buktinya, apa kata sumber lain. Minta AI melabeli klaim tanpa sumber. Tahap 3 (bandingkan): bandingkan tahap 1 dengan pemeriksaanmu, lalu tulis satu kalimat tentang bagian yang boleh kamu pakai. Daftar periksa: (1) tanpa data pribadi nyata; (2) tiap sumber dicari ke luar jawaban AI; (3) tautan dibuka dan dicocokkan dengan klaim; (4) minimal satu sumber pembanding; (5) klaim yang belum terkonfirmasi diberi tanda."
+  },
+  "cek": [
+    {
+      "tanya": "AI menjawab pertanyaan risetmu dan menyertakan sebuah rujukan jurnal lengkap dengan judul. Apa langkah pertama yang paling tepat?",
+      "opsi": [
+        "Mencari judul persis itu di Google Scholar atau katalog perpustakaan untuk memastikan artikelnya ada",
+        "Langsung mengutipnya karena rujukan berformat lengkap menandakan sumbernya benar-benar ada",
+        "Meminta AI menjamin bahwa rujukan itu asli, lalu mengutipnya bila AI menjawab yakin",
+        "Menghapus judul dan tahunnya lalu hanya memakai isi kutipannya sebagai pengetahuan umum"
+      ],
+      "benar": 0,
+      "jelas": "Rujukan buatan AI bisa keliru atau fiktif, jadi keberadaannya dicek di luar jawaban AI. Format lengkap bukan bukti, jaminan AI yang sama bukan pemeriksaan, dan membuang rujukan tidak membuat isinya benar."
+    },
+    {
+      "tanya": "Kamu menemukan situs berakhiran .org yang tampak profesional dan memuat angka yang kamu butuhkan. Cara menilai yang paling sejalan dengan pelajaran ini?",
+      "opsi": [
+        "Membaca seluruh halaman dengan teliti, melihat desainnya, dan membuka halaman “Tentang” di situs yang sama",
+        "Membuka tab baru untuk mencari tahu dari sumber lain siapa yang mengelola situs itu dan bagaimana reputasinya",
+        "Menganggapnya tepercaya karena alamat .org biasanya dikelola lembaga nirlaba",
+        "Menghitung berapa banyak tautan di situs itu, karena makin banyak tautan makin kuat kredibilitasnya"
+      ],
+      "benar": 1,
+      "jelas": "Pemeriksa fakta keluar dari situs untuk mencari tahu pengelolanya. Opsi lain bergantung pada tampilan, halaman “Tentang” buatan situs sendiri, akhiran alamat, atau jumlah tautan, semuanya kekeliruan umum."
+    },
+    {
+      "tanya": "Seorang pelajar fiktif butuh harga terbaru sebuah layanan untuk laporan. AI memberi angka yang yakin, tanpa tautan. Apa yang sebaiknya ia lakukan?",
+      "opsi": [
+        "Memakai angka itu, sebab AI yang percaya diri jarang keliru soal harga umum",
+        "Bertanya ulang ke AI yang sama lalu memakai angka yang paling sering muncul",
+        "Memakai angka itu dengan catatan bahwa AI yang memberikannya, tanpa sumber lain",
+        "Mencocokkan harga di situs resmi layanan itu, karena harga mudah berubah setelah AI selesai dilatih"
+      ],
+      "benar": 3,
+      "jelas": "Harga cepat berubah, sedangkan pengetahuan AI berhenti pada tanggal tertentu kecuali ia memakai pencarian web. Sumber resmi paling layak. Keyakinan, konsistensi, dan catatan kaki tidak memeriksa kebenaran."
+    }
+  ],
+  "ringkasan": [
+    "Jawaban AI itu petunjuk arah: cari ke luar jawabannya, jangan jadikan AI sumber terakhir.",
+    "Tanyakan siapa di baliknya, apa buktinya, dan apa kata sumber lain; cari tahu pengelolanya lewat tab baru.",
+    "Cari rujukan sampai ke sumber aslinya, buka tautannya, dan beri tanda pada klaim yang belum bisa kamu konfirmasi."
+  ]
+}

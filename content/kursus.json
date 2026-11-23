@@ -197,6 +197,47 @@
               "isi": "draf"
             }
           ]
+        },
+        {
+          "id": "l2-m2",
+          "judul": "Riset dan belajar dengan AI",
+          "pelajaran": [
+            {
+              "id": "l2-m2-p1",
+              "judul": "Mencari informasi dan memeriksa sumbernya",
+              "jenis": "Praktik",
+              "xp": 20,
+              "isi": "draf"
+            },
+            {
+              "id": "l2-m2-p2",
+              "judul": "Merangkum beberapa sumber tanpa mencampur fakta",
+              "jenis": "Praktik",
+              "xp": 20,
+              "isi": "belum"
+            },
+            {
+              "id": "l2-m2-p3",
+              "judul": "Belajar topik baru lewat pertanyaan bertahap",
+              "jenis": "Praktik",
+              "xp": 20,
+              "isi": "belum"
+            },
+            {
+              "id": "l2-m2-p4",
+              "judul": "Membuat kartu belajar dan soal latihan dari catatan",
+              "jenis": "Praktik",
+              "xp": 20,
+              "isi": "belum"
+            },
+            {
+              "id": "l2-m2-p5",
+              "judul": "Mencatat rujukan dan menghindari plagiarisme",
+              "jenis": "Latihan",
+              "xp": 30,
+              "isi": "belum"
+            }
+          ]
         }
       ]
     },
