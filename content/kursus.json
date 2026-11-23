@@ -238,6 +238,47 @@
               "isi": "draf"
             }
           ]
+        },
+        {
+          "id": "l2-m3",
+          "judul": "Menulis dan membuat konten dengan AI",
+          "pelajaran": [
+            {
+              "id": "l2-m3-p1",
+              "judul": "Menyunting tulisan sendiri dengan bantuan AI",
+              "jenis": "Praktik",
+              "xp": 20,
+              "isi": "draf"
+            },
+            {
+              "id": "l2-m3-p2",
+              "judul": "Menyesuaikan tulisan untuk pembaca yang berbeda",
+              "jenis": "Praktik",
+              "xp": 20,
+              "isi": "belum"
+            },
+            {
+              "id": "l2-m3-p3",
+              "judul": "Dari ide ke kerangka tulisan",
+              "jenis": "Praktik",
+              "xp": 20,
+              "isi": "belum"
+            },
+            {
+              "id": "l2-m3-p4",
+              "judul": "Menerjemahkan dan menyesuaikan nada",
+              "jenis": "Praktik",
+              "xp": 20,
+              "isi": "belum"
+            },
+            {
+              "id": "l2-m3-p5",
+              "judul": "Memeriksa orisinalitas dan hak cipta",
+              "jenis": "Latihan",
+              "xp": 30,
+              "isi": "belum"
+            }
+          ]
         }
       ]
     },
