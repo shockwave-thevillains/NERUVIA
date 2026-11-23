@@ -63,3 +63,6 @@ Level 2 (AI untuk Kerja) dan Level 3 (AI Lanjutan) baru dirancang setelah Level 
 5. Memeriksa orisinalitas dan hak cipta
 
 Sebelum menulis, ikuti bagian "Riset rujukan" di RUNBOOK.md dan catat hasilnya di RUJUKAN.md.
+
+## Level 3 · AI Lanjutan (usulan riset K1, 24 Nov 2026, belum dikerjakan)
+Usulan tiga modul (Merancang alur kerja otomatis; Membuat asisten AI sendiri tanpa kode; Otomasi yang aman dan bisa dipertanggungjawabkan) beserta lima pelajaran tiap modul ada di `docs/riset/kurikulum-level3.md`, bagian 4. Belum disetujui Master dan belum masuk `kursus.json`. Tiga pertanyaan keputusan ada di bagian 7 dokumen itu.
