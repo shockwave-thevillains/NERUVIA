@@ -611,3 +611,18 @@ Dokumen lengkap beserta tabel perbandingan, perbedaan antarsumber, aturan tulis 
 | cyber (pembanding lokal) | SIBERKREASI: modul 4 Pilar Literasi Digital CABE (CC BY-NC-SA) | https://gnld.siberkreasi.id/modul/ | Daftar modul pilar Aman (data pribadi, tipu daya digital); hanya judul terbaca; lisensi NC melarang penyalinan | Kueri Firecrawl |
 
 Tidak terbaca: PDF panduan CSIRT Kabupaten Wonosobo (situs menolak pengambilan otomatis karena robots.txt, tidak dicoba lewat jalur lain); halaman NCSC phishing (alamat tebakan, 404); Microsoft SC-900 dan Google Be Internet Awesome (tidak dicoba). Tinjau sebelum pelajaran cybersecurity ditulis.
+
+## Rujukan rancangan struktur jalur di kursus.json (K3), 24 Nov 2026
+Dokumen lengkap beserta tabel perbandingan, pengukuran prototipe, dan pemeriksaan lima klaim: `docs/riset/struktur-jalur.md`. Semua diakses 24 Nov 2026. "Penuh" berarti teks lengkap dibaca lewat konektor Claude_Academy; "laporan agen" berarti hanya ringkasan agen web-fetch yang diterima.
+
+| Dipakai untuk | Rujukan | URL | Yang dipelajari (parafrase) | Cara baca |
+|---|---|---|---|---|
+| pola katalog | Claude Academy: daftar kursus (`list_content`) | https://academy.claude.com/courses | 29 kursus ditampilkan datar dengan label tingkat dan produk; tanpa hierarki jalur | Penuh |
+| pola katalog | Claude Academy: Claude 101 | https://academy.claude.com/courses/claude-101 | Satu kursus berisi pelajaran terurut; prasyarat hanya judul di outline | Penuh |
+| pola hierarki | Microsoft Learn: content and resource types (tertera diperbarui 29 Jul 2026) | https://learn.microsoft.com/en-us/training/support/learn-content-types | Learning path berisi modul terurut; modul mandiri; unit hanya terkait satu modul; prasyarat dan tingkat tidak disebut sebagai bidang | Laporan agen |
+| nama bidang prasyarat | schema.org: coursePrerequisites | https://schema.org/coursePrerequisites | Syarat mengikuti Course: Course lain, teks, atau AlignmentObject | Laporan agen |
+| SEO (ditunda) | Google Search Central: changelog dokumentasi | https://developers.google.com/search/updates | URL course-info mengembalikan changelog; entri 9 Sep 2025 menyebut dokumentasi course info dihapus; sekitar 60 ribu karakter akhir tidak terbaca | Laporan agen |
+| tombol filter | W3C WAI-ARIA APG: Button Pattern | https://w3.org/WAI/ARIA/apg/patterns/button | Tombol toggle memakai aria-pressed; label tidak boleh berubah saat status berubah | Laporan agen |
+| pembanding konsep | Coursera blog: peluncuran Specializations (20 Jan 2014) | https://blog.coursera.org/coursera-specializations-focused-programs-in | Rangkaian multi-kursus dengan capstone; tanpa prasyarat antar kursus; artikel lama | Laporan agen |
+
+Tidak terbaca: dokumen Google course-info (URL mengembalikan halaman lain); halaman Specialization Coursera yang berlaku sekarang (tidak dibuka). Tinjau sebelum keputusan SEO (H1) memakai markup Course.

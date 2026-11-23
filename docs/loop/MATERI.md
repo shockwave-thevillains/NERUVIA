@@ -69,3 +69,5 @@ Usulan tiga modul (Merancang alur kerja otomatis; Membuat asisten AI sendiri tan
 
 ## Jalur cybersecurity pemula (usulan riset K2, 24 Nov 2026, belum dikerjakan)
 Usulan tiga modul (Akun yang sulit dibobol; Mengenali penipuan dan pesan palsu; Perangkat, data, dan privasi) beserta lima pelajaran tiap modul ada di `docs/riset/kurikulum-cybersecurity.md`, bagian 4. Hanya sisi pertahanan; aturan tulis di bagian 5 dokumen itu. Belum disetujui Master dan belum masuk `kursus.json`. Lima pertanyaan keputusan ada di bagian 7 dokumen itu.
+
+Rancangan penempatan jalur ini di `kursus.json` (level `l4`, bidang `rumpun`, batas navigasi per rumpun, 15 id pelajaran) ada di `docs/riset/struktur-jalur.md` (K3, 24 Nov 2026). Belum dipasang.
