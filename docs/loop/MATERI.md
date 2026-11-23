@@ -66,3 +66,6 @@ Sebelum menulis, ikuti bagian "Riset rujukan" di RUNBOOK.md dan catat hasilnya d
 
 ## Level 3 · AI Lanjutan (usulan riset K1, 24 Nov 2026, belum dikerjakan)
 Usulan tiga modul (Merancang alur kerja otomatis; Membuat asisten AI sendiri tanpa kode; Otomasi yang aman dan bisa dipertanggungjawabkan) beserta lima pelajaran tiap modul ada di `docs/riset/kurikulum-level3.md`, bagian 4. Belum disetujui Master dan belum masuk `kursus.json`. Tiga pertanyaan keputusan ada di bagian 7 dokumen itu.
+
+## Jalur cybersecurity pemula (usulan riset K2, 24 Nov 2026, belum dikerjakan)
+Usulan tiga modul (Akun yang sulit dibobol; Mengenali penipuan dan pesan palsu; Perangkat, data, dan privasi) beserta lima pelajaran tiap modul ada di `docs/riset/kurikulum-cybersecurity.md`, bagian 4. Hanya sisi pertahanan; aturan tulis di bagian 5 dokumen itu. Belum disetujui Master dan belum masuk `kursus.json`. Lima pertanyaan keputusan ada di bagian 7 dokumen itu.
