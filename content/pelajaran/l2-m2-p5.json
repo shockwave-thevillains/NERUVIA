@@ -1,0 +1,102 @@
+{
+  "id": "l2-m2-p5",
+  "status": "draf",
+  "tujuan": "Setelah pelajaran ini, kamu bisa mencatat asal setiap gagasan sejak membaca, membedakan kutipan, parafrase, dan ringkasan, mengakui bantuan AI dengan jelas, serta memeriksa rujukan buatan AI sebelum memakainya.",
+  "bagian": [
+    {
+      "judul": "Dua hal yang perlu kamu akui",
+      "paragraf": [
+        "Perpustakaan Duke dan Portsmouth sama-sama menggambarkan plagiarisme sebagai menyajikan kata, gagasan, atau karya orang lain seolah milikmu. Portsmouth menambahkan bahwa hal ini sering terjadi tanpa sengaja saat orang masih belajar memakai sumber.",
+        "Ada dua hal yang diakui. Pertama, sumber: siapa yang lebih dulu menyampaikan gagasan atau angka itu. Kedua, alat: apakah chatbot ikut menyusun, menyunting, atau menerjemahkan tulisanmu. Catatan tentang alat tidak menggantikan rujukan ke sumber."
+      ]
+    },
+    {
+      "judul": "Catat asalnya saat membaca, bukan setelah menulis",
+      "paragraf": [
+        "Portsmouth menyarankan catatan yang memisahkan gagasanmu dari bahan sumber, lengkap dengan penulis, tahun, dan keterangan yang cukup untuk menemukan sumber itu lagi.",
+        "Beri tiap baris catatan satu label: K untuk kutipan kata persis, P untuk parafrase, M untuk pendapatmu, plus asal di sampingnya. Saat menulis, kamu tahu baris mana yang butuh tanda kutip atau sebutan sumber."
+      ]
+    },
+    {
+      "judul": "Kutipan, parafrase, dan ringkasan",
+      "paragraf": [
+        "Kutipan memakai kata persis dari sumber, di antara tanda kutip, dan tetap menyebut sumber. Portsmouth mencatat bahwa terlalu banyak kutipan melemahkan tulisan. Parafrase memakai kata dan susunan kalimatmu sendiri. Ringkasan memadatkan poin utama dengan kata sendiri.",
+        "Mengganti beberapa kata sambil mempertahankan susunan kalimat sumber bukan parafrase; Portsmouth mencantumkannya sebagai penyebab plagiarisme tak sengaja. Cara aman: tutup sumber, tulis dari pemahamanmu, baru cocokkan."
+      ]
+    },
+    {
+      "judul": "Mengakui bantuan AI",
+      "paragraf": [
+        "UW-Madison membedakan dua kasus. Bila kamu mengutip, memparafrasekan, atau memakai keluaran AI sebagai bahan isi, perlakukan seperti sumber dan sebut alatnya. Bila AI hanya membantu menyunting bahasa atau menerjemahkan, jelaskan dalam catatan pengakuan.",
+        "APA menegaskan bahwa AI tidak bisa menjadi penulis karena tidak mampu memikul tanggung jawab penulis; perusahaan pembuatnya yang ditulis, dengan tanggal percakapan. Perintah tidak masuk daftar rujukan APA, tetapi simpan catatannya. Aturan tempatmu belajar atau bekerja menentukan format.",
+        "Claude Academy menyebut lima unsur pernyataan yang kuat: apa yang dibantu AI, alat yang dipakai, apa yang kamu periksa, apa yang kamu ubah, dan siapa yang bertanggung jawab. Pernyataan itu klaim tentang prosesmu, jadi harus benar."
+      ]
+    },
+    {
+      "judul": "Rujukan buatan AI harus dicari dulu",
+      "paragraf": [
+        "Duke menyebut sumber salah atau fiktif sebagai bentuk masalah juga. UW-Madison berpesan agar rujukan dari AI dicek: sumbernya harus ada dan relevan.",
+        "Lakukan tiga langkah di luar chatbot: cari judul persisnya, buka sumbernya, cocokkan klaim yang akan kamu pakai dengan teks aslinya. Bertanya ke chatbot yang sama bukan pemeriksaan mandiri. Yang tidak ditemukan dibuang."
+      ]
+    },
+    {
+      "judul": "Kesalahan yang sering terjadi",
+      "paragraf": [
+        "Pertama, meminta chatbot menulis ulang teks sumber “agar tidak terdeteksi” tanpa menyebut sumber. Kedua, mengganti beberapa kata lalu menyebutnya parafrase. Ketiga, lupa menandai kutipan dengan tanda kutip. Keempat, memakai rujukan AI tanpa mencarinya. Kelima, menulis pengakuan yang tidak sesuai kenyataan. Keenam, tidak menyimpan catatan perintah. Ketujuh, memakai ulang tugas lamamu tanpa memberi tahu; Duke menyebutnya plagiarisme diri."
+      ]
+    },
+    {
+      "judul": "Kapan tidak perlu seketat ini, dan kapan jangan mengandalkannya",
+      "paragraf": [
+        "Untuk catatan pribadi atau tanya-jawab santai, rujukan penuh tidak perlu. Untuk tugas sekolah, naskah terbit, atau laporan kerja, ikuti aturan dosen, penerbit, atau kantormu, termasuk bila AI dilarang. Ini bukan nasihat hukum; soal hak cipta atau sanksi, tanyakan ke pihak berwenang di lembagamu."
+      ]
+    }
+  ],
+  "contoh": {
+    "judul": "Contoh berpasangan (cerita fiktif)",
+    "teks": "Dimas, tokoh fiktif, menulis esai tentang sampah plastik di Desa Pesisir Lestari (desa karangan). Sumbernya satu laporan fiktif: Koperasi Nelayan Pesisir Lestari (2025), yang menyebut sekitar 120 kilogram plastik terkumpul tiap bulan. Versi kurang baik: Dimas meminta chatbot “tulis ulang supaya tidak terdeteksi plagiarisme”, mendapat teks yang hanya berganti beberapa kata, dan memasukkannya tanpa menyebut laporan. Ia juga memasang tiga rujukan dari chatbot begitu saja; satu judulnya ternyata tidak ada. Versi baik: ia mencatat “K: ‘sekitar 120 kilogram tiap bulan’ (Koperasi Nelayan Pesisir Lestari, 2025)”, mengutip angkanya dengan tanda kutip, dan menjelaskannya dengan kata sendiri. Chatbot hanya merapikan tata bahasa, lalu ia menulis: “Saya memakai chatbot AI untuk menyunting tata bahasa paragraf 2 dan 3; isi, angka, dan rujukan saya periksa sendiri.” Tiga rujukan chatbot ia cari di luar chatbot: dua ditemukan, satu dibuang. Bedanya: versi pertama menyembunyikan sumber dan memercayai rujukan yang belum diperiksa; versi kedua bisa ditelusuri dan jujur tentang bantuan alat."
+  },
+  "latihan": {
+    "petunjuk": "Kerjakan di chatbot AI mana pun, tanpa data pribadi. Tahap 1 (coba): tulis sendiri paragraf empat kalimat sebagai “sumber karangan” dengan nama penulis dan tahun karangan, tempel ke chatbot, dan minta “tulis ulang”. Tandai kalimat yang susunannya masih mirip dan apakah sumbernya disebut. Tahap 2 (perbaiki): buat catatan berlabel K, P, M beserta asalnya. Tutup paragraf sumber, tulis parafrasemu, dan beri satu kutipan pendek bertanda kutip. Minta chatbot menunjukkan kalimatmu yang masih terlalu mirip, tanpa menulis ulang. Tulis pengakuan tiga kalimat. Tahap 3 (bandingkan): minta tiga rujukan untuk topik itu, cari tiap judul di luar chatbot, dan hitung yang ditemukan; tulis satu kalimat perbandingan tahap 1 dan 2. Daftar periksa: (1) tanpa data pribadi; (2) tiap catatan berlabel dan beralamat asal; (3) kutipan bertanda kutip; (4) parafrase berbeda susunan; (5) sumber disebut; (6) pengakuan AI sesuai kenyataan; (7) rujukan AI dicari di luar chatbot; (8) perintah disimpan."
+  },
+  "cek": [
+    {
+      "tanya": "Mana yang paling sesuai dengan parafrase yang baik?",
+      "opsi": [
+        "Mengganti beberapa kata tetapi mempertahankan susunan kalimat sumber, tanpa menyebut sumber",
+        "Menyalin kalimat sumber lalu menaruhnya di tanda kutip, tanpa menyebut siapa penulisnya",
+        "Menulis dengan kata dan susunan kalimat sendiri sambil tetap menyebut sumber gagasan",
+        "Meminta chatbot menulis ulang teks sumber lalu memakainya sebagai tulisan sendiri"
+      ],
+      "benar": 2,
+      "jelas": "Parafrase memakai kata dan susunan sendiri, dan gagasannya tetap diberi sumber. Opsi lain menyembunyikan sumber atau hanya berganti kata."
+    },
+    {
+      "tanya": "Menurut APA, mengapa AI tidak ditulis sebagai penulis dalam rujukan?",
+      "opsi": [
+        "AI tidak dapat memikul hak dan tanggung jawab penulis, jadi perusahaan pembuatnya yang ditulis dan kamu bertanggung jawab atas isinya",
+        "Karena AI selalu memberikan jawaban yang salah",
+        "Karena menyebut alat AI dilarang dalam semua tulisan",
+        "Karena rujukan tidak diperlukan bila kamu sudah menyunting keluaran AI"
+      ],
+      "benar": 0,
+      "jelas": "Alasannya soal tanggung jawab kepenulisan. Menyebut alat tidak dilarang, dan menyunting tidak menghapus perlunya pengakuan."
+    },
+    {
+      "tanya": "Sari meminta chatbot lima rujukan untuk esainya; semuanya tampak meyakinkan. Langkah paling tepat?",
+      "opsi": [
+        "Memakai kelimanya karena terlihat lengkap",
+        "Mencari tiap judul persis di luar chatbot, membuka sumbernya, mencocokkan klaim dengan teks asli, dan membuang yang tidak ditemukan",
+        "Bertanya ke chatbot yang sama apakah rujukan itu asli, lalu percaya jawabannya",
+        "Membuang semua rujukan dan menulis tanpa menyebut sumber apa pun"
+      ],
+      "benar": 1,
+      "jelas": "Rujukan AI bisa fiktif, jadi periksa di luar chatbot. Bertanya ke chatbot yang sama bukan pemeriksaan mandiri; membuang semuanya menghilangkan pengakuan sumber."
+    }
+  ],
+  "ringkasan": [
+    "Akui dua hal: sumber gagasan dan bantuan AI; keduanya berbeda dan tidak saling menggantikan.",
+    "Catat label K, P, M dan asal sejak membaca; parafrase berarti kata dan susunan sendiri, tetap dengan sumber.",
+    "Tulis pengakuan AI yang jujur dan spesifik, simpan perintahmu, dan cari tiap rujukan buatan AI di luar chatbot sebelum dipakai."
+  ]
+}
