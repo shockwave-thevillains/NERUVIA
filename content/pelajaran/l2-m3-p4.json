@@ -1,0 +1,101 @@
+{
+  "id": "l2-m3-p4",
+  "status": "draf",
+  "tujuan": "Setelah pelajaran ini, kamu bisa meminta AI menerjemahkan atau mengubah nada sebuah pesan tanpa mengubah faktanya, lalu memeriksa hasilnya sebelum pesan itu dikirim.",
+  "bagian": [
+    {
+      "judul": "Dua pekerjaan yang berbeda",
+      "paragraf": [
+        "Menerjemahkan berarti memindahkan arti ke bahasa lain. Menyesuaikan nada berarti mengubah kesan pesan: lebih sopan, lebih akrab, atau lebih tegas. Keduanya sering diminta sekaligus, padahal satu bisa merusak yang lain.",
+        "Pelajaran ini memisahkannya: fakta dan arti dijaga lebih dulu, nada diatur sesudahnya, sehingga kamu tahu perubahan berasal dari mana."
+      ]
+    },
+    {
+      "judul": "Sebutkan bahasa, pembaca, dan hubungannya",
+      "paragraf": [
+        "Dokumentasi resmi Claude menyatakan bahwa menyebut bahasa asal dan bahasa tujuan meningkatkan keandalan hasil, dan menganjurkan meminta bahasa yang idiomatis seperti penutur asli serta mempertimbangkan konteks budaya dan daerah. Dokumen itu juga menyarankan menguji dengan bahasa yang kamu butuhkan, karena mutu bisa berbeda.",
+        "Tambahkan dua hal dari sisimu: siapa pembacanya dan apa hubunganmu dengannya, misalnya pembeli yang kecewa, atasan, atau teman lama. Panduan Claude Academy menyarankan menyebut nada dengan kata biasa, seperti “lebih santai”. Latihan steerability di sana menunjukkan bahwa AI menuruti bunyi perintah, bukan maksud yang tidak kamu tulis, jadi “buat lebih profesional” bisa menghasilkan kekakuan yang tidak kamu inginkan."
+      ]
+    },
+    {
+      "judul": "Kunci hal yang tidak boleh berubah",
+      "paragraf": [
+        "Sebelum menempel pesan, tulis daftar kunci: nama orang dan produk, angka, tanggal, nomor pesanan, dan janji. Minta AI mempertahankan semuanya persis. Panduan Center for Civic Design mencatat bahwa terjemahan mesin bisa keliru pada istilah, jenis kelamin, kala, dan tata bahasa, dan bahwa satu kekeliruan kecil dapat membalik arti sebuah kalimat.",
+        "Pecah kalimat panjang dan hindari lelucon serta rujukan budaya setempat. Panduan gaya dokumentasi Google menyebut bahasa yang sederhana dan konsisten lebih mudah diterjemahkan."
+      ]
+    },
+    {
+      "judul": "Nada bukan hanya soal kata",
+      "paragraf": [
+        "Di beberapa bahasa, tingkat kesopanan menjadi bagian tata bahasa. Blog perusahaan penyedia alat penerjemahan, SimpleLocalize, menyebut pasangan seperti du dan Sie dalam bahasa Jerman serta tu dan vous dalam bahasa Prancis; karena komersial dan tanpa riset, ia hanya gambaran. Center for Civic Design melaporkan penguji berbahasa Korea menilai hasil terjemahan yang formal terasa kasar.",
+        "Dalam bahasa Indonesia pun sapaan seperti kamu, Anda, Bapak, atau Kakak membawa kesan. Ini pertimbangan NERUVIA, bukan klaim sumber. Minta dua versi dengan tingkat kesopanan berbeda dan alasan pilihan sapaannya, lalu pilih sendiri."
+      ]
+    },
+    {
+      "judul": "Periksa sebelum mengirim",
+      "paragraf": [
+        "Cocokkan dulu daftar kuncimu dengan hasil, kata demi kata. Lalu minta AI menandai frasa yang diterjemahkan tidak harfiah atau yang ia ragukan. Terjemahan balik ke bahasa asalmu berguna sebagai petunjuk, tetapi bukan bukti: pesan bisa terbaca benar di arah sebaliknya dan tetap janggal bagi pembacanya.",
+        "Panduan Center for Civic Design menyebut peninjauan oleh orang yang menguasai bahasa itu sebagai langkah terpenting. Digital.gov menegaskan bahwa informasi kesehatan, keuangan, atau hukum berisiko besar bila salah terjemah. Kalau pesannya penting, minta orang yang paham bahasanya membaca sebelum dikirim."
+      ]
+    },
+    {
+      "judul": "Kesalahan yang sering terjadi",
+      "paragraf": [
+        "Pertama, meminta terjemahan dan nada sekaligus tanpa memeriksa fakta. Kedua, tidak menyebut pembaca dan hubungannya. Ketiga, menulis “buat lebih sopan” tanpa menjelaskan apa yang kamu maksud. Keempat, tidak membuat daftar kunci. Kelima, mempercayai terjemahan balik sebagai bukti. Keenam, memakai satu terjemahan untuk semua pembaca. Ketujuh, menempel data pribadi orang lain ke chatbot."
+      ]
+    },
+    {
+      "judul": "Kapan tidak dipakai",
+      "paragraf": [
+        "Untuk kontrak, surat resmi, atau keterangan keselamatan dan kesehatan, serahkan kepada penerjemah yang berkompeten. Untuk satu kata, kamus lebih cepat. Bila aturan pemberi tugas melarang bantuan AI, ikuti aturan itu."
+      ]
+    }
+  ],
+  "contoh": {
+    "judul": "Contoh berpasangan (cerita fiktif)",
+    "teks": "Hasan, tokoh fiktif, pemilik Toko Anyam Nusa (karangan), perlu membalas pembeli di luar negeri yang kecewa karena tas rotan pesanan AN-204 terlambat lima hari. Ia ingin menjelaskan keterlambatan dan menawarkan ongkos kirim gratis untuk pesanan berikutnya. Versi kurang baik: ia menulis “terjemahkan ke bahasa Inggris dan buat lebih profesional”. Hasilnya kaku, permintaan maafnya bertele-tele, dan tawaran ongkos kirim menjadi “diskon pengiriman”, yang artinya lain. Versi baik: ia menyebut bahasa asal dan tujuan, menulis bahwa pembacanya pembeli yang kecewa tetapi sopan, nadanya ramah dan tenang, serta menaruh daftar kunci: AN-204, lima hari, ongkos kirim gratis. Ia meminta dua versi nada dan daftar frasa yang diragukan, mencocokkan tiga fakta kuncinya, lalu meminta temannya yang membaca bahasa Inggris memeriksa. Bedanya: versi pertama menyerahkan fakta dan nada kepada AI; versi kedua hanya menyerahkan pekerjaannya dan tetap memeriksa."
+  },
+  "latihan": {
+    "petunjuk": "Kerjakan di chatbot AI mana pun tanpa data pribadi. Tahap 1 (coba): karang pesan pendek tiga kalimat berisi satu nama, satu angka, dan satu tanggal karangan. Minta “terjemahkan dan buat lebih profesional” tanpa penjelasan, lalu catat fakta yang berubah atau nada yang janggal. Tahap 2 (perbaiki): mulai percakapan baru. Tulis bahasa asal dan tujuan, pembaca, hubunganmu, nada yang kamu maksud, dan daftar kunci. Minta dua versi nada, alasan pilihan sapaan, dan daftar frasa yang diragukan. Cocokkan daftar kunci kata demi kata. Tahap 3 (bandingkan): bandingkan hasil tahap 1 dan 2 menurut fakta yang utuh dan kesan nada. Bila ada yang membaca bahasa tujuan, minta ia menilai. Daftar periksa: (1) tanpa data pribadi; (2) bahasa disebut; (3) pembaca dan hubungan ditulis; (4) daftar kunci dibuat; (5) dua nada dibandingkan; (6) fakta dicocokkan; (7) pesan penting ditinjau orang lain."
+  },
+  "cek": [
+    {
+      "tanya": "Mengapa sebaiknya kamu menulis daftar kunci sebelum meminta terjemahan?",
+      "opsi": [
+        "Supaya terjemahan selalu lebih panjang dan terdengar lebih lengkap",
+        "Supaya nama, angka, tanggal, dan janji bisa dicocokkan dengan hasil",
+        "Supaya chatbot tidak perlu mengetahui bahasa asal dan bahasa tujuan",
+        "Supaya hasilnya otomatis benar dan tidak perlu diperiksa lagi nanti"
+      ],
+      "benar": 1,
+      "jelas": "Daftar kunci memberi patokan untuk memeriksa apakah fakta bertahan. Daftar itu tidak memperpanjang hasil, tidak menggantikan penyebutan bahasa, dan tidak membuat pemeriksaan tidak perlu."
+    },
+    {
+      "tanya": "Pesan hasil terjemahan balik terbaca sama dengan aslinya. Apa kesimpulan yang tepat?",
+      "opsi": [
+        "Pesannya pasti natural dan nadanya sudah cocok bagi pembacanya",
+        "Terjemahan balik membuktikan semua fakta sudah benar tanpa pengecekan",
+        "Itu petunjuk yang membantu, bukan pengganti peninjau berbahasa itu",
+        "Pesan itu aman dikirim ke siapa saja tanpa membedakan hubungannya"
+      ],
+      "benar": 2,
+      "jelas": "Terjemahan balik hanya petunjuk: pesan bisa benar secara arti dan tetap janggal atau kasar bagi pembaca. Ia tidak menjamin kenaturalan, tidak menggantikan pencocokan fakta, dan tidak menyesuaikan hubungan dengan pembaca."
+    },
+    {
+      "tanya": "Sinta akan mengirim pengumuman perubahan jadwal berobat kepada kerabat di luar negeri lewat terjemahan AI. Langkah yang paling tepat?",
+      "opsi": [
+        "Mengirimnya langsung karena isi pengumumannya hanya satu kalimat saja",
+        "Meminta AI membuat nadanya lebih santai lalu mengirimnya segera",
+        "Menghapus nama dan tanggal supaya terjemahannya tidak bisa salah",
+        "Mencocokkan fakta kunci, lalu minta orang paham bahasanya meninjau"
+      ],
+      "benar": 3,
+      "jelas": "Informasi kesehatan berisiko besar bila salah, jadi fakta harus dicocokkan dan orang yang paham bahasanya perlu meninjau. Pesan pendek tetap bisa keliru, nada santai tidak menjamin akurasi, dan menghapus nama dan tanggal justru menghilangkan informasi inti."
+    }
+  ],
+  "ringkasan": [
+    "Pisahkan terjemahan dari penyesuaian nada: sebut bahasa, pembaca, dan hubungannya, lalu kunci nama, angka, tanggal, dan janji.",
+    "Minta dua versi nada dan daftar frasa yang diragukan, lalu cocokkan fakta sendiri; terjemahan balik hanya petunjuk.",
+    "Untuk pesan penting, minta orang yang paham bahasanya meninjau; serahkan dokumen resmi dan informasi kesehatan kepada penerjemah yang berkompeten."
+  ]
+}
