@@ -1,0 +1,102 @@
+{
+  "id": "l2-m1-p2",
+  "status": "draf",
+  "tujuan": "Setelah pelajaran ini, kamu bisa meminta AI menyusun draf email kerja yang jelas dan sopan dengan satu permintaan, subjek yang informatif, dan nada yang tepat, lalu memeriksa draf itu sebagai penerima sebelum mengirim.",
+  "bagian": [
+    {
+      "judul": "Email yang jelas bisa dibalas tanpa bertanya balik",
+      "paragraf": [
+        "Email kerja yang baik membuat penerima paham tiga hal dalam hitungan detik: siapa yang menulis, apa yang diminta, dan kapan jawabannya dibutuhkan. Bila salah satunya hilang, penerima membalas dengan pertanyaan dan urusan kecil memakan dua hari.",
+        "AI bisa menulis draf email dengan cepat dan rapi. Namun AI tidak tahu urusanmu: penerimanya, kejadiannya, dan tenggatmu. Panduan bahasa pemerintah Kanada menyarankan bertanya dulu: apakah email ini perlu, dan apakah balasan diperlukan?"
+      ]
+    },
+    {
+      "judul": "Tentukan satu permintaan dan kumpulkan faktanya",
+      "paragraf": [
+        "Panduan Kanada menyarankan satu topik per email. Bila kamu punya tiga urusan untuk orang yang sama, pertimbangkan tiga email.",
+        "Sebelum membuka chatbot, tulis empat hal: siapa penerimanya dan apa hubunganmu dengannya, apa yang sudah terjadi, apa yang kamu minta, dan batas waktunya. Kursus penulisan di Claude Academy menekankan hal yang sama: masukkan detail yang tidak mungkin diketahui AI, seperti riwayat hubunganmu dan fakta kejadiannya. Tanpa itu, AI mengisi celah dengan kalimat umum."
+      ]
+    },
+    {
+      "judul": "Subjek seperti judul berita, isi dalam tiga bagian",
+      "paragraf": [
+        "Panduan Trailhead dan panduan bisnis Universitas Wisconsin–Madison sama-sama menolak subjek kabur seperti “Permintaan” atau “Rapat”. Tulis subjek yang memuat jenis tindakan, topik, dan tenggat, misalnya “Konfirmasi: pengiriman pesanan 118, batas Jumat 4 Des”.",
+        "Untuk isi, pakai tiga bagian: siapa kamu, konteks singkat, lalu permintaan beserta tenggat. Panduan Kanada menyebut batas kasar satu layar, sekitar 250 kata. Minta AI mengikuti susunan ini."
+      ]
+    },
+    {
+      "judul": "Sopan tidak sama dengan berputar-putar",
+      "paragraf": [
+        "Pelajaran Claude Academy tentang instruksi samar menunjukkan bahwa AI mengikuti kata-katamu secara harfiah. Perintah “buat lebih sopan” bisa menghasilkan tiga kalimat permintaan maaf sebelum inti. Nyatakan tujuanmu: “sopan dan hormat, tetapi langsung ke permintaan; tanpa permintaan maaf berlebihan”.",
+        "Sebut juga nadamu dengan kata biasa, misalnya “tegas tapi ramah”, dan hubunganmu dengan penerima, karena sapaan dan penutup bergantung padanya. Sebuah artikel editorial di Chicago Booth Review menilai tulisan lugas sebagai bentuk hormat kepada pembaca. Artikel itu opini, bukan hasil penelitian. Ia juga mencatat bahwa AI condong memakai klise, jadi minta AI menghindari pembuka basa-basi."
+      ]
+    },
+    {
+      "judul": "Baca sebagai penerima sebelum menekan kirim",
+      "paragraf": [
+        "Panduan Wisconsin menyarankan menganggap email bisa dibaca siapa saja dan mengaktifkan jeda kirim. Panduan Kanada menyarankan membaca ulang dari sudut pembaca, dan Trailhead menyarankan membaca keras-keras untuk menguji nada.",
+        "Pemeriksaan singkatnya: apakah nama, tanggal, angka, dan nomor pesanan cocok dengan catatanmu; apakah permintaan dan tenggat mudah terlihat; apakah lampiran terpasang dan penerimanya benar. Artikel Chicago Booth mengingatkan bahwa AI tidak rajin mengecek fakta, jadi angka dan tanggal tetap tugasmu."
+      ]
+    },
+    {
+      "judul": "Kesalahan yang sering terjadi",
+      "paragraf": [
+        "Pertama, hanya menulis “buatkan email ke pemasok” tanpa fakta, sehingga AI mengarang detail. Kedua, memasukkan tiga permintaan dalam satu email. Ketiga, meminta “lebih sopan” tanpa tujuan, sehingga isinya penuh permintaan maaf. Keempat, mengirim draf AI tanpa memeriksa nama dan tanggalnya. Kelima, mengirim email saat marah. Keenam, menaruh “Penting!” di tiap subjek, sehingga tanda itu kehilangan arti."
+      ]
+    },
+    {
+      "judul": "Kapan tidak dipakai",
+      "paragraf": [
+        "Untuk urusan dua menit, telepon atau bicara langsung lebih cepat. Untuk kabar buruk atau perselisihan, panduan Kanada menyarankan telepon atau tatap muka, dan menunggu sekitar satu hari bila kamu sedang kesal. Jangan menempel data pribadi atau rahasia usaha ke chatbot tanpa izin; pelajaran data di Modul 3 membahasnya.",
+        "Untuk surat resmi yang berdampak hukum, kesehatan, atau uang, tanyakan ke pihak yang berwenang. Pelajaran ini bukan nasihat hukum."
+      ]
+    }
+  ],
+  "contoh": {
+    "judul": "Contoh berpasangan (cerita fiktif)",
+    "teks": "Rina, tokoh fiktif, staf admin di CV Maju Bersama yang juga fiktif, menunggu 200 kardus dari pemasok fiktif bernama Pak Hendra. Pesanan nomor 118 dijanjikan tiba 27 November, tetapi sampai 2 Desember belum datang. Versi kurang baik: ia mengetik “Buatkan email ke pemasok soal pesanan yang telat, yang sopan ya.” Hasilnya dimulai dengan tiga kalimat permintaan maaf, tidak menyebut nomor pesanan, dan berakhir dengan “mohon kabarnya segera”. Pak Hendra membalas dengan pertanyaan: pesanan yang mana, dan segera itu kapan? Versi baik: Rina menulis hubungannya (pemasok tetap), kejadian (pesanan 118, janji 27 November, belum tiba), permintaan (konfirmasi tanggal kirim), tenggat (Jumat 4 Desember), nada (ramah dan tegas, tanpa permintaan maaf berlebihan), batas 120 kata, dan larangan mengarang fakta. Draf kembali dengan subjek “Konfirmasi: pengiriman pesanan 118, batas Jumat 4 Des”. Rina mencocokkan nomor dan tanggal, menghapus satu kalimat klise, lalu mengirim. Bedanya: versi baik membawa fakta, satu permintaan, dan tenggat; versi kurang baik meminta AI menebak semuanya."
+  },
+  "latihan": {
+    "petunjuk": "Kerjakan di chatbot AI mana pun dengan situasi karanganmu sendiri, tanpa data pribadi nyata, misalnya meminta konfirmasi jadwal dari pihak lain. Tahap 1 (coba): minta AI menulis email hanya dengan satu kalimat tanpa fakta, lalu catat apa yang tidak jelas bagi penerima. Tahap 2 (perbaiki): tulis ulang permintaan dengan empat hal (penerima dan hubunganmu, kejadian, satu permintaan, tenggat), nada, batas panjang, bentuk subjek, dan larangan mengarang fakta. Periksa hasilnya sebagai penerima dan hapus kalimat klise. Tahap 3 (bandingkan): taruh dua draf berdampingan, tulis satu pertanyaan yang mungkin diajukan penerima pada draf pertama, dan satu hal yang masih kamu ubah sendiri pada draf kedua. Daftar periksa: (1) tanpa data pribadi nyata; (2) satu permintaan dan satu tenggat; (3) subjek memuat tindakan, topik, dan tenggat; (4) fakta dicocokkan dengan catatanmu."
+  },
+  "cek": [
+    {
+      "tanya": "Mengapa draf email dari permintaan satu kalimat tanpa fakta sering gagal?",
+      "opsi": [
+        "Karena AI tidak tahu siapa penerimanya, apa kejadiannya, dan apa tenggatmu, sehingga mengisi celah dengan kalimat umum atau karangan",
+        "Karena AI tidak bisa menulis dalam Bahasa Indonesia",
+        "Karena email selalu harus panjang agar sopan",
+        "Karena subjek email tidak penting"
+      ],
+      "benar": 0,
+      "jelas": "AI hanya tahu yang kamu berikan, jadi tanpa fakta hasilnya umum atau berisi tebakan. Sopan tidak berarti panjang, dan subjek justru penting."
+    },
+    {
+      "tanya": "Manakah subjek yang paling membantu penerima?",
+      "opsi": [
+        "Penting!!!",
+        "Pertanyaan",
+        "Konfirmasi: pengiriman pesanan 118, batas Jumat 4 Des",
+        "Halo Pak Hendra"
+      ],
+      "benar": 2,
+      "jelas": "Opsi ketiga memuat jenis tindakan, topik, dan tenggat. Opsi pertama dan kedua samar atau berlebihan, dan opsi keempat tidak memberi tahu isi."
+    },
+    {
+      "tanya": "Dimas (tokoh fiktif) kesal pada rekan yang terlambat menyerahkan data. Ia meminta AI membuat email “tegas”, lalu hendak langsung mengirimnya malam itu ke seluruh tim. Apa langkah yang paling tepat?",
+      "opsi": [
+        "Mengirim sekarang agar rekannya tahu ia kesal",
+        "Menunda, membaca ulang besok sebagai penerima, mengirim hanya ke rekan yang bersangkutan, dan mempertimbangkan bicara langsung bila persoalannya sensitif",
+        "Meminta AI membuat nadanya lebih keras",
+        "Menghapus semua isi dan tidak membahasnya"
+      ],
+      "benar": 1,
+      "jelas": "Menunda, membaca ulang, dan membatasi penerima mengurangi risiko menyesal. Opsi pertama dan ketiga memperkeruh keadaan, opsi keempat membiarkan masalah."
+    }
+  ],
+  "ringkasan": [
+    "Email yang jelas memuat satu permintaan, fakta yang cukup, dan tenggat; AI hanya bisa menulisnya bila kamu memberi bahannya.",
+    "Tulis subjek berisi tindakan, topik, dan tenggat, lalu susun isi dalam tiga bagian: siapa kamu, konteks, dan permintaan.",
+    "Nyatakan tujuan nada dalam kata biasa, lalu baca sebagai penerima dan cocokkan nama, tanggal, dan angka sebelum mengirim."
+  ]
+}
