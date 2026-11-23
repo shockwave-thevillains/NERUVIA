@@ -1,0 +1,102 @@
+{
+  "id": "l2-m1-p1",
+  "status": "draf",
+  "tujuan": "Setelah pelajaran ini, kamu bisa meminta AI merangkum dokumen panjang dengan tujuan dan format yang jelas, lalu memeriksa ringkasannya terhadap dokumen asli sebelum dipakai.",
+  "bagian": [
+    {
+      "judul": "Ringkasan adalah teks baru, bukan potongan dokumen",
+      "paragraf": [
+        "Merangkum dokumen panjang adalah pekerjaan yang populer diserahkan ke AI. Hasilnya cepat dan rapi, sehingga mudah dianggap benar. Padahal ringkasan AI adalah teks baru yang disusun dari dokumenmu, dan teks baru bisa keliru.",
+        "Pada 2024 regulator keuangan Australia, ASIC, menguji sebuah model AI untuk meringkas masukan publik pada penyelidikan parlemen. Menurut laporan majalah Information Age, lima staf menilai tanpa tahu mana yang buatan AI. Ringkasan manusia mendapat 61 dari 75 poin, ringkasan AI 35. Kekurangan yang disebut antara lain salah fakta, poin penting terlewat, dan informasi yang tidak relevan. Itu satu uji dengan satu model, jadi bacalah sebagai peringatan."
+      ]
+    },
+    {
+      "judul": "Mulai dari tujuan, bukan dari tombol ringkas",
+      "paragraf": [
+        "Kursus AI Fluency di Claude Academy mengingatkan agar kamu memahami tujuanmu sendiri lebih dulu. Panduan pemerintah provinsi British Columbia menyarankan hal serupa untuk ringkasan: sebut konteks dokumen, nada, format, dan fokus.",
+        "Jawab empat pertanyaan sebelum mengetik. Siapa pembacanya? Keputusan atau tindakan apa yang dibantu ringkasan ini? Bentuk apa yang paling mudah dipakai: daftar, tabel, atau paragraf? Bagian mana yang paling penting?"
+      ]
+    },
+    {
+      "judul": "Taruh dokumen di depan, permintaan di belakang",
+      "paragraf": [
+        "Panduan Anthropic untuk dokumen panjang menyarankan menaruh dokumen di bagian atas, lalu instruksi dan pertanyaan setelahnya. Bila ada beberapa dokumen, beri label dan sumber pada masing-masing. Ia juga menyarankan meminta model mengutip bagian yang relevan sebelum mengerjakan tugasnya.",
+        "Panduan itu ditulis untuk model Claude. Kebiasaannya murah dicoba di chatbot lain, tetapi lihat sendiri apakah hasilnya membaik."
+      ]
+    },
+    {
+      "judul": "Minta rujukan ke bagian asli",
+      "paragraf": [
+        "Panduan British Columbia juga menyarankan, bila memungkinkan, meminta alat menunjukkan bagian sumber yang relevan, bukan hanya menghasilkan teks baru. Tirulah: minta tiap poin disertai kutipan pendek atau nomor halaman, dan minta AI menulis “tidak disebut” bila sesuatu tidak ada.",
+        "Dengan rujukan, kamu bisa langsung mencari kalimat aslinya. Tanpa rujukan, kamu harus membaca ulang seluruh dokumen."
+      ]
+    },
+    {
+      "judul": "Periksa ringkasan dengan dokumen asli di sebelahmu",
+      "paragraf": [
+        "Panduan British Columbia menyatakan ringkasan bisa keliru atau salah membaca dokumen, sehingga jawabannya tidak boleh dipakai begitu saja. Ia menyarankan orang yang paham materinya membandingkan keduanya.",
+        "Lakukan tiga pemeriksaan. Pertama, akurat: angka, tanggal, nama, dan keputusan cocok dengan dokumen. Kedua, lengkap menurut tujuanmu: lihat judul bagian di dokumen asli dan pastikan hal penting tidak hilang. Ketiga, tidak ada tambahan: tidak ada pernyataan yang tidak bisa kamu temukan, termasuk status yang berubah, misalnya “dibahas” menjadi “disepakati”."
+      ]
+    },
+    {
+      "judul": "Kesalahan yang sering terjadi",
+      "paragraf": [
+        "Pertama, hanya menulis “ringkas ini” tanpa pembaca, tujuan, dan format. Kedua, meneruskan ringkasan tanpa membuka dokumen asli. Ketiga, menilai dari kelancaran bahasa, padahal yang perlu dicocokkan adalah fakta. Keempat, membiarkan “dibahas” berubah menjadi “diputuskan”. Kelima, menempel dokumen berisi data pribadi tanpa berpikir. Keenam, meringkas ringkasan berulang kali sampai hal pentingnya hilang."
+      ]
+    },
+    {
+      "judul": "Kapan tidak dipakai",
+      "paragraf": [
+        "Jangan meminta ringkasan untuk dokumen pendek yang lebih cepat dibaca sendiri. Jangan jadikan ringkasan pengganti membaca bila kamu yang akan menandatangani, misalnya kontrak; pakai ringkasan hanya sebagai peta. Jangan menempel dokumen rahasia atau berisi data pribadi tanpa izin.",
+        "Untuk urusan hukum, kesehatan, atau uang, ringkasan AI tidak boleh menjadi satu-satunya dasar. Tanyakan ke pihak yang berwenang. Pelajaran ini bukan nasihat hukum."
+      ]
+    }
+  ],
+  "contoh": {
+    "judul": "Contoh berpasangan (cerita fiktif)",
+    "teks": "Bu Maya, tokoh fiktif, sekretaris RT 07 fiktif, harus membagikan hasil rapat tiga halaman ke warga yang tidak hadir. Notulen fiktif itu memuat: kerja bakti Sabtu 5 Desember; Pak Tono memperbaiki lampu gang 2 paling lambat Jumat 11 Desember; lokasi pos ronda belum diputuskan. Versi kurang baik: ia menulis “Ringkas notulen ini.” Hasilnya: “Rapat menyepakati kerja bakti, perbaikan lampu, dan pemindahan pos ronda.” Ia langsung membagikannya, sehingga Pak Tono tidak tahu tenggatnya dan warga mengira pos ronda sudah pindah. Versi baik: ia menempel notulen lebih dulu, lalu menulis: pembaca adalah warga yang tidak hadir; format tiga bagian, yaitu Keputusan, Tugas (siapa, apa, tenggat), dan Belum diputuskan; jangan menambah informasi; tulis “tidak disebut” bila tidak ada; sertakan kutipan pendek untuk tiap poin. Ia mencocokkan kutipan dengan notulen, memperbaiki satu tanggal yang meleset, lalu membagikan. Bedanya: versi baik punya tujuan dan format jelas, meminta rujukan, dan memeriksa ke dokumen asli."
+  },
+  "latihan": {
+    "petunjuk": "Kerjakan di chatbot AI mana pun, dengan teks karanganmu sendiri tanpa data pribadi, sekitar 300 sampai 500 kata, misalnya notulen rapat fiktif. Tahap 1 (coba): tulis dulu tiga poin yang menurutmu pasti ada dalam ringkasan, lalu minta AI meringkas hanya dengan “Ringkas ini.” Tahap 2 (perbaiki): taruh teks di atas, lalu tulis ulang permintaan dengan pembaca, tujuan, format, larangan menambah informasi, dan permintaan kutipan pendek untuk tiap poin. Periksa hasilnya dengan tiga pemeriksaan: akurat, lengkap, tanpa tambahan; tandai yang meleset. Tahap 3 (bandingkan): bandingkan kedua ringkasan dengan tiga poinmu, lalu tulis satu kalimat tentang apa yang paling berubah dan satu hal yang masih meleset. Daftar periksa: (1) tanpa data pribadi; (2) pembaca dan tujuan ditulis; (3) tiap poin punya rujukan; (4) angka, tanggal, dan nama dicocokkan."
+  },
+  "cek": [
+    {
+      "tanya": "Mengapa ringkasan AI perlu dicocokkan dengan dokumen aslinya?",
+      "opsi": [
+        "Karena ringkasan adalah teks baru yang bisa salah fakta, melewatkan poin penting, atau menambah hal yang tidak ada di dokumen",
+        "Karena AI tidak bisa membaca dokumen panjang",
+        "Karena ringkasan yang rapi pasti mengubah makna",
+        "Karena dokumen asli selalu lebih singkat dari ringkasannya"
+      ],
+      "benar": 0,
+      "jelas": "Ringkasan disusun ulang oleh model sehingga bisa keliru, tidak lengkap, atau berlebih. Opsi lain berlebihan atau tidak benar."
+    },
+    {
+      "tanya": "Manakah permintaan yang paling membuat ringkasan mudah diperiksa?",
+      "opsi": [
+        "Ringkas dokumen ini sebagus mungkin.",
+        "Ringkas dalam satu paragraf yang menarik.",
+        "Untuk warga yang tidak hadir, ringkas dalam tiga bagian (Keputusan, Tugas, Belum diputuskan), jangan menambah informasi, dan sertakan kutipan pendek tiap poin.",
+        "Ringkas, lalu nilai sendiri apakah ringkasanmu sudah benar."
+      ],
+      "benar": 2,
+      "jelas": "Opsi ketiga menyebut pembaca, format, larangan menambah, dan rujukan sehingga mudah dicek. Opsi pertama dan kedua tanpa tujuan dan rujukan; opsi keempat menjadikan AI pemeriksa tunggal atas hasilnya sendiri."
+    },
+    {
+      "tanya": "Pak Gunawan (tokoh fiktif), pengurus karang taruna, meminta AI meringkas surat balasan sponsor lima halaman. Ringkasannya menyebut “sponsor menyetujui dukungan dana”, tetapi ia hanya menemukan kalimat “akan dipertimbangkan”. Apa langkah yang paling tepat?",
+      "opsi": [
+        "Mengirim ringkasan ke ketua karena bahasanya sudah rapi",
+        "Memperbaiki ringkasan agar sesuai surat, lalu memeriksa poin lain yang menyangkut status atau keputusan dan meminta kutipan untuk tiap poin",
+        "Meminta AI memastikan ulang tanpa membuka suratnya",
+        "Menghapus ringkasan dan tidak pernah memakai AI lagi"
+      ],
+      "benar": 1,
+      "jelas": "Status “akan dipertimbangkan” berbeda dari “menyetujui”, jadi koreksi dan pemeriksaan poin serupa diperlukan. Opsi pertama meneruskan kesalahan, opsi ketiga tidak memeriksa ke sumber, opsi keempat berlebihan."
+    }
+  ],
+  "ringkasan": [
+    "Ringkasan AI adalah teks baru yang bisa salah fakta, melewatkan poin penting, atau menambah hal yang tidak ada, jadi harus diperiksa.",
+    "Tentukan pembaca, tujuan, dan format; taruh dokumen di depan; dan minta kutipan atau nomor halaman untuk tiap poin.",
+    "Cocokkan ringkasan dengan dokumen asli dalam tiga hal: akurat, lengkap menurut tujuanmu, dan tanpa tambahan."
+  ]
+}

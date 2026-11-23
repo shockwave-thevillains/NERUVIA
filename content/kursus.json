@@ -156,7 +156,49 @@
         "Menulis",
         "Data"
       ],
-      "modul": []
+      "modul": [
+        {
+          "id": "l2-m1",
+          "judul": "AI untuk Kerja",
+          "pelajaran": [
+            {
+              "id": "l2-m1-p1",
+              "judul": "Merangkum dokumen panjang",
+              "jenis": "Praktik",
+              "xp": 20,
+              "isi": "draf"
+            },
+            {
+              "id": "l2-m1-p2",
+              "judul": "Menulis email yang jelas dan sopan",
+              "jenis": "Praktik",
+              "xp": 20,
+              "isi": "belum"
+            },
+            {
+              "id": "l2-m1-p3",
+              "judul": "Menyusun laporan singkat dari catatan",
+              "jenis": "Praktik",
+              "xp": 20,
+              "isi": "belum"
+            },
+            {
+              "id": "l2-m1-p4",
+              "judul": "Mengolah data sederhana",
+              "jenis": "Praktik",
+              "xp": 20,
+              "isi": "belum"
+            },
+            {
+              "id": "l2-m1-p5",
+              "judul": "Mengecek hasil sebelum dikirim ke orang lain",
+              "jenis": "Latihan",
+              "xp": 30,
+              "isi": "belum"
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "l3",
