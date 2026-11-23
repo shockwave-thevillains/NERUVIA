@@ -1,0 +1,102 @@
+{
+  "id": "l1-m3-p4",
+  "status": "draf",
+  "tujuan": "Setelah pelajaran ini, kamu bisa memutuskan siapa yang perlu tahu bahwa AI ikut membantu pekerjaanmu, menulis pernyataan bantuan AI yang spesifik, dan menjaga agar karya orang lain tidak terbawa ke hasilmu tanpa sebutan.",
+  "bagian": [
+    {
+      "judul": "Dua pertanyaan etika yang paling sering muncul",
+      "paragraf": [
+        "Pertama: haruskah aku bilang bahwa AI ikut membantu? Kedua: bagaimana agar hasilnya tidak mengambil jerih payah orang lain? Keduanya bukan soal alat, melainkan soal kejujuran dan rasa hormat kepada orang yang menerima atau menjadi sumber pekerjaanmu.",
+        "Aturan tiap tempat berbeda, jadi yang diajarkan di sini adalah kebiasaan bertanya dan mencatat, bukan satu aturan tunggal."
+      ]
+    },
+    {
+      "judul": "Siapa yang perlu tahu",
+      "paragraf": [
+        "Kursus Claude Academy tentang ketekunan (diligence) memberi pertanyaan sederhana: siapa yang perlu tahu peran AI dalam pekerjaan ini, kapan, dan sedetail apa? Harapannya berbeda menurut tempat. Dosen, atasan, klien, penerbit, dan panitia lomba bisa punya aturan sendiri.",
+        "Alasan dasarnya adalah kepercayaan. Orang berhak tahu bila AI berperan besar pada sesuatu yang mereka nilai, terima, atau jadikan dasar keputusan. Bila belum ada aturan tertulis, bertanyalah sebelum menyerahkan, bukan sesudah ketahuan."
+      ]
+    },
+    {
+      "judul": "Cara menyebut bantuan AI dengan spesifik",
+      "paragraf": [
+        "Kalimat “dibantu AI” tidak memberi tahu pembaca apa-apa. Pernyataan yang baik menjawab lima hal: AI membantu pekerjaan apa, alat apa yang dipakai, apa yang kamu periksa, apa yang kamu ubah atau tulis sendiri, dan siapa yang bertanggung jawab atas hasil akhir. Anthropic menyebutnya pernyataan ketekunan, semacam “bagian metode” untuk kerja bersama AI.",
+        "Panduan gaya APA, yang banyak dipakai di dunia akademik, memberi contoh unsur serupa: tanggal pemakaian, apa yang diminta, bagian mana yang berasal dari keluaran AI, dan bagaimana ide dari AI dimasukkan. APA juga menekankan bahwa aturan pastinya mengikuti kebijakan pengajar, institusi, atau penerbit. Karena itu, simpan catatan kecil tiap kali memakai AI."
+      ]
+    },
+    {
+      "judul": "Menghormati karya orang lain",
+      "paragraf": [
+        "AI menyusun teks dari pola. Ia bisa menghasilkan kalimat yang mirip tulisan orang lain tanpa menunjukkan asalnya, dan ia biasanya tidak bisa menyebut sumbernya dengan benar. Jadi menjaga agar hasilnya orisinal tetap tugasmu.",
+        "Beberapa kebiasaan membantu: jangan menempelkan karya orang lain secara utuh lalu meminta AI “menulis ulang” untuk diaku sebagai milikmu; bila ide atau data berasal dari orang tertentu, sebutkan orangnya; cek izin atau lisensi sebelum memakai gambar, musik, atau tulisan; dan tanyakan pemilik karya bila kamu ragu. Aturan hak cipta berbeda antarnegara dan masih berkembang. Pelajaran ini bukan nasihat hukum; untuk urusan hukum, tanya pihak berwenang atau ahlinya."
+      ]
+    },
+    {
+      "judul": "Tiga pertanyaan sebelum menyerahkan",
+      "paragraf": [
+        "Satu: apakah aku tahu siapa yang perlu tahu soal bantuan AI, dan sudah kuberi tahu? Dua: apakah aku sudah memeriksa isinya dan sanggup menjelaskannya sendiri tanpa AI? Tiga: apakah ada bagian yang mungkin mengambil dari karya orang lain tanpa sebutan?",
+        "Bila satu jawabannya “belum”, tunda. Kamu yang menjawab bila ada yang bertanya, bukan AI."
+      ]
+    },
+    {
+      "judul": "Kesalahan yang sering terjadi",
+      "paragraf": [
+        "Pertama, menyerahkan hasil AI sebagai tulisan sendiri padahal aturan tempatmu meminta keterbukaan. Kedua, menulis pernyataan yang tidak benar, misalnya “sudah kuperiksa semua” padahal belum; pernyataan itu sendiri adalah klaim tentang caramu bekerja. Ketiga, menyalin pernyataan generik dari tempat lain. Keempat, menganggap tidak ada aturan berarti bebas. Kelima, menyembunyikan AI karena takut dianggap merendahkan pekerjaan; yang biasanya merusak kepercayaan justru bantuan yang ketahuan belakangan."
+      ]
+    },
+    {
+      "judul": "Kapan tidak perlu pernyataan panjang, dan kapan jangan mengandalkan AI",
+      "paragraf": [
+        "Tidak semua pemakaian butuh pernyataan resmi. Memeriksa ejaan di catatan pribadi atau menanyakan ide nama acara untuk dirimu sendiri biasanya cukup tanpa catatan. APA sendiri menyatakan tidak semua pemakaian AI perlu disitasi. Makin besar peran AI, makin banyak orang terdampak, dan makin tinggi taruhannya, makin perlu kamu terbuka.",
+        "Bila tempatmu melarang AI untuk tugas tertentu, patuhi larangan itu. Jangan jadikan AI satu-satunya dasar untuk urusan hukum, kesehatan, atau uang; tanyakan ke pihak yang berwenang."
+      ]
+    }
+  ],
+  "contoh": {
+    "judul": "Contoh berpasangan (cerita fiktif)",
+    "teks": "Raka, tokoh fiktif, menulis proposal kegiatan karang taruna dengan bantuan chatbot. Versi kurang baik: ia menempelkan proposal milik karang taruna lain dengan perintah “tulis ulang supaya beda”, lalu mengirim hasilnya tanpa kabar ke siapa pun. Versi baik: ia menulis kerangkanya sendiri, memakai chatbot untuk merapikan bahasa, mencocokkan angka dengan catatan kas, lalu menambah catatan kaki: “Bahasa bagian latar belakang dirapikan dengan chatbot AI; angka dan rencana kegiatan saya periksa dan tulis sendiri; saya bertanggung jawab atas isi proposal.” Ia juga menyebut karang taruna lain sebagai sumber ide jadwal. Bedanya: versi baik menyebut peran AI dengan spesifik, memeriksa hasilnya, dan menyebut asal ide orang lain."
+  },
+  "latihan": {
+    "petunjuk": "Kerjakan di chatbot AI mana pun, dengan bahan karanganmu sendiri tanpa data pribadi. Tahap 1 (coba): minta AI merapikan satu paragraf buatanmu, lalu tulis lima hal: bantuannya apa, alatnya apa, apa yang kamu periksa, apa yang kamu ubah, siapa yang bertanggung jawab. Tahap 2 (perbaiki): ubah catatan itu menjadi dua kalimat pernyataan, lalu tanyakan ke AI apa yang masih samar dan perbaiki bagian yang memang samar. Tahap 3 (bandingkan): bandingkan dengan “dibantu AI” saja, lalu putuskan siapa yang perlu menerima pernyataan itu di situasimu. Daftar periksa: (1) tanpa data pribadi; (2) lima unsur terjawab; (3) tidak ada klaim yang belum kamu lakukan; (4) penerima pernyataan jelas; (5) tanggung jawab akhir tertulis atas namamu."
+  },
+  "cek": [
+    {
+      "tanya": "Mana pernyataan bantuan AI yang paling berguna bagi pembaca?",
+      "opsi": [
+        "“Tulisan ini dibantu AI.”",
+        "“AI ikut berkontribusi, jadi mohon dimaklumi.”",
+        "“Chatbot AI merapikan bahasa bagian pendahuluan; saya memeriksa dan mengubah isi serta angkanya, dan saya bertanggung jawab atas hasilnya.”",
+        "“Seluruh isi benar karena dibuat AI.”"
+      ],
+      "benar": 2,
+      "jelas": "Pernyataan yang baik menyebut tugas, alat, pemeriksaan, perubahan, dan penanggung jawab. Opsi pertama dan kedua terlalu samar, opsi keempat keliru karena AI bisa salah."
+    },
+    {
+      "tanya": "Kenapa kamu tetap perlu memeriksa apakah hasil AI mengambil dari karya orang lain?",
+      "opsi": [
+        "Karena AI selalu menyalin kata demi kata dari satu orang",
+        "Karena AI menyusun teks dari pola dan biasanya tidak bisa menyebut sumbernya dengan benar, jadi kamu yang menyerahkan hasilnya",
+        "Karena pemeriksaan hanya perlu bila AI mengaku menyalin",
+        "Karena pernyataan bantuan AI otomatis melindungi dari keberatan pemilik karya"
+      ],
+      "benar": 1,
+      "jelas": "AI tidak menunjuk asalnya dengan andal, sehingga tanggung jawab ada padamu. Opsi pertama berlebihan, opsi ketiga keliru, opsi keempat salah karena pernyataan bukan izin."
+    },
+    {
+      "tanya": "Bu Dian (tokoh fiktif) ingin memakai chatbot untuk draf surat ke klien, tetapi kantornya belum punya aturan AI. Langkah yang paling tepat?",
+      "opsi": [
+        "Memakainya diam-diam karena belum ada larangan",
+        "Bertanya ke atasan atau pihak yang berwenang sebelum menyerahkan, lalu memeriksa isi surat dan menyebut bantuan AI bila diminta",
+        "Menyalin pernyataan dari internet agar terlihat resmi",
+        "Tidak pernah memakai AI lagi"
+      ],
+      "benar": 1,
+      "jelas": "Bertanya lebih dulu dan memeriksa hasil adalah kebiasaan yang jujur. Opsi pertama dan ketiga menutupi, opsi keempat berlebihan."
+    }
+  ],
+  "ringkasan": [
+    "Tanyakan siapa yang perlu tahu peran AI dalam pekerjaanmu, dan bertanyalah sebelum menyerahkan bila aturannya belum jelas.",
+    "Pernyataan yang baik spesifik: tugas, alat, pemeriksaan, perubahan, dan siapa yang bertanggung jawab; jangan menulis klaim yang belum kamu lakukan.",
+    "AI tidak menunjuk sumber dengan andal, jadi kamu yang menjaga agar karya orang lain tidak terbawa tanpa sebutan atau izin."
+  ]
+}
