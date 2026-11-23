@@ -1,0 +1,101 @@
+{
+  "id": "l2-m3-p5",
+  "status": "draf",
+  "tujuan": "Setelah pelajaran ini, kamu bisa memeriksa tulisan bantuan AI sebelum diterbitkan: apakah isinya hasil keputusanmu, apakah ada bagian yang meminjam dari karya lain, dan bagaimana mengakui peran AI serta sumbernya.",
+  "bagian": [
+    {
+      "judul": "Dua pertanyaan yang berbeda",
+      "paragraf": [
+        "Orisinalitas bertanya: apakah ini benar-benar tulisanmu, bukan jiplakan? Hak cipta bertanya: siapa yang berhak atas sebuah karya, dan apa yang boleh dipakai dari karya orang lain? Keduanya sering tercampur, padahal jawabannya bisa berbeda.",
+        "Pelajaran ini memberi kebiasaan umum, bukan nasihat hukum. Aturan hak cipta berbeda antarnegara, dan sumber resmi di sini dari Amerika Serikat, bukan Indonesia. Untuk keputusan berisiko, tanyakan kepada ahli hukum."
+      ]
+    },
+    {
+      "judul": "Orisinalitas datang dari keputusanmu",
+      "paragraf": [
+        "Pelajaran Claude Academy tentang kerja kreatif menjelaskan bahwa keaslian bergantung pada keputusan, teknik, dan ungkapan dalam karya. Bila hasil akhir mencerminkan keputusanmu dan kamu bisa menceritakan prosesnya dengan jujur, karya itu lebih terasa milikmu. Hasil AI yang diterima begitu saja punya keaslian berbeda.",
+        "Academy juga mencatat bahwa alat AI cenderung menghasilkan keluaran yang mirip antarpengguna. Jadi bagian yang khas harus datang darimu: pengalaman, data, dan sudut pandang. Satu pemeriksaan sederhana dari NERUVIA, bukan jaminan: cari tiga frasa khas tulisanmu dalam tanda kutip dan lihat apakah muncul di tempat lain."
+      ]
+    },
+    {
+      "judul": "Detektor AI bukan penilai orisinalitas",
+      "paragraf": [
+        "Skor detektor mudah dianggap bukti. Oxford AI Competency Centre menyatakan tidak mendukung pendeteksi AI untuk keputusan akademik: tulisan manusia bisa salah ditandai, hasil mudah lolos bila teks diubah sedikit, dan penulis yang masih belajar bahasa berisiko dirugikan. Itu pendapat institusi, bukan studi.",
+        "Panduan TEQSA, regulator pendidikan tinggi Australia, menambahkan bahwa detektor kurang andal untuk teks di bawah sekitar 300 kata dan teks campuran manusia dengan AI, dan skor saja tidak cukup untuk menuduh. Maka simpan riwayat versi dan catatan keputusanmu: skor rendah bukan bukti orisinal, skor tinggi bukan bukti curang."
+      ]
+    },
+    {
+      "judul": "Yang dilindungi hak cipta, dan hasil AI",
+      "paragraf": [
+        "FAQ Copyright Office Amerika Serikat menyebut hak cipta melindungi ungkapan asli, bukan fakta, ide, sistem, atau metode. Judul, nama, slogan, dan frasa pendek juga bukan objek hak cipta. Ini hukum Amerika Serikat, bukan Indonesia. Pelajaran umumnya: ide dan fakta boleh dipakai, tetapi menyalin ungkapan orang lain perlu kehati-hatian dan rujukan.",
+        "Laporan Copyright Office bagian 2, terbit 29 Januari 2025, menyimpulkan bahwa sekadar memberi prompt tidak cukup untuk membuat hasil AI dilindungi. Penataan atau perubahan kreatif oleh manusia bisa memenuhi syarat. Itu laporan lembaga, bukan putusan pengadilan, dan negaramu bisa berbeda."
+      ]
+    },
+    {
+      "judul": "Memakai karya orang lain dan mengakui bantuan AI",
+      "paragraf": [
+        "Untuk karya berlisensi terbuka, Creative Commons menganjurkan empat unsur atribusi: judul, pembuat, sumber, dan lisensi (TASL). Tulis nama lisensi lengkap, misalnya CC BY 4.0, bukan hanya “Creative Commons”. Menyebut situs tempat menemukan karya tidak menggantikan menyebut pembuatnya. Lisensi NC dan ND membatasi pemakaian komersial dan perubahan, jadi baca syaratnya.",
+        "Untuk peran AI, tutorial Claude Academy tentang pernyataan ketelitian AI menyarankan lima hal: tugas yang dibantu AI, alat yang dipakai, apa yang kamu periksa, apa yang kamu ubah, dan siapa yang bertanggung jawab. Tulis hanya yang sungguh kamu lakukan."
+      ]
+    },
+    {
+      "judul": "Kesalahan yang sering terjadi",
+      "paragraf": [
+        "Pertama, menganggap skor detektor sebagai bukti orisinalitas. Kedua, menerbitkan hasil AI tanpa pengalamanmu sendiri. Ketiga, tidak mencari frasa khas. Keempat, mengira semua gambar di mesin pencari bebas dipakai. Kelima, menulis “Creative Commons” tanpa jenis lisensi, pembuat, dan sumber. Keenam, menulis pernyataan bantuan AI yang tidak sesuai kenyataan. Ketujuh, mengira aturan Amerika Serikat otomatis berlaku di tempatmu."
+      ]
+    },
+    {
+      "judul": "Kapan tidak dipakai",
+      "paragraf": [
+        "Untuk sengketa, kontrak, klaim kepemilikan, atau pemakaian komersial besar, serahkan kepada ahli hukum; pelajaran ini tidak menggantikannya. Untuk catatan pribadi yang tidak diterbitkan, pemeriksaan sedalam ini tidak perlu. Ikuti dulu aturan sekolah, penerbit, atau kantormu tentang AI dan sumber."
+      ]
+    }
+  ],
+  "contoh": {
+    "judul": "Contoh berpasangan (cerita fiktif)",
+    "teks": "Nadia, tokoh fiktif, mengelola buletin Komunitas Sepeda Kampung Tenang (karangan). Ia perlu artikel tentang jalur sepeda baru dan satu foto. Versi kurang baik: ia meminta chatbot “tulis artikel orisinal”, menerbitkannya apa adanya, dan merasa aman karena skor detektor rendah. Fotonya diambil dari hasil pencarian gambar tanpa melihat lisensi. Versi baik: ia menulis catatan sendiri, meminta kerangka, lalu menulis ulang dengan cerita anggota komunitas. Ia mencari tiga frasa khas dalam tanda kutip, memakai foto karangan “Pagi di Jalur Baru” oleh Rudi (fiktif) berlisensi CC BY 4.0 lengkap dengan judul, pembuat, sumber, dan lisensi, lalu menulis bahwa AI membantu merapikan kerangka. Bedanya: versi pertama menyerahkan keputusan dan bergantung pada skor; versi kedua membawa keputusan sendiri dan menyebut asal serta bantuan."
+  },
+  "latihan": {
+    "petunjuk": "Kerjakan di chatbot AI mana pun tanpa data pribadi. Tahap 1 (coba): minta AI menulis paragraf 100 kata tentang kebiasaan di lingkunganmu tanpa memberi bahan. Catat bagian dari pengalamanmu. Tahap 2 (perbaiki): mulai percakapan baru. Tulis tiga catatan pengalaman karanganmu, minta kerangka saja, lalu tulis ulang dengan kata sendiri. Cari tiga frasa khas dalam tanda kutip. Tulis atribusi TASL untuk satu gambar karangan dan satu pernyataan bantuan AI berisi lima hal. Tahap 3 (bandingkan): bandingkan paragraf tahap 1 dan 2 menurut kekhasan. Daftar periksa: (1) tanpa data pribadi; (2) ada pengalaman sendiri; (3) frasa khas dicari; (4) TASL lengkap; (5) pernyataan AI jujur; (6) draf disimpan; (7) soal hukum ke ahli."
+  },
+  "cek": [
+    {
+      "tanya": "Menurut FAQ Copyright Office Amerika Serikat, mana yang dilindungi sebagai hak cipta?",
+      "opsi": [
+        "Fakta dan data yang kamu temukan di sebuah buku",
+        "Judul sebuah buku beserta nama penulis aslinya",
+        "Ungkapan asli dalam tulisan atau gambar milik seseorang",
+        "Ide dan metode kerja yang dijelaskan dalam sebuah buku"
+      ],
+      "benar": 2,
+      "jelas": "Yang dilindungi adalah ungkapan asli. Fakta, ide, metode, judul, dan nama tidak dilindungi sebagai hak cipta menurut sumber itu (hukum Amerika Serikat)."
+    },
+    {
+      "tanya": "Mengapa skor detektor AI yang rendah tidak membuktikan tulisanmu orisinal?",
+      "opsi": [
+        "Detektor tidak andal, dan hasilnya mudah lolos bila teks diubah",
+        "Detektor selalu benar, tetapi hanya untuk teks yang sangat panjang",
+        "Skor rendah berarti tulisan itu pasti sudah dilindungi hak cipta",
+        "Skor rendah hanya berlaku bagi tulisan yang memakai satu bahasa"
+      ],
+      "benar": 0,
+      "jelas": "Oxford dan TEQSA menilai detektor tidak cukup andal sebagai bukti. Tidak ada sumber yang menyebut detektor selalu benar, dan skor tidak menentukan perlindungan hak cipta."
+    },
+    {
+      "tanya": "Nadia ingin mengubah foto berlisensi CC BY-NC-ND untuk brosur berbayar. Langkah yang paling tepat?",
+      "opsi": [
+        "Memakainya karena nama pembuat sudah dicantumkan di bagian bawah brosur",
+        "Membaca syaratnya: ND melarang ubahan, NC membatasi pemakaian komersial",
+        "Menulis “Creative Commons” saja di bawah foto sebagai atribusi",
+        "Menghapus nama pembuat agar brosur terlihat lebih rapi dan bersih"
+      ],
+      "benar": 1,
+      "jelas": "Lisensi NC dan ND membatasi pemakaian komersial dan perubahan, jadi syaratnya dibaca dulu. Menyebut pembuat saja tidak mengubah batas itu, dan “Creative Commons” saja bukan atribusi yang benar."
+    }
+  ],
+  "ringkasan": [
+    "Orisinalitas datang dari keputusan dan pengalamanmu; cari frasa khas dan simpan riwayat draf, jangan bergantung pada skor detektor.",
+    "Hak cipta melindungi ungkapan, bukan ide atau fakta; menurut laporan Amerika Serikat sekadar prompt tidak cukup, dan negaramu bisa berbeda.",
+    "Sebut pembuat, sumber, dan lisensi lengkap (TASL), tulis bantuan AI dengan jujur, dan serahkan sengketa atau keputusan berisiko kepada ahli hukum."
+  ]
+}
