@@ -1,0 +1,102 @@
+{
+  "id": "l2-m3-p3",
+  "status": "draf",
+  "tujuan": "Setelah pelajaran ini, kamu bisa mengubah tumpukan ide kasar menjadi kerangka tulisan bersama AI tanpa menyerahkan keputusan isi, lalu menguji kerangka itu dengan membuat kerangka balik dari draf.",
+  "bagian": [
+    {
+      "judul": "Kerangka adalah peta, bukan tulisan",
+      "paragraf": [
+        "Kerangka adalah peta: urutan gagasan dan hubungannya sebelum kalimat ditulis. Panduan Purdue OWL menyebut kerangka membantu menunjukkan urutan logis dan hubungan antargagasan, dan boleh kasar.",
+        "Kerangka murah diubah: memindahkan satu butir jauh lebih ringan daripada menulis ulang tiga halaman. AI berguna sebagai teman menata, bukan penulis pengganti."
+      ]
+    },
+    {
+      "judul": "Tumpahkan ide kasarmu lebih dulu",
+      "paragraf": [
+        "Handout NC State yang dimuat situs CUNY menyebut lima cara mengumpulkan ide: menulis bebas, menulis berulang dari gagasan inti, daftar, peta gagasan, dan pertanyaan siapa, apa, di mana, kapan, mengapa, bagaimana. Pilih satu, lalu tulis sendiri tanpa menyaring.",
+        "Claude Academy menekankan bahwa AI tidak tahu hal yang hanya kamu tahu, seperti pengalaman dan data lapangan. Bila kamu hanya menulis “buatkan kerangka tentang X”, AI mengisinya dengan bagian umum. Bila ide macet, minta AI mewawancaraimu satu pertanyaan per giliran, seperti contoh Academy “wawancarai saya dulu”."
+      ]
+    },
+    {
+      "judul": "Tetapkan tujuan, pembaca, dan pesan utama",
+      "paragraf": [
+        "Purdue OWL menyarankan menentukan tujuan, pembaca, dan gagasan pokok sebelum menyusun.",
+        "Tulis tiga baris: untuk apa tulisan ini, siapa pembacanya, dan satu kalimat pesan utama. Bila pesan utama tak bisa ditulis dalam satu kalimat, kerangka akan melebar, dan AI hanya ikut melebarkannya."
+      ]
+    },
+    {
+      "judul": "Minta AI menata, bukan menulis",
+      "paragraf": [
+        "Purdue memberi empat langkah: kumpulkan ide, kelompokkan, urutkan, beri label. Kumpulkan sudah kamu lakukan. Tiga sisanya minta bertahap, dalam pesan terpisah supaya tiap hasil antara bisa kamu periksa. Dokumentasi Anthropic juga menganjurkan memecah tugas menjadi langkah berurutan bila hasil antara perlu dicek.",
+        "Tempel idemu beserta tiga baris tadi, lalu minta empat hal: kelompokkan tanpa menambah ide baru; dua pilihan urutan beserta alasan; daftar ide yang tidak masuk; dan daftar lubang sebagai pertanyaan, bukan jawaban. Nilai kelompoknya: ada yang tipis atau kelebihan, apakah mendukung pesan utama, saran handout NC State.",
+        "Kamu yang memilih urutan, memindahkan, membuang, dan menjawab lubang. Setelah itu kerangka menjadi milikmu."
+      ]
+    },
+    {
+      "judul": "Uji dengan kerangka balik",
+      "paragraf": [
+        "Setelah draf ada, buat kerangka balik. Panduan Santa Clara University: tulis pesan utama, lalu satu kalimat untuk tiap paragraf tentang apa yang benar-benar dibahas, bukan yang kamu harapkan. Bandingkan dengan pesan utama.",
+        "Yang tampak: paragraf melenceng, bukti salah tempat, atau paragraf tumpang tindih atau memuat terlalu banyak gagasan, kata handout NC State. Kamu boleh meminta AI membuat kerangka balik, tetapi bandingkan dengan pesan utamamu sendiri; jangan serahkan penilaian itu kepada AI yang sama."
+      ]
+    },
+    {
+      "judul": "Kesalahan yang sering terjadi",
+      "paragraf": [
+        "Pertama, meminta kerangka tanpa ide sendiri, sehingga hasilnya umum. Kedua, tidak menulis tujuan, pembaca, dan pesan utama. Ketiga, memakai kerangka AI apa adanya. Keempat, membiarkan AI menambah ide yang tidak kamu punya datanya. Kelima, meminta kerangka dan draf sekaligus. Keenam, tidak menguji dengan kerangka balik. Ketujuh, menempel data pribadi orang lain ke chatbot."
+      ]
+    },
+    {
+      "judul": "Kapan tidak dipakai",
+      "paragraf": [
+        "Untuk pesan tiga kalimat, kerangka hanya memperlambat. Bila pemberi tugas menetapkan susunan baku atau templat, ikuti itu. Bila tugas menilai kemampuanmu menyusun gagasan sendiri, ikuti aturan tugasnya soal bantuan AI. Bila idemu belum ada, kerangka tidak menggantikan berpikir: kumpulkan bahan dulu."
+      ]
+    }
+  ],
+  "contoh": {
+    "judul": "Contoh berpasangan (cerita fiktif)",
+    "teks": "Fajar, tokoh fiktif, pengurus RW 05 “Kampung Asri” (karangan), menulis artikel buletin untuk mengajak warga ikut bank sampah. Data karangan: buka tiap Sabtu 08.00 sampai 10.00, 42 keluarga ikut, 118 kg terkumpul bulan lalu, kisah Bu Lastri yang kas arisannya terbantu. Versi kurang baik: ia menulis “buatkan kerangka artikel tentang bank sampah”. Hasilnya pengertian, sejarah, manfaat, cara kerja, kesimpulan: rapi, tetapi tanpa satu pun datanya dan tanpa ajakan. Versi baik: ia menulis sembilan ide kasar dan tiga baris (tujuan: mengajak 20 keluarga baru; pembaca: warga yang belum ikut; pesan utama: menabung sampah mudah dan hasilnya terlihat). Ia meminta kelompok, dua urutan, ide tersisa, dan lubang, lalu memilih urutan kisah, cara, ajakan, membuang sejarah, dan menjawab sendiri lubang soal jadwal. Kerangka balik dari drafnya menunjukkan paragraf empat membahas jadwal truk dan melenceng, sehingga ia memindahkannya. Bedanya: versi pertama menyerahkan isi dan susunan kepada AI; versi kedua hanya menyerahkan penataan."
+  },
+  "latihan": {
+    "petunjuk": "Kerjakan di chatbot AI mana pun tanpa data pribadi. Tahap 1 (coba): pilih topik tulisan pendek. Karang sembilan ide kasar dengan data karangan, tempel dengan perintah “buatkan kerangka”, lalu tandai butir yang umum. Tahap 2 (perbaiki): mulai percakapan baru. Tulis tiga baris (tujuan, pembaca, pesan utama), tempel ide, dan minta kelompok tanpa ide baru, dua urutan beserta alasan, ide tersisa, dan lubang sebagai pertanyaan. Pilih urutan, ubah sendiri, jawab lubang. Tulis tiga paragraf, lalu buat kerangka balik satu kalimat per paragraf. Tahap 3 (bandingkan): hitung butir kerangka tahap 1 dan 2 yang berasal dari idemu. Cocokkan kerangka balik dengan pesan utama dan catat satu paragraf yang perlu dipindah. Daftar periksa: (1) tanpa data pribadi; (2) ide ditulis sendiri; (3) tiga baris tertulis; (4) AI tidak menambah ide; (5) dua urutan dibandingkan; (6) lubang dijawab sendiri; (7) ada kerangka balik."
+  },
+  "cek": [
+    {
+      "tanya": "Apa yang sebaiknya kamu siapkan sebelum meminta AI menata kerangka tulisanmu?",
+      "opsi": [
+        "Ide kasar buatanmu sendiri, tujuan, pembaca, dan pesan utama",
+        "Hanya topik tulisan, karena AI akan melengkapi sisanya sendiri",
+        "Draf lengkap sepuluh halaman yang sudah dirapikan sepenuhnya",
+        "Judul yang menarik, supaya AI bisa langsung menulis isinya"
+      ],
+      "benar": 0,
+      "jelas": "AI tidak tahu pengalaman dan data yang hanya kamu miliki, dan tanpa tujuan, pembaca, serta pesan utama kerangka melebar. Hanya topik menghasilkan kerangka umum; draf lengkap bukan tahap kerangka; judul menarik tidak menggantikan ide."
+    },
+    {
+      "tanya": "Mengapa perintah “buatkan kerangka artikel tentang X” saja sering menghasilkan kerangka yang umum?",
+      "opsi": [
+        "Karena chatbot tidak bisa membuat daftar bernomor atau berjenjang",
+        "Karena kerangka dari AI selalu lebih panjang daripada tulisannya",
+        "Karena AI tidak punya ide, data, dan pesan utamamu untuk disusun",
+        "Karena perintah singkat selalu ditolak oleh semua chatbot AI"
+      ],
+      "benar": 2,
+      "jelas": "Tanpa bahan darimu, AI mengisi dengan bagian yang cocok untuk siapa saja. Chatbot mampu membuat daftar berjenjang; panjang kerangka tidak ada hubungannya; perintah singkat tidak ditolak, hanya hasilnya umum."
+    },
+    {
+      "tanya": "Dewi sudah menulis draf dari kerangkanya. Saat membuat kerangka balik, paragraf keempat ternyata membahas hal yang tidak mendukung pesan utamanya. Langkah paling tepat?",
+      "opsi": [
+        "Membiarkannya karena paragrafnya sudah enak dibaca",
+        "Meminta AI menilai sendiri apakah drafnya sudah cukup baik",
+        "Menulis ulang seluruh draf dari awal tanpa membuat kerangka lagi",
+        "Memindahkan atau membuang paragraf itu, atau mengubah pesan utama"
+      ],
+      "benar": 3,
+      "jelas": "Kerangka balik ada untuk menemukan paragraf yang melenceng lalu memutuskannya: pindah, buang, atau ubah pesan utama. Membiarkannya meloloskan masalah; menyerahkan penilaian ke AI yang sama bukan pemeriksaan mandiri; menulis ulang semuanya berlebihan."
+    }
+  ],
+  "ringkasan": [
+    "Mulai dari ide kasar milikmu dan tiga baris (tujuan, pembaca, pesan utama), lalu minta AI menata, bukan menulis.",
+    "Minta kelompok tanpa ide baru, dua pilihan urutan, daftar ide tersisa, dan lubang sebagai pertanyaan; kamu yang memilih dan menjawab.",
+    "Setelah draf, buat kerangka balik satu kalimat per paragraf dan bandingkan dengan pesan utama; jangan pakai untuk pesan sangat pendek."
+  ]
+}
