@@ -1,0 +1,101 @@
+{
+  "id": "l2-m1-p5",
+  "status": "draf",
+  "tujuan": "Setelah pelajaran ini, kamu bisa memeriksa draf buatan AI dengan empat pertanyaan (benar, jelas, pas untuk pembaca, lengkap), menelusuri angka dan nama ke sumbernya, lalu memutuskan sendiri apakah draf itu layak dikirim.",
+  "bagian": [
+    {
+      "judul": "Yang menekan tombol kirim adalah kamu",
+      "paragraf": [
+        "Pelajaran Claude Academy tentang ketekunan menyebut satu hal: saat hasil AI kamu bagikan ke orang lain, kamu, bukan AI, yang bertanggung jawab atas ketepatan dan kepantasannya. Panduan pemerintah British Columbia juga menempatkan pengguna sebagai pengambil keputusan.",
+        "Perlakukan draf AI seperti draf rekan cekatan yang belum kamu kenal baik. Pelajaran Academy untuk Cowork memakai perumpamaan serupa."
+      ]
+    },
+    {
+      "judul": "Empat pertanyaan untuk setiap draf",
+      "paragraf": [
+        "Halaman bantuan Microsoft tentang menilai hasil Copilot memakai empat sudut: kejelasan, akurasi, nada, dan konteks. Kita pakai sebagai empat pertanyaan yang berlaku di aplikasi AI mana pun.",
+        "Pertama, apakah isinya benar? Kedua, apakah tiap kalimat jelas bagi pembaca, tanpa ungkapan yang mengambang? Ketiga, apakah nadanya pas untuk orang yang menerimanya, tidak terlalu santai dan tidak terlalu kaku? Keempat, apakah semua yang dibutuhkan penerima sudah ada, misalnya tenggat, pemilik tugas, dan langkah berikutnya?"
+      ]
+    },
+    {
+      "judul": "Telusuri fakta sampai ke sumbernya",
+      "paragraf": [
+        "Pertanyaan pertama paling mudah terlewat. Garis bawahi semua nama, tanggal, angka, harga, dan tautan di draf, lalu cocokkan satu per satu dengan catatan aslimu. Panduan British Columbia mengingatkan bahwa tautan dan kutipan dari AI bisa usang atau tidak mengarah ke mana pun.",
+        "Panduan Microsoft untuk menilai brief memberi aturan praktis: klaim yang tidak bisa ditelusuri ke bahan sumber belum terkonfirmasi. Perhatikan juga tambahan yang tidak pernah kamu berikan, seperti diskon, janji, atau keterangan baru. Hapus atau konfirmasikan dulu."
+      ]
+    },
+    {
+      "judul": "Cek data pribadi dan sisa draf",
+      "paragraf": [
+        "AI kadang memantulkan hal yang ada di perintahmu, misalnya nama asli, nama proyek, atau nama berkas. Panduan British Columbia menyarankan memeriksa draf dari sisi penerima: adakah detail yang tidak pantas dibaca orang itu?",
+        "Periksa pula sisa pekerjaan: tanda kurung kosong, catatan seperti “isi tanggal di sini”, dan kalimat basa-basi yang tidak cocok. Daftar periksa sebuah sistem universitas di Amerika Serikat meminta pengguna menghapus catatan draf dan menimbang apakah penerima perlu tahu bahwa AI ikut membantu. Aturan pengungkapan berbeda di tiap tempat, jadi tanyakan kebiasaan di kantor atau sekolahmu."
+      ]
+    },
+    {
+      "judul": "Minta AI membantu memeriksa, bukan memutuskan",
+      "paragraf": [
+        "Kamu boleh memakai AI sebagai pemeriksa kedua. Microsoft menyarankan perintah yang hanya menganalisis, misalnya meminta klaim tanpa dukungan ditandai atau informasi yang hilang dicari, tanpa mengubah tulisan.",
+        "Anggap jawabannya sudut pandang tambahan, bukan putusan akhir; Microsoft sendiri menyebutnya begitu. Pemeriksa bisa keliru juga, jadi angka penting tetap kamu cocokkan sendiri."
+      ]
+    },
+    {
+      "judul": "Kesalahan yang sering terjadi",
+      "paragraf": [
+        "Pertama, mengirim karena draf terdengar fasih, padahal fasih tidak berarti benar. Kedua, hanya membaca sekilas bagian awal. Ketiga, tidak menelusuri angka, nama, dan tanggal. Keempat, membiarkan janji atau diskon yang tidak pernah kamu setujui. Kelima, lupa menghapus catatan draf. Keenam, tidak membayangkan bagaimana penerima akan membaca nadanya. Ketujuh, memercayai pemeriksa AI tanpa mencocokkan sumber."
+      ]
+    },
+    {
+      "judul": "Kapan tidak perlu pemeriksaan berat",
+      "paragraf": [
+        "Pemeriksaan disesuaikan dengan risikonya. Pesan singkat untuk dirimu sendiri cukup dibaca sekali. Sebaliknya, untuk hal yang berdampak besar bagi orang lain, seperti urusan keuangan, hukum, kesehatan, atau kepegawaian, minta orang yang berwenang memeriksanya sebelum dikirim. Pelajaran ini bukan nasihat hukum, keuangan, atau medis."
+      ]
+    }
+  ],
+  "contoh": {
+    "judul": "Contoh berpasangan (cerita fiktif)",
+    "teks": "Andi, tokoh fiktif, mengurus toko perlengkapan sepeda Roda Baru yang juga fiktif. Ia meminta AI menulis email promo, lalu menempelkan catatan harga dan tanggal promo. Versi kurang baik: Andi membaca sekilas, melihat kalimatnya rapi, lalu langsung mengirim. Belakangan ia sadar email itu menulis promo “berlaku sampai 31 November” (tanggal yang tidak ada), menjanjikan “diskon 30%” padahal catatannya hanya 15%, dan memuat “[isi nama cabang]” yang belum diganti. Versi baik: sebelum mengirim, Andi menggarisbawahi semua tanggal, angka, dan nama, lalu mencocokkannya dengan catatan. Ia memperbaiki tiga masalah tadi dan membuang janji gratis ongkir yang tidak pernah ia berikan. Ia juga meminta AI: “Tandai klaim yang tidak ada di catatanku, tanpa mengubah teks.” Hasilnya cocok dengan temuannya, dan Andi tetap membaca ulang sebagai pelanggan. Bedanya: versi baik memperlakukan draf sebagai bahan yang harus diperiksa, versi kurang baik menganggap rapi sama dengan benar."
+  },
+  "latihan": {
+    "petunjuk": "Kerjakan di chatbot AI mana pun dengan bahan karanganmu sendiri tanpa data pribadi nyata, misalnya catatan acara arisan fiktif lengkap dengan tanggal dan biaya. Tahap 1 (coba): minta AI menulis email pengumuman acara, baca sekilas, dan catat apa yang menurutmu salah. Tahap 2 (perbaiki): garis bawahi semua nama, tanggal, angka, dan janji, cocokkan dengan catatanmu, lalu minta AI menandai klaim yang tidak ada di catatan tanpa mengubah teks. Perbaiki sendiri drafnya. Tahap 3 (bandingkan): bandingkan temuan tahap 1 dengan tahap 2 dan putuskan apakah draf layak dikirim. Daftar periksa: (1) tanpa data pribadi nyata; (2) angka dan tanggal dicocokkan; (3) tambahan tak didukung dihapus atau dikonfirmasi; (4) catatan draf hilang; (5) nada dibaca dari sisi penerima."
+  },
+  "cek": [
+    {
+      "tanya": "Andi menerima draf email yang rapi dan fasih. Apa langkah paling tepat sebelum mengirimnya?",
+      "opsi": [
+        "Mengirim langsung, karena kalimat yang rapi menandakan isinya sudah benar dan siap dikirim",
+        "Mencocokkan nama, tanggal, angka, dan janji dengan catatan asli, lalu membacanya sebagai penerima",
+        "Meminta AI mengulang draf yang sama beberapa kali dan memilih yang paling meyakinkan",
+        "Menghapus semua angka dari draf supaya tidak ada satu pun yang bisa dianggap keliru oleh orang lain"
+      ],
+      "benar": 1,
+      "jelas": "Kefasihan tidak membuktikan kebenaran, jadi fakta perlu dicocokkan dengan sumber. Opsi lain mempercayai tampilan, mengulang tanpa memeriksa, atau membuang informasi yang dibutuhkan penerima."
+    },
+    {
+      "tanya": "Draf AI memuat kalimat “gratis ongkir ke seluruh kota”, padahal tidak ada di catatanmu. Apa yang sebaiknya kamu lakukan?",
+      "opsi": [
+        "Membiarkannya karena AI biasanya paham kebijakan toko dan jarang keliru soal janji",
+        "Mengonfirmasi dulu kebijakan sebenarnya; bila tidak ada, hapus kalimatnya sebelum dikirim",
+        "Memindahkannya ke bagian paling bawah supaya tidak terlalu menarik perhatian pembaca",
+        "Meminta AI menambahkan syarat dan ketentuan supaya janji itu terdengar lebih resmi"
+      ],
+      "benar": 1,
+      "jelas": "Klaim yang tidak bisa ditelusuri ke sumbermu belum terkonfirmasi, dan janji kepada pelanggan jadi tanggung jawabmu. Opsi lain membiarkan, menyembunyikan, atau memperkuat janji yang tidak kamu setujui."
+    },
+    {
+      "tanya": "Seorang bendahara fiktif ingin mengirim surat yang menyebut ketentuan pajak hasil tulisan AI. Sikap paling tepat?",
+      "opsi": [
+        "Memeriksa sendiri dengan pemeriksa AI lalu mengirim, sebab dua AI pasti lebih benar daripada satu",
+        "Mengirim langsung karena nadanya sudah sopan dan strukturnya sangat rapi",
+        "Meminta orang yang berwenang atau akuntan memeriksa isinya sebelum surat dikirim",
+        "Menghapus semua bagian yang menyebut pajak lalu mengirim sisanya tanpa membacanya lagi"
+      ],
+      "benar": 2,
+      "jelas": "Urusan pajak berdampak besar, jadi perlu pihak yang berwenang. Pemeriksa AI hanyalah sudut pandang tambahan, kesopanan bukan bukti ketepatan, dan memangkas tanpa membaca ulang bisa meninggalkan kesalahan lain."
+    }
+  ],
+  "ringkasan": [
+    "Kamu bertanggung jawab atas draf AI yang kamu kirim, jadi periksa dengan empat pertanyaan: benar, jelas, pas untuk pembaca, lengkap.",
+    "Telusuri nama, tanggal, angka, dan tautan ke sumbermu; klaim yang tidak bisa ditelusuri belum boleh dikirim, dan catatan draf harus hilang.",
+    "AI boleh jadi pemeriksa kedua, tetapi keputusan tetap kamu; urusan berdampak besar diperiksa orang yang berwenang."
+  ]
+}
