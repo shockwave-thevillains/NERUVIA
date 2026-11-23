@@ -1,0 +1,101 @@
+{
+  "id": "l2-m1-p4",
+  "status": "draf",
+  "tujuan": "Setelah pelajaran ini, kamu bisa meminta AI merapikan dan merangkum tabel kecil dengan menyiapkan datanya dulu, meminta rumus dan langkahnya ditulis, lalu mencocokkan angka penting dengan hitunganmu sendiri.",
+  "bagian": [
+    {
+      "judul": "Tabel kecil adalah tugas yang cocok untuk AI",
+      "paragraf": [
+        "Tabel kecil berarti puluhan baris yang bisa kamu lihat sendiri: penjualan seminggu, daftar iuran, jadwal piket. AI membantu merapikan data berantakan, menulis rumus, mengelompokkan, dan menjelaskan pola dengan bahasa biasa. Dua pelajaran Claude Academy menyebut hal serupa, juga bagi orang yang belum mahir.",
+        "Hasilnya tetap milikmu. Kamu yang tahu arti angkanya dan kamu yang menandatangani laporannya."
+      ]
+    },
+    {
+      "judul": "Rapikan tabel sebelum menempelnya",
+      "paragraf": [
+        "Panduan data spreadsheet dari perpustakaan University of Illinois menyarankan aturan sederhana: satu kolom berisi satu jenis data, satu baris satu catatan, satu sel satu nilai. Tanggal ditulis seragam dan satuan diletakkan di judul kolom, bukan di dalam sel. Penanda sel kosong juga dibuat konsisten.",
+        "Halaman bantuan Microsoft tentang membersihkan data menambah masalah yang paling sering: baris ganda, spasi berlebih, angka yang tersimpan sebagai teks, dan tanggal yang tidak seragam. Perbaiki yang mudah dulu, lalu hapus nama dan kontak orang. Pelajaran Academy untuk usaha kecil menyarankan penggantian seperti “Pelanggan A”."
+      ]
+    },
+    {
+      "judul": "Mulai dari tujuan dan hal yang sudah kamu tahu",
+      "paragraf": [
+        "“Analisis data ini” terlalu samar. Pelajaran Academy untuk usaha kecil memberi contoh yang lebih baik: tujuan spesifik seperti memahami mengapa pesanan ulang turun. Tulis juga dua atau tiga hal yang sudah kamu ketahui dari datamu, misalnya menu terlaris menurut perasaanmu.",
+        "Catatan itu menjadi pembanding. Jika berbeda dari temuan AI, kamu tahu persis bagian mana yang perlu diperiksa."
+      ]
+    },
+    {
+      "judul": "Minta langkahnya terlihat, bukan hanya angkanya",
+      "paragraf": [
+        "Angka tanpa jejak sulit diperiksa. Minta AI menyebut kolom yang dipakai, baris yang dibuang atau diubah beserta alasannya, dan rumus yang bisa kamu tempel di spreadsheet. Pelajaran Academy untuk lembaga nirlaba menyebut AI bisa menulis rumus Excel.",
+        "Halaman bantuan Anthropic tentang alat analisisnya menyebut kode yang dijalankan bisa dilihat untuk memeriksa hasil. Fitur seperti itu tergantung aplikasinya; bila tidak ada, minta saja rumusnya ditulis."
+      ]
+    },
+    {
+      "judul": "Cocokkan dengan hitunganmu sendiri",
+      "paragraf": [
+        "Academy untuk lembaga nirlaba menganjurkan menguji AI dengan data yang hasilnya sudah kamu ketahui. Cara kecilnya: sebelum mempercayai ringkasan, hitung sendiri satu atau dua angka dari barisnya. Cocokkan juga jumlah baris sebelum dan sesudah dirapikan.",
+        "FAQ Copilot di Excel dari Microsoft menyarankan meninjau, mengedit, dan memverifikasi semua yang dibuat AI, serta tidak memakainya untuk keputusan di bidang sensitif seperti keuangan. Jadi untuk angka yang berdampak besar, mintalah orang yang paham memeriksanya."
+      ]
+    },
+    {
+      "judul": "Kesalahan yang sering terjadi",
+      "paragraf": [
+        "Pertama, menempel data mentah yang masih memuat baris ganda dan teks berupa angka. Kedua, tidak menyebut tujuan. Ketiga, menempel nama dan kontak orang. Keempat, menerima angka tanpa rumus atau daftar baris yang diubah. Kelima, tidak menghitung ulang satu pun. Keenam, menganggap hubungan dua kolom sebagai sebab. Ketujuh, meminta ramalan dari data yang sangat sedikit."
+      ]
+    },
+    {
+      "judul": "Kapan tidak dipakai",
+      "paragraf": [
+        "Bila tabelmu hanya lima angka, jumlahkan sendiri; menempel dan memeriksanya lebih lama. Bila data memuat identitas orang yang tidak bisa dihapus, jangan dipakai di chatbot; Modul 3 membahasnya. Untuk pembukuan, pajak, atau angka dalam kontrak, minta akuntan atau pihak berwenang memeriksanya; pelajaran ini bukan nasihat keuangan atau hukum."
+      ]
+    }
+  ],
+  "contoh": {
+    "judul": "Contoh berpasangan (cerita fiktif)",
+    "teks": "Ratih, tokoh fiktif, mengelola Kedai Kopi Senja yang juga fiktif. Tabel penjualan seminggu berisi 12 baris: dua baris tercatat ganda, kolom harga bertuliskan “Rp 25.000” sebagai teks, dan tanggal ditulis “3/11” serta “03-11-2026”. Versi kurang baik: ia menempel semuanya dan mengetik “Analisis penjualan ini.” AI menjawab bahwa ada 12 transaksi, lalu menyebut es kopi susu terlaris. Jumlah itu keliru karena baris ganda ikut terhitung, dan “3/11” bisa dibaca 3 November atau 11 Maret tanpa disadari. Versi baik: Ratih menyeragamkan tanggal menjadi 2026-11-03, menyebut tujuannya (menu mana yang paling banyak terjual minggu ini), dan menulis dugaannya: es kopi susu. Ia meminta AI menyebut baris yang dibuang, menulis rumus penghitungnya, dan menandai bagian yang tidak yakin. AI melaporkan dua baris ganda dibuang sehingga tersisa 10 transaksi. Ratih menghitung manual satu menu dan hasilnya cocok. Bedanya: versi baik membuat angka bisa ditelusuri; versi kurang baik hanya meminta AI menyimpulkan."
+  },
+  "latihan": {
+    "petunjuk": "Kerjakan di chatbot AI mana pun dengan tabel karanganmu sendiri tanpa data pribadi nyata, misalnya 12 baris pengeluaran kegiatan fiktif. Sengaja sisipkan dua baris ganda dan satu tanggal berformat beda. Tahap 1 (coba): tempel tabel dan ketik “analisis ini” saja, lalu catat jumlah baris dan angka total yang disebut AI. Tahap 2 (perbaiki): rapikan tabel, tulis tujuan dan satu dugaanmu, lalu minta AI menyebut baris yang dibuang, menulis rumus, dan menandai bagian yang tidak yakin. Hitung ulang dua angka sendiri. Tahap 3 (bandingkan): bandingkan jumlah baris dan total kedua jawaban dengan hitunganmu. Daftar periksa: (1) tanpa data pribadi nyata; (2) tujuan tertulis; (3) baris yang diubah disebutkan; (4) rumus tersedia; (5) dua angka dihitung ulang."
+  },
+  "cek": [
+    {
+      "tanya": "Mengapa menempel tabel mentah dan hanya mengetik “analisis ini” berisiko?",
+      "opsi": [
+        "Karena AI hanya sanggup membaca tabel yang berisi kurang dari sepuluh baris dan tidak bisa lebih dari itu",
+        "Karena baris ganda atau tanggal ambigu mudah terlewat, dan tanpa tujuan AI memilih sendiri yang penting",
+        "Karena tabel yang belum diberi warna dan garis rapi sama sekali tidak bisa diproses oleh AI",
+        "Karena setiap angka dari AI pasti salah, jadi sebaiknya tidak pernah dicoba untuk urusan apa pun"
+      ],
+      "benar": 1,
+      "jelas": "Data berantakan dan tujuan yang samar membuat hasil sulit dipercaya. Opsi lain keliru: AI bisa membaca tabel yang lebih besar, warna tidak menentukan, dan AI tidak selalu salah, hanya perlu diperiksa."
+    },
+    {
+      "tanya": "Ratih menerima ringkasan “total penjualan Rp1.250.000” tanpa rincian. Langkah paling tepat sebelum memakainya?",
+      "opsi": [
+        "Memakainya langsung karena angka bulat tampak teliti dan terdengar sangat meyakinkan bagi pembaca",
+        "Meminta AI mengulang jawabannya dengan nada yang terdengar jauh lebih yakin dan tegas",
+        "Meminta rumus dan daftar baris yang diubah, lalu menghitung ulang sebagian angka sendiri",
+        "Menghapus kolom harga dari tabel agar tidak ada yang bisa mempertanyakan angkanya"
+      ],
+      "benar": 2,
+      "jelas": "Rumus, daftar baris, dan hitungan ulang membuat angka bisa ditelusuri. Opsi lain mempercayai angka tanpa dasar, mengulang tanpa memeriksa, atau membuang bahan pemeriksaan."
+    },
+    {
+      "tanya": "Seorang bendahara fiktif ingin memakai ringkasan AI untuk laporan pajak usahanya. Sikap paling tepat?",
+      "opsi": [
+        "Memakai AI menata draf, lalu minta akuntan memeriksa angkanya sebelum dilaporkan",
+        "Menyerahkan seluruh perhitungan ke AI karena prosesnya jauh lebih cepat",
+        "Menempel data pelanggan lengkap beserta kontaknya agar hasilnya lebih akurat",
+        "Menghindari spreadsheet sama sekali karena AI tidak bisa membantu urusan ini"
+      ],
+      "benar": 0,
+      "jelas": "Laporan pajak berdampak besar, jadi perlu pemeriksaan ahli; AI hanya membantu menata. Opsi lain menyerahkan tanggung jawab, membocorkan data pribadi, atau menolak bantuan yang sebenarnya berguna."
+    }
+  ],
+  "ringkasan": [
+    "Rapikan tabel kecil dan hapus data pribadi dulu, lalu tulis tujuan serta dugaanmu sebelum meminta AI mengolahnya.",
+    "Minta kolom yang dipakai, baris yang diubah, dan rumus yang bisa kamu tempel, bukan hanya angka akhir.",
+    "Hitung ulang satu atau dua angka sendiri, dan serahkan angka berdampak besar ke orang yang paham."
+  ]
+}
