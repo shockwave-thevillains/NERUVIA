@@ -1,0 +1,102 @@
+{
+  "id": "l2-m1-p3",
+  "status": "draf",
+  "tujuan": "Setelah pelajaran ini, kamu bisa meminta AI menyusun laporan singkat dari catatan mentah dengan kerangka tetap, tanpa bagian rekaan, lalu mencocokkannya dengan catatan sebelum mengirim.",
+  "bagian": [
+    {
+      "judul": "Laporan singkat menjawab satu pertanyaan pembaca",
+      "paragraf": [
+        "Laporan singkat bukan catatan yang dipendekkan. Ia menjawab pertanyaan pembaca: apa yang sudah selesai, apa yang macet, dan apa yang perlu diputuskan? Panduan pemerintah Kanada menyebut ringkasan membantu pembaca memutuskan. Buku ajar komunikasi bisnis di Pressbooks memberi satu uji: apakah informasi ini penting untuk keputusan?",
+        "AI menyusun cepat, tetapi tidak tahu bagian catatan mana yang penting bagi pembacamu. Tentukan dulu pembaca dan keputusannya, baru minta draf."
+      ]
+    },
+    {
+      "judul": "Siapkan catatan mentah, pembaca, dan periode",
+      "paragraf": [
+        "Pelajaran laporan status di FreeAcademy menyarankan mencatat butir kasar sepanjang minggu, lalu menempelkannya ke AI bersama nama kegiatan, pembaca, dan periode. AI mengurus susunan; kamu menyediakan fakta.",
+        "Beri nomor tiap baris catatan agar mudah diperiksa nanti, dan tandai mana yang sudah terjadi dan mana yang baru rencana. Claude Academy sejalan: sebut spesifik apa yang dilacak dan dari mana sumbernya."
+      ]
+    },
+    {
+      "judul": "Pakai kerangka tetap yang pendek",
+      "paragraf": [
+        "Kerangka tetap mencegah laporan melebar. Rumus lima bagian: ringkasan dua sampai tiga kalimat, yang sudah selesai, yang sedang berjalan, hambatan beserta penanggung jawabnya, dan rencana berikutnya dengan tenggat. Sumber lain memakai susunan serupa: FreeAcademy untuk laporan mingguan, dan Microsoft Learn untuk dokumen satu halaman berisi tujuan, keputusan, risiko, dan langkah berikut.",
+        "Tiap tugas perlu penanggung jawab dan tenggat; buku Pressbooks menyarankannya untuk notulen. Panduan Kanada menyarankan panjang paling banyak sekitar sepuluh persen dari aslinya."
+      ]
+    },
+    {
+      "judul": "Larang AI menambah, dan izinkan “tidak ada di catatan”",
+      "paragraf": [
+        "AI terbiasa menulis laporan yang lengkap dan optimis. Bila catatanmu tidak memuat persentase, ia bisa menambahkannya. Contoh di pelajaran FreeAcademy menampilkan laporan AI dengan penilaian dan angka kemajuan yang tidak tampak di catatan mentahnya.",
+        "Cegah dengan tiga kalimat dalam permintaan: pakai hanya isi catatan; bila bagian tidak ada di catatan, tulis “tidak ada di catatan”; sebut nomor catatan di tiap poin. Claude Academy sejalan: lebih baik tertulis bahwa tidak ada kemajuan tercatat daripada celah yang ditutup diam-diam."
+      ]
+    },
+    {
+      "judul": "Cocokkan laporan dengan catatan sebelum dikirim",
+      "paragraf": [
+        "Periksa dalam tiga lintasan. Pertama, tiap nama, angka, dan tanggal ada di catatan. Kedua, tidak ada kata penilaian baru seperti “lancar” atau “aman” tanpa dasar. Ketiga, semua keputusan dan tugas dari catatan ikut terbawa, lengkap dengan penanggung jawab dan tenggatnya.",
+        "Pelajaran Claude Academy tentang notulen rapat menganjurkan membaca butir tindakan terhadap transkrip sebelum ada yang mulai bekerja. Taruh laporan dan catatan berdampingan, lalu cocokkan baris demi baris. Kamu yang menandatangani laporan itu, bukan AI."
+      ]
+    },
+    {
+      "judul": "Kesalahan yang sering terjadi",
+      "paragraf": [
+        "Pertama, tidak menyebut pembaca. Kedua, tidak melarang AI menambah, sehingga muncul persentase dan penilaian rekaan. Ketiga, mencampur rencana dengan hal yang sudah terjadi, sehingga yang baru rencana tertulis “selesai”. Keempat, memasukkan semua catatan. Kelima, lupa penanggung jawab dan tenggat. Keenam, mengirim tanpa mencocokkan dengan catatan."
+      ]
+    },
+    {
+      "judul": "Kapan tidak dipakai",
+      "paragraf": [
+        "Bila catatanmu hanya lima baris, tulis sendiri; buku Pressbooks mengingatkan bahwa ringkasan yang hampir sepanjang aslinya justru lebih lambat dibaca. Bila catatan saling bertentangan, rapikan dulu bersama orang yang hadir; AI tak bisa menentukan versi yang benar.",
+        "Untuk laporan yang menjadi dasar keuangan, kontrak, atau urusan hukum, minta pihak berwenang memeriksanya; pelajaran ini bukan nasihat hukum. Jangan menempel data pribadi orang lain atau rahasia usaha tanpa izin; Modul 3 membahasnya."
+      ]
+    }
+  ],
+  "contoh": {
+    "judul": "Contoh berpasangan (cerita fiktif)",
+    "teks": "Sinta, tokoh fiktif, koordinator relawan Perpustakaan Keliling Mekar yang juga fiktif, punya catatan rapat Jumat 4 Desember: 40 buku donasi tiba Selasa dan belum dikatalog; rute Sabtu pindah ke balai RW 03, disetujui Bu Lastri; rak kayu belum jadi karena tukang berjanji Rabu depan. Versi kurang baik: ia menempel catatan dan mengetik “Buat laporan dari catatan ini.” Hasilnya: “Kegiatan berjalan lancar, 90 persen buku sudah dikatalog.” Angka itu tidak ada di catatan, “lancar” tanpa dasar, dan rak yang macet tidak disebut. Versi baik: Sinta menomori barisnya, menyebut pembacanya (ketua yayasan yang perlu memutuskan soal rak), meminta lima bagian dalam 150 kata, melarang menambah, meminta “tidak ada di catatan” untuk bagian kosong, dan nomor catatan di tiap poin. Draf kembali dengan hambatan rak dan buku bertanda “belum dikatalog”. Sinta mencocokkan, lalu mengirim. Bedanya: versi baik meminta AI menata catatan; versi kurang baik meminta AI mengisi yang tidak ia tahu."
+  },
+  "latihan": {
+    "petunjuk": "Kerjakan di chatbot AI mana pun dengan catatan karanganmu sendiri, tanpa data pribadi nyata, misalnya enam baris catatan rapat panitia acara fiktif. Tahap 1 (coba): tempel catatan dan minta “buat laporan” tanpa petunjuk lain, lalu tandai setiap kalimat yang tidak ada di catatanmu. Tahap 2 (perbaiki): beri nomor tiap baris, lalu tulis ulang permintaan dengan pembaca dan keputusannya, lima bagian kerangka, batas kata, larangan menambah, perintah “tidak ada di catatan”, dan nomor catatan di tiap poin. Periksa tiga lintasan: nama, angka, tanggal; kata penilaian baru; keputusan dan tugas terlewat. Tahap 3 (bandingkan): hitung kalimat tanpa dasar di kedua laporan. Daftar periksa: (1) tanpa data pribadi nyata; (2) pembaca dan keputusannya jelas; (3) tiap poin bernomor catatan; (4) tidak ada angka atau penilaian tambahan."
+  },
+  "cek": [
+    {
+      "tanya": "Mengapa permintaan “Buat laporan dari catatan ini” tanpa petunjuk lain sering menyesatkan?",
+      "opsi": [
+        "Karena AI tidak tahu pembacanya dan tidak dilarang menambah, sehingga ia mengisi penilaian dan angka yang tidak ada di catatan",
+        "Karena AI tidak bisa membaca catatan berbahasa Indonesia sama sekali",
+        "Karena laporan baik harus lebih panjang dari catatannya",
+        "Karena nomor pada baris catatan membuat AI bingung"
+      ],
+      "benar": 0,
+      "jelas": "Tanpa pembaca dan larangan menambah, AI melengkapi pola laporan yang lazim, termasuk angka dan kata “lancar” rekaan. Opsi lain keliru: AI bisa membaca bahasa Indonesia, laporan baik justru ringkas, dan nomor baris membantu."
+    },
+    {
+      "tanya": "Manakah kalimat yang paling membantu dalam permintaan agar AI tidak mengarang?",
+      "opsi": [
+        "“Buat laporan yang meyakinkan agar pembaca puas.”",
+        "“Pakai hanya isi catatan. Bila suatu bagian tidak ada di catatan, tulis ‘tidak ada di catatan’, dan sebut nomor catatan di tiap poin.”",
+        "“Lengkapi bagian yang kosong dengan perkiraan terbaikmu.”",
+        "“Tulis sepanjang mungkin supaya tidak ada yang terlewat.”"
+      ],
+      "benar": 1,
+      "jelas": "Opsi kedua membatasi sumber, memberi jalan keluar jujur untuk bagian kosong, dan memudahkan pemeriksaan. Opsi lain mendorong AI menebak atau membuat laporan melebar."
+    },
+    {
+      "tanya": "Catatan Dodi (tokoh fiktif) hanya menulis “rapat bahas anggaran spanduk”. Laporan buatan AI menulis “Anggaran spanduk disetujui Rp600.000.” Apa langkah paling tepat?",
+      "opsi": [
+        "Mengirim karena kalimatnya terdengar masuk akal",
+        "Meminta AI menambahkan alasan persetujuan agar meyakinkan",
+        "Mencocokkan dengan catatan, lalu menulis “belum diputuskan” atau menanyakannya ke peserta rapat sebelum mengirim",
+        "Menghapus bagian anggaran supaya tidak menimbulkan pertanyaan"
+      ],
+      "benar": 2,
+      "jelas": "Keputusan dan angka itu tidak ada di catatan, jadi harus dikoreksi atau dikonfirmasi dulu. Opsi lain menyebarkan karangan atau menghilangkan hal yang perlu dilaporkan sebagai belum jelas."
+    }
+  ],
+  "ringkasan": [
+    "Tentukan pembaca, keputusannya, dan kerangka lima bagian sebelum meminta draf laporan.",
+    "Larang AI menambah, izinkan “tidak ada di catatan”, dan minta nomor catatan di tiap poin agar mudah diperiksa.",
+    "Cocokkan nama, angka, tanggal, kata penilaian, keputusan, dan tugas dengan catatan sebelum mengirim."
+  ]
+}
