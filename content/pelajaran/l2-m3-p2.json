@@ -1,0 +1,101 @@
+{
+  "id": "l2-m3-p2",
+  "status": "draf",
+  "tujuan": "Setelah pelajaran ini, kamu bisa menentukan siapa pembaca tulisanmu, meminta AI membuat versi untuk pembaca yang berbeda, dan memastikan fakta, angka, serta maksudnya tidak ikut berubah.",
+  "bagian": [
+    {
+      "judul": "Satu isi, banyak kemasan",
+      "paragraf": [
+        "Handout UNC Writing Center menyatakan bahwa kamu selalu menulis untuk seseorang, sadar atau tidak. Panduan Digital.gov menambahkan bahwa orang hanya ingin tahu hal yang berlaku bagi mereka. Maka tulisan yang sama bisa gagal pada pembaca berbeda, meski isinya benar.",
+        "Pisahkan dua hal. Isi adalah fakta, angka, tanggal, keputusan, dan peringatan. Kemasan adalah pilihan kata, urutan, panjang, dan nada. Menyesuaikan tulisan berarti mengubah kemasan; isi harus tetap."
+      ]
+    },
+    {
+      "judul": "Kenali pembaca sebelum menulis",
+      "paragraf": [
+        "UNC menyarankan pertanyaan seperti: siapa pembacanya, apa yang mereka butuhkan dan anggap penting, serta apa yang paling tidak mereka pedulikan. Tambahkan tiga pertanyaan praktis: apa yang sudah mereka tahu, apa yang harus mereka lakukan setelah membaca, dan berapa waktu yang mereka punya.",
+        "Tingkat penjelasan bergantung pada jawabannya. Panduan penulisan teknik di situs MIT membedakan ahli khusus dari ahli umum: ahli khusus mungkin tidak perlu definisi, ahli umum perlu latar belakang dan arti istilah. UNC mengingatkan: terlalu banyak detail menyembunyikan inti, terlalu sedikit membuat pembaca tidak tahu bagaimana kesimpulan dicapai."
+      ]
+    },
+    {
+      "judul": "Beri AI profil pembaca, bukan hanya “buat lebih sederhana”",
+      "paragraf": [
+        "Claude Academy memberi contoh arahan: naskah terasa terlalu teknis, tulis ulang untuk pengguna sehari-hari yang mau poin utamanya. Dokumentasi Anthropic menyebut alasan di balik instruksi membantu model menghasilkan jawaban lebih tepat, dan menyarankan uji: tunjukkan perintahmu kepada rekan yang tak tahu konteksnya; bila ia bingung, AI pun begitu.",
+        "Karena itu tulis profil pembaca empat baris: siapa mereka, apa yang sudah mereka tahu, apa yang harus mereka lakukan, dan nada yang pantas. Satu perintah, satu profil, satu versi."
+      ]
+    },
+    {
+      "judul": "Kunci isi, ubah kemasan",
+      "paragraf": [
+        "Contoh Claude Academy meminta tiga versi teks bacaan untuk tingkat membaca berbeda, dengan konsep yang sama, kosakata dan panjang kalimat yang berbeda, serta daftar kosakata yang disederhanakan. Dua kebiasaan layak ditiru: sebutkan apa yang harus sama di semua versi, dan minta daftar apa yang diubah dan apa yang dibuang.",
+        "Tulis sendiri bagian yang terkunci: angka, tanggal, jam, nama, keputusan, dan peringatan. Perintahnya misalnya: “Semua versi harus memuat ini persis: …”. Tanpa kunci, AI bisa membulatkan angka atau membuang detail yang menurutnya tidak penting."
+      ]
+    },
+    {
+      "judul": "Periksa versi baru",
+      "paragraf": [
+        "Cocokkan daftar terkunci dengan versi baru kata demi kata, lalu baca daftar perubahan. Bagian ini jangan kamu serahkan kepada AI yang sama.",
+        "UNC menyarankan menguji draf pada pembaca sungguhan: minta ia menceritakan ulang apa yang dipahami. Banyak pertanyaan berarti perlu penjelasan lebih; kebingungan berarti perlu lebih jelas; bosan dan bisa mengulang detail berarti terlalu panjang. Digital.gov mengingatkan bahwa dokumen untuk banyak kelompok sekaligus bisa membingungkan, jadi lebih baik buat versi terpisah."
+      ]
+    },
+    {
+      "judul": "Kesalahan yang sering terjadi",
+      "paragraf": [
+        "Pertama, hanya menulis “buat lebih sederhana” tanpa menyebut pembaca. Kedua, tidak mengunci angka, jam, dan peringatan. Ketiga, tidak membaca daftar perubahan. Keempat, menyederhanakan sampai nuansa penting hilang. Kelima, satu versi untuk semua kelompok. Keenam, menyerahkan penilaian akhir kepada AI yang sama. Ketujuh, menempel data pribadi ke chatbot. Kedelapan, menulis untuk ahli tanpa menjelaskan bagian dan prosesnya, bukan hanya konsepnya, seperti saran MIT."
+      ]
+    },
+    {
+      "judul": "Kapan tidak dipakai",
+      "paragraf": [
+        "Jangan menyederhanakan dengan AI pesan yang kesalahannya berbahaya, seperti peringatan keselamatan, aturan, atau perjanjian, kecuali orang berwenang memeriksanya. Jangan pakai untuk tulisan yang suaramu adalah intinya, atau bila lembagamu belum mengizinkan. Untuk pesan satu kalimat kepada orang yang kamu kenal, menulis sendiri lebih cepat. Ini bukan nasihat hukum; tanyakan pihak berwenang soal aturan."
+      ]
+    }
+  ],
+  "contoh": {
+    "judul": "Contoh berpasangan (cerita fiktif)",
+    "teks": "Gilang, tokoh fiktif, panitia lari 5 km “Fun Run Pantai Asri” (acara karangan). Fakta: Minggu 13 Desember 2026, kumpul 05.15, mulai 06.00, jalan ditutup 05.30 sampai 08.30, pendaftaran tutup 6 Desember. Versi kurang baik: ia menempel pengumuman dengan perintah “buat lebih sederhana untuk warga”. Hasilnya ramah, tetapi “05.30 sampai 08.30” menjadi “pagi hari” dan batas pendaftaran hilang. Versi baik: ia menulis profil (“warga sekitar jalur; tidak ikut lari; perlu tahu jam jalan ditutup; nada sopan dan singkat”), mengunci tanggal dan jam, lalu meminta daftar yang diubah dan dibuang. Ia mencocokkan jam, lalu meminta tetangganya menceritakan ulang. Versi peserta ia buat terpisah dengan profil lain. Bedanya: versi pertama menyerahkan isi kepada AI; versi kedua hanya menyerahkan kemasan, isinya dijaga Gilang."
+  },
+  "latihan": {
+    "petunjuk": "Kerjakan di chatbot AI mana pun tanpa data pribadi. Tahap 1 (coba): karang pengumuman 100 sampai 140 kata tentang acara fiktif dengan lima fakta wajib: tanggal, jam mulai, jam selesai, lokasi karangan, dan satu peringatan. Tempel dengan perintah “buat lebih sederhana”. Catat fakta yang berubah atau hilang. Tahap 2 (perbaiki): mulai percakapan baru. Tulis profil pembaca empat baris, kunci lima fakta, minta versi untuk satu kelompok plus daftar yang diubah dan dibuang. Cocokkan fakta, baca daftar, perbaiki sendiri. Ulangi untuk kelompok kedua. Tahap 3 (bandingkan): minta satu orang menceritakan ulang tiap versi tanpa melihat teks. Tulis fakta yang diingat dan apa yang perlu diubah. Daftar periksa: (1) tanpa data pribadi; (2) profil empat baris; (3) lima fakta terkunci; (4) daftar perubahan diminta; (5) fakta dicocokkan; (6) tiap kelompok punya versi sendiri; (7) ada uji cerita ulang."
+  },
+  "cek": [
+    {
+      "tanya": "Apa yang sebaiknya tetap sama ketika kamu meminta AI menyesuaikan satu tulisan untuk pembaca berbeda?",
+      "opsi": [
+        "Pilihan kata dan panjang kalimat",
+        "Nada dan urutan paragraf",
+        "Isi: fakta, angka, tanggal, keputusan, dan peringatan",
+        "Seluruh teks, sehingga hanya judulnya yang berubah"
+      ],
+      "benar": 2,
+      "jelas": "Yang disesuaikan adalah kemasan: kata, panjang, urutan, dan nada. Isi harus terkunci. Opsi lain justru bagian kemasan yang memang boleh berubah, atau terlalu kaku sehingga tidak menyesuaikan apa pun."
+    },
+    {
+      "tanya": "Mengapa perintah “buat lebih sederhana” saja sering menghasilkan versi yang bermasalah?",
+      "opsi": [
+        "Karena AI tidak mampu mengubah panjang kalimat sama sekali",
+        "Karena AI tidak tahu pembacanya dan fakta mana yang harus tetap",
+        "Karena hasilnya selalu lebih panjang daripada tulisan aslinya",
+        "Karena chatbot menolak perintah yang terlalu singkat dan umum"
+      ],
+      "benar": 1,
+      "jelas": "Tanpa profil pembaca dan fakta terkunci, AI menebak apa yang penting, sehingga jam bisa jadi “pagi hari”. Dua opsi lain tidak didukung sumber; opsi pertama keliru karena AI mampu mengubah panjang kalimat."
+    },
+    {
+      "tanya": "Lestari mengubah pengumuman menjadi versi untuk warga sekitar. Hasilnya enak dibaca, tetapi jam penutupan jalan hilang. Langkah paling tepat?",
+      "opsi": [
+        "Meminta AI menilai sendiri apakah versinya sudah cukup baik",
+        "Memakainya apa adanya karena warga lebih suka teks yang pendek saja",
+        "Menggabungkan semua kelompok pembaca ke dalam satu versi panjang",
+        "Mengunci jam, meminta daftar buangan, mencocokkan, uji cerita ulang"
+      ],
+      "benar": 3,
+      "jelas": "Fakta penting harus dikunci dan dicocokkan sendiri, lalu diuji pada pembaca. Menyerahkan penilaian ke AI yang sama bukan pemeriksaan mandiri; memakai mentah menghilangkan fakta; satu versi untuk semua bisa membingungkan."
+    }
+  ],
+  "ringkasan": [
+    "Pisahkan isi (fakta, angka, peringatan) dari kemasan (kata, urutan, nada); sesuaikan kemasan, jaga isi.",
+    "Beri AI profil pembaca empat baris dan daftar fakta terkunci, lalu minta daftar yang diubah dan dibuang.",
+    "Cocokkan fakta sendiri, uji dengan cerita ulang pembaca, buat versi terpisah per kelompok, dan jangan pakai untuk pesan berbahaya bila keliru."
+  ]
+}
