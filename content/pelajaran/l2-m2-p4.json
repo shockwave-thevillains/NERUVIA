@@ -1,0 +1,101 @@
+{
+  "id": "l2-m2-p4",
+  "status": "draf",
+  "tujuan": "Setelah pelajaran ini, kamu bisa mengubah catatanmu menjadi kartu belajar dan soal latihan lewat chatbot, memeriksanya terhadap catatan, lalu memakainya untuk menguji ingatanmu.",
+  "bagian": [
+    {
+      "judul": "Kartu itu alat uji, bukan ringkasan",
+      "paragraf": [
+        "Banyak orang meminta ringkasan catatan lalu membacanya lagi. Rasanya lancar, belum tentu teringat. Dalam percobaan Roediger dan Karpicke (2006), mahasiswa mempelajari bacaan, lalu sebagian diuji dan sebagian membaca ulang. Lima menit kemudian, pembaca ulang unggul. Dua hari dan seminggu kemudian, kelompok yang diuji mengingat jauh lebih baik, padahal pembaca ulang merasa lebih yakin. Dunlosky dkk. (2013) menilai menguji diri berguna tinggi dan membaca ulang berguna rendah.",
+        "Kartu dan soal latihan adalah cara menguji diri. Chatbot menyusun pertanyaannya; kamu yang menjawab. Percobaan itu tidak memakai kartu buatan chatbot, jadi ia dasar kebiasaan, bukan bukti."
+      ]
+    },
+    {
+      "judul": "Siapkan catatan dan perintah yang membatasi AI",
+      "paragraf": [
+        "Pakai catatanmu sendiri, tanpa data pribadi, satu gagasan per baris. Claude Academy menyarankan meminta AI menguji dan menjelaskan mengapa pilihan yang salah itu keliru. Wozniak (1999) menekankan: pahami dulu, baru jadikan kartu.",
+        "Tulis perintah dengan lima bagian: catatan, jumlah dan jenis kartu, aturan “hanya dari catatan ini”, permintaan menyebut baris asal tiap kartu, dan jawaban tidak tampil di sisi depan. Baris asal memudahkan memeriksa."
+      ]
+    },
+    {
+      "judul": "Satu kartu, satu hal",
+      "paragraf": [
+        "Wozniak menyebut prinsip informasi minimum sebagai aturan pokok: tiap kartu sesederhana mungkin. Kartu yang memuat tiga fakta sulit dinilai: kamu tidak tahu bagian mana yang terlupa. Ia menyarankan kalimat rumpang bagi pemula.",
+        "Minta tiga jenis kartu: tanya-jawab untuk istilah dan alasan, kalimat rumpang untuk rumus atau urutan, dan kartu pembeda untuk dua konsep yang mudah tertukar. Pemecahan bisa menghilangkan detail, jadi simpan catatan lengkapmu."
+      ]
+    },
+    {
+      "judul": "Soal pilihan ganda: berguna, tetapi periksa dulu",
+      "paragraf": [
+        "Chatbot cepat membuat soal pilihan ganda, tetapi mutunya beragam. Doughty dkk. (Carnegie Mellon, 2024) menilai 651 soal Python buatan GPT-4: sekitar 82 persen lolos semua kriteria, namun 4,9 persen punya lebih dari satu jawaban benar (soal manusia 1,1 persen) dan 4,0 persen punya pengecoh yang membocorkan jawaban. Penilainya penulis sendiri.",
+        "Tim Drexel (An dkk., 2025) memakai soal buatan chatbot di kelas data science dan menyebut sekitar dua pertiga soal tidak sesuai tujuan, jadi mereka meminta minimal 15 soal untuk mendapat 5 yang baik. Kedua angka bukan ramalan untuk catatanmu. Pelajarannya sama: minta lebih banyak soal, lalu pilih dan periksa."
+      ]
+    },
+    {
+      "judul": "Periksa kartu, lalu pakai dengan mengingat dulu",
+      "paragraf": [
+        "Periksa tiap kartu: apakah jawabannya ada di catatanku, apakah hanya satu jawaban yang benar, dan apakah sisi depan tidak membocorkan jawaban? Buang atau perbaiki yang gagal. Jangan minta AI menjamin kartunya benar. Bila catatanmu keliru, kartunya ikut keliru; cocokkan konsep penting dengan sumber di luar chatbot, seperti saran Academy.",
+        "Setelah bersih, jawab dari ingatan, baru balik kartunya. Tandai yang salah dan ulangi setelah jeda, misalnya besok lalu seminggu kemudian; Dunlosky dkk. menilai latihan yang disebar berguna tinggi."
+      ]
+    },
+    {
+      "judul": "Kesalahan yang sering terjadi",
+      "paragraf": [
+        "Pertama, menempel catatan yang belum dipahami. Kedua, tidak membatasi AI pada catatan. Ketiga, satu kartu memuat banyak fakta. Keempat, melihat jawaban sebelum mencoba. Kelima, memakai soal tanpa memeriksa. Keenam, membuat puluhan kartu lalu tidak pernah mengulang. Ketujuh, mengukur kemajuan dari rasa lancar. Kedelapan, menempel data pribadi."
+      ]
+    },
+    {
+      "judul": "Kapan tidak perlu, dan kapan jangan mengandalkannya",
+      "paragraf": [
+        "Untuk fakta yang hanya kamu butuhkan sekali, kartu tidak perlu. Untuk ujian resmi, kesehatan, hukum, atau keuangan, soal buatan AI tidak menggantikan bahan resmi dan kunci dari pengajar; ini bukan nasihat hukum, keuangan, atau medis. Ikuti aturan tempat belajarmu."
+      ]
+    }
+  ],
+  "contoh": {
+    "judul": "Contoh berpasangan (cerita fiktif)",
+    "teks": "Bayu, tokoh fiktif, mengelola warung kecil dan punya tiga baris catatan: stok pengaman adalah cadangan bila pasokan terlambat; titik pesan ulang adalah jumlah stok saat harus memesan lagi; titik pesan ulang sama dengan pemakaian harian dikali lama pengiriman, ditambah stok pengaman. Versi kurang baik: ia menempel catatan, menulis “buat kartu belajar”, dan mendapat 20 kartu. Satu kartu bertanya “Jelaskan manajemen stok” dengan jawaban satu paragraf, satu lagi menanyakan rumus di luar catatannya. Ia membaca sekali dan merasa siap. Versi baik: ia meminta enam kartu hanya dari catatan itu, satu fakta per kartu, dengan baris asal, tanpa jawaban di depan. Salah satunya: “Titik pesan ulang = pemakaian harian × lama pengiriman + ____”, jawabannya stok pengaman (baris 3). Satu soal punya dua opsi benar, jadi Bayu merevisinya. Ia menjawab dari ingatan dan mengulang besok. Bedanya: kartu versi pertama kabur dan sebagian tak berdasar; kartu versi kedua bisa diperiksa dan dilatih."
+  },
+  "latihan": {
+    "petunjuk": "Kerjakan di chatbot AI mana pun, tanpa data pribadi, dengan enam sampai delapan baris catatan karanganmu. Tahap 1 (coba): tempel catatan, ketik “buat kartu belajar dari catatan ini”, lalu tandai kartu yang kabur, memuat banyak fakta, atau berisi hal di luar catatan. Tahap 2 (perbaiki): di percakapan baru, minta 10 kartu (5 tanya-jawab, 3 rumpang, 2 pilihan ganda dengan satu jawaban benar), hanya dari catatan, satu fakta per kartu, sebut baris asal, jawaban tidak di depan. Periksa tiap kartu, lalu buang atau perbaiki yang gagal. Tahap 3 (bandingkan): jawab dari ingatan, ulangi setelah jeda (lebih baik besok), lalu tulis satu kalimat perbandingan kartu tahap 1 dan 2. Daftar periksa: (1) tanpa data pribadi; (2) catatan sudah kamu pahami; (3) AI dibatasi pada catatan; (4) satu fakta per kartu; (5) kartu dicocokkan dengan catatan; (6) dijawab dari ingatan dulu; (7) ada pengulangan."
+  },
+  "cek": [
+    {
+      "tanya": "Pada percobaan Roediger dan Karpicke (2006), apa yang terjadi setelah jeda dua hari dan seminggu?",
+      "opsi": [
+        "Pembaca ulang mengingat lebih baik daripada yang diuji",
+        "Yang diuji mengingat jauh lebih baik, walau pada tes lima menit pembaca ulang lebih unggul",
+        "Tidak ada perbedaan kedua kelompok",
+        "Pembaca ulang kurang yakin pada ingatannya daripada yang diuji"
+      ],
+      "benar": 1,
+      "jelas": "Keunggulan menguji diri tampak pada tes tertunda; pada tes lima menit, membaca ulang lebih baik."
+    },
+    {
+      "tanya": "Kartu mana yang paling sesuai prinsip satu kartu satu hal?",
+      "opsi": [
+        "“Apa itu stok pengaman, bagaimana rumus titik pesan ulang, dan beri contoh hitungannya?”",
+        "“Jelaskan semua yang kamu tahu tentang manajemen stok.”",
+        "“Stok pengaman dipakai untuk berjaga bila ____.”",
+        "“Tulis semua istilah di catatan beserta artinya.”"
+      ],
+      "benar": 2,
+      "jelas": "Kartu rumpang menguji satu hal. Opsi lain memuat banyak hal sekaligus."
+    },
+    {
+      "tanya": "AI membuat 10 soal dari catatanmu. Soal 4 punya dua opsi yang sama-sama benar, soal 7 menanyakan hal di luar catatan. Langkah paling tepat?",
+      "opsi": [
+        "Memakai semua soal karena dibuat dari catatan",
+        "Mencocokkan tiap soal dengan catatan, memperbaiki atau membuang soal 4 dan 7, lalu memakai sisanya",
+        "Meminta AI meyakinkan bahwa semua soalnya benar",
+        "Membuang semua soal dan tidak memakai AI lagi"
+      ],
+      "benar": 1,
+      "jelas": "Soal buatan AI memang bisa punya dua jawaban benar atau di luar bahan, jadi cocokkan tiap soal dengan catatan. AI yang diminta meyakinkan bukan pemeriksa mandiri. Membuang semuanya berlebihan."
+    }
+  ],
+  "ringkasan": [
+    "Kartu dan soal latihan menguji dirimu dari catatan sendiri, bukan ringkasan untuk dibaca ulang.",
+    "Batasi AI pada catatan, minta satu fakta per kartu dengan baris asal, dan periksa tiap kartu sebelum dipakai.",
+    "Jawab dari ingatan dulu, ulangi setelah jeda, dan cek konsep penting ke sumber luar."
+  ]
+}
