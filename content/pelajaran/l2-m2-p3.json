@@ -1,0 +1,100 @@
+{
+  "id": "l2-m2-p3",
+  "status": "draf",
+  "tujuan": "Setelah pelajaran ini, kamu bisa mempelajari topik baru lewat chatbot secara bertahap: menyebut apa yang sudah kamu tahu, maju satu langkah per giliran, menjelaskan dengan kata sendiri, lalu menguji diri tanpa melihat jawaban.",
+  "bagian": [
+    {
+      "judul": "Paham bukan berarti sudah membaca penjelasan",
+      "paragraf": [
+        "Penjelasan chatbot yang rapi membuat kita mudah mengira sudah paham. Ujiannya: bisakah kamu menjelaskannya lagi besok tanpa melihat apa pun? Claude Academy menyarankan memakai AI sebagai pelatih yang bertanya, bukan pemain pengganti yang menjawab semuanya."
+      ]
+    },
+    {
+      "judul": "Mulai dari apa yang sudah kamu tahu",
+      "paragraf": [
+        "Buka percakapan dengan topik, tujuan akhir, dan apa yang sudah kamu tahu, termasuk yang kamu ragukan. Panduan Sheridan College menyarankan menyebut titik buntumu lalu meminta AI bertanya tentang cara berpikirmu.",
+        "Tanpa cerita darimu, AI menebak tingkat yang salah. Dengan cerita, ia bisa memulai dari tempat yang tepat dan menemukan salah paham sejak awal."
+      ]
+    },
+    {
+      "judul": "Satu langkah per giliran",
+      "paragraf": [
+        "Minta peta dulu: empat sampai lima langkah dari yang paling dasar. Lalu minta AI membahas satu langkah, mengajukan satu pertanyaan, dan menunggu jawaban. Academy menyarankan AI memeriksa pemahamanmu sebelum konsep berikutnya.",
+        "Studi Harvard (Kestin dkk., Scientific Reports, 2025) memakai prinsip serupa: tutor AI menuntun mahasiswa fisika pemula melewati tiap bagian soal berurutan, dan kenaikan nilai tengah mereka lebih dari dua kali kelompok kelas aktif. Namun studinya satu mata kuliah, tutornya buatan peneliti sendiri, dan hasilnya diukur segera."
+      ]
+    },
+    {
+      "judul": "Jelaskan dengan kata sendiri, lalu minta dicari celahnya",
+      "paragraf": [
+        "Setelah satu langkah, tulis penjelasanmu sendiri. Panduan Sheridan menyarankan AI jangan langsung mengoreksi, tetapi mengajukan pertanyaan yang memperlihatkan celah. Academy menambahkan: minta AI berperan sebagai murid yang kamu ajari.",
+        "Laporan Dunlosky dkk. (2013) menilai menguji diri berguna tinggi, sedangkan membaca ulang dan menyorot berguna rendah. Bertanya “mengapa” pada tiap fakta dinilai sedang karena bukti di kelas nyata terbatas."
+      ]
+    },
+    {
+      "judul": "Minta diuji tanpa bocoran jawaban",
+      "paragraf": [
+        "Di akhir sesi, minta lima soal dan tulis tegas “jangan beri jawabannya dulu”. Halaman AI Study Buddy dari Northwestern mengingatkan bahwa tanpa kalimat itu AI menyertakan kunci. Jawab dari ingatan, lalu minta diperiksa.",
+        "Studi Bastani dkk. (PNAS, 2025) pada hampir seribu siswa SMA di Turki memberi peringatan. Kelompok chatbot tanpa pembatas bernilai lebih tinggi saat latihan, tetapi pada ujian tanpa AI sekitar 17 persen lebih rendah daripada kelompok tanpa AI. Kelompok chatbot berpetunjuk kurang lebih sama dengan kelompok tanpa AI. Satu negara, satu mata pelajaran: peringatan, bukan hukum."
+      ]
+    },
+    {
+      "judul": "Kesalahan yang sering terjadi",
+      "paragraf": [
+        "Pertama, meminta “jelaskan X” tanpa menyebut apa yang sudah kamu tahu. Kedua, membaca penjelasan panjang lalu merasa paham. Ketiga, tidak menjawab pertanyaannya. Keempat, membiarkan kunci tampil sebelum mencoba. Kelima, tidak mencocokkan hasil dengan sumber resmi; panduan Dikti tentang AI generatif menyarankan menyertakan teks sumber saat meminta penjelasan. Keenam, mengukur kemajuan dari rasa lancar, bukan kemampuan menjelaskan ulang. Ketujuh, memakai AI saat aturan melarangnya."
+      ]
+    },
+    {
+      "judul": "Kapan tidak perlu, dan kapan jangan mengandalkannya",
+      "paragraf": [
+        "Untuk satu fakta cepat, jawaban langsung cukup. Cara bertahap berguna bila kamu perlu bisa menjelaskan atau mengerjakan soal dari topik itu. Untuk kesehatan, hukum, atau keuangan, jangan jadikan chatbot satu-satunya dasar; periksa ke sumber resmi atau ahli. Ini bukan nasihat hukum, keuangan, atau medis. Pada topik yang benar-benar baru, kamu sulit menilai kekeliruan AI, jadi cocokkan konsep penting dengan sumber lain."
+      ]
+    }
+  ],
+  "contoh": {
+    "judul": "Contoh berpasangan (cerita fiktif)",
+    "teks": "Rangga, tokoh fiktif, ingin menjelaskan cara kerja kulkas ke adiknya. Versi kurang baik: ia mengetik “Jelaskan cara kerja kulkas”, membaca jawaban panjang, dan besoknya hanya ingat kata “gas pendingin”. Versi baik: ia menulis, “Tujuanku bisa menjelaskan kulkas ke adikku. Yang kutahu, kulkas membuat dingin dengan gas khusus. Buat peta empat langkah, bahas satu per giliran, dan jangan beri jawaban sebelum aku menjawab.” AI bertanya, “Menurutmu, dingin ditambahkan ke dalam kulkas atau ada yang dikeluarkan?” Rangga menjawab, “Dingin ditambahkan.” AI bertanya soal panas makanan, dan Rangga sadar kulkas memindahkan panas ke luar. Ia lalu menjawab tiga soal tanpa kunci dan mencocokkan istilah dengan buku. Bedanya: versi pertama hanya memberi rasa paham, versi kedua menemukan salah paham dan melatih Rangga menjelaskan sendiri."
+  },
+  "latihan": {
+    "petunjuk": "Kerjakan di chatbot AI mana pun tanpa data pribadi. Pilih satu topik kecil yang belum kamu kuasai, misalnya cara kerja suatu barang. Tahap 1 (coba): ketik “Jelaskan [topikmu]”, baca, tutup percakapan, lalu tulis tiga kalimat dari ingatan. Tahap 2 (perbaiki): mulai percakapan baru dengan tujuan, satu sampai tiga hal yang sudah kamu tahu, dan aturan: peta empat langkah, satu langkah per giliran, satu pertanyaan sebelum lanjut, jangan beri jawaban sebelum aku menjawab, lalu lima soal tanpa kunci. Tahap 3 (bandingkan): tutup percakapan, tulis ulang penjelasanmu dari ingatan, cocokkan dengan satu sumber di luar chatbot, tandai bagian yang keliru, lalu tulis satu kalimat tentang cara mana yang lebih membantu. Daftar periksa: (1) tanpa data pribadi; (2) tujuan dan pengetahuan awal disebut; (3) satu langkah per giliran; (4) pertanyaan dijawab sendiri; (5) soal dijawab sebelum melihat kunci; (6) satu konsep dicek ke sumber luar."
+  },
+  "cek": [
+    {
+      "tanya": "Kamu ingin belajar topik baru lewat chatbot. Pembuka percakapan mana yang paling membantu?",
+      "opsi": [
+        "Meminta penjelasan selengkap mungkin supaya tidak perlu bertanya lagi",
+        "Menulis tujuan dan apa yang sudah kamu tahu, termasuk yang masih ragu",
+        "Menempel seluruh isi buku lalu meminta ringkasan sebagai bahan belajar",
+        "Membiarkan AI menebak tingkat pemahamanmu tanpa kamu bercerita apa pun"
+      ],
+      "benar": 1,
+      "jelas": "Tujuan dan pengetahuan awal membuat AI mulai dari tempat yang tepat dan menemukan salah paham sejak awal. Penjelasan terlengkap tidak menyesuaikan tingkatmu, ringkasan buku tidak melatih pemahaman, dan AI tidak bisa menebak."
+    },
+    {
+      "tanya": "Dalam studi Bastani dkk., kelompok dengan chatbot tanpa pembatas bernilai lebih tinggi saat latihan tetapi lebih rendah pada ujian tanpa AI. Pelajaran apa yang paling tepat untuk kebiasaan belajarmu?",
+      "opsi": [
+        "Chatbot tidak boleh dipakai untuk belajar dalam keadaan apa pun",
+        "Semua chatbot menurunkan nilai ujian siapa pun yang memakainya",
+        "Ujian sebaiknya dikerjakan dengan AI supaya hasilnya lebih adil",
+        "Nilai latihan yang bagus bersama AI belum bukti kamu menguasainya, jadi uji dirimu tanpa AI"
+      ],
+      "benar": 3,
+      "jelas": "Latihan dengan jawaban siap pakai bisa terasa berhasil tanpa membangun penguasaan. Kelompok chatbot berpetunjuk kurang lebih sama dengan kelompok tanpa AI, jadi larangan total maupun generalisasi ke semua chatbot tidak didukung."
+    },
+    {
+      "tanya": "Kamu meminta lima soal latihan, tetapi AI menampilkan jawaban di bawah tiap soal. Langkah paling tepat?",
+      "opsi": [
+        "Menutup jawaban, menjawab dari ingatan dulu, lalu mencocokkan; lain kali menulis “jangan beri jawabannya dulu”",
+        "Membaca soal dan jawaban bersamaan supaya cepat selesai",
+        "Meminta AI menambah soal sampai lima puluh agar terlihat rajin",
+        "Menganggap materi dikuasai karena jawabannya terasa masuk akal"
+      ],
+      "benar": 0,
+      "jelas": "Menjawab dari ingatan adalah latihan menguji diri, yang dinilai berguna tinggi oleh Dunlosky dkk. Membaca soal bersama jawabannya mirip membaca ulang. Menambah soal tidak mengubah caranya, dan rasa masuk akal bukan bukti penguasaan."
+    }
+  ],
+  "ringkasan": [
+    "Sebut tujuan dan apa yang sudah kamu tahu, minta peta langkah, lalu bahas satu langkah per giliran.",
+    "Jelaskan dengan kata sendiri, minta AI mencari celahnya, dan jawab soal tanpa kunci dari ingatan.",
+    "Cocokkan konsep penting dengan sumber luar, dan uji dirimu tanpa AI sebelum merasa menguasai."
+  ]
+}
