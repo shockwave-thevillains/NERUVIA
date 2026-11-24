@@ -626,3 +626,20 @@ Dokumen lengkap beserta tabel perbandingan, pengukuran prototipe, dan pemeriksaa
 | pembanding konsep | Coursera blog: peluncuran Specializations (20 Jan 2014) | https://blog.coursera.org/coursera-specializations-focused-programs-in | Rangkaian multi-kursus dengan capstone; tanpa prasyarat antar kursus; artikel lama | Laporan agen |
 
 Tidak terbaca: dokumen Google course-info (URL mengembalikan halaman lain); halaman Specialization Coursera yang berlaku sekarang (tidak dibuka). Tinjau sebelum keputusan SEO (H1) memakai markup Course.
+
+## Rujukan draf Harga dan akses (K4), 24 Nov 2026
+Dokumen lengkap beserta tabel perbandingan dan pemeriksaan lima klaim: `docs/draf/harga-akses.md`. Semua diakses 24 Nov 2026 lewat agen web-fetch atau konektor Claude_Academy (hanya baca). Tidak ada kalimat yang disalin; tidak ada angka harga pembanding yang dipakai.
+
+| Rujukan | URL | Yang dipelajari (parafrase) | Cara baca |
+|---|---|---|---|
+| Coursera blog: peluncuran Coursera Plus (terbit 12 Feb 2020, diubah 27 Jan 2026) | https://blog.coursera.org/introducing-coursera-plus-a-subscription-plan-for-unlimited-learning | Audit, kursus gratis, bantuan finansial, per kursus, dan langganan hidup berdampingan; ada jaminan uang kembali | Dibaca penuh |
+| Class Central: langganan Coursera (17 Mar 2023) | https://classcentral.com/help/coursera-subscriptions | Uji coba lalu tagihan bulanan; audit tidak ada saat daftar Specialization; pembatalan perlu diingat | Dibaca penuh |
+| Class Central: biaya Coursera (19 Mar 2023) | https://classcentral.com/help/how-much-coursera-cost | Garis gratis (materi) dan berbayar (tugas bernilai, bukti penyelesaian); jalur gratis sering tersembunyi | Dibaca penuh |
+| DeepLearning.AI: isi keanggotaan Pro | https://info.deeplearning.ai/knowledge-base/what-do-i-get-with-the-deeplearning.ai-pro-membership-that-i-dont-get-for-free | Video gratis; lab, progres, proyek berbayar | Dibaca penuh |
+| DeepLearning.AI: jenis keanggotaan | https://info.deeplearning.ai/knowledge-base/types-of-memberships | Empat tingkat Free, Pro, Team, Enterprise; harga tidak dicantumkan | Dibaca penuh |
+| Khan Academy: pendukung | https://www.khanacademy.org/about/supporters | Nirlaba berbasis donasi; halaman terbaca sebagian (sekitar 40 ribu dari 111 ribu karakter) | Sebagian |
+| Khan Academy: tentang | https://www.khanacademy.org/about | Gratis bagi pembelajar; status Khanmigo tidak dijelaskan | Dibaca penuh |
+| freeCodeCamp: sponsor | https://www.freecodecamp.org/news/sponsors/ | Nirlaba, kurikulum terbuka, donasi dan sponsor | Dibaca penuh |
+| Claude Academy: daftar kursus | https://academy.claude.com/courses | Indeks tidak memuat model akses | Konektor, hanya baca |
+
+Tidak terbaca (izin pengambilan tidak dijawab atau halaman kosong): Dicoding akademi (hanya meta tag), halaman Dicoding di Tokopedia, Build with Angga (biaya belajar), Microsoft Learn (training), dicoding.com, halaman Bank Indonesia, DJP, JDIH Komdigi, dokumen Midtrans, passport Midtrans, dan Avora. Akibatnya klaim regulasi dan biaya Indonesia di `docs/riset/pembayaran-monetisasi.md` belum diperiksa ulang; ditandai di bagian 7 dokumen draf.
