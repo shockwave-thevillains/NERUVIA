@@ -28,7 +28,7 @@
       "judul": "Sopan tidak sama dengan berputar-putar",
       "paragraf": [
         "Pelajaran Claude Academy tentang instruksi samar menunjukkan bahwa AI mengikuti kata-katamu secara harfiah. Perintah “buat lebih sopan” bisa menghasilkan tiga kalimat permintaan maaf sebelum inti. Nyatakan tujuanmu: “sopan dan hormat, tetapi langsung ke permintaan; tanpa permintaan maaf berlebihan”.",
-        "Sebut juga nadamu dengan kata biasa, misalnya “tegas tapi ramah”, dan hubunganmu dengan penerima, karena sapaan dan penutup bergantung padanya. Sebuah artikel editorial di Chicago Booth Review menilai tulisan lugas sebagai bentuk hormat kepada pembaca. Artikel itu opini, bukan hasil penelitian. Ia juga mencatat bahwa AI condong memakai klise, jadi minta AI menghindari pembuka basa-basi."
+        "Sebut juga nadamu dengan kata biasa, misalnya “tegas tapi ramah”, dan hubunganmu dengan penerima, karena sapaan dan penutup bergantung padanya. Artikel editorial di Chicago Booth Review menilai tulisan lugas sebagai bentuk hormat kepada pembaca. Artikel itu opini, bukan hasil penelitian. Ia juga mencatat bahwa AI condong memakai klise, jadi minta AI menghindari pembuka basa-basi."
       ]
     },
     {
@@ -47,21 +47,21 @@
     {
       "judul": "Kapan tidak dipakai",
       "paragraf": [
-        "Untuk urusan dua menit, telepon atau bicara langsung lebih cepat. Untuk kabar buruk atau perselisihan, panduan Kanada menyarankan telepon atau tatap muka, dan menunggu sekitar satu hari bila kamu sedang kesal. Jangan menempel data pribadi atau rahasia usaha ke chatbot tanpa izin; pelajaran data di Modul 3 membahasnya.",
+        "Untuk urusan dua menit, telepon atau bicara langsung lebih cepat. Untuk kabar buruk atau perselisihan, panduan Kanada menyarankan telepon atau tatap muka, dan menunggu sehari bila kamu kesal. Jangan menempel data pribadi atau rahasia usaha ke chatbot tanpa izin; pelajaran data di Modul 3 membahasnya.",
         "Untuk surat resmi yang berdampak hukum, kesehatan, atau uang, tanyakan ke pihak yang berwenang. Pelajaran ini bukan nasihat hukum."
       ]
     }
   ],
   "contoh": {
     "judul": "Contoh berpasangan (cerita fiktif)",
-    "teks": "Rina, tokoh fiktif, staf admin di CV Maju Bersama yang juga fiktif, menunggu 200 kardus dari pemasok fiktif bernama Pak Hendra. Pesanan nomor 118 dijanjikan tiba 27 November, tetapi sampai 2 Desember belum datang. Versi kurang baik: ia mengetik “Buatkan email ke pemasok soal pesanan yang telat, yang sopan ya.” Hasilnya dimulai dengan tiga kalimat permintaan maaf, tidak menyebut nomor pesanan, dan berakhir dengan “mohon kabarnya segera”. Pak Hendra membalas dengan pertanyaan: pesanan yang mana, dan segera itu kapan? Versi baik: Rina menulis hubungannya (pemasok tetap), kejadian (pesanan 118, janji 27 November, belum tiba), permintaan (konfirmasi tanggal kirim), tenggat (Jumat 4 Desember), nada (ramah dan tegas, tanpa permintaan maaf berlebihan), batas 120 kata, dan larangan mengarang fakta. Draf kembali dengan subjek “Konfirmasi: pengiriman pesanan 118, batas Jumat 4 Des”. Rina mencocokkan nomor dan tanggal, menghapus satu kalimat klise, lalu mengirim. Bedanya: versi baik membawa fakta, satu permintaan, dan tenggat; versi kurang baik meminta AI menebak semuanya."
+    "teks": "Rina, tokoh fiktif, staf admin di CV Maju Bersama yang juga fiktif, menunggu 200 kardus dari pemasok fiktif bernama Pak Hendra. Pesanan nomor 118 dijanjikan tiba 27 November, tetapi sampai 2 Desember belum datang. Versi kurang baik: ia mengetik “Buatkan email ke pemasok soal pesanan yang telat, yang sopan ya.” Hasilnya dimulai dengan tiga kalimat permintaan maaf, tidak menyebut nomor pesanan, dan berakhir dengan “mohon kabarnya segera”. Pak Hendra membalas dengan pertanyaan: pesanan yang mana, dan segera itu kapan? Versi baik: Rina menulis hubungannya (pemasok tetap), kejadian (pesanan 118, janji 27 November, belum tiba), permintaan (konfirmasi tanggal kirim), dan tenggat (Jumat 4 Desember). Ia menambah nada (ramah dan tegas, tanpa permintaan maaf berlebihan), batas 120 kata, dan larangan mengarang fakta. Draf kembali dengan subjek “Konfirmasi: pengiriman pesanan 118, batas Jumat 4 Des”. Rina mencocokkan nomor dan tanggal, menghapus satu kalimat klise, lalu mengirim. Bedanya: versi baik membawa fakta, satu permintaan, dan tenggat; versi kurang baik meminta AI menebak semuanya."
   },
   "latihan": {
-    "petunjuk": "Kerjakan di chatbot AI mana pun dengan situasi karanganmu sendiri, tanpa data pribadi nyata, misalnya meminta konfirmasi jadwal dari pihak lain. Tahap 1 (coba): minta AI menulis email hanya dengan satu kalimat tanpa fakta, lalu catat apa yang tidak jelas bagi penerima. Tahap 2 (perbaiki): tulis ulang permintaan dengan empat hal (penerima dan hubunganmu, kejadian, satu permintaan, tenggat), nada, batas panjang, bentuk subjek, dan larangan mengarang fakta. Periksa hasilnya sebagai penerima dan hapus kalimat klise. Tahap 3 (bandingkan): taruh dua draf berdampingan, tulis satu pertanyaan yang mungkin diajukan penerima pada draf pertama, dan satu hal yang masih kamu ubah sendiri pada draf kedua. Daftar periksa: (1) tanpa data pribadi nyata; (2) satu permintaan dan satu tenggat; (3) subjek memuat tindakan, topik, dan tenggat; (4) fakta dicocokkan dengan catatanmu."
+    "petunjuk": "Kerjakan di chatbot AI mana pun dengan situasi karanganmu sendiri, tanpa data pribadi, misalnya meminta konfirmasi jadwal dari pihak lain. Tahap 1 (coba): minta AI menulis email hanya dengan satu kalimat tanpa fakta, lalu catat apa yang tidak jelas bagi penerima. Tahap 2 (perbaiki): tulis ulang prompt dengan empat hal (penerima dan hubunganmu, kejadian, satu permintaan, tenggat), nada, batas panjang, bentuk subjek, dan larangan mengarang fakta. Periksa hasilnya sebagai penerima dan hapus kalimat klise. Tahap 3 (bandingkan): taruh dua draf berdampingan, tulis satu pertanyaan yang mungkin diajukan penerima pada draf pertama, dan satu hal yang masih kamu ubah sendiri pada draf kedua. Daftar periksa: (1) tanpa data pribadi; (2) satu permintaan dan satu tenggat; (3) subjek memuat tindakan, topik, dan tenggat; (4) fakta dicocokkan dengan catatanmu."
   },
   "cek": [
     {
-      "tanya": "Mengapa draf email dari permintaan satu kalimat tanpa fakta sering gagal?",
+      "tanya": "Mengapa draf email dari prompt satu kalimat tanpa fakta sering gagal?",
       "opsi": [
         "Karena AI tidak tahu siapa penerimanya, apa kejadiannya, dan apa tenggatmu, sehingga mengisi celah dengan kalimat umum atau karangan",
         "Karena AI tidak bisa menulis dalam Bahasa Indonesia",

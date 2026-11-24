@@ -18,7 +18,7 @@
       ]
     },
     {
-      "judul": "Taruh dokumen di depan, permintaan di belakang",
+      "judul": "Taruh dokumen di depan, instruksi di belakang",
       "paragraf": [
         "Panduan Anthropic untuk dokumen panjang menyarankan menaruh dokumen di bagian atas, lalu instruksi dan pertanyaan setelahnya. Bila ada beberapa dokumen, beri label dan sumber pada masing-masing. Ia juga menyarankan meminta model mengutip bagian yang relevan sebelum mengerjakan tugasnya.",
         "Panduan itu ditulis untuk model Claude. Kebiasaannya murah dicoba di chatbot lain, tetapi lihat sendiri apakah hasilnya membaik."
@@ -57,7 +57,7 @@
     "teks": "Bu Maya, tokoh fiktif, sekretaris RT 07 fiktif, harus membagikan hasil rapat tiga halaman ke warga yang tidak hadir. Notulen fiktif itu memuat: kerja bakti Sabtu 5 Desember; Pak Tono memperbaiki lampu gang 2 paling lambat Jumat 11 Desember; lokasi pos ronda belum diputuskan. Versi kurang baik: ia menulis “Ringkas notulen ini.” Hasilnya: “Rapat menyepakati kerja bakti, perbaikan lampu, dan pemindahan pos ronda.” Ia langsung membagikannya, sehingga Pak Tono tidak tahu tenggatnya dan warga mengira pos ronda sudah pindah. Versi baik: ia menempel notulen lebih dulu, lalu menulis: pembaca adalah warga yang tidak hadir; format tiga bagian, yaitu Keputusan, Tugas (siapa, apa, tenggat), dan Belum diputuskan; jangan menambah informasi; tulis “tidak disebut” bila tidak ada; sertakan kutipan pendek untuk tiap poin. Ia mencocokkan kutipan dengan notulen, memperbaiki satu tanggal yang meleset, lalu membagikan. Bedanya: versi baik punya tujuan dan format jelas, meminta rujukan, dan memeriksa ke dokumen asli."
   },
   "latihan": {
-    "petunjuk": "Kerjakan di chatbot AI mana pun, dengan teks karanganmu sendiri tanpa data pribadi, sekitar 300 sampai 500 kata, misalnya notulen rapat fiktif. Tahap 1 (coba): tulis dulu tiga poin yang menurutmu pasti ada dalam ringkasan, lalu minta AI meringkas hanya dengan “Ringkas ini.” Tahap 2 (perbaiki): taruh teks di atas, lalu tulis ulang permintaan dengan pembaca, tujuan, format, larangan menambah informasi, dan permintaan kutipan pendek untuk tiap poin. Periksa hasilnya dengan tiga pemeriksaan: akurat, lengkap, tanpa tambahan; tandai yang meleset. Tahap 3 (bandingkan): bandingkan kedua ringkasan dengan tiga poinmu, lalu tulis satu kalimat tentang apa yang paling berubah dan satu hal yang masih meleset. Daftar periksa: (1) tanpa data pribadi; (2) pembaca dan tujuan ditulis; (3) tiap poin punya rujukan; (4) angka, tanggal, dan nama dicocokkan."
+    "petunjuk": "Kerjakan di chatbot AI mana pun, dengan teks karanganmu sendiri tanpa data pribadi, sekitar 300 sampai 500 kata, misalnya notulen rapat fiktif. Tahap 1 (coba): tulis dulu tiga poin yang menurutmu pasti ada dalam ringkasan, lalu minta AI meringkas hanya dengan “Ringkas ini.” Tahap 2 (perbaiki): taruh teks di atas, lalu tulis ulang prompt dengan pembaca, tujuan, format, larangan menambah informasi, dan permintaan kutipan pendek untuk tiap poin. Periksa hasilnya dengan tiga pemeriksaan: akurat, lengkap, tanpa tambahan; tandai yang meleset. Tahap 3 (bandingkan): bandingkan kedua ringkasan dengan tiga poinmu, lalu tulis satu kalimat tentang apa yang paling berubah dan satu hal yang masih meleset. Daftar periksa: (1) tanpa data pribadi; (2) pembaca dan tujuan ditulis; (3) tiap poin punya rujukan; (4) angka, tanggal, dan nama dicocokkan."
   },
   "cek": [
     {
@@ -72,7 +72,7 @@
       "jelas": "Ringkasan disusun ulang oleh model sehingga bisa keliru, tidak lengkap, atau berlebih. Opsi lain berlebihan atau tidak benar."
     },
     {
-      "tanya": "Manakah permintaan yang paling membuat ringkasan mudah diperiksa?",
+      "tanya": "Manakah prompt yang paling membuat ringkasan mudah diperiksa?",
       "opsi": [
         "Ringkas dokumen ini sebagus mungkin.",
         "Ringkas dalam satu paragraf yang menarik.",

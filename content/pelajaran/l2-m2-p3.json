@@ -6,7 +6,7 @@
     {
       "judul": "Paham bukan berarti sudah membaca penjelasan",
       "paragraf": [
-        "Penjelasan chatbot yang rapi membuat kita mudah mengira sudah paham. Ujiannya: bisakah kamu menjelaskannya lagi besok tanpa melihat apa pun? Claude Academy menyarankan memakai AI sebagai pelatih yang bertanya, bukan pemain pengganti yang menjawab semuanya."
+        "Penjelasan chatbot yang rapi membuatmu mudah mengira sudah paham. Ujiannya: bisakah kamu menjelaskannya lagi besok tanpa melihat apa pun? Claude Academy menyarankan memakai AI sebagai pelatih yang bertanya, bukan pemain pengganti yang menjawab semuanya."
       ]
     },
     {
@@ -55,7 +55,7 @@
     "teks": "Rangga, tokoh fiktif, ingin menjelaskan cara kerja kulkas ke adiknya. Versi kurang baik: ia mengetik “Jelaskan cara kerja kulkas”, membaca jawaban panjang, dan besoknya hanya ingat kata “gas pendingin”. Versi baik: ia menulis, “Tujuanku bisa menjelaskan kulkas ke adikku. Yang kutahu, kulkas membuat dingin dengan gas khusus. Buat peta empat langkah, bahas satu per giliran, dan jangan beri jawaban sebelum aku menjawab.” AI bertanya, “Menurutmu, dingin ditambahkan ke dalam kulkas atau ada yang dikeluarkan?” Rangga menjawab, “Dingin ditambahkan.” AI bertanya soal panas makanan, dan Rangga sadar kulkas memindahkan panas ke luar. Ia lalu menjawab tiga soal tanpa kunci dan mencocokkan istilah dengan buku. Bedanya: versi pertama hanya memberi rasa paham, versi kedua menemukan salah paham dan melatih Rangga menjelaskan sendiri."
   },
   "latihan": {
-    "petunjuk": "Kerjakan di chatbot AI mana pun tanpa data pribadi. Pilih satu topik kecil yang belum kamu kuasai, misalnya cara kerja suatu barang. Tahap 1 (coba): ketik “Jelaskan [topikmu]”, baca, tutup percakapan, lalu tulis tiga kalimat dari ingatan. Tahap 2 (perbaiki): mulai percakapan baru dengan tujuan, satu sampai tiga hal yang sudah kamu tahu, dan aturan: peta empat langkah, satu langkah per giliran, satu pertanyaan sebelum lanjut, jangan beri jawaban sebelum aku menjawab, lalu lima soal tanpa kunci. Tahap 3 (bandingkan): tutup percakapan, tulis ulang penjelasanmu dari ingatan, cocokkan dengan satu sumber di luar chatbot, tandai bagian yang keliru, lalu tulis satu kalimat tentang cara mana yang lebih membantu. Daftar periksa: (1) tanpa data pribadi; (2) tujuan dan pengetahuan awal disebut; (3) satu langkah per giliran; (4) pertanyaan dijawab sendiri; (5) soal dijawab sebelum melihat kunci; (6) satu konsep dicek ke sumber luar."
+    "petunjuk": "Kerjakan di chatbot AI mana pun tanpa data pribadi. Pilih satu topik kecil yang belum kamu kuasai, misalnya cara kerja suatu barang. Tahap 1 (coba): ketik “Jelaskan [topikmu]”, baca, tutup percakapan, lalu tulis tiga kalimat dari ingatan. Tahap 2 (perbaiki): mulai percakapan baru dengan tujuan dan satu sampai tiga hal yang sudah kamu tahu. Tambahkan aturan: peta empat langkah, satu langkah per giliran, satu pertanyaan sebelum lanjut, jangan beri jawaban sebelum aku menjawab, lalu lima soal tanpa kunci. Tahap 3 (bandingkan): tutup percakapan, tulis ulang penjelasanmu dari ingatan, cocokkan dengan satu sumber di luar chatbot, tandai bagian yang keliru, lalu tulis satu kalimat tentang cara mana yang lebih membantu. Daftar periksa: (1) tanpa data pribadi; (2) tujuan dan pengetahuan awal disebut; (3) satu langkah per giliran; (4) pertanyaan dijawab sendiri; (5) soal dijawab sebelum melihat kunci; (6) satu konsep dicek ke sumber luar."
   },
   "cek": [
     {

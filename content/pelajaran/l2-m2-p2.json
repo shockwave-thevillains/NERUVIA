@@ -13,7 +13,7 @@
     {
       "judul": "Kenapa AI mudah mencampur",
       "paragraf": [
-        "Makalah Belem dan kawan-kawan (arXiv, 2024, direvisi 2025) menguji lima model bahasa yang merangkum banyak dokumen berbahasa Inggris. Sebagian isi ringkasan tidak cocok dengan rujukan, dan kesalahan paling sering berupa ringkasan terlalu umum atau tidak mengikuti instruksi, bukan karangan murni.",
+        "Makalah Belem dkk. (arXiv, 2024, direvisi 2025) menguji lima model bahasa yang merangkum banyak dokumen berbahasa Inggris. Sebagian isi ringkasan tidak cocok dengan rujukan, dan kesalahan paling sering berupa ringkasan terlalu umum atau tidak mengikuti instruksi, bukan karangan murni.",
         "Dua temuan lain relevan. Bila topik yang diminta tidak dibahas dokumen, model sering tetap membuat ringkasan. Bagian akhir ringkasan juga lebih sering keliru. Penelitian itu memakai penilai otomatis dan tidak menguji sumber bertentangan, jadi anggap sebagai peringatan, bukan angka pasti."
       ]
     },
@@ -56,11 +56,11 @@
     "teks": "Tiara, tokoh fiktif, menyiapkan laporan RT tentang kebun komunitas Kampung Hijau Lestari (juga fiktif). Tiga catatannya: S1, laporan dinas, 40 keluarga ikut, dihitung bulan Maret. S2, buletin kelurahan, 55 keluarga, dihitung bulan Juni. S3, catatan pengurus, panen sayur meningkat tanpa angka. Versi kurang baik: Tiara menempel semuanya dan minta ringkasan. AI menulis “Sekitar 50 keluarga ikut dan panen naik 30 persen.” Angka 50 mencampur S1 dan S2, dan 30 persen tidak ada di sumber mana pun. Versi baik: Tiara memberi kode, meminta tiap kalimat berkode, dan meminta tiga daftar. Hasilnya: Sepakat, kebun diikuti warga (S1, S2). Beda, 40 keluarga menurut S1 dan 55 menurut S2, bulan hitungnya berbeda. Tunggal, panen meningkat hanya menurut S3, besarnya tidak disebut. Bedanya: versi pertama tampak pasti, versi kedua menunjukkan perbedaan dan celah, sehingga Tiara tahu apa yang perlu ditanya."
   },
   "latihan": {
-    "petunjuk": "Kerjakan di chatbot AI mana pun tanpa data pribadi nyata. Tulis tiga catatan pendek karanganmu, dua kalimat tiap catatan, dengan satu angka berbeda di dua catatan dan satu hal yang hanya ada di satu catatan. Beri kode S1, S2, S3. Tahap 1 (coba): minta AI merangkum ketiganya dalam satu paragraf tanpa aturan tambahan. Tahap 2 (perbaiki): minta lagi dengan aturan: tiap kalimat diakhiri kode sumber, buat tiga daftar (sepakat, beda, tunggal), dan tulis tidak disebut bila informasi tidak ada. Tambahkan satu pertanyaan tentang hal yang sengaja tidak kamu tulis. Tahap 3 (bandingkan): cocokkan tiap kalimat kedua versi dengan catatanmu, tandai yang tidak didukung, lalu tulis satu kalimat tentang versi yang lebih mudah diperiksa. Daftar periksa: (1) tanpa data pribadi; (2) sumber berkode; (3) tiap kalimat dicocokkan; (4) angka berbeda dilaporkan keduanya; (5) hal yang tidak ada dijawab tidak disebut."
+    "petunjuk": "Kerjakan di chatbot AI mana pun tanpa data pribadi. Tulis tiga catatan pendek karanganmu, dua kalimat tiap catatan, dengan satu angka berbeda di dua catatan dan satu hal yang hanya ada di satu catatan. Beri kode S1, S2, S3. Tahap 1 (coba): minta AI merangkum ketiganya dalam satu paragraf tanpa aturan tambahan. Tahap 2 (perbaiki): minta lagi dengan aturan: tiap kalimat diakhiri kode sumber, buat tiga daftar (sepakat, beda, tunggal), dan tulis tidak disebut bila informasi tidak ada. Tambahkan satu pertanyaan tentang hal yang sengaja tidak kamu tulis. Tahap 3 (bandingkan): cocokkan tiap kalimat kedua versi dengan catatanmu, tandai yang tidak didukung, lalu tulis satu kalimat tentang versi yang lebih mudah diperiksa. Daftar periksa: (1) tanpa data pribadi; (2) sumber berkode; (3) tiap kalimat dicocokkan; (4) angka berbeda dilaporkan keduanya; (5) hal yang tidak ada dijawab tidak disebut."
   },
   "cek": [
     {
-      "tanya": "Kamu menempel tiga sumber dan ingin tiap kalimat ringkasan bisa dicek ke asalnya. Permintaan mana yang paling membantu?",
+      "tanya": "Kamu menempel tiga sumber dan ingin tiap kalimat ringkasan bisa dicek ke asalnya. Prompt mana yang paling membantu?",
       "opsi": [
         "Meminta ringkasan sesingkat mungkin supaya kalimat yang diperiksa sedikit",
         "Meminta AI menulis formal agar hasilnya terdengar lebih kredibel",

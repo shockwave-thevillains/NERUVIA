@@ -11,10 +11,10 @@
       ]
     },
     {
-      "judul": "Siapkan catatan dan perintah yang membatasi AI",
+      "judul": "Siapkan catatan dan prompt yang membatasi AI",
       "paragraf": [
         "Pakai catatanmu sendiri, tanpa data pribadi, satu gagasan per baris. Claude Academy menyarankan meminta AI menguji dan menjelaskan mengapa pilihan yang salah itu keliru. Wozniak (1999) menekankan: pahami dulu, baru jadikan kartu.",
-        "Tulis perintah dengan lima bagian: catatan, jumlah dan jenis kartu, aturan “hanya dari catatan ini”, permintaan menyebut baris asal tiap kartu, dan jawaban tidak tampil di sisi depan. Baris asal memudahkan memeriksa."
+        "Tulis prompt dengan lima bagian: catatan, jumlah dan jenis kartu, aturan “hanya dari catatan ini”, permintaan menyebut baris asal tiap kartu, dan jawaban tidak tampil di sisi depan. Baris asal memudahkan memeriksa."
       ]
     },
     {
@@ -27,7 +27,7 @@
     {
       "judul": "Soal pilihan ganda: berguna, tetapi periksa dulu",
       "paragraf": [
-        "Chatbot cepat membuat soal pilihan ganda, tetapi mutunya beragam. Doughty dkk. (Carnegie Mellon, 2024) menilai 651 soal Python buatan GPT-4: sekitar 82 persen lolos semua kriteria, namun 4,9 persen punya lebih dari satu jawaban benar (soal manusia 1,1 persen) dan 4,0 persen punya pengecoh yang membocorkan jawaban. Penilainya penulis sendiri.",
+        "Chatbot cepat membuat soal pilihan ganda, tetapi mutunya beragam. Doughty dkk. (Carnegie Mellon, 2024) menilai 651 soal Python buatan GPT-4. Sekitar 82 persen lolos semua kriteria, tetapi 4,9 persen punya lebih dari satu jawaban benar (soal manusia 1,1 persen) dan 4,0 persen punya pengecoh yang membocorkan jawaban. Penilainya penulis sendiri.",
         "Tim Drexel (An dkk., 2025) memakai soal buatan chatbot di kelas data science dan menyebut sekitar dua pertiga soal tidak sesuai tujuan, jadi mereka meminta minimal 15 soal untuk mendapat 5 yang baik. Kedua angka bukan ramalan untuk catatanmu. Pelajarannya sama: minta lebih banyak soal, lalu pilih dan periksa."
       ]
     },

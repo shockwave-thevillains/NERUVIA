@@ -29,7 +29,7 @@ Aturan ini berlaku untuk setiap kata di pelajaran. Sumbernya RUNBOOK (bagian Lar
 1. **Hanya teks dan latihan interaktif ringan.** Jangan merujuk video, audio, podcast, atau gambar. Validator menolak kata "video" dan "tonton" di mana pun dalam berkas; `cek-materi` menandai K02.
 2. **Jangan menyatakan hal yang belum dikonfirmasi Master**: Level 1 gratis, dukungan ChatGPT, Gemini, atau Claude tertentu, praktik dengan versi gratis, harga, sertifikat. Menyebut nama produk sebagai sumber rujukan boleh ("dokumen resmi ... menyatakan ..."); menyatakan bahwa NERUVIA mendukungnya tidak boleh.
 3. **Bukan nasihat hukum.** Penjelasan umum boleh, dengan kalimat yang menyebut bahwa aturan berbeda antarnegara dan keputusan berisiko perlu ahli. Tanpa nomor pasal atau undang-undang, tanpa perintah menempuh langkah hukum.
-4. **Tanpa kontak dan identitas nyata**: alamat email, nomor telepon, URL, nama pengguna @, dan nama pembuat situs tidak masuk materi. Contoh memakai tokoh dan tempat karangan yang diberi label fiktif.
+4. **Tanpa kontak dan identitas nyata**: alamat email, nomor telepon, URL, nama pengguna @, dan nama pembuat situs tidak masuk materi. Contoh memakai tokoh dan tempat yang diberi label fiktif.
 5. **Jangan menyalin.** Tulis ulang dengan kata sendiri dalam Bahasa Indonesia. Kutipan maksimal satu frasa pendek. Jangan menyalin dari ailene.id atau situs mana pun.
 6. **Klaim tentang produk atau fitur** diperiksa ke sumber resmi sebelum masuk. Bila belum bisa dipastikan, tulis sebagai "menurut sumber itu" dengan batasnya, atau buang.
 7. **Tidak merendahkan pembaca.** Pakai "kamu", bukan "Anda". Jangan memakai kata seperti bodoh, tolol, atau malas.
@@ -81,11 +81,11 @@ Satu kalimat dengan awalan "Setelah pelajaran ini, kamu bisa" diikuti kata kerja
 - **Kalimat pendek**: batas 30 kata per kalimat (C), di atas 37 kata menjadi P. Titik koma memisah butir daftar sehingga daftar periksa "(1) ...; (2) ..." aman. Pakai pola SPOK dan hindari anak kalimat bersarang.
 - Urutan yang dipakai pelajaran yang ada: gagasan inti, cara kerja atau langkah, batas atau risiko, lalu dua bagian penutup tetap.
 - **Dua bagian wajib**: satu berjudul memuat "Kesalahan yang sering terjadi", satu berjudul diawali "Kapan" (misalnya "Kapan tidak dipakai" atau "Kapan jangan mengandalkan jawabannya begitu saja"). Pengecoh soal berasal dari daftar kesalahan ini.
-- Istilah asing dijelaskan saat pertama muncul. Samakan istilah dengan pelajaran lain (glosarium akan dikumpulkan di kegiatan L5).
+- Istilah asing dijelaskan saat pertama muncul. Samakan istilah dan nada dengan pelajaran lain lewat `docs/loop/GLOSARIUM.md` (istilah baku, bentuk yang dihindari, dan perintah `grep` pemeriksa).
 
 ### Contoh (pasangan berpasangan)
 - Satu teks: versi kurang baik, versi baik, lalu satu kalimat "Bedanya: ..." yang menyebut unsur pembeda.
-- Data fiktif dan **berlabel fiktif** ("tokoh fiktif", "cerita fiktif", "karangan"). Jangan memakai nama orang, usaha, atau lembaga nyata.
+- Data fiktif dan **berlabel fiktif** ("tokoh fiktif", "cerita fiktif", "(fiktif)"). Jangan memakai nama orang, usaha, atau lembaga nyata.
 - Judul contoh sebaiknya "Contoh berpasangan (cerita fiktif)" atau serupa.
 
 ### Latihan (tiga tahap)
@@ -155,7 +155,7 @@ Salin blok di bawah ini ke `content/pelajaran/<id>.json`. Semua teks dalam tanda
   ],
   "contoh": {
     "judul": "Contoh berpasangan (cerita fiktif)",
-    "teks": "[Nama tokoh], tokoh fiktif, [situasi singkat dan tempat karangan]. Versi kurang baik: [apa yang dilakukan dan hasilnya]. Versi baik: [apa yang dilakukan dan hasilnya]. Bedanya: [unsur pembeda dalam satu kalimat]."
+    "teks": "[Nama tokoh], tokoh fiktif, [situasi singkat dan tempat fiktif]. Versi kurang baik: [apa yang dilakukan dan hasilnya]. Versi baik: [apa yang dilakukan dan hasilnya]. Bedanya: [unsur pembeda dalam satu kalimat]."
   },
   "latihan": {
     "petunjuk": "Kerjakan di chatbot AI mana pun tanpa data pribadi. Tahap 1 (coba): [tugas pertama tanpa bantuan teknik]. Tahap 2 (perbaiki): [ulangi dengan teknik pelajaran ini, di percakapan baru]. Tahap 3 (bandingkan): [bandingkan dua hasil dengan satu kriteria]. Daftar periksa: (1) [butir]; (2) [butir]; (3) [butir]; (4) [butir]; (5) [butir]."

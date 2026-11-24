@@ -43,7 +43,7 @@
       "judul": "Kesalahan yang sering terjadi",
       "paragraf": [
         "Pertama, contoh yang bertentangan: satu memakai “Keluhan”, yang lain “keluhan pelanggan”, sehingga hasilnya ikut tidak seragam. Kedua, contoh yang isinya salah; chatbot meniru kesalahan itu dengan setia. Ketiga, contoh yang semuanya sejenis.",
-        "Keempat, tidak menulis instruksi dan berharap contoh bicara sendiri. Kelima, menempelkan data pribadi asli sebagai contoh; pakai nama dan isi karangan. Keenam, menganggap hasil benar hanya karena bentuknya sama dengan contoh, padahal bentuk konsisten tidak menjamin isi benar."
+        "Keempat, tidak menulis instruksi dan berharap contoh bicara sendiri. Kelima, menempelkan data pribadi sebagai contoh; pakai nama dan isi karanganmu sendiri. Keenam, menganggap hasil benar hanya karena bentuknya sama dengan contoh, padahal bentuk konsisten tidak menjamin isi benar."
       ]
     },
     {
@@ -59,7 +59,7 @@
     "teks": "Versi kurang baik: Bu Ratih, pemilik toko kue fiktif “Kue Mentari”, menulis, “Kelompokkan pesan pelanggan ini.” Chatbot membalas dengan label berbeda-beda, seperti “komplain”, “Keluhan”, dan “masalah pengiriman”, jadi daftarnya tidak bisa disaring. Versi baik: “Beri satu label pada tiap pesan pelanggan. Pilihan label hanya: Pesanan, Pertanyaan, Keluhan. Pesan: ‘Besok bisa kirim 20 kotak bolu?’ Label: Pesanan. Pesan: ‘Apakah kuenya mengandung kacang?’ Label: Pertanyaan. Pesan: ‘Kuenya enak, tetapi datang terlambat dua jam.’ Label: Keluhan (ada pujian, tetapi masalah utamanya keterlambatan). Pesan: ‘Tolong tambah 5 kotak, dan kuenya kemarin agak kering.’ Label:” Bedanya: versi baik membatasi pilihan label, memakai bentuk yang sama di tiap contoh, menyertakan kasus yang membingungkan beserta alasannya, dan mengakhiri dengan bahan baru. Bu Ratih tetap membaca hasilnya sendiri, karena pesan terakhir memuat pesanan sekaligus keluhan."
   },
   "latihan": {
-    "petunjuk": "Kerjakan di chatbot AI mana pun. Tahap 1 (coba): pilih tugas karangan, misalnya memberi label pada lima pesan pelanggan fiktif toko buku. Tulis permintaan tanpa contoh, kirim, lalu simpan hasilnya. Tahap 2 (perbaiki): di percakapan baru, tulis satu kalimat instruksi, daftar label yang diizinkan, dan tiga contoh berbentuk sama, termasuk satu kasus membingungkan beserta alasannya. Tahap 3 (bandingkan): letakkan kedua hasil berdampingan dan nilai mana yang labelnya lebih seragam. Daftar periksa mandiri: (1) instruksi ditulis sebelum contoh; (2) semua contoh berbentuk sama; (3) contoh beragam dan memuat satu kasus sulit; (4) label di contoh sudah kucek benar; (5) hasil tidak menjiplak kata dari contoh; (6) tidak ada data pribadi asli."
+    "petunjuk": "Kerjakan di chatbot AI mana pun. Tahap 1 (coba): pilih tugas karanganmu sendiri, yaitu memberi label pada lima pesan pelanggan fiktif toko buku. Tulis prompt tanpa contoh, kirim, lalu simpan hasilnya. Tahap 2 (perbaiki): di percakapan baru, tulis satu kalimat instruksi, daftar label yang diizinkan, dan tiga contoh berbentuk sama, termasuk satu kasus membingungkan beserta alasannya. Tahap 3 (bandingkan): letakkan kedua hasil berdampingan dan nilai mana yang labelnya lebih seragam. Daftar periksa: (1) instruksi ditulis sebelum contoh; (2) semua contoh berbentuk sama; (3) contoh beragam dan memuat satu kasus sulit; (4) label di contoh sudah dicek benar; (5) hasil tidak menjiplak kata dari contoh; (6) tanpa data pribadi."
   },
   "cek": [
     {

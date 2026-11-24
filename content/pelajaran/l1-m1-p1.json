@@ -30,7 +30,7 @@
       "judul": "Kenapa sekarang ramai dipakai",
       "paragraf": [
         "Gagasan dasarnya sudah lama, tetapi tiga hal bertemu hampir bersamaan. Cara merancang model yang membaca teks panjang jauh lebih baik. Teks digital untuk melatih tersedia sangat banyak. Perangkat komputasi yang kuat cukup tersedia untuk melatih model sebesar itu.",
-        "Ada alasan keempat yang paling terasa: cara memakainya mudah. Kamu cukup mengetik dengan bahasa sehari-hari di browser atau HP, tanpa menulis kode."
+        "Ada alasan keempat yang paling terasa: cara memakainya mudah. Kamu cukup mengetik dengan bahasa sehari-hari di browser atau ponsel, tanpa menulis kode."
       ]
     },
     {
@@ -62,7 +62,7 @@
     "teks": "Versi kurang baik: Andi (tokoh fiktif) bertanya ke chatbot, “Berapa jumlah penduduk Desa Sukamaju tahun lalu?” (desa fiktif). Chatbot menjawab dengan angka rapi dan yakin. Andi langsung menulisnya di laporan kelompok tanpa mencari sumber. Versi baik: Laras (tokoh fiktif) meminta chatbot, “Jelaskan perbedaan sensus dan survei dalam tiga kalimat untuk pemula.” Penjelasan umum seperti itu cocok untuk AI. Untuk angka penduduk desanya, Laras mencari dokumen resmi desa dan memakai angka dari sana. Bedanya: Laras memakai AI untuk konsep umum yang berpola, sedangkan angka spesifik ia ambil dari sumber yang bisa ditunjuk. Andi menyerahkan fakta spesifik kepada tebakan yang terdengar yakin."
   },
   "latihan": {
-    "petunjuk": "Kerjakan di chatbot AI mana pun. Tahap 1 (coba): tulis lima fitur di HP atau aplikasi yang kamu pakai minggu ini, misalnya saran kata saat mengetik, filter spam, rekomendasi, terjemahan, atau jawaban chatbot. Tebak sendiri apakah tiap fitur memilah atau membuat sesuatu yang baru. Tahap 2 (perbaiki): tempelkan daftarmu ke chatbot (tanpa data pribadi), minta ia memeriksa tebakanmu, dan jelaskan satu kalimat untuk tiap tebakan yang keliru. Tahap 3 (bandingkan): minta chatbot menjelaskan apa itu AI dalam tiga kalimat untuk anak SMP, lalu bandingkan dengan pelajaran ini. Apa yang sama, dan apa yang kurang? Daftar periksa mandiri: (1) aku bisa menyebut dua fitur yang memilah dan dua yang membuat; (2) aku tahu tebakan mana yang tadinya keliru; (3) aku bisa menyebut satu hal spesifik dari jawaban chatbot yang perlu kucek; (4) aku tidak menempelkan data pribadi atau rahasia."
+    "petunjuk": "Kerjakan di chatbot AI mana pun. Tahap 1 (coba): tulis lima fitur di ponsel atau aplikasi yang kamu pakai minggu ini, misalnya saran kata saat mengetik, filter spam, rekomendasi, terjemahan, atau jawaban chatbot. Tebak sendiri apakah tiap fitur memilah atau membuat sesuatu yang baru. Tahap 2 (perbaiki): tempelkan daftarmu ke chatbot (tanpa data pribadi), minta ia memeriksa tebakanmu, dan jelaskan satu kalimat untuk tiap tebakan yang keliru. Tahap 3 (bandingkan): minta chatbot menjelaskan apa itu AI dalam tiga kalimat untuk anak SMP, lalu bandingkan dengan pelajaran ini. Apa yang sama, dan apa yang kurang? Daftar periksa: (1) dua fitur yang memilah dan dua yang membuat sudah disebut; (2) tebakan yang tadinya keliru sudah ditandai; (3) satu hal spesifik dari jawaban chatbot yang perlu dicek sudah ditulis; (4) tanpa data pribadi atau rahasia."
   },
   "cek": [
     {

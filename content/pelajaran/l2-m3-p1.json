@@ -13,7 +13,7 @@
     {
       "judul": "Beri tahu tujuan dan pembacanya",
       "paragraf": [
-        "UC Davis menyarankan perintah yang memuat peran, tugas, konteks (pembaca dan jenis tulisan), dan batasan seperti nada atau jumlah kata. Texas A&M menambahkan bahwa tujuan proyekmu perlu ditulis; tanpa itu, AI merevisi dengan cara tak terduga.",
+        "UC Davis menyarankan prompt yang memuat peran, tugas, konteks (pembaca dan jenis tulisan), dan batasan seperti nada atau jumlah kata. Texas A&M menambahkan bahwa tujuan proyekmu perlu ditulis; tanpa itu, AI merevisi dengan cara tak terduga.",
         "Contoh: “Ini pengumuman untuk warga RW yang sibuk; tujuannya membuat mereka datang Sabtu. Beri masukan tentang urutan dan kejelasan, jangan ubah isinya.” Hapus nama dan data pribadi sebelum menempel."
       ]
     },
@@ -27,7 +27,7 @@
     {
       "judul": "Jaga makna dan suaramu",
       "paragraf": [
-        "Texas A&M mengingatkan bahwa revisi AI bisa mengubah maksudmu. UC Davis menambahkan bahwa AI dapat meratakan suara dan nada, padahal pembaca ingin mendengar kamu.",
+        "Texas A&M mengingatkan bahwa revisi AI bisa mengubah maksudmu. UC Davis menambahkan bahwa AI bisa meratakan suara dan nada, padahal pembaca ingin mendengar kamu.",
         "Caranya: minta daftar perubahan, bandingkan dengan versi aslimu, lalu kembalikan perubahan yang menggeser makna atau suara. Cocokkan angka, nama, dan tanggal dengan catatan aslimu. Detail yang hanya kamu tahu, seperti kejadian nyata atau hubunganmu dengan pembaca, harus tetap darimu; AI tidak bisa mengetahuinya."
       ]
     },
@@ -35,7 +35,7 @@
       "judul": "AI cenderung menyenangkan pemiliknya",
       "paragraf": [
         "Peneliti Anthropic (Sharma dkk., arXiv 2023) menguji lima asisten AI. Umpan balik atas argumen, puisi, dan solusi matematika sering lebih positif ketika pengguna menyatakan suka atau menulisnya sendiri. Penulisnya menduga sebagian penyebabnya adalah preferensi manusia pada jawaban yang sejalan dengan pandangan mereka.",
-        "Claude Academy menamai kecenderungan ini sycophancy dan mengusulkan ujinya: awali dengan “saya yakin ini sempurna”, lalu ulangi dengan undangan terbuka untuk tidak setuju. Jangan menyatakan perasaanmu dulu. Tulis: “Jadilah pembaca skeptis; sebut kelemahan terbesar, dan bila memang bagus, katakan apa adanya.”"
+        "Claude Academy menamai sikap mengiyakan ini sycophancy dan mengusulkan ujinya: awali dengan “saya yakin ini sempurna”, lalu ulangi dengan undangan terbuka untuk tidak setuju. Jangan menyatakan perasaanmu dulu. Tulis: “Jadilah pembaca skeptis; sebut kelemahan terbesar, dan bila memang bagus, katakan apa adanya.”"
       ]
     },
     {
@@ -53,7 +53,7 @@
   ],
   "contoh": {
     "judul": "Contoh berpasangan (cerita fiktif)",
-    "teks": "Wulan, tokoh fiktif, mengurus Taman Baca Kampung Melati (tempat karangan). Ia menulis pengumuman: mendongeng Sabtu pagi diikuti 37 anak, dan ia butuh relawan. Versi kurang baik: ia menempel tulisan dengan perintah “perbaiki tulisan saya, saya bangga sekali dengan ini”. Chatbot memuji, lalu menulis ulang dengan nada formal; angka 37 menjadi “puluhan anak” dan sapaan khas “Halo, tetangga!” hilang. Wulan menempelnya. Versi baik: ia menulis tujuan dan pembaca (“ajakan untuk warga RW yang sibuk; tujuannya mencari tiga relawan”) dan meminta tiga masalah terbesar tanpa menulis ulang. Salah satunya: ajakan baru muncul di paragraf terakhir. Ia memindahkannya sendiri, lalu ia meminta kalimat panjang, kalimat pasif, dan daftar perubahan, menerapkan sebagian, mengembalikan angka dan sapaannya, serta membacanya keras. Bedanya: versi pertama menyerahkan keputusan dan suara kepada AI; versi kedua memakai AI sebagai pembaca kritis, keputusan tetap di tangan Wulan."
+    "teks": "Wulan, tokoh fiktif, mengurus Taman Baca Kampung Melati (tempat fiktif). Ia menulis pengumuman: mendongeng Sabtu pagi diikuti 37 anak, dan ia butuh relawan. Versi kurang baik: ia menempel tulisan dengan perintah “perbaiki tulisan saya, saya bangga sekali dengan ini”. Chatbot memuji, lalu menulis ulang dengan nada formal; angka 37 menjadi “puluhan anak” dan sapaan khas “Halo, tetangga!” hilang. Wulan menempelnya. Versi baik: ia menulis tujuan dan pembaca (“ajakan untuk warga RW yang sibuk; tujuannya mencari tiga relawan”) dan meminta tiga masalah terbesar tanpa menulis ulang. Salah satunya: ajakan baru muncul di paragraf terakhir. Ia memindahkannya sendiri, lalu ia meminta kalimat panjang, kalimat pasif, dan daftar perubahan, menerapkan sebagian, mengembalikan angka dan sapaannya, serta membacanya keras. Bedanya: versi pertama menyerahkan keputusan dan suara kepada AI; versi kedua memakai AI sebagai pembaca kritis, keputusan tetap di tangan Wulan."
   },
   "latihan": {
     "petunjuk": "Kerjakan di chatbot AI mana pun tanpa data pribadi. Tahap 1 (coba): tulis pengumuman 120 sampai 180 kata tentang kegiatan karangan, dengan dua angka dan satu sapaan khasmu. Tempel ke chatbot dengan perintah “perbaiki tulisan saya”. Catat perubahan pada angka, makna, dan suara. Tahap 2 (perbaiki): mulai percakapan baru. Tulis tujuan dan pembaca, lalu minta tiga masalah terbesar tanpa menulis ulang. Perbaiki sendiri. Minta kalimat yang terlalu panjang, pasif, atau berisi pengisi, plus daftar perubahan. Terapkan yang kamu setujui, lalu baca keras. Tambahkan: “Jadilah pembaca skeptis; bila memang bagus, katakan apa adanya.” Tahap 3 (bandingkan): bandingkan tahap 1 dan tahap 2 menurut tiga hal: angka, makna, dan suara. Tulis satu kalimat tentang versi yang lebih terdengar seperti kamu. Daftar periksa: (1) tanpa data pribadi; (2) tahap, tujuan, dan pembaca disebut; (3) masukan diminta sebelum penulisan ulang; (4) angka dan nama dicocokkan; (5) suaramu masih ada; (6) daftar perubahan diperiksa; (7) hasil akhir dibaca keras."
@@ -65,7 +65,7 @@
         "Pemeriksaan akhir, penyuntingan, lalu revisi",
         "Revisi, penyuntingan, lalu pemeriksaan akhir",
         "Penyuntingan, pemeriksaan akhir, lalu revisi",
-        "Ketiganya sekaligus dalam satu kali permintaan"
+        "Ketiganya sekaligus dalam satu prompt"
       ],
       "benar": 1,
       "jelas": "Struktur diperbaiki dulu, lalu kalimat, lalu kesalahan kecil. Urutan lain membuang tenaga memoles bagian yang nanti berubah, dan mencampur ketiganya mempersulit pelacakan."
@@ -79,7 +79,7 @@
         "Karena perasaan penulis menambah panjang tulisan sehingga lebih sulit diperiksa"
       ],
       "benar": 1,
-      "jelas": "Kecenderungan menyenangkan pengguna membuat masukan lebih manis. Opsi lain tidak didukung sumber."
+      "jelas": "Sikap mengiyakan membuat masukan lebih manis. Opsi lain tidak didukung sumber."
     },
     {
       "tanya": "Kirana meminta chatbot “perbaiki esai saya”. Hasilnya lebih rapi, tetapi angka 48 menjadi “sekitar 50” dan sapaan khasnya hilang. Langkah paling tepat?",

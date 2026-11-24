@@ -6,7 +6,7 @@
     {
       "judul": "Chatbot menebak, bukan mencari",
       "paragraf": [
-        "Kamu pasti pernah melihat HP menyarankan kata berikutnya saat mengetik. Kamu menulis “Selamat”, lalu HP menawarkan “pagi”. Chatbot bekerja dengan gagasan yang mirip, hanya skalanya jauh lebih besar.",
+        "Kamu pasti pernah melihat ponsel menyarankan kata berikutnya saat mengetik. Kamu menulis “Selamat”, lalu ponsel menawarkan “pagi”. Chatbot bekerja dengan gagasan yang mirip, hanya skalanya jauh lebih besar.",
         "Chatbot tidak membuka lemari berisi jawaban siap pakai. Ia menyusun jawaban baru dengan menebak kelanjutan teks yang paling masuk akal, berdasarkan pola yang ia pelajari dari teks latihnya.",
         "Karena itu jawabannya terdengar lancar. Tetapi lancar tidak sama dengan benar."
       ]
@@ -56,7 +56,7 @@
     "teks": "Versi kurang baik: Rani bertanya, “Siapa penulis laporan kecamatan itu dan tahun berapa terbit?” Chatbot menjawab dengan lancar, lengkap dengan nama dan tahun yang terdengar meyakinkan. Rani langsung menyalinnya ke tugas, padahal laporan itu fiktif dan tidak pernah ada. Versi baik: Rani menempelkan teks laporan yang ia punya, lalu bertanya, “Berdasarkan teks ini saja, apa tiga poin utamanya? Bila suatu hal tidak ada di teks, katakan tidak ada.” Setelah itu ia mencocokkan ketiga poin dengan teks aslinya. Bedanya: pada versi kurang baik chatbot diminta menebak fakta spesifik dari pola latihnya. Pada versi baik jawabannya dibatasi pada teks yang ada di jendela percakapan, dan hasilnya dicek."
   },
   "latihan": {
-    "petunjuk": "Kerjakan di chatbot AI mana pun. Tahap 1 (coba): buka dua percakapan baru, lalu ajukan pertanyaan yang sama persis di keduanya, “Sebutkan tiga contoh pemakaian AI di sekolah, lengkap dengan satu angka statistik untuk tiap contoh.” Tahap 2 (perbaiki): di percakapan baru, tempelkan satu paragraf pendek buatanmu sendiri tentang AI di sekolah, lalu minta tiga poin utama hanya dari paragraf itu dan minta chatbot menyebut bila ada hal yang tidak ada di teks. Tahap 3 (bandingkan): letakkan semua jawaban berdampingan. Bagian mana yang berbeda antara dua percakapan pertama? Mana yang bisa kamu cocokkan dengan teksmu sendiri? Daftar periksa mandiri: (1) aku bisa menunjuk bagian yang berbeda antara dua jawaban pertama; (2) aku tahu angka mana yang harus dicek ke sumber; (3) aku bisa menjelaskan mengapa jawaban tahap 2 lebih mudah dicek; (4) aku sudah menuliskan satu kebiasaan baru yang akan kupakai."
+    "petunjuk": "Kerjakan di chatbot AI mana pun. Tahap 1 (coba): buka dua percakapan baru, lalu ajukan pertanyaan yang sama persis di keduanya, “Sebutkan tiga contoh pemakaian AI di sekolah, lengkap dengan satu angka statistik untuk tiap contoh.” Tahap 2 (perbaiki): di percakapan baru, tempelkan satu paragraf pendek buatanmu sendiri tentang AI di sekolah (tanpa data pribadi). Lalu minta tiga poin utama hanya dari paragraf itu dan minta chatbot menyebut bila ada hal yang tidak ada di teks. Tahap 3 (bandingkan): letakkan semua jawaban berdampingan. Bagian mana yang berbeda antara dua percakapan pertama? Mana yang bisa kamu cocokkan dengan teksmu sendiri? Daftar periksa: (1) bagian yang berbeda antara dua jawaban pertama sudah ditunjuk; (2) angka yang harus dicek ke sumber sudah ditandai; (3) alasan jawaban tahap 2 lebih mudah dicek sudah dijelaskan; (4) satu kebiasaan baru sudah ditulis; (5) tanpa data pribadi."
   },
   "cek": [
     {

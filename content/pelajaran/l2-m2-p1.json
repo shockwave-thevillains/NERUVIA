@@ -13,7 +13,7 @@
     {
       "judul": "Tiga pertanyaan untuk setiap sumber",
       "paragraf": [
-        "Studi Breakstone dan kawan-kawan (2021) mengacu pada kebiasaan pemeriksa fakta profesional saat menilai situs asing. Mereka dipandu tiga pertanyaan: siapa di balik informasi ini, apa buktinya, dan apa kata sumber lain.",
+        "Studi Breakstone dkk. (2021) mengacu pada kebiasaan pemeriksa fakta profesional saat menilai situs asing. Mereka dipandu tiga pertanyaan: siapa di balik informasi ini, apa buktinya, dan apa kata sumber lain.",
         "Pakai tiga pertanyaan itu untuk sumber apa pun, termasuk yang disebut AI. Yang pertama paling sering dilewati."
       ]
     },
@@ -21,7 +21,7 @@
       "judul": "Baca ke samping, jangan hanya ke bawah",
       "paragraf": [
         "Studi itu menemukan mahasiswa umumnya membaca vertikal: menelaah satu halaman dari atas ke bawah atau membuka halaman “Tentang” situs itu. Pemeriksa fakta justru cepat keluar dari situs asing dan membuka tab baru untuk mencari tahu pemiliknya dari sumber lain. Itu disebut lateral reading, membaca ke samping.",
-        "Dari 87 mahasiswa yang mengikuti kursus daring pendek, yang membaca ke samping pada satu tugas naik dari 3 menjadi 67. Studi ini hanya satu mata kuliah tanpa kelompok pembanding, jadi hasilnya menjanjikan, bukan pasti. Studi itu juga mencatat kekeliruan umum: menganggap alamat .org otomatis tepercaya atau menilai dari tampilan situs."
+        "Dari 87 mahasiswa yang mengikuti kursus online pendek, yang membaca ke samping pada satu tugas naik dari 3 menjadi 67. Studi ini hanya satu mata kuliah tanpa kelompok pembanding, jadi hasilnya menjanjikan, bukan pasti. Studi itu juga mencatat kekeliruan umum: menganggap alamat .org otomatis tepercaya atau menilai dari tampilan situs."
       ]
     },
     {
@@ -57,7 +57,7 @@
     "teks": "Larasati, tokoh fiktif, menulis tugas tentang program bank sampah di Kota Sumber Jaya (juga fiktif). AI menjawab bahwa program itu mengurangi sampah rumah tangga hingga 74 persen, dengan rujukan “Jurnal Lingkungan Nusantara, 2021” dan sebuah tautan. Versi kurang baik: Larasati menyalin angka dan rujukan itu karena terlihat ilmiah. Dosennya tidak menemukan artikelnya. Versi baik: Larasati mencari judul persis di Google Scholar, tidak menemukannya, dan tidak memakai rujukan itu. Ia membuka tautannya, melihat angka 74 persen tidak ada di sana, lalu membuka tab baru untuk mencari tahu pengelola situsnya. Ia mencari data dinas lingkungan kota (fiktif) dan satu sumber pembanding, lalu menandai angka yang belum terkonfirmasi. Bedanya: versi kurang baik memakai AI sebagai sumber, versi baik memakainya sebagai petunjuk arah lalu memeriksa sendiri."
   },
   "latihan": {
-    "petunjuk": "Kerjakan di chatbot AI mana pun dengan topik umum tanpa data pribadi, misalnya manfaat membaca sebelum tidur. Tahap 1 (coba): minta AI menjelaskan topik itu dengan tiga sumber dan catat yang disebutnya. Tahap 2 (perbaiki): untuk tiap sumber, cari judulnya di mesin pencari, buka halamannya bila ada, lalu jawab tiga pertanyaan: siapa di baliknya (cari lewat tab baru), apa buktinya, apa kata sumber lain. Minta AI melabeli klaim tanpa sumber. Tahap 3 (bandingkan): bandingkan tahap 1 dengan pemeriksaanmu, lalu tulis satu kalimat tentang bagian yang boleh kamu pakai. Daftar periksa: (1) tanpa data pribadi nyata; (2) tiap sumber dicari ke luar jawaban AI; (3) tautan dibuka dan dicocokkan dengan klaim; (4) minimal satu sumber pembanding; (5) klaim yang belum terkonfirmasi diberi tanda."
+    "petunjuk": "Kerjakan di chatbot AI mana pun dengan topik umum tanpa data pribadi, misalnya manfaat membaca sebelum tidur. Tahap 1 (coba): minta AI menjelaskan topik itu dengan tiga sumber dan catat yang disebutnya. Tahap 2 (perbaiki): untuk tiap sumber, cari judulnya di mesin pencari, buka halamannya bila ada, lalu jawab tiga pertanyaan: siapa di baliknya (cari lewat tab baru), apa buktinya, apa kata sumber lain. Minta AI melabeli klaim tanpa sumber. Tahap 3 (bandingkan): bandingkan tahap 1 dengan pemeriksaanmu, lalu tulis satu kalimat tentang bagian yang boleh kamu pakai. Daftar periksa: (1) tanpa data pribadi; (2) tiap sumber dicari ke luar jawaban AI; (3) tautan dibuka dan dicocokkan dengan klaim; (4) minimal satu sumber pembanding; (5) klaim yang belum terkonfirmasi diberi tanda."
   },
   "cek": [
     {

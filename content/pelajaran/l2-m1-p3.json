@@ -1,7 +1,7 @@
 {
   "id": "l2-m1-p3",
   "status": "draf",
-  "tujuan": "Setelah pelajaran ini, kamu bisa meminta AI menyusun laporan singkat dari catatan mentah dengan kerangka tetap, tanpa bagian rekaan, lalu mencocokkannya dengan catatan sebelum mengirim.",
+  "tujuan": "Setelah pelajaran ini, kamu bisa meminta AI menyusun laporan singkat dari catatan mentah dengan kerangka tetap, tanpa bagian karangan, lalu mencocokkannya dengan catatan sebelum mengirim.",
   "bagian": [
     {
       "judul": "Laporan singkat menjawab satu pertanyaan pembaca",
@@ -28,7 +28,7 @@
       "judul": "Larang AI menambah, dan izinkan “tidak ada di catatan”",
       "paragraf": [
         "AI terbiasa menulis laporan yang lengkap dan optimis. Bila catatanmu tidak memuat persentase, ia bisa menambahkannya. Contoh di pelajaran FreeAcademy menampilkan laporan AI dengan penilaian dan angka kemajuan yang tidak tampak di catatan mentahnya.",
-        "Cegah dengan tiga kalimat dalam permintaan: pakai hanya isi catatan; bila bagian tidak ada di catatan, tulis “tidak ada di catatan”; sebut nomor catatan di tiap poin. Claude Academy sejalan: lebih baik tertulis bahwa tidak ada kemajuan tercatat daripada celah yang ditutup diam-diam."
+        "Cegah dengan tiga kalimat dalam prompt: pakai hanya isi catatan; bila bagian tidak ada di catatan, tulis “tidak ada di catatan”; sebut nomor catatan di tiap poin. Claude Academy sejalan: lebih baik tertulis bahwa tidak ada kemajuan tercatat daripada celah yang ditutup diam-diam."
       ]
     },
     {
@@ -41,7 +41,7 @@
     {
       "judul": "Kesalahan yang sering terjadi",
       "paragraf": [
-        "Pertama, tidak menyebut pembaca. Kedua, tidak melarang AI menambah, sehingga muncul persentase dan penilaian rekaan. Ketiga, mencampur rencana dengan hal yang sudah terjadi, sehingga yang baru rencana tertulis “selesai”. Keempat, memasukkan semua catatan. Kelima, lupa penanggung jawab dan tenggat. Keenam, mengirim tanpa mencocokkan dengan catatan."
+        "Pertama, tidak menyebut pembaca. Kedua, tidak melarang AI menambah, sehingga muncul persentase dan penilaian karangan. Ketiga, mencampur rencana dengan hal yang sudah terjadi, sehingga yang baru rencana tertulis “selesai”. Keempat, memasukkan semua catatan. Kelima, lupa penanggung jawab dan tenggat. Keenam, mengirim tanpa mencocokkan dengan catatan."
       ]
     },
     {
@@ -57,11 +57,11 @@
     "teks": "Sinta, tokoh fiktif, koordinator relawan Perpustakaan Keliling Mekar yang juga fiktif, punya catatan rapat Jumat 4 Desember: 40 buku donasi tiba Selasa dan belum dikatalog; rute Sabtu pindah ke balai RW 03, disetujui Bu Lastri; rak kayu belum jadi karena tukang berjanji Rabu depan. Versi kurang baik: ia menempel catatan dan mengetik “Buat laporan dari catatan ini.” Hasilnya: “Kegiatan berjalan lancar, 90 persen buku sudah dikatalog.” Angka itu tidak ada di catatan, “lancar” tanpa dasar, dan rak yang macet tidak disebut. Versi baik: Sinta menomori barisnya, menyebut pembacanya (ketua yayasan yang perlu memutuskan soal rak), meminta lima bagian dalam 150 kata, melarang menambah, meminta “tidak ada di catatan” untuk bagian kosong, dan nomor catatan di tiap poin. Draf kembali dengan hambatan rak dan buku bertanda “belum dikatalog”. Sinta mencocokkan, lalu mengirim. Bedanya: versi baik meminta AI menata catatan; versi kurang baik meminta AI mengisi yang tidak ia tahu."
   },
   "latihan": {
-    "petunjuk": "Kerjakan di chatbot AI mana pun dengan catatan karanganmu sendiri, tanpa data pribadi nyata, misalnya enam baris catatan rapat panitia acara fiktif. Tahap 1 (coba): tempel catatan dan minta “buat laporan” tanpa petunjuk lain, lalu tandai setiap kalimat yang tidak ada di catatanmu. Tahap 2 (perbaiki): beri nomor tiap baris, lalu tulis ulang permintaan dengan pembaca dan keputusannya, lima bagian kerangka, batas kata, larangan menambah, perintah “tidak ada di catatan”, dan nomor catatan di tiap poin. Periksa tiga lintasan: nama, angka, tanggal; kata penilaian baru; keputusan dan tugas terlewat. Tahap 3 (bandingkan): hitung kalimat tanpa dasar di kedua laporan. Daftar periksa: (1) tanpa data pribadi nyata; (2) pembaca dan keputusannya jelas; (3) tiap poin bernomor catatan; (4) tidak ada angka atau penilaian tambahan."
+    "petunjuk": "Kerjakan di chatbot AI mana pun dengan catatan karanganmu sendiri, tanpa data pribadi, misalnya enam baris catatan rapat panitia acara fiktif. Tahap 1 (coba): tempel catatan dan minta “buat laporan” tanpa petunjuk lain, lalu tandai setiap kalimat yang tidak ada di catatanmu. Tahap 2 (perbaiki): beri nomor tiap baris, lalu tulis ulang prompt dengan pembaca dan keputusannya, lima bagian kerangka, batas kata, larangan menambah, perintah “tidak ada di catatan”, dan nomor catatan di tiap poin. Periksa tiga lintasan: nama, angka, tanggal; kata penilaian baru; keputusan dan tugas terlewat. Tahap 3 (bandingkan): hitung kalimat tanpa dasar di kedua laporan. Daftar periksa: (1) tanpa data pribadi; (2) pembaca dan keputusannya jelas; (3) tiap poin bernomor catatan; (4) tidak ada angka atau penilaian tambahan."
   },
   "cek": [
     {
-      "tanya": "Mengapa permintaan “Buat laporan dari catatan ini” tanpa petunjuk lain sering menyesatkan?",
+      "tanya": "Mengapa prompt “Buat laporan dari catatan ini” tanpa petunjuk lain sering menyesatkan?",
       "opsi": [
         "Karena AI tidak tahu pembacanya dan tidak dilarang menambah, sehingga ia mengisi penilaian dan angka yang tidak ada di catatan",
         "Karena AI tidak bisa membaca catatan berbahasa Indonesia sama sekali",
@@ -69,10 +69,10 @@
         "Karena nomor pada baris catatan membuat AI bingung"
       ],
       "benar": 0,
-      "jelas": "Tanpa pembaca dan larangan menambah, AI melengkapi pola laporan yang lazim, termasuk angka dan kata “lancar” rekaan. Opsi lain keliru: AI bisa membaca bahasa Indonesia, laporan baik justru ringkas, dan nomor baris membantu."
+      "jelas": "Tanpa pembaca dan larangan menambah, AI melengkapi pola laporan yang lazim, termasuk angka dan kata “lancar” karangan. Opsi lain keliru: AI bisa membaca bahasa Indonesia, laporan baik justru ringkas, dan nomor baris membantu."
     },
     {
-      "tanya": "Manakah kalimat yang paling membantu dalam permintaan agar AI tidak mengarang?",
+      "tanya": "Manakah kalimat yang paling membantu dalam prompt agar AI tidak mengarang?",
       "opsi": [
         "“Buat laporan yang meyakinkan agar pembaca puas.”",
         "“Pakai hanya isi catatan. Bila suatu bagian tidak ada di catatan, tulis ‘tidak ada di catatan’, dan sebut nomor catatan di tiap poin.”",

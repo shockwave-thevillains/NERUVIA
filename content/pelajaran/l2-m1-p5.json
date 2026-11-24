@@ -13,7 +13,7 @@
     {
       "judul": "Empat pertanyaan untuk setiap draf",
       "paragraf": [
-        "Halaman bantuan Microsoft tentang menilai hasil Copilot memakai empat sudut: kejelasan, akurasi, nada, dan konteks. Kita pakai sebagai empat pertanyaan yang berlaku di aplikasi AI mana pun.",
+        "Halaman bantuan Microsoft tentang menilai hasil Copilot memakai empat sudut: kejelasan, akurasi, nada, dan konteks. Pakai keempatnya sebagai pertanyaan yang berlaku di aplikasi AI mana pun.",
         "Pertama, apakah isinya benar? Kedua, apakah tiap kalimat jelas bagi pembaca, tanpa ungkapan yang mengambang? Ketiga, apakah nadanya pas untuk orang yang menerimanya, tidak terlalu santai dan tidak terlalu kaku? Keempat, apakah semua yang dibutuhkan penerima sudah ada, misalnya tenggat, pemilik tugas, dan langkah berikutnya?"
       ]
     },
@@ -27,14 +27,14 @@
     {
       "judul": "Cek data pribadi dan sisa draf",
       "paragraf": [
-        "AI kadang memantulkan hal yang ada di perintahmu, misalnya nama asli, nama proyek, atau nama berkas. Panduan British Columbia menyarankan memeriksa draf dari sisi penerima: adakah detail yang tidak pantas dibaca orang itu?",
+        "AI kadang memantulkan hal yang ada di promptmu, misalnya nama asli, nama proyek, atau nama berkas. Panduan British Columbia menyarankan memeriksa draf dari sisi penerima: adakah detail yang tidak pantas dibaca orang itu?",
         "Periksa pula sisa pekerjaan: tanda kurung kosong, catatan seperti “isi tanggal di sini”, dan kalimat basa-basi yang tidak cocok. Daftar periksa sebuah sistem universitas di Amerika Serikat meminta pengguna menghapus catatan draf dan menimbang apakah penerima perlu tahu bahwa AI ikut membantu. Aturan pengungkapan berbeda di tiap tempat, jadi tanyakan kebiasaan di kantor atau sekolahmu."
       ]
     },
     {
       "judul": "Minta AI membantu memeriksa, bukan memutuskan",
       "paragraf": [
-        "Kamu boleh memakai AI sebagai pemeriksa kedua. Microsoft menyarankan perintah yang hanya menganalisis, misalnya meminta klaim tanpa dukungan ditandai atau informasi yang hilang dicari, tanpa mengubah tulisan.",
+        "Kamu boleh memakai AI sebagai pemeriksa kedua. Microsoft menyarankan prompt yang hanya menganalisis, misalnya meminta klaim tanpa dukungan ditandai atau informasi yang hilang dicari, tanpa mengubah tulisan.",
         "Anggap jawabannya sudut pandang tambahan, bukan putusan akhir; Microsoft sendiri menyebutnya begitu. Pemeriksa bisa keliru juga, jadi angka penting tetap kamu cocokkan sendiri."
       ]
     },
@@ -56,7 +56,7 @@
     "teks": "Andi, tokoh fiktif, mengurus toko perlengkapan sepeda Roda Baru yang juga fiktif. Ia meminta AI menulis email promo, lalu menempelkan catatan harga dan tanggal promo. Versi kurang baik: Andi membaca sekilas, melihat kalimatnya rapi, lalu langsung mengirim. Belakangan ia sadar email itu menulis promo “berlaku sampai 31 November” (tanggal yang tidak ada), menjanjikan “diskon 30%” padahal catatannya hanya 15%, dan memuat “[isi nama cabang]” yang belum diganti. Versi baik: sebelum mengirim, Andi menggarisbawahi semua tanggal, angka, dan nama, lalu mencocokkannya dengan catatan. Ia memperbaiki tiga masalah tadi dan membuang janji gratis ongkir yang tidak pernah ia berikan. Ia juga meminta AI: “Tandai klaim yang tidak ada di catatanku, tanpa mengubah teks.” Hasilnya cocok dengan temuannya, dan Andi tetap membaca ulang sebagai pelanggan. Bedanya: versi baik memperlakukan draf sebagai bahan yang harus diperiksa, versi kurang baik menganggap rapi sama dengan benar."
   },
   "latihan": {
-    "petunjuk": "Kerjakan di chatbot AI mana pun dengan bahan karanganmu sendiri tanpa data pribadi nyata, misalnya catatan acara arisan fiktif lengkap dengan tanggal dan biaya. Tahap 1 (coba): minta AI menulis email pengumuman acara, baca sekilas, dan catat apa yang menurutmu salah. Tahap 2 (perbaiki): garis bawahi semua nama, tanggal, angka, dan janji, cocokkan dengan catatanmu, lalu minta AI menandai klaim yang tidak ada di catatan tanpa mengubah teks. Perbaiki sendiri drafnya. Tahap 3 (bandingkan): bandingkan temuan tahap 1 dengan tahap 2 dan putuskan apakah draf layak dikirim. Daftar periksa: (1) tanpa data pribadi nyata; (2) angka dan tanggal dicocokkan; (3) tambahan tak didukung dihapus atau dikonfirmasi; (4) catatan draf hilang; (5) nada dibaca dari sisi penerima."
+    "petunjuk": "Kerjakan di chatbot AI mana pun dengan bahan karanganmu sendiri tanpa data pribadi, misalnya catatan acara arisan fiktif lengkap dengan tanggal dan biaya. Tahap 1 (coba): minta AI menulis email pengumuman acara, baca sekilas, dan catat apa yang menurutmu salah. Tahap 2 (perbaiki): garis bawahi semua nama, tanggal, angka, dan janji, cocokkan dengan catatanmu, lalu minta AI menandai klaim yang tidak ada di catatan tanpa mengubah teks. Perbaiki sendiri drafnya. Tahap 3 (bandingkan): bandingkan temuan tahap 1 dengan tahap 2 dan putuskan apakah draf layak dikirim. Daftar periksa: (1) tanpa data pribadi; (2) angka dan tanggal dicocokkan; (3) tambahan tak didukung dihapus atau dikonfirmasi; (4) catatan draf hilang; (5) nada dibaca dari sisi penerima."
   },
   "cek": [
     {
