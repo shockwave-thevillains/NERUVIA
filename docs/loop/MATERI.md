@@ -11,7 +11,7 @@ Setiap pelajaran memuat urutan berikut, ditulis dalam Bahasa Indonesia yang sede
 4. Latihan: satu tugas kecil yang bisa dikerjakan di chatbot AI apa pun.
 5. Cek pemahaman: 3 pertanyaan pilihan ganda dengan penjelasan jawaban.
 6. Ringkasan: 3 butir.
-Setiap draf ditandai `DRAF` sampai Master menyetujui. Tidak boleh memuat klaim yang belum dikonfirmasi (dukungan ChatGPT/Gemini/Claude tertentu, praktik dengan versi gratis, harga, sertifikat), dan tidak boleh menyalin teks dari situs lain.
+Alat bantu: `node tools/cek-materi.mjs` memeriksa panjang kalimat, struktur, dan klaim yang belum dikonfirmasi pada semua pelajaran (`docs/cek-materi.md`). Setiap draf ditandai `DRAF` sampai Master menyetujui. Tidak boleh memuat klaim yang belum dikonfirmasi (dukungan ChatGPT/Gemini/Claude tertentu, praktik dengan versi gratis, harga, sertifikat), dan tidak boleh menyalin teks dari situs lain.
 
 ## Level 1 · Modul 1 · Kenalan dengan AI (sudah ada di `kursus.json`, sedang dirancang)
 | No | Pelajaran | Jenis | Dikerjakan di |
