@@ -20,6 +20,7 @@ Arah produk dan desain ada di `docs/konteks/PRD.md`. Pekerjaan berkala dijalanka
 - `tools/uji-semua.mjs`, `tools/uji-uji-semua.mjs` — satu perintah yang menjalankan validator, uji impor draf, dan uji keamanan (`--lengkap` menambah lima alat uji lain, `--penuh` menyertakan uji browser) lalu merangkum hasil dengan kode keluar 0/1/2; uji 75 pemeriksaan dan 12 mutan. Rincian di `docs/uji-semua.md`
 - `tools/cek-materi.mjs`, `tools/uji-cek-materi.mjs` — pemeriksa gaya dan kepatuhan materi (kalimat panjang, kata media, janji berlebihan, klaim yang belum dikonfirmasi seperti gratis, sertifikat, dukungan produk, nomor pasal, kontak, struktur pelajaran, petunjuk panjang opsi soal, kalimat sama antarpelajaran). Hanya membaca dan mencetak peringatan (P/C); uji 137 pemeriksaan pada salinan sementara. Rincian, kode K01–K17, dan temuan pada 30 pelajaran di `docs/cek-materi.md`
 - `tools/uji-impor-progres.mjs`, `tools/uji-latihan-interaktif.mjs`, `tools/uji-lanjut-belajar.mjs` — uji impor progres, latihan interaktif, dan tautan Lanjut/tombol Mulai di galeri (ketiganya diuji dengan data rusak dan payload jahat); `tools/uji-komentar-draf.mjs` menguji kerangka komentar yang nonaktif
+- `docs/arsitektur.md` — arsitektur dan alur data: peta sistem, struktur repo, enam alur data (waitlist, katalog dan pelajaran, progres, admin, penulisan, deploy), peran Supabase dan Vercel, daftar alat, batas kepercayaan, keputusan dan risiko
 - `docs/panduan-penulis.md` — panduan menulis satu pelajaran: aturan, urutan kerja, riset rujukan, templat JSON (termasuk latihan interaktif), alat yang dijalankan, dan bukti uji panduan (68 pemeriksaan)
 - `tools/snapshot.py` — tangkapan layar halaman penuh landing ke `docs/snapshot/<tanggal>/`
 - `vercel.json` — header keamanan dan CSP per halaman untuk hosting Vercel (dibuat oleh `tools/buat-vercel-json.mjs`; jalankan ulang setiap kali blok inline `<script>`/`<style>`/`style=""` berubah, uji dengan `tools/uji-header-csp.mjs`; rincian di `docs/security/header-csp.md`)
@@ -53,7 +54,7 @@ Di build dev, form tersambung ke tabel `waitlist` di project Supabase `neruvia-d
 <script>window.NERUVIA_WAITLIST_ENDPOINT = 'https://alamat-endpoint-anda';</script>
 ```
 
-Payload POST JSON: `name`, `email`, `jalur`, `consent`, `consent_text`, `ts`. Persetujuan UU PDP No. 27/2022 terpisah dan tidak dicentang otomatis. Skema, kebijakan, dan cara menguji ada di `docs/waitlist-backend.md`. Kebijakan privasi masih memuat placeholder identitas pengendali data; form tidak boleh menerima data nyata dari publik sebelum itu diisi (PERLU-KEPUTUSAN butir 2).
+Payload POST JSON: `name`, `email`, `jalur`, `consent`, `consent_text`, `client_ts`. Persetujuan UU PDP No. 27/2022 terpisah dan tidak dicentang otomatis. Skema, kebijakan, dan cara menguji ada di `docs/waitlist-backend.md`. Kebijakan privasi masih memuat placeholder identitas pengendali data; form tidak boleh menerima data nyata dari publik sebelum itu diisi (PERLU-KEPUTUSAN butir 2).
 
 ## Menjalankan
 Buka `index.html` di browser, atau jalankan `python3 -m http.server` lalu buka `/`, `/belajar/`, dan `/admin/`. Produksi direncanakan di Vercel (`vercel.json` memuat header keamanan dan CSP); `main` saat ini masih tayang di GitHub Pages (Settings → Pages → branch `main`, folder `/ (root)`).

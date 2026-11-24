@@ -1,6 +1,6 @@
 # Backend waitlist (Supabase)
 
-Status: draf. Proyek Supabase belum dibuat dan SQL belum diterapkan.
+Status (diperbarui 24 Nov 2026): proyek `neruvia-dev` sudah ada dan SQL sudah diterapkan ke sana; lihat bagian "Status sambungan" di bawah dan peta keseluruhan di `docs/arsitektur.md`. Langkah di bawah berlaku untuk menyambungkan proyek lain (misalnya produksi).
 
 ## Syarat sebelum menyambungkan
 1. Isi semua placeholder kuning di `kebijakan-privasi.html` (identitas pengendali data, alamat, kontak, prosesor, tanggal berlaku).
