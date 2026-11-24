@@ -643,3 +643,20 @@ Dokumen lengkap beserta tabel perbandingan dan pemeriksaan lima klaim: `docs/dra
 | Claude Academy: daftar kursus | https://academy.claude.com/courses | Indeks tidak memuat model akses | Konektor, hanya baca |
 
 Tidak terbaca (izin pengambilan tidak dijawab atau halaman kosong): Dicoding akademi (hanya meta tag), halaman Dicoding di Tokopedia, Build with Angga (biaya belajar), Microsoft Learn (training), dicoding.com, halaman Bank Indonesia, DJP, JDIH Komdigi, dokumen Midtrans, passport Midtrans, dan Avora. Akibatnya klaim regulasi dan biaya Indonesia di `docs/riset/pembayaran-monetisasi.md` belum diperiksa ulang; ditandai di bagian 7 dokumen draf.
+
+## Rujukan draf email sambutan dan pengumuman waitlist (K5), 24 Nov 2026
+Dokumen lengkap beserta tabel perbandingan dan pemeriksaan ulang lima klaim: `docs/draf/email-waitlist.md`. Semua diakses 24 Nov 2026 lewat agen web-fetch atau konektor Claude_Academy (hanya baca). Tidak ada kalimat yang disalin; parafrase kecuali frasa pendek.
+
+| Rujukan | URL | Yang dipelajari (parafrase) | Cara baca |
+|---|---|---|---|
+| Claude Academy: Create on-brand content (use case) | https://academy.claude.com/use-cases/on-brand-content | Rangkaian email ditulis sekaligus dari satu brief supaya konsisten; panduan suara jadi batas; minta penandaan bahan yang tipis | Konektor, penuh |
+| Claude Academy: Workflow augmentation (AI Fluency untuk nirlaba) | https://academy.claude.com/courses/ai-fluency-for-nonprofits/workflow-augmentation | Pilah tugas yang boleh diserahkan ke AI; tinjau keluaran sebelum terkirim; jujur soal peran AI | Konektor, penuh |
+| FTC: CAN-SPAM Act compliance guide for business (Agustus 2023, metadata diubah 2025) | https://www.ftc.gov/business-guidance/resources/can-spam-act-compliance-guide-business | Delapan kewajiban email komersial; hormati berhenti dalam 10 hari kerja; alamat pos wajib; email transaksional dikecualikan sebagian besar aturan | Agen, penuh, dibaca dua kali |
+| Google: Email subscription guidelines for senders | https://support.google.com/mail/answer/15263077?hl=en | Berhenti satu klik; proses dalam 48 jam; konfirmasi alamat sebelum mengirim (pedoman); alamat From berbeda untuk langganan | Agen, penuh, dibaca dua kali |
+| Google: Email sender guidelines FAQ | https://support.google.com/a/answer/14229414 | Pengirim massal sekitar 5.000 pesan per hari ke Gmail pribadi; batas laporan spam 0,3%; SPF, DKIM, DMARC | Agen, penuh (tanpa tanggal) |
+| IETF RFC 8058 (Januari 2017) | https://www.rfc-editor.org/rfc/rfc8058 | Header `List-Unsubscribe-Post: List-Unsubscribe=One-Click`, tertanda DKIM; tidak boleh mengalihkan POST | Agen, penuh, dibaca dua kali |
+| ICO: Respect people's preferences (metadata 28 Apr 2026) | https://ico.org.uk/for-organisations/direct-marketing-and-privacy-and-electronic-communications/direct-marketing-guidance/respect-peoples-preferences | Menarik persetujuan semudah memberikannya; daftar penekan dengan data minimum | Agen, penuh |
+| UU 27/2022 PDP (JDIH Komdigi) | https://jdih.komdigi.go.id/produk_hukum/view/id/832/t/undangundang+nomor+27+tahun+2022 | Pasal 9, 20, 21, 22 (ayat 4), 25, 40 (3 x 24 jam); ringkasan otomatis alat keliru, hanya teks mentah dipakai | Agen, teks mentah sampai sekitar 80 ribu dari 88 ribu karakter, dibaca dua kali |
+| Mailchimp: single vs double opt-in | https://mailchimp.com/help/single-opt-in-vs-double-opt-in/ | Konfirmasi lewat tautan mengurangi spam dan memastikan alamat valid | Agen, penuh (tanpa tanggal) |
+
+Tidak terbaca: https://support.google.com/a/answer/81126 (halaman utama panduan pengirim Google; hanya navigasi). Tinjau sebelum angka autentikasi dan batas spam dipakai sebagai syarat tertulis.
