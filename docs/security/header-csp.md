@@ -32,7 +32,7 @@ node tools/buat-vercel-json.mjs --cek    # gagal bila vercel.json tidak sesuai
 node tools/uji-header-csp.mjs            # uji penuh dengan Playwright (butuh Playwright terpasang)
 ```
 
-Generator menolak: skrip, gaya, atau gambar dari sumber luar; atribut event inline (`onclick=` dan sejenisnya); atribut `style` tanpa tanda kutip. Halaman HTML baru di root atau `belajar/` ikut dipindai otomatis (folder `assets`, `content`, `docs`, `supabase`, `tools` dilewati).
+Generator menolak: skrip, gaya, atau gambar dari sumber luar; atribut event inline (`onclick=` dan sejenisnya); atribut `style` tanpa tanda kutip. Satu pengecualian (H1, 28 Nov): `<link>` yang nilai `rel`-nya persis `canonical` boleh beralamat mutlak, karena browser tidak memuat apa pun darinya; CSP tidak berubah dan `tools/uji-seo.mjs` memastikan tautan luar lain tetap ditolak. Halaman HTML baru di root atau `belajar/` ikut dipindai otomatis (folder `assets`, `content`, `docs`, `supabase`, `tools` dilewati).
 
 ## Hasil uji (Min 22 Nov 2026)
 `node tools/uji-header-csp.mjs`: 116 pemeriksaan lulus, 0 gagal.

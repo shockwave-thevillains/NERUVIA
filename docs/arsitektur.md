@@ -47,18 +47,18 @@ Halaman `belajar/` tidak memanggil Supabase sama sekali. Satu-satunya permintaan
 
 ## 3. Struktur repo
 
-Jumlah berkas dihitung dari `git ls-files` pada 28 Nov 2026 (total 231 berkas terlacak).
+Jumlah berkas dihitung dari `git ls-files` pada 28 Nov 2026 (total 238 berkas terlacak).
 
 | Lokasi | Berkas | Isi | Tayang ke pengunjung? |
 |---|---|---|---|
-| akar | 8 | `index.html` (landing, CSS dan JS di dalam berkas), `terima-kasih.html`, `kebijakan-privasi.html`, `404.html`, `config.js`, `vercel.json`, `.vercelignore`, `README.md` | Empat halaman dan `config.js`, ya; `vercel.json` dibaca Vercel |
+| akar | 9 | `index.html` (landing, CSS dan JS di dalam berkas), `terima-kasih.html`, `kebijakan-privasi.html`, `404.html`, `config.js`, `vercel.json`, `.vercelignore`, `robots.txt` (H1, 28 Nov), `README.md` | Empat halaman, `config.js`, dan `robots.txt`, ya; `vercel.json` dibaca Vercel |
 | `belajar/` | 5 | Ruang Belajar: `index.html` (galeri), `pelajaran.html` (penampil), `progress.js`, `ruang.css`, `komentar-draf.js` | Ya, kecuali `komentar-draf.js` (tidak dimuat halaman mana pun) |
 | `admin/` | 4 | `index.html`, `admin.js`, `materi.js`, `admin.css` | Ya di build dev; noindex; hanya admin yang bisa melihat data |
 | `content/` | 31 | `kursus.json` (katalog) dan 30 berkas `content/pelajaran/<id>.json` | Ya, dibaca lewat `fetch` |
-| `assets/` | 98 | Maskot Neru (AVIF, WebP, tiga tingkat frame animasi), logo, font lokal, Lenis | Sebagian; tujuh aset berat tanpa rujukan dikecualikan lewat `.vercelignore` |
+| `assets/` | 99 | Maskot Neru (AVIF, WebP, tiga tingkat frame animasi), logo, font lokal, Lenis | Sebagian; tujuh aset berat tanpa rujukan dikecualikan lewat `.vercelignore` |
 | `supabase/` | 8 | SQL: `waitlist.sql`, `supabase/admin/001-admin.sql` sampai `supabase/admin/004-tutup-pendaftaran.sql`, dan `supabase/draf/` (komentar, perketat waitlist, uji lokal) | Tidak dimuat halaman; ikut diterbitkan bila hosting menyajikan seluruh repo (PERLU-KEPUTUSAN butir 13) |
-| `tools/` | 44 | Validator, uji, pembuat `vercel.json`, pengukur kinerja, alat impor, dan `tools/video/` | Tidak dimuat halaman |
-| `docs/` | 33 | PRD, loop (runbook, progres, audit), keamanan, riset, draf, snapshot, video arsip | Tidak dimuat halaman |
+| `tools/` | 48 | Validator, uji, pembuat `vercel.json` dan berkas SEO, pengukur kinerja, alat impor, dan `tools/video/` | Tidak dimuat halaman |
+| `docs/` | 34 | PRD, loop (runbook, progres, audit), keamanan, riset, draf, snapshot, video arsip | Tidak dimuat halaman |
 
 Aturan penempatan: kode situs tidak boleh memuat apa pun dari `docs/`, `tools/`, atau `supabase/`. `tools/buat-vercel-json.mjs` melewati folder itu saat mencari halaman HTML.
 
@@ -185,6 +185,8 @@ Kode keluar seragam di alat gerbang: 0 lulus, 1 gagal, 2 lulus tetapi uji browse
 | `tools/uji-keamanan.mjs` | Sebelum commit kode atau konten; `--cepat` untuk perubahan dokumen saja | Tujuh bagian: A rahasia (berkas dan riwayat git), B sink berbahaya, C header, D konten kursus, E uji unit, G kontrol negatif pemindai, F payload jahat di browser. Penjelasan: `docs/security/uji-keamanan.md` |
 | `tools/cek-materi.mjs` | Setelah menulis pelajaran | Heuristik gaya dan klaim yang belum dikonfirmasi; hanya membaca. `docs/cek-materi.md` |
 | `tools/buat-vercel-json.mjs` | Setiap blok inline berubah | Membuat atau (`--cek`) memverifikasi `vercel.json` |
+| `tools/buat-seo.mjs`, `tools/uji-seo.mjs` | Halaman, `noindex`, atau meta di `<head>` berubah | Membuat atau (`--cek`) memverifikasi `robots.txt`, `sitemap.xml`, dan blok meta beralamat dari `tools/seo-situs.json`. Laporan: `docs/loop/LAPORAN-H1.md` |
+| `tools/buat-og.mjs` | Kartu pratinjau tautan perlu disusun ulang | Merender kartu 1200x630 dari aset merek yang ada |
 | `tools/uji-header-csp.mjs` | Bersama generator di atas | Header dan CSP di browser, termasuk `/admin/` dengan Supabase tiruan |
 | `tools/uji-aset.mjs`, `tools/inventaris-aset.mjs` | Saat aset atau `<img>`, preload, `@font-face` berubah | Rujukan putus, ukuran, format, anggaran per halaman |
 | `tools/uji-cls-pelajaran.mjs` | Saat `belajar/pelajaran.html` berubah | Kestabilan tata letak dan jalur isi rusak |

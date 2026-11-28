@@ -290,6 +290,14 @@ export function periksa(akar, opsi = {}) {
     if (dim && dim.w !== parseInt(m[1], 10)) lapor('SRCSET_LEBAR', p, `${r} diumumkan ${m[1]}w tetapi lebarnya ${dim.w} px`);
   }
 
+  /* kartu pratinjau tautan: dirujuk lewat pengaturan SEO. Meta og:image baru ditulis setelah alamat situs ada
+     (tools/buat-seo.mjs), jadi tanpa rujukan ini gambarnya dianggap yatim. */
+  const seoBerkas = join(akar, 'tools/seo-situs.json');
+  if (adaDi(seoBerkas)) {
+    let og = null; try { og = JSON.parse(readFileSync(seoBerkas, 'utf8'))?.gambar_og?.berkas; } catch { lapor('REF_HILANG', 'tools/seo-situs.json', 'pengaturan SEO bukan JSON yang sah'); }
+    if (typeof og === 'string' && og) selesaikan('index.html', '/' + og.replace(/^\/+/, ''), 'tools/seo-situs.json');
+  }
+
   /* .vercelignore */
   const ignoreBerkas = join(akar, '.vercelignore');
   const ignorePola = existsSync(ignoreBerkas) ? polaIgnore(readFileSync(ignoreBerkas, 'utf8')) : [];
@@ -445,6 +453,13 @@ function jalankanUjiMandiri() {
   kasus('aset berat tanpa rujukan', (fx, d) => writeFileSync(join(d, 'assets/besar.png'), Buffer.concat([fx.png(10, 10), Buffer.alloc(30 * 1024)])), ['ASET_YATIM']);
   kasus('aset berat tanpa rujukan tetapi di .vercelignore lulus', (fx, d) => { writeFileSync(join(d, 'assets/besar.png'), Buffer.concat([fx.png(10, 10), Buffer.alloc(30 * 1024)])); writeFileSync(join(d, '.vercelignore'), 'assets/besar.png\n'); }, null);
   kasus('aset kecil tanpa rujukan boleh', (fx, d) => writeFileSync(join(d, 'assets/kecil.svg'), '<svg xmlns="http://www.w3.org/2000/svg"></svg>'), null);
+  const kartu = (fx, d, isi) => { mkdirSync(join(d, 'tools'), { recursive: true }); writeFileSync(join(d, 'assets/kartu.png'), Buffer.concat([fx.png(1200, 630), Buffer.alloc(30 * 1024)])); writeFileSync(join(d, 'tools/seo-situs.json'), isi); };
+  kasus('kartu pratinjau yang dirujuk pengaturan SEO lulus', (fx, d) => kartu(fx, d, '{"gambar_og":{"berkas":"assets/kartu.png"}}'), null);
+  kasus('kartu pratinjau tanpa rujukan di pengaturan SEO', (fx, d) => kartu(fx, d, '{"gambar_og":{}}'), ['ASET_YATIM']);
+  kasus('pengaturan SEO menunjuk gambar hilang', (fx, d) => kartu(fx, d, '{"gambar_og":{"berkas":"assets/hilang.png"}}'), ['REF_HILANG']);
+  kasus('pengaturan SEO menunjuk keluar akar', (fx, d) => kartu(fx, d, '{"gambar_og":{"berkas":"../../etc/hostname"}}'), ['REF_LUAR_AKAR']);
+  kasus('pengaturan SEO bukan JSON', (fx, d) => kartu(fx, d, '{'), ['REF_HILANG']);
+  kasus('kartu pratinjau dikecualikan .vercelignore', (fx, d) => { kartu(fx, d, '{"gambar_og":{"berkas":"assets/kartu.png"}}'); writeFileSync(join(d, '.vercelignore'), 'assets/kartu.png\n'); }, ['IGNORE_DIRUJUK']);
   kasus('entri .vercelignore tidak ada', (fx, d) => writeFileSync(join(d, '.vercelignore'), 'assets/tidak-ada.png\n'), ['IGNORE_HILANG']);
   kasus('entri .vercelignore menunjuk berkas yang dirujuk', (fx, d) => writeFileSync(join(d, '.vercelignore'), 'assets/neru.webp\n'), ['IGNORE_DIRUJUK']);
   kasus('pola folder .vercelignore tanpa kecocokan', (fx, d) => writeFileSync(join(d, '.vercelignore'), 'tidak-ada/\n'), ['IGNORE_HILANG']);

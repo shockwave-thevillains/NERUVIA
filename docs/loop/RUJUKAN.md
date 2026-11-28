@@ -664,3 +664,6 @@ Tidak terbaca: https://support.google.com/a/answer/81126 (halaman utama panduan 
 ## Rujukan halaman 404 (H2), 28 Nov 2026
 
 Dokumentasi resmi Vercel (https://vercel.com/docs/routing/custom-404-pages) dan GitHub Pages (https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-custom-404-page-for-your-github-pages-site), diakses 28 Nov 2026, parafrase. Rincian pemakaiannya di `docs/loop/H2-404.md` bagian 3.
+
+## Rujukan meta tag, robots.txt, dan sitemap (H1), 28 Nov 2026
+Delapan sumber resmi atau primer (Google tiga halaman, sitemaps.org, ogp.me, Meta, X, Vercel) beserta URL lengkap, yang dipakai, cara baca, satu halaman yang tidak terbaca, dan pemeriksaan ulang klaim ada di `docs/loop/LAPORAN-H1.md` bagian 3. Semua dibaca lewat agen web-fetch; tidak ada kalimat yang disalin selain frasa pendek.

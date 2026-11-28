@@ -1,0 +1,4 @@
+# Dibuat oleh tools/buat-seo.mjs; jangan diubah manual.
+# Halaman yang tidak ingin muncul di mesin pencari memakai meta noindex, jadi tidak diblokir di sini.
+User-agent: *
+Allow: /

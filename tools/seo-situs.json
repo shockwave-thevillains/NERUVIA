@@ -1,0 +1,10 @@
+{
+  "catatan": "Isi alamat_dasar dengan alamat resmi situs (https, diakhiri /) setelah domain diputuskan, lalu jalankan: node tools/buat-seo.mjs",
+  "alamat_dasar": "",
+  "halaman_terindeks": ["index.html"],
+  "halaman_meta": "index.html",
+  "gambar_og": {
+    "berkas": "assets/brand/neruvia-og-1200x630.jpg",
+    "alt": "Logo NERUVIA, tulisan Belajar AI dari nol, tanpa harus jago teknologi, dan Neru si robot kucing yang duduk tersenyum."
+  }
+}

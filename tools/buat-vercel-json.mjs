@@ -15,6 +15,7 @@ import { readFileSync, writeFileSync, readdirSync, existsSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { join, dirname, relative, sep } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
+import { atribut } from './buat-seo.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const SKIP_DIRS = new Set(['.git', 'node_modules', 'tools', 'docs', 'supabase', 'assets', 'content']);
@@ -58,6 +59,9 @@ function analisis(berkas) {
 
   for (const m of sisa.matchAll(/<link\b[^>]*>/gi)) {
     const h = /\bhref\s*=\s*["']([^"']*)["']/i.exec(m[0]);
+    /* rel="canonical" hanya menyebut alamat resmi halaman; browser tidak memuat apa pun darinya, jadi CSP tidak
+       terkait. Hanya nilai yang persis "canonical": gabungan seperti "canonical stylesheet" tetap ditolak. */
+    if ((atribut(m[0]).rel || '').trim().toLowerCase() === 'canonical') continue;
     if (h && /^(https?:)?\/\//i.test(h[1])) throw new Error(berkas + ': <link> ke sumber luar: ' + h[1]);
   }
   for (const m of sisa.matchAll(/<(img|iframe|source|video|audio|embed|object|form)\b[^>]*>/gi)) {
