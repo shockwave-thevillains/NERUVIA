@@ -50,13 +50,13 @@ function mulai(denganHeader) {
   });
 }
 
-const halaman = ['/', '/belajar/', '/belajar/pelajaran.html?id=l1-m1-p1', '/terima-kasih.html', '/kebijakan-privasi.html', '/admin/'];
+const halaman = ['/', '/belajar/', '/belajar/pelajaran.html?id=l1-m1-p1', '/terima-kasih.html', '/kebijakan-privasi.html', '/admin/', '/404.html'];
 const a = await mulai(true), b = await mulai(false);
 
 /* header respons */
 {
   const wajib = ['x-content-type-options', 'referrer-policy', 'permissions-policy', 'strict-transport-security', 'x-frame-options', 'cross-origin-opener-policy'];
-  for (const p of ['/', '/index.html', '/belajar', '/belajar/', '/belajar/index.html', '/belajar/pelajaran.html', '/terima-kasih.html', '/kebijakan-privasi.html', '/admin', '/admin/', '/admin/index.html']) {
+  for (const p of ['/', '/index.html', '/belajar', '/belajar/', '/belajar/index.html', '/belajar/pelajaran.html', '/terima-kasih.html', '/kebijakan-privasi.html', '/admin', '/admin/', '/admin/index.html', '/404.html']) {
     const r = await fetch(a.base + p); const csp = r.headers.get('content-security-policy') || '';
     for (const k of wajib) cek(!!r.headers.get(k), p + ' tanpa header ' + k);
     cek(/default-src 'none'/.test(csp) && /frame-ancestors 'none'/.test(csp) && /base-uri 'none'/.test(csp), p + ' CSP tidak lengkap');

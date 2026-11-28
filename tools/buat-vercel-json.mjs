@@ -5,8 +5,11 @@
    jalankan ulang skrip ini.
 
    Pakai:
-     node tools/buat-vercel-json.mjs          tulis vercel.json
-     node tools/buat-vercel-json.mjs --cek    gagal (kode 1) bila vercel.json tidak sesuai isi halaman
+     node tools/buat-vercel-json.mjs          tulis vercel.json (dan meta CSP di 404.html)
+     node tools/buat-vercel-json.mjs --cek    gagal (kode 1) bila vercel.json atau meta CSP 404.html tidak sesuai isi halaman
+
+   404.html disajikan di jalur yang tidak ada, jadi aturan header per jalur tidak mengenainya. CSP-nya
+   ditaruh sebagai <meta> di berkas itu (juga berlaku di GitHub Pages) dan dijaga skrip ini.
 */
 import { readFileSync, writeFileSync, readdirSync, existsSync } from 'node:fs';
 import { createHash } from 'node:crypto';
@@ -80,6 +83,22 @@ function originSupabase() {
   return m ? m[1] : null;
 }
 
+/* Meta CSP untuk halaman 404: harus ada tepat satu dan berada sebelum <style>, <script>, dan <link>
+   (meta CSP hanya berlaku untuk isi sesudahnya). */
+export const HALAMAN_META = '404.html';
+export function sisipMeta(html, csp) {
+  const tanpaKomentar = html.replace(/<!--[\s\S]*?-->/g, (k) => ' '.repeat(k.length));
+  const pola = /<meta http-equiv="Content-Security-Policy" content="([^"]*)">/g;
+  const semua = [...tanpaKomentar.matchAll(pola)];
+  const jumlah = (tanpaKomentar.match(/http-equiv\s*=\s*["']?content-security-policy/gi) || []).length;
+  if (semua.length !== 1 || jumlah !== 1) throw new Error(HALAMAN_META + ': harus memuat tepat satu <meta http-equiv="Content-Security-Policy" content="..."> (ditemukan ' + jumlah + ', berbentuk baku ' + semua.length + ')');
+  const m = semua[0];
+  const pertama = tanpaKomentar.search(/<(?:style|script|link|img|picture|body)\b/i);
+  if (pertama >= 0 && pertama < m.index) throw new Error(HALAMAN_META + ': meta CSP harus berada sebelum <style>, <script>, <link>, dan isi halaman');
+  const awal = m.index + m[0].indexOf('content="') + 'content="'.length;
+  return { isi: m[1], html: html.slice(0, awal) + csp + html.slice(awal + m[1].length) };
+}
+
 function jalurHalaman(berkas) {
   if (berkas === 'index.html') return ['/', '/index.html'];
   if (berkas.endsWith('/index.html')) { const d = '/' + berkas.slice(0, -'/index.html'.length); return [d, d + '/', '/' + berkas]; }
@@ -99,6 +118,7 @@ export function bangun() {
   ];
   const headers = [{ source: '/(.*)', headers: umum }];
   const ringkasan = [];
+  let meta = null;
   for (const berkas of cariHtml()) {
     const a = analisis(berkas);
     const pakaiConfig = a.skripSrc.some((s) => /(^|\/)config\.js$/.test(s));
@@ -118,25 +138,34 @@ export function bangun() {
       'upgrade-insecure-requests'
     ].join('; ');
     for (const source of jalurHalaman(berkas)) headers.push({ source, headers: [{ key: 'Content-Security-Policy', value: csp }] });
+    if (berkas === HALAMAN_META) {
+      /* frame-ancestors diabaikan browser bila dikirim lewat meta; bingkai dicegah header X-Frame-Options di '/(.*)'. */
+      const isiMeta = csp.split('; ').filter((d) => !d.startsWith('frame-ancestors')).join('; ');
+      const asli = readFileSync(join(ROOT, berkas), 'utf8');
+      const hasil = sisipMeta(asli, isiMeta);
+      meta = { berkas, asli, html: hasil.html, sesuai: hasil.isi === isiMeta, csp: isiMeta };
+    }
     ringkasan.push({ berkas, skrip: a.hashSkrip.length, gaya: a.hashGaya.length, attr: a.hashAttr.length, supabase: pakaiConfig });
   }
   /* Halaman berindeks folder (belajar/, admin/) memakai tautan relatif (ruang.css, ../content/...). Tanpa garis miring penutup, "/belajar" memuat berkas dari akar situs dan halaman tampil tanpa gaya. Karena itu "/folder" dialihkan ke "/folder/". */
   const redirects = cariHtml().filter((b) => /^[^/]+\/index\.html$/.test(b)).map((b) => ({ source: '/' + b.split('/')[0], destination: '/' + b.split('/')[0] + '/', permanent: false }));
-  return { json: JSON.stringify({ redirects, headers }, null, 2) + '\n', ringkasan };
+  return { json: JSON.stringify({ redirects, headers }, null, 2) + '\n', ringkasan, meta };
 }
 
 const langsung = process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href;
 if (langsung) {
   try {
-    const { json, ringkasan } = bangun();
+    const { json, ringkasan, meta } = bangun();
     const target = join(ROOT, 'vercel.json');
     if (process.argv.includes('--cek')) {
       const ada = existsSync(target) ? readFileSync(target, 'utf8') : '';
       if (ada !== json) { console.error('GAGAL: vercel.json tidak sesuai isi halaman. Jalankan: node tools/buat-vercel-json.mjs'); process.exit(1); }
+      if (meta && !meta.sesuai) { console.error('GAGAL: meta CSP di ' + meta.berkas + ' tidak sesuai isi halaman. Jalankan: node tools/buat-vercel-json.mjs'); process.exit(1); }
       console.log('OK: vercel.json sesuai isi ' + ringkasan.length + ' halaman.');
     } else {
       writeFileSync(target, json);
       console.log('vercel.json ditulis.');
+      if (meta && meta.html !== meta.asli) { writeFileSync(join(ROOT, meta.berkas), meta.html); console.log('meta CSP di ' + meta.berkas + ' diperbarui.'); }
     }
     for (const r of ringkasan) console.log('  ' + r.berkas.padEnd(24) + ' skrip ' + r.skrip + ', gaya ' + r.gaya + ', atribut ' + r.attr + (r.supabase ? ', connect Supabase' : ''));
   } catch (e) { console.error('GAGAL: ' + e.message); process.exit(1); }

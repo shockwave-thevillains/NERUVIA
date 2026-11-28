@@ -660,3 +660,7 @@ Dokumen lengkap beserta tabel perbandingan dan pemeriksaan ulang lima klaim: `do
 | Mailchimp: single vs double opt-in | https://mailchimp.com/help/single-opt-in-vs-double-opt-in/ | Konfirmasi lewat tautan mengurangi spam dan memastikan alamat valid | Agen, penuh (tanpa tanggal) |
 
 Tidak terbaca: https://support.google.com/a/answer/81126 (halaman utama panduan pengirim Google; hanya navigasi). Tinjau sebelum angka autentikasi dan batas spam dipakai sebagai syarat tertulis.
+
+## Rujukan halaman 404 (H2), 28 Nov 2026
+
+Dokumentasi resmi Vercel (https://vercel.com/docs/routing/custom-404-pages) dan GitHub Pages (https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-custom-404-page-for-your-github-pages-site), diakses 28 Nov 2026, parafrase. Rincian pemakaiannya di `docs/loop/H2-404.md` bagian 3.

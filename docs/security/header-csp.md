@@ -1,6 +1,6 @@
 # Header keamanan dan CSP (S3)
 
-Berlaku untuk hosting Vercel lewat `vercel.json`. GitHub Pages (`main`) tidak bisa menyetel header respons, jadi berkas ini tidak berpengaruh di sana; meta CSP untuk Pages dikerjakan di kegiatan D1.
+Berlaku untuk hosting Vercel lewat `vercel.json`. GitHub Pages (`main`) tidak bisa menyetel header respons, jadi berkas ini tidak berpengaruh di sana; meta CSP untuk Pages dikerjakan di kegiatan D1 (kecuali `404.html`, yang sudah punya meta CSP sejak H2).
 
 ## Isi
 Satu aturan `/(.*)` memberi header umum ke semua jalur, lalu satu aturan per halaman HTML memberi CSP khusus halaman itu.
@@ -47,4 +47,4 @@ Generator menolak: skrip, gaya, atau gambar dari sumber luar; atribut event inli
 - `style-src-attr 'unsafe-hashes'` didukung Chrome/Edge 69+, Firefox 105+, Safari 15.4+. Di browser yang lebih lama atribut `style=""` diabaikan (animasi masuk kehilangan jeda, tata letak utama tetap).
 - Toolbar komentar Vercel pada URL preview dimuat dari `vercel.live`, sehingga diperkirakan diblokir CSP ini (belum diuji, butuh deploy nyata). Itu hanya memengaruhi preview; jangan melonggarkan CSP produksi demi toolbar.
 - Alat `tools/video/*.html` memakai `innerHTML`, tidak ditautkan dari situs, dan tidak punya aturan CSP; sebaiknya tidak ikut diterbitkan (catatan di S2/AUDIT-KEAMANAN).
-- Jalur lain (`/belajar/foo`, 404) tidak mendapat CSP karena 404 Vercel bukan dokumen kita; halaman 404 buatan sendiri (H2) ikut dipindai generator, tetapi Vercel menyajikannya di jalur yang tidak ada, jadi tambahkan aturan `/(.*)` khusus 404 di generator saat H2 dikerjakan.
+- Halaman 404 (H2): `404.html` disajikan di jalur yang tidak ada, sehingga aturan CSP per jalur tidak mengenainya (header umum `/(.*)` tetap menurut aturan). Karena itu CSP-nya ditaruh sebagai `<meta http-equiv="Content-Security-Policy">` di berkas itu, sama dengan aturan per halaman tanpa `frame-ancestors` (diabaikan browser bila lewat meta; bingkai dicegah `X-Frame-Options`). `tools/buat-vercel-json.mjs` menulis meta itu dan `--cek` gagal bila basi. Aturan `/(.*)` berisi CSP sengaja tidak ditambahkan karena akan bertumpuk dengan CSP per halaman. Diuji `tools/uji-404.mjs`; belum diperiksa di URL Vercel.

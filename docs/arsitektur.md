@@ -47,18 +47,18 @@ Halaman `belajar/` tidak memanggil Supabase sama sekali. Satu-satunya permintaan
 
 ## 3. Struktur repo
 
-Jumlah berkas dihitung dari `git ls-files` pada 24 Nov 2026 (total 226 berkas terlacak).
+Jumlah berkas dihitung dari `git ls-files` pada 28 Nov 2026 (total 231 berkas terlacak).
 
 | Lokasi | Berkas | Isi | Tayang ke pengunjung? |
 |---|---|---|---|
-| akar | 7 | `index.html` (landing, CSS dan JS di dalam berkas), `terima-kasih.html`, `kebijakan-privasi.html`, `config.js`, `vercel.json`, `.vercelignore`, `README.md` | Tiga halaman dan `config.js`, ya; `vercel.json` dibaca Vercel |
+| akar | 8 | `index.html` (landing, CSS dan JS di dalam berkas), `terima-kasih.html`, `kebijakan-privasi.html`, `404.html`, `config.js`, `vercel.json`, `.vercelignore`, `README.md` | Empat halaman dan `config.js`, ya; `vercel.json` dibaca Vercel |
 | `belajar/` | 5 | Ruang Belajar: `index.html` (galeri), `pelajaran.html` (penampil), `progress.js`, `ruang.css`, `komentar-draf.js` | Ya, kecuali `komentar-draf.js` (tidak dimuat halaman mana pun) |
 | `admin/` | 4 | `index.html`, `admin.js`, `materi.js`, `admin.css` | Ya di build dev; noindex; hanya admin yang bisa melihat data |
 | `content/` | 31 | `kursus.json` (katalog) dan 30 berkas `content/pelajaran/<id>.json` | Ya, dibaca lewat `fetch` |
 | `assets/` | 98 | Maskot Neru (AVIF, WebP, tiga tingkat frame animasi), logo, font lokal, Lenis | Sebagian; tujuh aset berat tanpa rujukan dikecualikan lewat `.vercelignore` |
 | `supabase/` | 8 | SQL: `waitlist.sql`, `supabase/admin/001-admin.sql` sampai `supabase/admin/004-tutup-pendaftaran.sql`, dan `supabase/draf/` (komentar, perketat waitlist, uji lokal) | Tidak dimuat halaman; ikut diterbitkan bila hosting menyajikan seluruh repo (PERLU-KEPUTUSAN butir 13) |
-| `tools/` | 43 | Validator, uji, pembuat `vercel.json`, pengukur kinerja, alat impor, dan `tools/video/` | Tidak dimuat halaman |
-| `docs/` | 30 | PRD, loop (runbook, progres, audit), keamanan, riset, draf, snapshot, video arsip | Tidak dimuat halaman |
+| `tools/` | 44 | Validator, uji, pembuat `vercel.json`, pengukur kinerja, alat impor, dan `tools/video/` | Tidak dimuat halaman |
+| `docs/` | 33 | PRD, loop (runbook, progres, audit), keamanan, riset, draf, snapshot, video arsip | Tidak dimuat halaman |
 
 Aturan penempatan: kode situs tidak boleh memuat apa pun dari `docs/`, `tools/`, atau `supabase/`. `tools/buat-vercel-json.mjs` melewati folder itu saat mencari halaman HTML.
 
@@ -69,6 +69,7 @@ Aturan penempatan: kode situs tidak boleh memuat apa pun dari `docs/`, `tools/`,
 | `index.html` | `assets/vendor/lenis-1.3.27.min.js` (scroll halus, hanya untuk mouse dan trackpad), `config.js`, dua blok skrip inline (satu baris kecil yang melepas kelas `no-js`, satu skrip utama) | `POST` ke endpoint waitlist saat form dikirim; frame animasi Neru diminta setelah event `load` | Tidak ada |
 | `terima-kasih.html` | satu blok skrip inline kecil (memindahkan fokus) | Tidak ada | Tidak ada. noindex |
 | `kebijakan-privasi.html` | Tidak ada | Tidak ada | Tidak ada. noindex. Masih memuat placeholder identitas pengendali data |
+| `404.html` | satu blok skrip inline kecil (menambah awalan `/<repo>` hanya di `*.github.io`) | Tidak ada selain aset situs | Tidak ada. noindex. Meta CSP di dalam berkas; alamat yang diminta tidak ditampilkan |
 | `belajar/index.html` | `progress.js`, satu blok inline | `fetch ../content/kursus.json` | `localStorage` kunci `neruvia.progress.v1` (lewat `progress.js`). noindex |
 | `belajar/pelajaran.html?id=` | `progress.js`, satu blok inline | `fetch ../content/kursus.json`, lalu `fetch ../content/pelajaran/<id>.json` | Sama seperti galeri. noindex |
 | `admin/index.html` | `config.js`, `admin.js`, `materi.js` (berkas terpisah, tanpa blok inline) | Supabase Auth, REST, dan Storage dengan token admin | `sessionStorage` kunci `neruvia.admin.v1` (hanya token akses dan waktu kedaluwarsa). noindex, nofollow |
@@ -142,7 +143,7 @@ Alurnya berurutan dan sepenuhnya di repo: riset rujukan dan catat di `docs/loop/
 2. Vercel (proyek `neruvia`) membuat pratinjau dari `dev`. Repo tidak punya `package.json` atau konfigurasi build, jadi berkas disajikan apa adanya. `vercel.json` memuat dua aturan pengalihan (`/admin` dan `/belajar` ke versi berakhiran garis miring) dan satu aturan header umum `/(.*)` ditambah aturan CSP per rute (11 rute untuk 6 halaman HTML, sehingga 12 aturan header).
 3. Situs statis tidak punya server untuk membuat nonce, jadi blok `<script>`, `<style>`, dan atribut `style=""` yang inline diizinkan lewat hash SHA-256 isinya. Karena itu **setiap perubahan blok inline mengubah hash** dan `vercel.json` harus dibuat ulang dengan `node tools/buat-vercel-json.mjs`, lalu diperiksa dengan `--cek` dan `node tools/uji-header-csp.mjs`. Bila ini terlewat, halaman tampak normal di lokal tetapi diblokir CSP di Vercel.
 4. Host Supabase dibaca generator dari `config.js` dan dimasukkan ke `connect-src` hanya pada halaman yang memuat `config.js` (landing dan admin). Halaman lain memakai `connect-src 'self'`.
-5. GitHub Pages tidak bisa menyetel header respons, jadi `vercel.json` tidak berpengaruh di sana (rencana meta CSP ada di kegiatan D1).
+5. GitHub Pages tidak bisa menyetel header respons, jadi `vercel.json` tidak berpengaruh di sana (rencana meta CSP ada di kegiatan D1; `404.html` sudah punya meta CSP sendiri sejak H2).
 
 ## 6. Peran Supabase
 
@@ -187,7 +188,8 @@ Kode keluar seragam di alat gerbang: 0 lulus, 1 gagal, 2 lulus tetapi uji browse
 | `tools/uji-header-csp.mjs` | Bersama generator di atas | Header dan CSP di browser, termasuk `/admin/` dengan Supabase tiruan |
 | `tools/uji-aset.mjs`, `tools/inventaris-aset.mjs` | Saat aset atau `<img>`, preload, `@font-face` berubah | Rujukan putus, ukuran, format, anggaran per halaman |
 | `tools/uji-cls-pelajaran.mjs` | Saat `belajar/pelajaran.html` berubah | Kestabilan tata letak dan jalur isi rusak |
-| `tools/uji-gerak.mjs` | Saat animasi atau transisi berubah | Perilaku "kurangi gerak" di enam halaman |
+| `tools/uji-gerak.mjs` | Saat animasi atau transisi berubah | Perilaku "kurangi gerak" di tujuh halaman |
+| `tools/uji-404.mjs` | Saat `404.html` atau jangkar `#waitlist-d` berubah | Halaman 404: rujukan, meta CSP, alamat tidak dipantulkan, peniruan Vercel dan GitHub Pages |
 | `tools/uji-latihan-interaktif.mjs`, `tools/uji-lanjut-belajar.mjs`, `tools/uji-impor-progres.mjs` | Saat bagian terkait berubah | Latihan interaktif, tombol Lanjut, impor progres (data rusak dan payload jahat) |
 | `tools/impor-draf.mjs` dan `tools/uji-impor-draf.mjs` | Memasukkan draf dari admin | Alat impor dan ujinya |
 | `tools/ukur-muat.mjs`, `tools/uji-muat-neru.mjs`, `tools/ukur-cls-font.mjs` | Pengukuran kinerja | LCP, CLS, perilaku muat frame Neru. Angka di `docs/loop/PERFORMA.md` |

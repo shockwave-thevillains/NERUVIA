@@ -29,7 +29,7 @@ import { tmpdir } from 'node:os';
 
 const AKAR = join(dirname(fileURLToPath(import.meta.url)), '..');
 const MIME = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.css': 'text/css; charset=utf-8', '.json': 'application/json', '.webp': 'image/webp', '.avif': 'image/avif', '.png': 'image/png', '.svg': 'image/svg+xml', '.woff2': 'font/woff2' };
-export const HALAMAN_REPO = ['/', '/belajar/', '/belajar/pelajaran.html?id=l1-m1-p1', '/terima-kasih.html', '/kebijakan-privasi.html', '/admin/'];
+export const HALAMAN_REPO = ['/', '/belajar/', '/belajar/pelajaran.html?id=l1-m1-p1', '/terima-kasih.html', '/kebijakan-privasi.html', '/admin/', '/404.html'];
 const LEBAR = [390, 768, 1440];
 const MAKS_ELEMEN = 20000;
 
