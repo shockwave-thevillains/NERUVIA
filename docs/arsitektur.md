@@ -47,7 +47,7 @@ Halaman `belajar/` tidak memanggil Supabase sama sekali. Satu-satunya permintaan
 
 ## 3. Struktur repo
 
-Jumlah berkas dihitung dari `git ls-files` pada 28 Nov 2026 (total 238 berkas terlacak).
+Jumlah berkas dihitung dari `git ls-files` pada 29 Nov 2026 (total 240 berkas terlacak).
 
 | Lokasi | Berkas | Isi | Tayang ke pengunjung? |
 |---|---|---|---|
@@ -57,8 +57,8 @@ Jumlah berkas dihitung dari `git ls-files` pada 28 Nov 2026 (total 238 berkas te
 | `content/` | 31 | `kursus.json` (katalog) dan 30 berkas `content/pelajaran/<id>.json` | Ya, dibaca lewat `fetch` |
 | `assets/` | 99 | Maskot Neru (AVIF, WebP, tiga tingkat frame animasi), logo, font lokal, Lenis | Sebagian; tujuh aset berat tanpa rujukan dikecualikan lewat `.vercelignore` |
 | `supabase/` | 8 | SQL: `waitlist.sql`, `supabase/admin/001-admin.sql` sampai `supabase/admin/004-tutup-pendaftaran.sql`, dan `supabase/draf/` (komentar, perketat waitlist, uji lokal) | Tidak dimuat halaman; ikut diterbitkan bila hosting menyajikan seluruh repo (PERLU-KEPUTUSAN butir 13) |
-| `tools/` | 48 | Validator, uji, pembuat `vercel.json` dan berkas SEO, pengukur kinerja, alat impor, dan `tools/video/` | Tidak dimuat halaman |
-| `docs/` | 34 | PRD, loop (runbook, progres, audit), keamanan, riset, draf, snapshot, video arsip | Tidak dimuat halaman |
+| `tools/` | 49 | Validator, uji, pembuat `vercel.json` dan berkas SEO, pengukur kinerja, alat impor, dan `tools/video/` | Tidak dimuat halaman |
+| `docs/` | 35 | PRD, loop (runbook, progres, audit), keamanan, riset, draf, snapshot, video arsip | Tidak dimuat halaman |
 
 Aturan penempatan: kode situs tidak boleh memuat apa pun dari `docs/`, `tools/`, atau `supabase/`. `tools/buat-vercel-json.mjs` melewati folder itu saat mencari halaman HTML.
 
@@ -98,7 +98,7 @@ Yang belum tertutup: kode 409 masih terlihat di tab jaringan browser (temuan K1 
 
 ### 5.2 Katalog dan isi pelajaran (repo ke pelajar)
 
-Pemicu: pelajar membuka `belajar/` atau `belajar/pelajaran.html?id=<id>`.
+Pemicu: pelajar membuka `belajar/` (juga lewat tautan "Intip ruang belajar (pratinjau)" di landing, H3) atau `belajar/pelajaran.html?id=<id>`.
 
 1. Galeri mengambil `content/kursus.json` dan menggambar level, modul, dan pelajaran. Level berstatus `segera` ditampilkan tanpa tombol Mulai atau Lanjutkan, dan tautan Lanjut otomatis melewatinya; tautan ke pelajaran yang sudah punya isi di dalamnya tetap ada di daftar modul.
 2. Penampil membaca parameter `id`, mencarinya di katalog, lalu mengambil `content/pelajaran/<id>.json` (id dilewatkan lewat `encodeURIComponent`). Id yang kosong, tidak dikenal, atau berisi HTML berakhir pada pesan "Pelajaran tidak ditemukan." tanpa mengeksekusi apa pun; bila halaman dibuka dari berkas lokal (bukan lewat server), pesannya meminta pembuka memakai server.
@@ -192,6 +192,7 @@ Kode keluar seragam di alat gerbang: 0 lulus, 1 gagal, 2 lulus tetapi uji browse
 | `tools/uji-cls-pelajaran.mjs` | Saat `belajar/pelajaran.html` berubah | Kestabilan tata letak dan jalur isi rusak |
 | `tools/uji-gerak.mjs` | Saat animasi atau transisi berubah | Perilaku "kurangi gerak" di tujuh halaman |
 | `tools/uji-404.mjs` | Saat `404.html` atau jangkar `#waitlist-d` berubah | Halaman 404: rujukan, meta CSP, alamat tidak dipantulkan, peniruan Vercel dan GitHub Pages |
+| `tools/uji-tautan-belajar.mjs` | Saat `#modul-d`, tautan ke Ruang Belajar, atau transisi antarbagian berubah | Tautan landing ke Ruang Belajar: tujuan, atribut, gaya, area ketuk, keyboard, tanpa JavaScript, subfolder |
 | `tools/uji-latihan-interaktif.mjs`, `tools/uji-lanjut-belajar.mjs`, `tools/uji-impor-progres.mjs` | Saat bagian terkait berubah | Latihan interaktif, tombol Lanjut, impor progres (data rusak dan payload jahat) |
 | `tools/impor-draf.mjs` dan `tools/uji-impor-draf.mjs` | Memasukkan draf dari admin | Alat impor dan ujinya |
 | `tools/ukur-muat.mjs`, `tools/uji-muat-neru.mjs`, `tools/ukur-cls-font.mjs` | Pengukuran kinerja | LCP, CLS, perilaku muat frame Neru. Angka di `docs/loop/PERFORMA.md` |

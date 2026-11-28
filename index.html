@@ -264,6 +264,8 @@ footer{z-index:8;padding:clamp(80px,8vw,110px) var(--pad) 48px;box-shadow:0 -12p
 .lessons li::before{content:counter(l,decimal-leading-zero);font-family:var(--f-mono);font-size:13px;color:#888}
 .lessons li span{font-family:var(--f-mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#666;border:1px solid #E0E0DD;border-radius:999px;padding:4px 10px;white-space:nowrap}
 .lessons li span.lab{background:var(--ink);border-color:var(--ink);color:var(--cyan)}
+.mod .peek{display:inline-block;margin-top:14px;padding:12px 0;font-size:16px;line-height:24px;font-weight:600;color:var(--ink);text-decoration:underline;text-decoration-color:var(--cyan);text-decoration-thickness:3px;text-underline-offset:6px}
+.mod .peek:hover{text-decoration-color:var(--ink)}
 .term{background:#0B0B0B;color:#E6E6E6;border-radius:24px;border:1px solid #1E1E1E;box-shadow:0 40px 80px -40px rgba(8,8,8,.55),0 0 0 1px rgba(56,225,255,.06);overflow:hidden;position:sticky;top:120px}
 .term .bar{display:flex;align-items:center;gap:8px;padding:14px 18px;border-bottom:1px solid #1E1E1E}
 .term .bar i{width:10px;height:10px;border-radius:50%;background:#2A2A2A}
@@ -486,6 +488,7 @@ html.lenis,html.lenis body{height:auto}
         <li>Memperbaiki hasil yang belum sesuai<span>Praktik</span></li>
         <li>Mengecek jawaban AI sebelum dipakai<span class="lab">Latihan</span></li>
       </ol>
+      <a class="peek" href="belajar/">Intip ruang belajar (pratinjau) <span aria-hidden="true">→</span></a>
     </div>
   </div>
   <figure class="term rv" style="--d:200ms" aria-label="Ilustrasi latihan modul 1 NERUVIA">
